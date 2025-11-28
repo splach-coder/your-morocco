@@ -94,7 +94,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
       title: 'Essaouira Coastal Escape',
       description: 'Discover the charming coastal town with its windswept beaches and artistic atmosphere.',
       duration: '1 Day',
-      image: 'https://images.unsplash.com/photo-1575017159701-e75106697286?q=80&w=2070&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?q=80&w=2067&auto=format&fit=crop',
       location: 'Essaouira',
       price: '$95',
       rating: 4.7
