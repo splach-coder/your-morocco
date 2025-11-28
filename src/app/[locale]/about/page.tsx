@@ -1,15 +1,16 @@
-'use client';
+'use client'
 
-import { useTranslations } from 'next-intl';
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Award, Globe, Heart, Shield, Users, MapPin, Clock, Star, ArrowRight } from 'lucide-react';
-import { use } from 'react';
+import { useTranslations } from 'next-intl'
+import Image from 'next/image'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { easeOut } from 'framer-motion'
+import { Award, Globe, Heart, Shield, Users, MapPin, Clock, Star, ArrowRight } from 'lucide-react'
+import { use } from 'react'
 
 export default function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = use(params);
-  const t = useTranslations('AboutPage');
+  const { locale } = use(params)
+  const t = useTranslations('AboutPage')
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -19,7 +20,7 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
         staggerChildren: 0.15
       }
     }
-  };
+  }
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -28,10 +29,10 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut"
+        ease: easeOut
       }
     }
-  };
+  }
 
   const values = [
     {
@@ -41,8 +42,8 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
     },
     {
       icon: Shield,
-      title: 'Trust & Safety',
-      description: 'Your safety and comfort are our top priorities. We ensure every journey is secure, reliable, and worry-free.'
+      title: 'Trust and Safety',
+      description: 'Your safety and comfort are our top priorities. We ensure every journey is secure, reliable, and worry free.'
     },
     {
       icon: Users,
@@ -52,20 +53,19 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
     {
       icon: Globe,
       title: 'Sustainable Tourism',
-      description: 'We are committed to responsible travel that respects local communities and preserves Morocco\'s natural beauty.'
+      description: 'We are committed to responsible travel that respects local communities and preserves Morocco’s natural beauty.'
     }
-  ];
+  ]
 
   const milestones = [
     { year: '2015', title: 'Founded', description: 'Your Morocco was born from a passion to share authentic Moroccan experiences' },
     { year: '2018', title: 'Expansion', description: 'Expanded our services to cover all major Moroccan destinations' },
     { year: '2021', title: 'Recognition', description: 'Awarded Best Tour Operator in Morocco by Travel Excellence Awards' },
-    { year: '2024', title: 'Innovation', description: 'Launched sustainable tourism initiatives and eco-friendly tours' }
-  ];
+    { year: '2024', title: 'Innovation', description: 'Launched sustainable tourism initiatives and eco friendly tours' }
+  ]
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] max-h-[700px]">
         <Image
           src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?q=80&w=2070&auto=format&fit=crop"
@@ -79,14 +79,14 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
           className="absolute inset-0 flex items-center justify-center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, ease: easeOut }}
         >
           <div className="text-center px-4">
             <motion.h1
               className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
+              transition={{ delay: 0.2, duration: 0.8, ease: easeOut }}
             >
               {t('title')}
             </motion.h1>
@@ -94,7 +94,7 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
               className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
+              transition={{ delay: 0.4, duration: 0.8, ease: easeOut }}
             >
               Crafting Unforgettable Moroccan Adventures Since 2015
             </motion.p>
@@ -102,7 +102,6 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
         </motion.div>
       </section>
 
-      {/* Mission Section */}
       <section className="py-20 bg-gray-50">
         <div className="container-custom">
           <motion.div
@@ -120,7 +119,7 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
               {t('missionText')}
             </motion.p>
             <motion.p variants={itemVariants} className="text-lg text-gray-600 leading-relaxed">
-              We believe that travel is more than just visiting new places—it's about creating meaningful connections,
+              We believe that travel is more than just visiting new places. It is about creating meaningful connections,
               experiencing authentic cultures, and making memories that last a lifetime. Our team of passionate travel
               experts and local guides work tirelessly to ensure every journey with us is extraordinary.
             </motion.p>
@@ -128,7 +127,6 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
         </div>
       </section>
 
-      {/* Values Section */}
       <section className="py-20 bg-white">
         <div className="container-custom">
           <motion.div
@@ -163,7 +161,7 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
                 <motion.div
                   className="w-16 h-16 bg-gradient-to-br from-terracotta to-terracotta-dark rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
                   whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.6, ease: easeOut }}
                 >
                   <value.icon className="w-8 h-8 text-white" />
                 </motion.div>
@@ -179,9 +177,7 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
         </div>
       </section>
 
-      {/* Timeline Section */}
       <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
-        {/* Animated Background */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-terracotta rounded-full blur-3xl animate-pulse" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-yellow rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
@@ -211,11 +207,7 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {milestones.map((milestone, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="relative"
-              >
+              <motion.div key={index} variants={itemVariants} className="relative">
                 <motion.div
                   className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-all duration-300 h-full"
                   whileHover={{ scale: 1.05 }}
@@ -233,7 +225,6 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
         </div>
       </section>
 
-      {/* Stats Section */}
       <section className="py-20 bg-white">
         <div className="container-custom">
           <motion.div
@@ -272,14 +263,13 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
         </div>
       </section>
 
-      {/* CTA Section - Redesigned */}
       <section className="py-20 bg-white">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: easeOut }}
             className="relative rounded-2xl overflow-hidden h-[500px]"
           >
             <Image
@@ -311,5 +301,5 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
         </div>
       </section>
     </div>
-  );
+  )
 }
