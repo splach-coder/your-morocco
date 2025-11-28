@@ -67,7 +67,7 @@ export interface Excursion {
     content: ExcursionContent;
     map?: ExcursionMap;
     price?: string; // Added price for display
-    difficulty?: string; // Added difficulty for display
+
 }
 
 export const excursions: Excursion[] = [
@@ -110,7 +110,7 @@ export const excursions: Excursion[] = [
             display_text: "12 Reviews"
         },
         price: "$150",
-        difficulty: "Moderate",
+
         content: {
             overview: "Experience the beauty of the Moroccan desert with our carefully designed Zagora 2 Days Excursion, an ideal journey for travelers who wish to explore the Sahara within a short timeframe. Departing from Marrakech, this excursion takes you through some of the country's most breathtaking landscapes, offering a rich blend of nature, culture, and adventure. Your journey begins with a scenic drive through the High Atlas Mountains, crossing the Tizi n'Tichka Pass with its panoramic views and dramatic peaks. Along the route, you will stop at the iconic Ait Ben Haddou, a UNESCO World Heritage Site and a stunning example of traditional Berber architecture. This historic site is also known for its appearance in several international films and series. As the journey continues, you will travel through the lush Draa Valley, dotted with palm groves and traditional kasbahs, until you reach the peaceful town of Zagora. From here, a camel ride at sunset will lead you into the desert, where a warm welcome awaits at a traditional Berber camp. Enjoy a night under the stars with local music, delicious food, and a true taste of nomadic hospitality. The Zagora excursion is perfect for couples, families, and solo adventurers looking for a memorable desert escape filled with authentic experiences and stunning scenery.",
             itinerary: {
@@ -202,7 +202,7 @@ export const excursions: Excursion[] = [
             display_text: "45 Reviews"
         },
         price: "$120",
-        difficulty: "Easy",
+
         content: {
             overview: "Immerse yourself in the magic of Marrakech on this full-day guided tour. Discover the city's rich history, vibrant culture, and stunning architecture as you explore iconic landmarks and hidden treasures. From the bustling Jemaa el-Fnaa square to the serene Majorelle Garden, experience the best of Morocco's most enchanting city.",
             itinerary: {
@@ -267,7 +267,7 @@ export const excursions: Excursion[] = [
             display_text: "28 Reviews"
         },
         price: "$280",
-        difficulty: "Challenging",
+
         content: {
             overview: "Challenge yourself with this incredible trek through the High Atlas Mountains. Starting from the village of Imlil, you'll hike through stunning valleys, visit traditional Berber villages, and experience authentic mountain hospitality. This trek offers breathtaking views and cultural immersion.",
             itinerary: {
@@ -342,7 +342,7 @@ export const excursions: Excursion[] = [
             display_text: "56 Reviews"
         },
         price: "$95",
-        difficulty: "Easy",
+
         content: {
             overview: "Relax in the charming coastal town of Essaouira, known for its fresh seafood, windswept beaches, and artistic vibe. Explore the historic medina, walk along the ramparts, and enjoy the laid-back atmosphere of this UNESCO World Heritage site.",
             itinerary: {

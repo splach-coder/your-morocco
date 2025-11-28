@@ -27,11 +27,11 @@ export default function Footer() {
     <footer className="bg-gray-900 text-white">
       <div className="container-custom py-16">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center mb-6">
-              <div className="relative w-28 h-28">
+              <div className="relative w-46 h-12">
                 <NextImage
                   src="/images/logo.png"
                   alt="Your Morocco Logo"
@@ -107,27 +107,6 @@ export default function Footer() {
                     contact@yourmorocco.com
                   </a>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Working Hours */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-6 pb-2 border-b-2 border-white/20">
-              Working Hours
-            </h3>
-            <div className="space-y-3 text-sm">
-              <div className="flex justify-between">
-                <span className="text-gray-400">Monday - Friday</span>
-                <span className="text-white font-semibold">9:00 - 18:00</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-400">Saturday</span>
-                <span className="text-white font-semibold">10:00 - 16:00</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-400">Sunday</span>
-                <span className="text-white font-semibold">Closed</span>
               </div>
             </div>
           </div>

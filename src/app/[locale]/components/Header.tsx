@@ -66,7 +66,7 @@ export default function Header({ locale, translations }: HeaderProps) {
           {/* Logo */}
           <Link href={`/${locale}`} className="flex-shrink-0 relative z-50">
             <div className="flex items-center">
-              <div className="relative w-20 h-20">
+              <div className="relative w-46 h-12">
                 <NextImage
                   src="/images/logo.png"
                   alt="Your Morocco Logo"

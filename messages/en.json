@@ -73,7 +73,7 @@
     "cta": {
       "title": "Ready to Explore Morocco?",
       "subtitle": "Contact our expert travel team and begin crafting your custom Moroccan adventure today.",
-      "button": "Book on WhatsApp"
+      "button": "Book Now"
     }
   },
   "ExcursionsPage": {
@@ -113,7 +113,12 @@
     "title": "About Us",
     "mission": "Our Mission",
     "missionText": "To provide authentic and unforgettable travel experiences across Morocco.",
-    "team": "Our Team"
+    "team": "Our Team",
+    "cta": {
+      "title": "Ready to Start Your Moroccan Adventure?",
+      "subtitle": "Let us help you create memories that will last a lifetime",
+      "button": "Get in Touch"
+    }
   },
   "ContactPage": {
     "title": "Contact Us",

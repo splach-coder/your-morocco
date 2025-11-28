@@ -15,8 +15,6 @@ export default function ExcursionsPage({ params }: { params: Promise<{ locale: s
     const [searchQuery, setSearchQuery] = useState(searchParams.get('search') || '');
     const [selectedLocation, setSelectedLocation] = useState('all');
     const [selectedPrice, setSelectedPrice] = useState('all');
-    const [selectedDifficulty, setSelectedDifficulty] = useState('all');
-    const [showFilters, setShowFilters] = useState(false);
 
     // Extract unique locations from excursions
     const locations = ['all', ...Array.from(new Set(excursions.flatMap(t => t.locations.map(l => l.name))))];
@@ -37,21 +35,17 @@ export default function ExcursionsPage({ params }: { params: Promise<{ locale: s
             (selectedPrice === 'medium' && priceValue >= 150 && priceValue < 300) ||
             (selectedPrice === 'high' && priceValue >= 300);
 
-        const matchesDifficulty = selectedDifficulty === 'all' ||
-            (tour.difficulty && tour.difficulty.toLowerCase() === selectedDifficulty.toLowerCase());
-
-        return matchesSearch && matchesLocation && matchesPrice && matchesDifficulty;
+        return matchesSearch && matchesLocation && matchesPrice;
     });
 
     const clearFilters = () => {
         setSearchQuery('');
         setSelectedLocation('all');
         setSelectedPrice('all');
-        setSelectedDifficulty('all');
     };
 
     const hasActiveFilters = searchQuery !== '' || selectedLocation !== 'all' ||
-        selectedPrice !== 'all' || selectedDifficulty !== 'all';
+        selectedPrice !== 'all';
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -77,43 +71,34 @@ export default function ExcursionsPage({ params }: { params: Promise<{ locale: s
                 </div>
             </section>
 
-            <div className="container-custom py-16">
-                {/* Search and Filters */}
-                <div className="bg-white rounded-2xl shadow-lg p-6 mb-12">
-                    {/* Search Bar */}
-                    <div className="relative mb-6">
-                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                        <input
-                            type="text"
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            placeholder={t('search')}
-                            className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-primary-teal focus:outline-none transition-colors text-gray-900 placeholder-gray-400"
-                        />
-                    </div>
+            <div className="container-custom py-12">
+                {/* Minimalist Filter Bar - All in One Line */}
+                <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 mb-8">
+                    <div className="flex flex-wrap items-center gap-3">
+                        {/* Search Input */}
+                        <div className="relative flex-1 min-w-[200px]">
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                            <input
+                                type="text"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                placeholder={t('search')}
+                                className="w-full pl-9 pr-3 py-2.5 border border-gray-200 rounded-lg focus:border-primary-teal focus:ring-1 focus:ring-primary-teal focus:outline-none transition-all text-sm text-gray-900 placeholder-gray-400"
+                            />
+                        </div>
 
-                    {/* Filter Toggle Button - Mobile */}
-                    <button
-                        onClick={() => setShowFilters(!showFilters)}
-                        className="lg:hidden w-full flex items-center justify-center gap-2 bg-primary-teal text-white py-3 rounded-xl font-semibold mb-4"
-                    >
-                        <Filter className="w-5 h-5" />
-                        {showFilters ? 'Hide Filters' : 'Show Filters'}
-                    </button>
+                        {/* Divider - Hidden on mobile */}
+                        <div className="hidden sm:block w-px h-8 bg-gray-200"></div>
 
-                    {/* Filters */}
-                    <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 ${showFilters ? 'block' : 'hidden lg:grid'}`}>
                         {/* Location Filter */}
-                        <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                {t('filter.location')}
-                            </label>
+                        <div className="flex items-center gap-2 min-w-[160px]">
+                            <Filter className="w-4 h-4 text-gray-400 flex-shrink-0" />
                             <select
                                 value={selectedLocation}
                                 onChange={(e) => setSelectedLocation(e.target.value)}
-                                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-teal focus:outline-none transition-colors text-gray-900"
+                                className="flex-1 px-3 py-2.5 border border-gray-200 rounded-lg focus:border-primary-teal focus:ring-1 focus:ring-primary-teal focus:outline-none transition-all text-sm text-gray-700 bg-white cursor-pointer"
                             >
-                                <option value="all">{t('filter.all')}</option>
+                                <option value="all">{t('filter.location')}: {t('filter.all')}</option>
                                 {locations.filter(l => l !== 'all').map(location => (
                                     <option key={location} value={location}>{location}</option>
                                 ))}
@@ -121,57 +106,41 @@ export default function ExcursionsPage({ params }: { params: Promise<{ locale: s
                         </div>
 
                         {/* Price Filter */}
-                        <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                {t('filter.price')}
-                            </label>
+                        <div className="min-w-[160px]">
                             <select
                                 value={selectedPrice}
                                 onChange={(e) => setSelectedPrice(e.target.value)}
-                                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-teal focus:outline-none transition-colors text-gray-900"
+                                className="w-full px-3 py-2.5 border border-gray-200 rounded-lg focus:border-primary-teal focus:ring-1 focus:ring-primary-teal focus:outline-none transition-all text-sm text-gray-700 bg-white cursor-pointer"
                             >
-                                <option value="all">{t('filter.all')}</option>
+                                <option value="all">{t('filter.price')}: {t('filter.all')}</option>
                                 <option value="low">Under $150</option>
                                 <option value="medium">$150 - $300</option>
                                 <option value="high">Over $300</option>
                             </select>
                         </div>
 
-                        {/* Difficulty Filter */}
-                        <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                {t('filter.difficulty')}
-                            </label>
-                            <select
-                                value={selectedDifficulty}
-                                onChange={(e) => setSelectedDifficulty(e.target.value)}
-                                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-primary-teal focus:outline-none transition-colors text-gray-900"
-                            >
-                                <option value="all">{t('filter.all')}</option>
-                                <option value="easy">Easy</option>
-                                <option value="moderate">Moderate</option>
-                                <option value="challenging">Challenging</option>
-                            </select>
-                        </div>
-                    </div>
+                        {/* Clear Filters Button */}
+                        {hasActiveFilters && (
+                            <>
+                                {/* Divider - Hidden on mobile */}
+                                <div className="hidden sm:block w-px h-8 bg-gray-200"></div>
 
-                    {/* Clear Filters */}
-                    {hasActiveFilters && (
-                        <div className="mt-4 flex justify-center">
-                            <button
-                                onClick={clearFilters}
-                                className="flex items-center gap-2 text-terracotta hover:text-terracotta-dark font-semibold transition-colors"
-                            >
-                                <X className="w-4 h-4" />
-                                Clear all filters
-                            </button>
-                        </div>
-                    )}
+                                <button
+                                    onClick={clearFilters}
+                                    className="flex items-center gap-1.5 px-3 py-2.5 text-sm text-gray-600 hover:text-terracotta hover:bg-terracotta/5 rounded-lg transition-all font-medium"
+                                    title="Clear all filters"
+                                >
+                                    <X className="w-4 h-4" />
+                                    <span className="hidden sm:inline">Clear</span>
+                                </button>
+                            </>
+                        )}
+                    </div>
                 </div>
 
                 {/* Results Count */}
                 <div className="mb-6 text-center">
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 text-sm">
                         Showing <span className="font-bold text-primary-teal">{filteredTours.length}</span> of {excursions.length} excursions
                     </p>
                 </div>
@@ -190,7 +159,6 @@ export default function ExcursionsPage({ params }: { params: Promise<{ locale: s
                                 buttonText={t('details')}
                                 location={tour.locations[0]?.name}
                                 price={tour.price}
-                                difficulty={tour.difficulty}
                                 rating={4.9} // Mock rating as it's not in the new structure yet
                             />
                         ))}

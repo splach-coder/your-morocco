@@ -67,7 +67,6 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
       image: 'https://images.unsplash.com/photo-1539020140153-e479b8c22e70?q=80&w=2070&auto=format&fit=crop',
       location: 'Merzouga',
       price: '$450',
-      difficulty: 'Moderate',
       rating: 4.9
     },
     {
@@ -78,7 +77,6 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
       image: 'https://images.unsplash.com/photo-1597212618440-806262de4f6b?q=80&w=2072&auto=format&fit=crop',
       location: 'Marrakech',
       price: '$120',
-      difficulty: 'Easy',
       rating: 4.8
     },
     {
@@ -89,7 +87,6 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
       image: 'https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?q=80&w=2067&auto=format&fit=crop',
       location: 'Imlil',
       price: '$280',
-      difficulty: 'Challenging',
       rating: 5.0
     },
     {
@@ -100,7 +97,6 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
       image: 'https://images.unsplash.com/photo-1575017159701-e75106697286?q=80&w=2070&auto=format&fit=crop',
       location: 'Essaouira',
       price: '$95',
-      difficulty: 'Easy',
       rating: 4.7
     }
   ];
@@ -145,7 +141,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
       />
 
       {/* Popular Destinations - New Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="container-custom">
           <motion.div
             initial="hidden"
@@ -195,7 +191,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
       </section>
 
       {/* Featured Tours Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container-custom">
           <motion.div
             initial="hidden"
@@ -241,7 +237,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
                   buttonText={t('featured.learnMore')}
                   location={tour.location}
                   price={tour.price}
-                  difficulty={tour.difficulty}
+                  rating={tour.rating}
                 />
               </motion.div>
             ))}
@@ -249,25 +245,56 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="container-custom">
+      {/* Stats Section - Redesigned with Animation */}
+      <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-terracotta rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent-yellow rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
+
+        <div className="container-custom relative z-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={containerVariants}
-            className="grid grid-cols-2 md:grid-cols-4 gap-12"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
           >
             {stats.map((stat, index) => (
-              <motion.div key={index} variants={itemVariants} className="text-center group">
-                <div className="flex justify-center mb-6">
-                  <div className="w-16 h-16 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-terracotta transition-colors duration-300">
-                    <stat.icon className="w-8 h-8 text-white" />
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="text-center group relative"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <motion.div
+                  className="flex justify-center mb-6"
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, type: "spring", stiffness: 200 }}
+                >
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-terracotta/20 to-accent-yellow/20 backdrop-blur-sm flex items-center justify-center group-hover:from-terracotta group-hover:to-terracotta-dark transition-all duration-500 shadow-lg group-hover:shadow-terracotta/50">
+                    <stat.icon className="w-10 h-10 text-accent-yellow group-hover:text-white transition-colors duration-300" />
                   </div>
-                </div>
-                <div className="text-4xl md:text-5xl font-bold mb-2">{stat.value}</div>
-                <div className="text-gray-400">{stat.label}</div>
+                </motion.div>
+                <motion.div
+                  className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 + 0.2 }}
+                >
+                  {stat.value}
+                </motion.div>
+                <div className="text-gray-400 font-medium group-hover:text-gray-300 transition-colors">{stat.label}</div>
+
+                {/* Decorative line */}
+                <motion.div
+                  className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-terracotta to-accent-yellow group-hover:w-full transition-all duration-500"
+                />
               </motion.div>
             ))}
           </motion.div>
@@ -275,7 +302,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container-custom">
           <motion.div
             initial="hidden"
@@ -303,8 +330,8 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
                 variants={itemVariants}
                 className="p-8 rounded-xl bg-gray-50 hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 group"
               >
-                <div className="w-14 h-14 bg-terracotta/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-terracotta transition-colors duration-300">
-                  <feature.icon className="w-7 h-7 text-terracotta group-hover:text-green-500 transition-colors" />
+                <div className="w-14 h-14 bg-terracotta/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gradient-to-br group-hover:from-emerald-500 group-hover:to-emerald-600 transition-all duration-300">
+                  <feature.icon className="w-7 h-7 text-terracotta group-hover:text-white transition-colors" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   {feature.title}

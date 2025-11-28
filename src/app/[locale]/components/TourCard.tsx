@@ -13,7 +13,7 @@ interface TourCardProps {
     buttonText: string;
     location?: string;
     price?: string;
-    difficulty?: string;
+
     rating?: number;
 }
 
@@ -26,17 +26,10 @@ export default function TourCard({
     buttonText,
     location,
     price,
-    difficulty,
+
     rating,
 }: TourCardProps) {
-    const getDifficultyColor = (diff?: string) => {
-        if (!diff) return 'bg-gray-500/80';
-        const lower = diff.toLowerCase();
-        if (lower.includes('easy')) return 'bg-green-500/80';
-        if (lower.includes('moderate')) return 'bg-yellow-500/80';
-        if (lower.includes('challenging') || lower.includes('hard')) return 'bg-red-500/80';
-        return 'bg-gray-500/80';
-    };
+
 
     return (
         <Link href={link} className="group block">
@@ -54,11 +47,7 @@ export default function TourCard({
 
                 {/* Top Badges */}
                 <div className="absolute top-4 left-4 right-4 flex justify-between items-start">
-                    {difficulty && (
-                        <div className={`px-3 py-1 rounded-full text-white text-xs font-bold backdrop-blur-md ${getDifficultyColor(difficulty)}`}>
-                            {difficulty}
-                        </div>
-                    )}
+
                     {rating && (
                         <div className="flex items-center gap-1 bg-white/20 backdrop-blur-md px-2 py-1 rounded-full">
                             <svg className="w-3 h-3 text-yellow-400 fill-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

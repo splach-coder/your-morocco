@@ -216,17 +216,7 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
                                         <span className="text-gray-600">Trip Code</span>
                                         <span className="font-semibold text-gray-900">{tour.trip_code}</span>
                                     </div>
-                                    {tour.difficulty && (
-                                        <div className="flex items-center justify-between py-3">
-                                            <span className="text-gray-600">{t('difficulty')}</span>
-                                            <span className={`font-semibold px-3 py-1 rounded-full text-sm ${tour.difficulty === 'Easy' ? 'bg-green-100 text-green-700' :
-                                                tour.difficulty === 'Moderate' ? 'bg-yellow-100 text-yellow-700' :
-                                                    'bg-red-100 text-red-700'
-                                                }`}>
-                                                {tour.difficulty}
-                                            </span>
-                                        </div>
-                                    )}
+
                                 </div>
 
                                 <a
@@ -265,7 +255,7 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
                                     buttonText={t('details')}
                                     location={relatedTour.locations[0]?.name}
                                     price={relatedTour.price}
-                                    difficulty={relatedTour.difficulty}
+
                                     rating={4.9}
                                 />
                             ))}

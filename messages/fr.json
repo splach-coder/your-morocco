@@ -73,7 +73,7 @@
     "cta": {
       "title": "Prêt à Explorer le Maroc?",
       "subtitle": "Contactez notre équipe de voyage experte et commencez à créer votre aventure marocaine personnalisée aujourd'hui.",
-      "button": "Réserver sur WhatsApp"
+      "button": "Réserver Maintenant"
     }
   },
   "ExcursionsPage": {
@@ -113,7 +113,12 @@
     "title": "À Propos de Nous",
     "mission": "Notre Mission",
     "missionText": "Offrir des expériences de voyage authentiques et inoubliables à travers le Maroc.",
-    "team": "Notre Équipe"
+    "team": "Notre Équipe",
+    "cta": {
+      "title": "Prêt à Commencer Votre Aventure Marocaine?",
+      "subtitle": "Laissez-nous vous aider à créer des souvenirs qui dureront toute une vie",
+      "button": "Contactez-nous"
+    }
   },
   "ContactPage": {
     "title": "Contactez-nous",
