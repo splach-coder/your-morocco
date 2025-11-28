@@ -1,0 +1,132 @@
+{
+  "Header": {
+    "home": "Home",
+    "excursions": "Excursions",
+    "about": "About",
+    "contact": "Contact",
+    "reviews": "Reviews",
+    "blogs": "Blogs"
+  },
+  "footer": {
+    "description": "Discover the magic of Morocco with expert local guides. From vibrant souks to serene desert landscapes, we create unforgettable experiences.",
+    "company": {
+      "title": "Company",
+      "aboutUs": "About Us",
+      "ourStory": "Our Story",
+      "travelBlog": "Travel Blog",
+      "careers": "Careers",
+      "pressKit": "Press Kit"
+    },
+    "tours": {
+      "title": "Tours",
+      "cityTours": "City Tours",
+      "desertExpeditions": "Desert Expeditions",
+      "atlasMountains": "Atlas Mountains",
+      "cookingClasses": "Cooking Classes",
+      "multiDayPackages": "Multi-day Packages"
+    },
+    "support": {
+      "title": "Support",
+      "contactUs": "Contact Us",
+      "faqs": "FAQs",
+      "bookingInfo": "Booking Info",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    },
+    "copyright": "Your Morocco. All rights reserved.",
+    "newsletter": "Subscribe to our newsletter",
+    "emailPlaceholder": "Your email address",
+    "subscribe": "Subscribe"
+  },
+  "HomePage": {
+    "hero": {
+      "title": "Explore Morocco, Create Your Story",
+      "searchPlaceholder": "Search destinations in Morocco...",
+      "searchButton": "Search"
+    },
+    "featured": {
+      "title": "Discover Morocco's Hidden Gems",
+      "subtitle": "From the vibrant souks of Marrakech to the majestic peaks of the High Atlas, discover the perfect Moroccan adventure.",
+      "learnMore": "Learn More",
+      "exploreAll": "Explore All Destinations",
+      "location": "Location",
+      "price": "Price",
+      "difficulty": "Difficulty"
+    },
+    "stats": {
+      "satisfaction": "Client Satisfaction Rate",
+      "destinations": "Moroccan Destinations",
+      "guides": "Expert Local Guides",
+      "journeys": "Completed Journeys"
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Your Morocco",
+      "localGuides": "Expert Local Guides",
+      "localGuidesDesc": "Our guides are Moroccan locals who know every corner of the country.",
+      "customTrips": "Customizable Trips",
+      "customTripsDesc": "We tailor every Moroccan adventure to your specific needs.",
+      "support": "24/7 Support",
+      "supportDesc": "We are here for you around the clock during your Moroccan journey.",
+      "reliability": "Reliable & Safe",
+      "reliabilityDesc": "Your safety and satisfaction are our top priorities."
+    },
+    "cta": {
+      "title": "Ready to Explore Morocco?",
+      "subtitle": "Contact our expert travel team and begin crafting your custom Moroccan adventure today.",
+      "button": "Book on WhatsApp"
+    }
+  },
+  "ExcursionsPage": {
+    "title": "Explore Morocco",
+    "subtitle": "Discover All Moroccan Destinations",
+    "duration": "Duration",
+    "details": "View Details",
+    "filter": {
+      "all": "All",
+      "location": "Location",
+      "price": "Price",
+      "difficulty": "Difficulty"
+    },
+    "search": "Search Moroccan destinations..."
+  },
+  "ExcursionDetailPage": {
+    "backToExcursions": "Back to Excursions",
+    "bookNow": "Book on WhatsApp",
+    "overview": "Overview",
+    "itinerary": "Itinerary",
+    "included": "What's Included",
+    "excluded": "What's Not Included",
+    "requirements": "Requirements",
+    "gallery": "Gallery",
+    "relatedTours": "Related Tours",
+    "duration": "Duration",
+    "groupSize": "Group Size",
+    "minAge": "Minimum Age",
+    "difficulty": "Difficulty",
+    "location": "Location",
+    "price": "Price",
+    "perPerson": "per person",
+    "day": "Day",
+    "contactUs": "Contact us on WhatsApp for booking"
+  },
+  "AboutPage": {
+    "title": "About Us",
+    "mission": "Our Mission",
+    "missionText": "To provide authentic and unforgettable travel experiences across Morocco.",
+    "team": "Our Team"
+  },
+  "ContactPage": {
+    "title": "Contact Us",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send Message",
+    "address": "Marrakech, Morocco",
+    "phone": "+212 123 456 789",
+    "whatsapp": "Chat on WhatsApp"
+  },
+  "WhatsApp": {
+    "chatWithUs": "Chat with us",
+    "bookingMessage": "Hello! I'm interested in booking a tour to Morocco."
+  }
+}

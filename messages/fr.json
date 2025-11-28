@@ -1,0 +1,132 @@
+{
+  "Header": {
+    "home": "Accueil",
+    "excursions": "Excursions",
+    "about": "À Propos",
+    "contact": "Contact",
+    "reviews": "Avis",
+    "blogs": "Blogs"
+  },
+  "footer": {
+    "description": "Découvrez la magie du Maroc avec des guides locaux experts. Des souks vibrants aux paysages désertiques sereins, nous créons des expériences inoubliables.",
+    "company": {
+      "title": "Entreprise",
+      "aboutUs": "À Propos",
+      "ourStory": "Notre Histoire",
+      "travelBlog": "Blog Voyage",
+      "careers": "Carrières",
+      "pressKit": "Presse"
+    },
+    "tours": {
+      "title": "Circuits",
+      "cityTours": "Visites de Ville",
+      "desertExpeditions": "Expéditions Désert",
+      "atlasMountains": "Montagnes de l'Atlas",
+      "cookingClasses": "Cours de Cuisine",
+      "multiDayPackages": "Forfaits Multi-jours"
+    },
+    "support": {
+      "title": "Support",
+      "contactUs": "Contactez-nous",
+      "faqs": "FAQ",
+      "bookingInfo": "Infos Réservation",
+      "privacy": "Politique de Confidentialité",
+      "terms": "Conditions d'Utilisation"
+    },
+    "copyright": "Your Morocco. Tous droits réservés.",
+    "newsletter": "Abonnez-vous à notre newsletter",
+    "emailPlaceholder": "Votre adresse email",
+    "subscribe": "S'abonner"
+  },
+  "HomePage": {
+    "hero": {
+      "title": "Explorez le Maroc, Créez Votre Histoire",
+      "searchPlaceholder": "Rechercher des destinations au Maroc...",
+      "searchButton": "Rechercher"
+    },
+    "featured": {
+      "title": "Découvrez les Trésors Cachés du Maroc",
+      "subtitle": "Des souks vibrants de Marrakech aux sommets majestueux du Haut Atlas, découvrez l'aventure marocaine parfaite.",
+      "learnMore": "En Savoir Plus",
+      "exploreAll": "Explorer Toutes les Destinations",
+      "location": "Lieu",
+      "price": "Prix",
+      "difficulty": "Difficulté"
+    },
+    "stats": {
+      "satisfaction": "Taux de Satisfaction Client",
+      "destinations": "Destinations Marocaines",
+      "guides": "Guides Locaux Experts",
+      "journeys": "Voyages Complétés"
+    },
+    "whyChooseUs": {
+      "title": "Pourquoi Choisir Your Morocco",
+      "localGuides": "Guides Locaux Experts",
+      "localGuidesDesc": "Nos guides sont des Marocains locaux qui connaissent chaque coin du pays.",
+      "customTrips": "Voyages Personnalisables",
+      "customTripsDesc": "Nous adaptons chaque aventure marocaine à vos besoins spécifiques.",
+      "support": "Support 24/7",
+      "supportDesc": "Nous sommes là pour vous 24h/24 pendant votre voyage au Maroc.",
+      "reliability": "Fiable et Sûr",
+      "reliabilityDesc": "Votre sécurité et satisfaction sont nos priorités absolues."
+    },
+    "cta": {
+      "title": "Prêt à Explorer le Maroc?",
+      "subtitle": "Contactez notre équipe de voyage experte et commencez à créer votre aventure marocaine personnalisée aujourd'hui.",
+      "button": "Réserver sur WhatsApp"
+    }
+  },
+  "ExcursionsPage": {
+    "title": "Explorer le Maroc",
+    "subtitle": "Découvrir Toutes les Destinations Marocaines",
+    "duration": "Durée",
+    "details": "Voir les Détails",
+    "filter": {
+      "all": "Tout",
+      "location": "Lieu",
+      "price": "Prix",
+      "difficulty": "Difficulté"
+    },
+    "search": "Rechercher des destinations marocaines..."
+  },
+  "ExcursionDetailPage": {
+    "backToExcursions": "Retour aux Excursions",
+    "bookNow": "Réserver sur WhatsApp",
+    "overview": "Aperçu",
+    "itinerary": "Itinéraire",
+    "included": "Inclus",
+    "excluded": "Non Inclus",
+    "requirements": "Exigences",
+    "gallery": "Galerie",
+    "relatedTours": "Circuits Similaires",
+    "duration": "Durée",
+    "groupSize": "Taille du Groupe",
+    "minAge": "Âge Minimum",
+    "difficulty": "Difficulté",
+    "location": "Lieu",
+    "price": "Prix",
+    "perPerson": "par personne",
+    "day": "Jour",
+    "contactUs": "Contactez-nous sur WhatsApp pour réserver"
+  },
+  "AboutPage": {
+    "title": "À Propos de Nous",
+    "mission": "Notre Mission",
+    "missionText": "Offrir des expériences de voyage authentiques et inoubliables à travers le Maroc.",
+    "team": "Notre Équipe"
+  },
+  "ContactPage": {
+    "title": "Contactez-nous",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Envoyer le Message",
+    "address": "Marrakech, Maroc",
+    "phone": "+212 123 456 789",
+    "whatsapp": "Discuter sur WhatsApp"
+  },
+  "WhatsApp": {
+    "chatWithUs": "Discutez avec nous",
+    "bookingMessage": "Bonjour! Je suis intéressé par la réservation d'un circuit au Maroc."
+  }
+}
