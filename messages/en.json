@@ -1,11 +1,11 @@
 {
   "Header": {
     "home": "Home",
+    "services": "Services",
+    "tours": "Tours",
     "excursions": "Excursions",
-    "about": "About",
-    "contact": "Contact",
-    "reviews": "Reviews",
-    "blogs": "Blogs"
+    "activities": "Activities",
+    "contact": "Contact"
   },
   "footer": {
     "description": "Discover the magic of Morocco with expert local guides. From vibrant souks to serene desert landscapes, we create unforgettable experiences.",
@@ -107,7 +107,8 @@
     "price": "Price",
     "perPerson": "per person",
     "day": "Day",
-    "contactUs": "Contact us on WhatsApp for booking"
+    "contactUs": "Contact us on WhatsApp for booking",
+    "details": "View Details"
   },
   "AboutPage": {
     "title": "About Us",
@@ -133,5 +134,20 @@
   "WhatsApp": {
     "chatWithUs": "Chat with us",
     "bookingMessage": "Hello! I'm interested in booking a tour to Morocco."
+  },
+  "Services": {
+    "title": "Our Services",
+    "subtitle": "Professional services to make your journey comfortable and memorable.",
+    "viewDetails": "View Details"
+  },
+  "Tours": {
+    "title": "Our Tours",
+    "subtitle": "Immersive multi-day tours to explore the best of Morocco.",
+    "viewDetails": "View Details"
+  },
+  "Activities": {
+    "title": "Activities",
+    "subtitle": "Exciting activities to add adventure to your trip.",
+    "viewDetails": "View Details"
   }
 }

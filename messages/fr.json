@@ -1,11 +1,11 @@
 {
   "Header": {
     "home": "Accueil",
+    "services": "Services",
+    "tours": "Circuits",
     "excursions": "Excursions",
-    "about": "À Propos",
-    "contact": "Contact",
-    "reviews": "Avis",
-    "blogs": "Blogs"
+    "activities": "Activités",
+    "contact": "Contact"
   },
   "footer": {
     "description": "Découvrez la magie du Maroc avec des guides locaux experts. Des souks vibrants aux paysages désertiques sereins, nous créons des expériences inoubliables.",
@@ -133,5 +133,20 @@
   "WhatsApp": {
     "chatWithUs": "Discutez avec nous",
     "bookingMessage": "Bonjour! Je suis intéressé par la réservation d'un circuit au Maroc."
+  },
+  "Services": {
+    "title": "Nos Services",
+    "subtitle": "Des services professionnels pour rendre votre voyage confortable et mémorable.",
+    "viewDetails": "Voir les Détails"
+  },
+  "Tours": {
+    "title": "Nos Circuits",
+    "subtitle": "Des circuits immersifs de plusieurs jours pour explorer le meilleur du Maroc.",
+    "viewDetails": "Voir les Détails"
+  },
+  "Activities": {
+    "title": "Activités",
+    "subtitle": "Des activités passionnantes pour ajouter de l'aventure à votre voyage.",
+    "viewDetails": "Voir les Détails"
   }
 }

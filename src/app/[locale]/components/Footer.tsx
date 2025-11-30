@@ -2,133 +2,141 @@
 
 import Link from 'next/link';
 import NextImage from 'next/image';
-import { useTranslations, useLocale } from 'next-intl';
-import { Facebook, Instagram, Youtube, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import { useLocale } from 'next-intl';
+import { Mail, Phone } from 'lucide-react';
 
 export default function Footer() {
   const locale = useLocale();
-  const t = useTranslations('footer');
 
-  const quickLinks = [
-    { label: 'Home', href: `/${locale}` },
-    { label: 'Excursions', href: `/${locale}/excursions` },
-    { label: 'About Us', href: `/${locale}/about` },
-    { label: 'Contact', href: `/${locale}/contact` },
+  const destinations = [
+    { name: 'Marrakech', href: `/${locale}/excursions/38` },
+    { name: 'Merzouga', href: `/${locale}/excursions/41` },
+    { name: 'Essaouira', href: `/${locale}/excursions/255` },
+    { name: 'Casablanca', href: `/${locale}/excursions/259` },
+    { name: 'Fes', href: `/${locale}/excursions/251` },
   ];
 
-  const socialLinks = [
-    { icon: Facebook, href: 'https://www.facebook.com/yourmorocco', label: 'Facebook' },
-    { icon: Instagram, href: 'https://www.instagram.com/yourmorocco/', label: 'Instagram' },
-    { icon: Youtube, href: 'https://www.youtube.com/@yourmorocco', label: 'YouTube' },
-    { icon: Twitter, href: 'https://twitter.com/yourmorocco', label: 'Twitter' },
+  const activities = [
+    { name: 'Quad Biking', href: `/${locale}/activities/274` },
+    { name: 'Camel Riding', href: `/${locale}/activities/272` },
+    { name: 'Cooking Class', href: `/${locale}/activities/265` },
+    { name: 'Food Tour', href: `/${locale}/activities/278` },
+    { name: 'Air Balloon', href: `/${locale}/activities/263` },
+  ];
+
+  const menuLinks = [
+    { name: 'Home', href: `/${locale}` },
+    { name: 'Services', href: `/${locale}/services` },
+    { name: 'Tours', href: `/${locale}/tours` },
+    { name: 'Excursions', href: `/${locale}/excursions` },
+    { name: 'Activities', href: `/${locale}/activities` },
+    { name: 'Contact', href: `/${locale}/contact` },
+    { name: 'About us', href: `/${locale}/about` },
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-primary-teal-dark text-white border-t border-white/10">
       <div className="container-custom py-16">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
-          {/* Brand Section */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center mb-6">
-              <div className="relative w-46 h-12">
-                <NextImage
-                  src="/images/logo.png"
-                  alt="Your Morocco Logo"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            </div>
-            <p className="text-gray-400 leading-relaxed mb-6">
-              {t('description')}
+        {/* Main Footer Content - 4 Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+
+          {/* Company Info */}
+          <div>
+            <NextImage
+              src="/images/logo.png"
+              alt="Your Morocco Logo"
+              width={180}
+              height={54}
+              className="mb-6 h-12 w-auto"
+            />
+            <p className="text-gray-300 mb-6 text-sm leading-relaxed">
+              Discover, Travel, and Live Morocco.
             </p>
-            {/* Social Links */}
-            <div className="flex items-center gap-3">
-              {socialLinks.map(({ icon: Icon, href, label }) => (
+
+            {/* Contact Info */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <Mail className="w-4 h-4 text-accent-yellow flex-shrink-0" />
                 <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-white/10 hover:bg-terracotta rounded-full flex items-center justify-center transition-all hover:scale-110"
-                  aria-label={label}
+                  href="mailto:Book@your-morocco.com"
+                  className="text-gray-300 text-sm hover:text-accent-yellow transition-colors"
                 >
-                  <Icon className="w-5 h-5" />
+                  Book@your-morocco.com
                 </a>
-              ))}
+              </div>
+              <div className="flex items-center gap-3">
+                <Phone className="w-4 h-4 text-accent-yellow flex-shrink-0" />
+                <a
+                  href="tel:+212661918349"
+                  className="text-gray-300 text-sm hover:text-accent-yellow transition-colors"
+                >
+                  +212 661 918 349
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Destinations */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-6 pb-2 border-b-2 border-white/20">
-              Quick Links
+            <h3 className="text-white font-bold text-lg mb-6">
+              Destination
             </h3>
             <nav className="flex flex-col space-y-3">
-              {quickLinks.map(({ label, href }) => (
+              {destinations.map(({ name, href }) => (
                 <Link
-                  key={href}
+                  key={name}
                   href={href}
-                  className="text-gray-400 hover:text-accent-yellow transition-colors hover:translate-x-1 inline-block"
+                  className="text-gray-300 hover:text-accent-yellow transition-colors text-sm hover:translate-x-1 inline-block"
                 >
-                  {label}
+                  {name}
                 </Link>
               ))}
             </nav>
           </div>
 
-          {/* Contact Info */}
+          {/* Activities */}
           <div>
-            <h3 className="text-white font-bold text-lg mb-6 pb-2 border-b-2 border-white/20">
-              Contact Info
+            <h3 className="text-white font-bold text-lg mb-6">
+              Activity
             </h3>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-terracotta flex-shrink-0 mt-1" />
-                <div>
-                  <p className="text-gray-400 text-sm">
-                    Marrakech, Morocco
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-terracotta flex-shrink-0 mt-1" />
-                <div>
-                  <a href="tel:+212123456789" className="text-gray-400 text-sm hover:text-accent-yellow transition-colors">
-                    +212 123 456 789
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-terracotta flex-shrink-0 mt-1" />
-                <div>
-                  <a href="mailto:contact@yourmorocco.com" className="text-gray-400 text-sm hover:text-accent-yellow transition-colors">
-                    contact@yourmorocco.com
-                  </a>
-                </div>
-              </div>
-            </div>
+            <nav className="flex flex-col space-y-3">
+              {activities.map(({ name, href }) => (
+                <Link
+                  key={name}
+                  href={href}
+                  className="text-gray-300 hover:text-accent-yellow transition-colors text-sm hover:translate-x-1 inline-block"
+                >
+                  {name}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Menu */}
+          <div>
+            <h3 className="text-white font-bold text-lg mb-6">
+              Menu
+            </h3>
+            <nav className="flex flex-col space-y-3">
+              {menuLinks.map(({ name, href }) => (
+                <Link
+                  key={name}
+                  href={href}
+                  className="text-gray-300 hover:text-accent-yellow transition-colors text-sm hover:translate-x-1 inline-block"
+                >
+                  {name}
+                </Link>
+              ))}
+            </nav>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/20 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
-            <div className="text-gray-400">
-              © {new Date().getFullYear()} {t('copyright')}
-            </div>
-            <div className="flex flex-wrap items-center justify-center gap-6 text-gray-400">
-              <Link href={`/${locale}/contact`} className="hover:text-accent-yellow transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href={`/${locale}/contact`} className="hover:text-accent-yellow transition-colors">
-                Terms of Service
-              </Link>
-              <Link href={`/${locale}/contact`} className="hover:text-accent-yellow transition-colors">
-                Cookie Policy
-              </Link>
-            </div>
+        <div className="border-t border-white/10 pt-8">
+          <div className="text-center">
+            <p className="text-gray-400 text-sm">
+              © {new Date().getFullYear()} Your Morocco. All rights reserved.
+            </p>
           </div>
         </div>
       </div>

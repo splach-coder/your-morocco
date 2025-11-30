@@ -18,6 +18,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'your-morocco.com',
+      },
       // We add the Sanity CDN hostname now to be ready for the future
       {
         protocol: 'https',

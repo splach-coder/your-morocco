@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { Search, MapPin } from 'lucide-react';
+import { Search, MapPin, ArrowRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 interface HeroProps {
@@ -80,115 +80,118 @@ export default function Hero({
     router.push(`/${locale}/excursions?search=${encodeURIComponent(city)}`);
   };
 
+  // Safe title splitting
+  const titleParts = title.includes(',') ? title.split(',') : [title, ''];
+
   return (
-    <section className="relative w-full h-screen min-h-[600px] max-h-[900px] overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
+    <section className="relative w-full h-screen min-h-[600px] max-h-[900px] overflow-hidden bg-black">
+      {/* Background Image with Zoom Effect */}
+      <motion.div
+        initial={{ scale: 1.1 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 2, ease: "easeOut" }}
+        className="absolute inset-0"
+      >
         <Image
           src={backgroundImage}
           alt="Morocco landscape"
           fill
           priority
           quality={90}
-          className="object-cover"
+          className="object-cover opacity-90"
         />
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
-      </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+      </motion.div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center">
-        <div className="container-custom w-full">
-          <div className="max-w-4xl mx-auto text-center">
-            {/* Title */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-6"
-            >
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-                {title.split(',')[0]}<br />
-                <span className="text-8xl text-accent-yellow">{title.split(',')[1]}</span>
-              </h1>
-            </motion.div>
+      <div className="relative z-10 h-full flex flex-col justify-center items-center px-4">
+        <div className="container-custom w-full max-w-5xl mx-auto text-center">
 
-            {/* Search Box with Integrated Dropdown */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="max-w-2xl mx-auto"
-            >
-              <div className="bg-white rounded-2xl shadow-2xl p-3 overflow-hidden">
-                <form onSubmit={handleSearch}>
-                  <div className="flex items-start gap-3">
-                    {/* Search Input with Integrated Dropdown */}
-                    <div className="flex-1" ref={searchRef}>
-                      {/* Input Field */}
-                      <div className="relative">
-                        <Search className="absolute left-4 top-4 w-5 h-5 text-gray-400 z-10 pointer-events-none" />
-                        <input
-                          type="text"
-                          value={searchQuery}
-                          onChange={(e) => setSearchQuery(e.target.value)}
-                          onFocus={() => setIsDropdownOpen(true)}
-                          placeholder={searchPlaceholder}
-                          className="w-full pl-12 pr-4 py-4 border-0 rounded-xl focus:outline-none text-gray-900 placeholder-gray-400 text-lg bg-transparent"
-                        />
-                      </div>
+          {/* Title Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-10"
+          >
+            <h1 className="text-4xl sm:text-5xl md:text-3xl font-bold text-white mb-6 leading-tight tracking-tight drop-shadow-lg">
+              {titleParts[0]}
+              {titleParts[1] && (
+                <>
+                  <br className="hidden md:block" />
+                  <span className="text-lg md:text-xl lg:text-7xl text-accent-yellow italic ml-2 md:ml-0">{titleParts[1]}</span>
+                </>
+              )}
+            </h1>
+          </motion.div>
 
-                      {/* Integrated Dropdown - appears below input within the same container */}
-                      <AnimatePresence>
-                        {isDropdownOpen && filteredCities.length > 0 && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.3, ease: 'easeInOut' }}
-                            className="overflow-hidden"
-                          >
-                            {/* Divider */}
-                            <div className="h-px bg-gray-200 my-2 mx-4" />
-
-                            {/* Cities List */}
-                            <div className="max-h-64 overflow-y-auto pb-2 px-2">
-                              {filteredCities.map((city, index) => (
-                                <motion.button
-                                  key={city}
-                                  type="button"
-                                  initial={{ opacity: 0, x: -10 }}
-                                  animate={{ opacity: 1, x: 0 }}
-                                  transition={{ delay: index * 0.03 }}
-                                  onClick={() => handleCitySelect(city)}
-                                  className="w-full px-3 py-2.5 text-left hover:bg-gray-50 rounded-lg transition-all flex items-center gap-3 group mb-1"
-                                >
-                                  <div className="w-8 h-8 rounded-full bg-terracotta/10 flex items-center justify-center group-hover:bg-terracotta/20 transition-colors flex-shrink-0">
-                                    <MapPin className="w-4 h-4 text-terracotta" />
-                                  </div>
-                                  <span className="text-gray-700 group-hover:text-terracotta font-medium transition-colors">
-                                    {city}
-                                  </span>
-                                </motion.button>
-                              ))}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-
-                    {/* Search Button */}
-                    <button
-                      type="submit"
-                      className="bg-terracotta hover:bg-terracotta-dark text-white font-bold px-8 py-4 rounded-xl transition-all hover:shadow-lg flex items-center justify-center gap-2 whitespace-nowrap flex-shrink-0"
-                    >
-                      {searchButton}
-                    </button>
-                  </div>
-                </form>
+          {/* Search Box */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="max-w-2xl mx-auto w-full relative"
+            ref={searchRef}
+          >
+            <form onSubmit={handleSearch} className="relative z-20">
+              <div className="bg-white p-2 rounded-full shadow-2xl flex items-center transition-transform hover:scale-[1.01] duration-300">
+                <div className="pl-4 pr-2 text-gray-400">
+                  <Search className="w-5 h-5" />
+                </div>
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onFocus={() => setIsDropdownOpen(true)}
+                  placeholder={searchPlaceholder}
+                  className="flex-1 bg-transparent border-none focus:ring-0 text-gray-900 placeholder-gray-500 text-base md:text-lg py-3 focus:outline-none"
+                />
+                <button
+                  type="submit"
+                  className="bg-primary-teal hover:bg-primary-teal-dark text-white font-semibold px-6 md:px-8 py-3 rounded-full transition-all shadow-md hover:shadow-lg flex items-center gap-2"
+                >
+                  <span className="hidden md:inline">{searchButton}</span>
+                  <span className="md:hidden"><Search className="w-5 h-5" /></span>
+                </button>
               </div>
-            </motion.div>
-          </div>
+            </form>
+
+            {/* Dropdown Results */}
+            <AnimatePresence>
+              {isDropdownOpen && filteredCities.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute top-full left-0 right-0 mt-3 bg-white rounded-2xl shadow-xl overflow-hidden z-10 p-2"
+                >
+                  <div className="max-h-60 overflow-y-auto custom-scrollbar">
+                    {filteredCities.map((city, index) => (
+                      <motion.button
+                        key={city}
+                        type="button"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.03 }}
+                        onClick={() => handleCitySelect(city)}
+                        className="w-full px-4 py-3 text-left hover:bg-gray-50 rounded-xl transition-all flex items-center gap-3 group"
+                      >
+                        <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-terracotta/10 transition-colors">
+                          <MapPin className="w-4 h-4 text-gray-500 group-hover:text-terracotta transition-colors" />
+                        </div>
+                        <span className="text-gray-700 group-hover:text-gray-900 font-medium">
+                          {city}
+                        </span>
+                        <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-terracotta ml-auto opacity-0 group-hover:opacity-100 transition-all transform -translate-x-2 group-hover:translate-x-0" />
+                      </motion.button>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
         </div>
       </div>
 
@@ -196,15 +199,18 @@ export default function Hero({
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1.5 h-1.5 bg-white rounded-full"
-          />
+        <div className="flex flex-col items-center gap-2">
+          <span className="text-white/60 text-xs uppercase tracking-widest font-medium">Scroll</span>
+          <div className="w-5 h-9 border-2 border-white/30 rounded-full flex items-start justify-center p-1.5">
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              className="w-1.5 h-1.5 bg-white rounded-full"
+            />
+          </div>
         </div>
       </motion.div>
     </section>

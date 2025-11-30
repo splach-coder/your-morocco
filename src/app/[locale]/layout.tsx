@@ -64,11 +64,11 @@ function HeaderWithTranslations({ locale }: { locale: string }) {
 
   const translations = {
     home: t('home'),
+    services: t('services'),
+    tours: t('tours'),
     excursions: t('excursions'),
-    about: t('about'),
+    activities: t('activities'),
     contact: t('contact'),
-    reviews: t('reviews'),
-    blogs: t('blogs'),
   };
 
   return <Header locale={locale} translations={translations} />;

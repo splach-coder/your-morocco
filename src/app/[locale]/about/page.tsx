@@ -7,6 +7,10 @@ import { motion } from 'framer-motion'
 import { easeOut } from 'framer-motion'
 import { Award, Globe, Heart, Shield, Users, MapPin, Clock, Star, ArrowRight } from 'lucide-react'
 import { use } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, Pagination } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/pagination'
 
 export default function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = use(params)
@@ -177,51 +181,134 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+      {/* Reviews Section */}
+      <section
+        className="py-20 text-white relative overflow-hidden"
+        style={{
+          background: 'linear-gradient(to bottom right, var(--color-primary-teal-dark), var(--color-primary-teal), var(--color-primary-teal-light))'
+        }}
+      >
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-terracotta rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-yellow rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-accent-yellow rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-terracotta rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
 
         <div className="container-custom relative z-10">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={containerVariants}
-            className="text-center mb-16"
-          >
-            <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold mb-4">
-              Our Journey
-            </motion.h2>
-            <motion.p variants={itemVariants} className="text-lg text-gray-300 max-w-2xl mx-auto">
-              Milestones that shaped who we are today
-            </motion.p>
-          </motion.div>
+          <div className="max-w-xl mx-auto text-center lg:text-balance mb-12">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold tracking-tight text-white text-balance">
+              Stories from our travelers
+            </h2>
+            <p className="text-base mt-4 font-medium text-gray-200">
+              Real-world examples of how we create unforgettable memories.
+            </p>
+          </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            spaceBetween={24}
+            slidesPerView={1}
+            loop={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true,
+            }}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
+            className="pb-12"
           >
-            {milestones.map((milestone, index) => (
-              <motion.div key={index} variants={itemVariants} className="relative">
-                <motion.div
-                  className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 transition-all duration-300 h-full"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <div className="text-5xl font-bold text-terracotta mb-4">{milestone.year}</div>
-                  <h3 className="text-2xl font-bold mb-3">{milestone.title}</h3>
-                  <p className="text-gray-300 leading-relaxed">{milestone.description}</p>
-                </motion.div>
-                {index < milestones.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-terracotta to-transparent" />
-                )}
-              </motion.div>
+            {[
+              {
+                name: 'Sarah Johnson',
+                role: 'United States',
+                text: 'Absolutely incredible experience! Our guide was knowledgeable and friendly. The Sahara desert tour was the highlight of our trip. Everything was perfectly organized.',
+                avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop'
+              },
+              {
+                name: 'Marco Rossi',
+                role: 'Italy',
+                text: 'Best tour company in Morocco! The attention to detail was impressive. From the comfortable transportation to the authentic local experiences, everything exceeded our expectations.',
+                avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100&auto=format&fit=crop'
+              },
+              {
+                name: 'Emma Williams',
+                role: 'United Kingdom',
+                text: 'A magical journey through Morocco! The team went above and beyond to make our trip special. The cooking class in Marrakech was amazing, and the desert camp was unforgettable.',
+                avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop'
+              },
+              {
+                name: 'David Chen',
+                role: 'Canada',
+                text: 'Professional, reliable, and truly passionate about showing us Morocco. Our guide shared fascinating stories and took us to places we would never have found on our own.',
+                avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=100&auto=format&fit=crop'
+              },
+              {
+                name: 'Sophie Martin',
+                role: 'France',
+                text: 'Une expérience inoubliable! The perfect blend of adventure and comfort. The team was responsive and accommodating to all our needs. Highly recommend!',
+                avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=100&auto=format&fit=crop'
+              },
+              {
+                name: 'James Anderson',
+                role: 'Australia',
+                text: 'From start to finish, this was a flawless experience. The itinerary was well-planned, the accommodations were excellent, and our guide was fantastic.',
+                avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop'
+              }
+            ].map((review, index) => (
+              <SwiperSlide key={index} className="h-auto">
+                <figure className="flex flex-col justify-between h-full p-8 shadow bg-white/10 backdrop-blur-sm outline outline-white/20 rounded-xl">
+                  <div>
+                    <blockquote className="text-base italic font-medium text-white">
+                      "{review.text}"
+                    </blockquote>
+                  </div>
+                  <figcaption className="flex items-center justify-between mt-12">
+                    <div className="flex items-center gap-4">
+                      <div className="relative w-10 h-10 rounded-full overflow-hidden">
+                        <Image
+                          src={review.avatar}
+                          alt={review.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-base font-medium text-white">
+                          {review.name}
+                        </h3>
+                        <p className="text-xs font-medium text-gray-300">
+                          {review.role}
+                        </p>
+                      </div>
+                    </div>
+                  </figcaption>
+                </figure>
+              </SwiperSlide>
             ))}
-          </motion.div>
+          </Swiper>
+
+          {/* Google Reviews Link */}
+          <div className="text-center mt-8">
+            <a
+              href="https://www.google.com/maps/search/your+morocco"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-white text-primary-teal px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all"
+            >
+              <Star className="w-5 h-5 fill-accent-yellow text-accent-yellow" />
+              View on Google Maps
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
         </div>
       </section>
 

@@ -3,11 +3,18 @@
 import { useTranslations } from 'next-intl';
 import Hero from './components/Hero';
 import TourCard from './components/TourCard';
-import { Shield, Users, Heart, Map, TrendingUp, Globe, Award, ArrowRight, Star } from 'lucide-react';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { use } from 'react';
 import { motion, Variants } from 'framer-motion';
+import { siteData } from '@/data/siteData';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Shield, Users, Heart, Map, ArrowRight, Compass, Sparkles, Car, Utensils, Star, Clock, MapPin, CheckCircle } from 'lucide-react';
 
 export default function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = use(params);
@@ -35,77 +42,45 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
     }
   };
 
-  const popularDestinations = [
-    {
-      name: 'Marrakech',
-      image: 'https://images.unsplash.com/photo-1597212618440-806262de4f6b?q=80&w=2072&auto=format&fit=crop',
-      description: 'The Red City of vibrant souks and palaces.'
-    },
-    {
-      name: 'Merzouga',
-      image: 'https://images.unsplash.com/photo-1539020140153-e479b8c22e70?q=80&w=2070&auto=format&fit=crop',
-      description: 'Gateway to the majestic Sahara dunes.'
-    },
-    {
-      name: 'Chefchaouen',
-      image: 'https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?q=80&w=2069&auto=format&fit=crop',
-      description: 'The Blue Pearl nestled in the Rif Mountains.'
-    },
-    {
-      name: 'Fes',
-      image: 'https://images.unsplash.com/photo-1554463529-e27854014799?q=80&w=2070&auto=format&fit=crop',
-      description: 'Ancient medieval architecture and culture.'
-    }
-  ];
+  // Get featured items from actual data
+  const featuredTours = siteData.tours.slice(0, 3);
+  const featuredExcursions = siteData.excursions.slice(0, 4);
+  const featuredActivities = siteData.activities.slice(0, 3);
+  const featuredServices = siteData.services;
 
-  const featuredTours = [
+  const offerings = [
     {
-      id: 1,
-      title: 'Sahara Desert Expedition',
-      description: 'Experience the magic of the Sahara with a camel trek and luxury desert camp under the stars.',
-      duration: '3 Days / 2 Nights',
-      image: 'https://images.unsplash.com/photo-1539020140153-e479b8c22e70?q=80&w=2070&auto=format&fit=crop',
-      location: 'Merzouga',
-      price: '$450',
-      rating: 4.9
+      title: 'Multi-Day Tours',
+      description: 'Immersive journeys across Morocco\'s most iconic destinations',
+      icon: Compass,
+      link: `/${locale}/tours`,
+      count: siteData.tours.length,
+      color: 'from-blue-500 to-blue-600'
     },
     {
-      id: 2,
-      title: 'Marrakech Cultural Tour',
-      description: 'Explore the vibrant souks, historical palaces, and hidden gems of the Red City.',
-      duration: '1 Day',
-      image: 'https://images.unsplash.com/photo-1597212618440-806262de4f6b?q=80&w=2072&auto=format&fit=crop',
-      location: 'Marrakech',
-      price: '$120',
-      rating: 4.8
+      title: 'Day Excursions',
+      description: 'Perfect day trips to explore Morocco\'s hidden gems',
+      icon: Map,
+      link: `/${locale}/excursions`,
+      count: siteData.excursions.length,
+      color: 'from-emerald-500 to-emerald-600'
     },
     {
-      id: 3,
-      title: 'Atlas Mountains Trek',
-      description: 'Hike through stunning valleys and visit traditional Berber villages in the High Atlas.',
-      duration: '2 Days / 1 Night',
-      image: 'https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?q=80&w=2067&auto=format&fit=crop',
-      location: 'Imlil',
-      price: '$280',
-      rating: 5.0
+      title: 'Activities',
+      description: 'Unique experiences from cooking classes to desert adventures',
+      icon: Sparkles,
+      link: `/${locale}/activities`,
+      count: siteData.activities.length,
+      color: 'from-amber-500 to-amber-600'
     },
     {
-      id: 4,
-      title: 'Essaouira Coastal Escape',
-      description: 'Discover the charming coastal town with its windswept beaches and artistic atmosphere.',
-      duration: '1 Day',
-      image: 'https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?q=80&w=2067&auto=format&fit=crop',
-      location: 'Essaouira',
-      price: '$95',
-      rating: 4.7
+      title: 'Services',
+      description: 'Airport transfers, private drivers, and hotel transfers',
+      icon: Car,
+      link: `/${locale}/services`,
+      count: siteData.services.length,
+      color: 'from-purple-500 to-purple-600'
     }
-  ];
-
-  const stats = [
-    { value: '100%', label: t('stats.satisfaction'), icon: TrendingUp },
-    { value: '400+', label: t('stats.destinations'), icon: Globe },
-    { value: '120+', label: t('stats.guides'), icon: Users },
-    { value: '300+', label: t('stats.journeys'), icon: Award },
   ];
 
   const features = [
@@ -140,8 +115,8 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
         searchButton={t('hero.searchButton')}
       />
 
-      {/* Popular Destinations - New Section */}
-      <section className="py-16 bg-gray-50">
+      {/* What We Offer Section - Remodeled */}
+      <section className="py-20 bg-white">
         <div className="container-custom">
           <motion.div
             initial="hidden"
@@ -150,11 +125,12 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
             variants={containerVariants}
             className="text-center mb-16"
           >
+            <span className="text-terracotta font-bold tracking-wider uppercase text-sm mb-2 block">Our Offerings</span>
             <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
-              Popular Destinations
+              Discover Morocco Your Way
             </motion.h2>
             <motion.p variants={itemVariants} className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Explore the most captivating cities and landscapes Morocco has to offer.
+              From multi-day adventures to quick excursions, unique activities, and seamless services
             </motion.p>
           </motion.div>
 
@@ -165,47 +141,126 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
             variants={containerVariants}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
-            {popularDestinations.map((city, index) => (
+            {offerings.map((offering, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="group relative h-96 rounded-xl overflow-hidden cursor-pointer"
+                className="h-full"
               >
-                <Image
-                  src={city.image}
-                  alt={city.name}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-                <div className="absolute bottom-0 left-0 p-6 text-white translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-2xl font-bold mb-2 text-white">{city.name}</h3>
-                  <p className="text-sm text-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                    {city.description}
-                  </p>
-                </div>
+                <Link href={offering.link} className="block h-full">
+                  <div className="group h-full p-8 bg-gray-50 hover:bg-white rounded-xl border border-gray-100 hover:border-gray-200 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-terracotta to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                    <div className="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-terracotta border border-gray-100">
+                      <offering.icon className="w-7 h-7" />
+                    </div>
+
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-terracotta transition-colors">
+                      {offering.title}
+                    </h3>
+
+                    <p className="text-gray-600 text-sm mb-6 leading-relaxed flex-grow">
+                      {offering.description}
+                    </p>
+
+                    <div className="flex items-center gap-2 text-terracotta font-bold text-sm transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                      Explore Options <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Featured Tours Section */}
-      <section className="py-16 bg-white">
+      {/* Featured Tours Section - Premium Carousel */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        {/* Decorative background element */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50 -skew-x-12 translate-x-1/2 z-0" />
+
+        <div className="container-custom relative z-10">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+            className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6"
+          >
+            <div className="max-w-2xl">
+              <span className="text-terracotta font-bold tracking-wider uppercase text-sm mb-2 block">Premium Journeys</span>
+              <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+                Featured Multi-Day Tours
+              </motion.h2>
+              <motion.p variants={itemVariants} className="text-lg text-gray-600">
+                Embark on unforgettable journeys across Morocco's diverse landscapes
+              </motion.p>
+            </div>
+            <motion.div variants={itemVariants}>
+              <Link
+                href={`/${locale}/tours`}
+                className="inline-flex items-center gap-2 text-terracotta font-bold hover:text-terracotta-dark transition-colors group"
+              >
+                View All Tours
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <Swiper
+              modules={[Pagination, Navigation, Autoplay]}
+              spaceBetween={30}
+              slidesPerView={1}
+              navigation
+              pagination={{ clickable: true, dynamicBullets: true }}
+              autoplay={{ delay: 5000, disableOnInteraction: false }}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+              }}
+              className="pb-16 !px-2"
+            >
+              {featuredTours.map((tour) => (
+                <SwiperSlide key={tour.id} className="h-auto">
+                  <TourCard
+                    title={tour.title}
+                    description={tour.description}
+                    duration={tour.duration}
+                    image={tour.image.url}
+                    link={`/${locale}/tours/${tour.id}`}
+                    buttonText="View Details"
+                    location={tour.locations[0]?.name || ''}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Featured Excursions Section - Landscape Cards */}
+      <section className="py-20 bg-gray-50">
         <div className="container-custom">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={containerVariants}
-            className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6"
+            className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6"
           >
             <div className="max-w-2xl">
+              <span className="text-terracotta font-bold tracking-wider uppercase text-sm mb-2 block">Day Trips</span>
               <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
-                {t('featured.title')}
+                Popular Day Excursions
               </motion.h2>
               <motion.p variants={itemVariants} className="text-lg text-gray-600">
-                {t('featured.subtitle')}
+                Perfect day trips from major cities to Morocco's must-see destinations
               </motion.p>
             </div>
             <motion.div variants={itemVariants}>
@@ -213,7 +268,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
                 href={`/${locale}/excursions`}
                 className="inline-flex items-center gap-2 text-terracotta font-bold hover:text-terracotta-dark transition-colors group"
               >
-                {t('featured.exploreAll')}
+                View All Excursions
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </motion.div>
@@ -224,77 +279,135 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
             whileInView="visible"
             viewport={{ once: true }}
             variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8"
           >
-            {featuredTours.map((tour) => (
-              <motion.div key={tour.id} variants={itemVariants}>
-                <TourCard
-                  title={tour.title}
-                  description={tour.description}
-                  duration={tour.duration}
-                  image={tour.image}
-                  link={`/${locale}/excursions/${tour.id}`}
-                  buttonText={t('featured.learnMore')}
-                  location={tour.location}
-                  price={tour.price}
-                  rating={tour.rating}
-                />
+            {featuredExcursions.map((excursion) => (
+              <motion.div
+                key={excursion.id}
+                variants={itemVariants}
+                className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col sm:flex-row h-full border border-gray-100"
+              >
+                <div className="relative w-full sm:w-2/5 h-64 sm:h-auto overflow-hidden">
+                  <Image
+                    src={excursion.image.url}
+                    alt={excursion.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-bold text-gray-800 flex items-center gap-1.5 shadow-sm">
+                    <Clock className="w-3.5 h-3.5 text-terracotta" />
+                    {excursion.duration}
+                  </div>
+                </div>
+                <div className="p-6 sm:p-8 flex flex-col justify-between flex-1">
+                  <div>
+                    <div className="flex items-center gap-2 text-terracotta text-sm font-bold mb-3 uppercase tracking-wide">
+                      <MapPin className="w-4 h-4" />
+                      {excursion.locations[0]?.name}
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 group-hover:text-terracotta transition-colors">
+                      {excursion.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm sm:text-base line-clamp-2 mb-6 leading-relaxed">
+                      {excursion.description}
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between mt-auto pt-6 border-t border-gray-100">
+                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Instant Confirmation</span>
+                    </div>
+                    <Link
+                      href={`/${locale}/excursions/${excursion.id}`}
+                      className="text-terracotta font-bold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+                    >
+                      View Details <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Stats Section - Redesigned with Animation */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-terracotta rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent-yellow rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        </div>
-
-        <div className="container-custom relative z-10">
+      {/* Featured Activities Section - Creative Grid */}
+      <section className="py-20 bg-white">
+        <div className="container-custom">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={containerVariants}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
+            className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6"
           >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="text-center group relative"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300 }}
+            <div className="max-w-2xl">
+              <span className="text-terracotta font-bold tracking-wider uppercase text-sm mb-2 block">Experiences</span>
+              <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+                Unique Experiences
+              </motion.h2>
+              <motion.p variants={itemVariants} className="text-lg text-gray-600">
+                Add special activities to make your Moroccan adventure truly memorable
+              </motion.p>
+            </div>
+            <motion.div variants={itemVariants}>
+              <Link
+                href={`/${locale}/activities`}
+                className="inline-flex items-center gap-2 text-terracotta font-bold hover:text-terracotta-dark transition-colors group"
               >
-                <motion.div
-                  className="flex justify-center mb-6"
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, type: "spring", stiffness: 200 }}
-                >
-                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-terracotta/20 to-accent-yellow/20 backdrop-blur-sm flex items-center justify-center group-hover:from-terracotta group-hover:to-terracotta-dark transition-all duration-500 shadow-lg group-hover:shadow-terracotta/50">
-                    <stat.icon className="w-10 h-10 text-accent-yellow group-hover:text-white transition-colors duration-300" />
-                  </div>
-                </motion.div>
-                <motion.div
-                  className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 + 0.2 }}
-                >
-                  {stat.value}
-                </motion.div>
-                <div className="text-gray-400 font-medium group-hover:text-gray-300 transition-colors">{stat.label}</div>
+                View All Activities
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </motion.div>
+          </motion.div>
 
-                {/* Decorative line */}
-                <motion.div
-                  className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-0 h-1 bg-gradient-to-r from-terracotta to-accent-yellow group-hover:w-full transition-all duration-500"
-                />
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]"
+          >
+            {featuredActivities.map((activity, index) => (
+              <motion.div
+                key={activity.id}
+                variants={itemVariants}
+                className={`group relative rounded-xl overflow-hidden cursor-pointer shadow-lg ${index === 0 ? 'md:col-span-2 md:row-span-2' : ''}`}
+              >
+                <Link href={`/${locale}/activities/${activity.id}`} className="block h-full w-full">
+                  <Image
+                    src={activity.image.url}
+                    alt={activity.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
+
+                  <div className="absolute top-6 right-6 bg-white/20 backdrop-blur-md p-2 rounded-full border border-white/30 group-hover:bg-white group-hover:text-terracotta text-white transition-all duration-300">
+                    <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 p-8 w-full">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="bg-terracotta text-white text-xs font-bold px-3 py-1 rounded-full">
+                        {activity.duration}
+                      </span>
+                      {activity.locations && activity.locations.length > 0 && (
+                        <span className="text-white/80 text-xs font-medium flex items-center gap-1">
+                          <MapPin className="w-3 h-3" /> {activity.locations[0]}
+                        </span>
+                      )}
+                    </div>
+
+                    <h3 className={`font-bold text-white mb-2 leading-tight ${index === 0 ? 'text-3xl md:text-4xl' : 'text-xl'}`}>
+                      {activity.title}
+                    </h3>
+
+                    <p className={`text-gray-200 line-clamp-2 text-sm md:text-base transform transition-all duration-500 ${index === 0 ? 'opacity-100' : 'opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0'}`}>
+                      {activity.description}
+                    </p>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </motion.div>
@@ -302,16 +415,21 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 bg-white">
+      <section
+        className="py-20 text-white"
+        style={{
+          background: 'linear-gradient(to bottom right, var(--color-primary-teal-dark), var(--color-primary-teal-light), var(--color-primary-teal-dark))'
+        }}
+      >
         <div className="container-custom">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={containerVariants}
-            className="text-center mb-20"
+            className="text-center mb-16"
           >
-            <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+            <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold mb-6 text-white">
               {t('whyChooseUs.title')}
             </motion.h2>
             <motion.div variants={itemVariants} className="w-24 h-1.5 bg-terracotta mx-auto rounded-full" />
@@ -328,15 +446,15 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="p-8 rounded-xl bg-gray-50 hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 group"
+                className="p-8 rounded-xl bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-all duration-300 border border-white/10 group"
               >
-                <div className="w-14 h-14 bg-terracotta/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gradient-to-br group-hover:from-emerald-500 group-hover:to-emerald-600 transition-all duration-300">
-                  <feature.icon className="w-7 h-7 text-terracotta group-hover:text-white transition-colors" />
+                <div className="w-14 h-14 bg-terracotta/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-terracotta transition-all duration-300">
+                  <feature.icon className="w-7 h-7 text-terracotta transition-colors" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl font-bold mb-3 text-white">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>
@@ -345,7 +463,131 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
         </div>
       </section>
 
-      {/* CTA Section - Redesigned */}
+      {/* Reviews Section */}
+      <section className="py-20 bg-gray-50 overflow-hidden">
+        <div className="container-custom">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+            className="text-center mb-12"
+          >
+            <span className="text-terracotta font-bold tracking-wider uppercase text-sm mb-2 block">Testimonials</span>
+            <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+              Stories from our travelers
+            </motion.h2>
+            <motion.p variants={itemVariants} className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Real-world examples of how we create unforgettable memories.
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <Swiper
+              modules={[Autoplay, Pagination]}
+              spaceBetween={24}
+              slidesPerView={1}
+              loop={true}
+              autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+              }}
+              pagination={{
+                clickable: true,
+                dynamicBullets: true,
+              }}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+              }}
+              className="pb-16 !px-2"
+            >
+              {[
+                {
+                  name: 'Sarah Johnson',
+                  role: 'United States',
+                  text: 'Absolutely incredible experience! Our guide was knowledgeable and friendly. The Sahara desert tour was the highlight of our trip. Everything was perfectly organized.',
+                  avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop'
+                },
+                {
+                  name: 'Marco Rossi',
+                  role: 'Italy',
+                  text: 'Best tour company in Morocco! The attention to detail was impressive. From the comfortable transportation to the authentic local experiences, everything exceeded our expectations.',
+                  avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100&auto=format&fit=crop'
+                },
+                {
+                  name: 'Emma Williams',
+                  role: 'United Kingdom',
+                  text: 'A magical journey through Morocco! The team went above and beyond to make our trip special. The cooking class in Marrakech was amazing, and the desert camp was unforgettable.',
+                  avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop'
+                },
+                {
+                  name: 'David Chen',
+                  role: 'Canada',
+                  text: 'Professional, reliable, and truly passionate about showing us Morocco. Our guide shared fascinating stories and took us to places we would never have found on our own.',
+                  avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=100&auto=format&fit=crop'
+                },
+                {
+                  name: 'Sophie Martin',
+                  role: 'France',
+                  text: 'Une expérience inoubliable! The perfect blend of adventure and comfort. The team was responsive and accommodating to all our needs. Highly recommend!',
+                  avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=100&auto=format&fit=crop'
+                },
+                {
+                  name: 'James Anderson',
+                  role: 'Australia',
+                  text: 'From start to finish, this was a flawless experience. The itinerary was well-planned, the accommodations were excellent, and our guide was fantastic.',
+                  avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop'
+                }
+              ].map((review, index) => (
+                <SwiperSlide key={index} className="h-auto">
+                  <figure className="flex flex-col justify-between h-full p-8 shadow-lg bg-white rounded-xl border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                    <div>
+                      <div className="flex gap-1 mb-4">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-accent-yellow text-accent-yellow" />
+                        ))}
+                      </div>
+                      <blockquote className="text-base italic font-medium text-gray-700 leading-relaxed">
+                        "{review.text}"
+                      </blockquote>
+                    </div>
+                    <figcaption className="flex items-center gap-4 mt-8 pt-6 border-t border-gray-100">
+                      <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                        <Image
+                          src={review.avatar}
+                          alt={review.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-base font-bold text-gray-900">
+                          {review.name}
+                        </h3>
+                        <p className="text-xs font-medium text-gray-500">
+                          {review.role}
+                        </p>
+                      </div>
+                    </figcaption>
+                  </figure>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
       <section className="py-20 bg-white">
         <div className="container-custom">
           <motion.div
@@ -363,7 +605,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
 
-            <div className="absolute inset-0 flex items-center">
+            <div className="absolute inset-0 flex items-center ">
               <div className="px-8 md:px-16 max-w-2xl">
                 <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
                   {t('cta.title')}

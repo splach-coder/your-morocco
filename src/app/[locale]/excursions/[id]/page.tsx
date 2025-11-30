@@ -1,24 +1,45 @@
 'use client';
 
-import { use } from 'react';
+import { useState, use } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Clock, Users, MapPin, Check, X, Star, MessageCircle } from 'lucide-react';
+import { ArrowLeft, Clock, Users, MapPin, Check, X, Star, MessageCircle, Calendar, Shield, Info } from 'lucide-react';
 import TourCard from '../../components/TourCard';
-import { excursions } from '@/data/excursions';
+import GallerySlider from '../../components/GallerySlider';
+import MobileBookingBar from '../../components/MobileBookingBar';
+import Lightbox from '../../components/Lightbox';
+import { siteData } from '@/data/siteData';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+// Mock reviews generator
+const getReviewsForExcursion = (id: number, title: string) => {
+    const reviews = [
+        { name: "John D.", country: "USA", rating: 5, text: `Great day trip! The ${title} was beautiful and our driver was excellent.` },
+        { name: "Maria S.", country: "Spain", rating: 5, text: "Highly recommend this excursion. Very well organized and fun." },
+        { name: "Ahmed K.", country: "UAE", rating: 4, text: "Good experience, beautiful scenery. Lunch was delicious." },
+        { name: "Sophie L.", country: "France", rating: 5, text: "Une journée parfaite. Le guide était très gentil." },
+        { name: "Thomas M.", country: "Germany", rating: 5, text: "Everything was on time and as described. Great value." },
+    ];
+    return reviews.slice(0, 3 + (id % 3));
+};
 
 export default function ExcursionDetailPage({ params }: { params: Promise<{ locale: string; id: string }> }) {
     const { locale, id } = use(params);
     const t = useTranslations('ExcursionDetailPage');
+    const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+    const [photoIndex, setPhotoIndex] = useState(0);
 
-    const tour = excursions.find(e => e.id === Number(id));
+    const tour = siteData.excursions.find(e => e.id === Number(id));
 
     if (!tour) {
         return (
             <div className="pt-32 pb-16 min-h-screen bg-gray-50">
                 <div className="container-custom text-center">
-                    <h1 className="text-4xl font-bold text-gray-900 mb-4">Tour Not Found</h1>
+                    <h1 className="text-4xl font-bold text-gray-900 mb-4">Excursion Not Found</h1>
                     <Link href={`/${locale}/excursions`} className="text-primary-teal hover:text-primary-teal-dark">
                         {t('backToExcursions')}
                     </Link>
@@ -27,210 +48,316 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
         );
     }
 
+    const reviews = getReviewsForExcursion(tour.id, tour.title);
+
     // Get related tours (excluding current tour)
-    const relatedTours = excursions
+    const relatedTours = siteData.excursions
         .filter(t => t.id !== tour.id)
         .slice(0, 3);
 
-    const whatsappNumber = '212123456789'; // Replace with actual number
-    const bookingMessage = encodeURIComponent(`Hello, I am interested in booking the tour: ${tour.title} (Code: ${tour.trip_code}). Please provide more information.`);
+    const whatsappNumber = '212123456789';
+    const bookingMessage = encodeURIComponent(`Hello, I am interested in booking the excursion: ${tour.title} (Code: ${tour.trip_code}). Please provide more information.`);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${bookingMessage}`;
 
+    // Sample program steps
+    const programSteps = [
+        { time: "08:00", title: "Pick up", description: "Pick up from your hotel or riad in Marrakech" },
+        { time: "10:00", title: "Arrival", description: "Arrive at the destination and meet your local guide" },
+        { time: "10:30", title: "Activity", description: "Guided tour of the main attractions and photo opportunities" },
+        { time: "13:00", title: "Lunch", description: "Traditional lunch at a local restaurant (optional)" },
+        { time: "14:30", title: "Free Time", description: "Free time to explore the local market or relax" },
+        { time: "16:00", title: "Return", description: "Depart for Marrakech" },
+        { time: "18:00", title: "Drop off", description: "Drop off at your hotel or riad" }
+    ];
+
+    // Gallery Images
+    const galleryImages = [
+        { url: tour.image.url, alt: tour.title },
+        { url: "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?q=80&w=1200", alt: "Detail 1" },
+        { url: "https://images.unsplash.com/photo-1597212618440-806262de4f6b?q=80&w=1200", alt: "Detail 2" },
+        { url: "https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?q=80&w=1200", alt: "Detail 3" },
+        { url: "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=1200", alt: "Detail 4" },
+    ];
+
+    const openLightbox = (index: number) => {
+        setPhotoIndex(index);
+        setIsLightboxOpen(true);
+    };
+
     return (
-        <div className="min-h-screen bg-gray-50">
-            {/* Hero Section - Full height behind header */}
-            <div className="relative h-screen min-h-[600px] max-h-[800px]">
+        <div className="min-h-screen bg-white">
+            {/* Hero Section - Half Screen Banner */}
+            <div className="relative h-[50vh] min-h-[400px] w-full overflow-hidden">
                 <Image
                     src={tour.image.url}
-                    alt={tour.image.alt || tour.title}
+                    alt={tour.title}
                     fill
                     className="object-cover"
                     priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-                <div className="absolute inset-0 flex items-end pb-20">
+                <div className="absolute inset-0 flex items-end pb-12">
                     <div className="container-custom w-full">
                         <Link
                             href={`/${locale}/excursions`}
-                            className="inline-flex items-center gap-2 text-white hover:text-accent-yellow transition-colors mb-6"
+                            className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-6 backdrop-blur-sm bg-black/20 px-4 py-2 rounded-full w-fit"
                         >
-                            <ArrowLeft className="w-5 h-5" />
-                            {t('backToExcursions')}
+                            <ArrowLeft className="w-4 h-4" />
+                            <span className="text-sm font-medium">{t('backToExcursions')}</span>
                         </Link>
 
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">{tour.title}</h1>
+                        <div className="max-w-4xl">
+                            <div className="flex items-center gap-3 mb-4">
+                                <span className="bg-terracotta text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                                    Day Trip
+                                </span>
+                                {tour.locations && tour.locations.length > 0 && (
+                                    <span className="text-white/90 text-sm font-medium flex items-center gap-1 bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full">
+                                        <MapPin className="w-3.5 h-3.5" />
+                                        {tour.locations[0].name}
+                                    </span>
+                                )}
+                            </div>
 
-                        <div className="flex flex-wrap items-center gap-6 text-white">
-                            <div className="flex items-center gap-2">
-                                <MapPin className="w-5 h-5 text-accent-yellow" />
-                                <span>{tour.locations.map(l => l.name).join(', ')}</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <Clock className="w-5 h-5 text-accent-yellow" />
-                                <span>{tour.duration.display_text}</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <Users className="w-5 h-5 text-accent-yellow" />
-                                <span>{tour.group_size.display_text}</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <Star className="w-5 h-5 text-accent-yellow fill-accent-yellow" />
-                                <span>{tour.reviews.display_text}</span>
+                            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight shadow-sm">{tour.title}</h1>
+
+                            <div className="flex flex-wrap gap-6 text-white/90">
+                                <div className="flex items-center gap-2">
+                                    <Clock className="w-5 h-5 text-accent-yellow" />
+                                    <span className="font-medium">{tour.duration}</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <Users className="w-5 h-5 text-accent-yellow" />
+                                    <span className="font-medium">{tour.group_size || 'Small Group'}</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <Star className="w-5 h-5 text-accent-yellow fill-accent-yellow" />
+                                    <span className="font-medium">4.9</span>
+                                    <span className="text-sm opacity-80">({reviews.length} reviews)</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="container-custom py-16">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                    {/* Main Content */}
-                    <div className="lg:col-span-2 space-y-12">
-                        {/* Overview */}
-                        <section className="bg-white rounded-2xl p-8 shadow-sm">
-                            <h2 className="text-3xl font-bold text-gray-900 mb-6">{t('overview')}</h2>
-                            <p className="text-gray-700 leading-relaxed text-lg">{tour.content.overview}</p>
-                        </section>
+            <div className="container-custom py-12">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+                    {/* Left Column */}
+                    <div className="lg:col-span-2 space-y-16">
 
-                        {/* Activities */}
-                        {tour.activities && tour.activities.length > 0 && (
-                            <section className="bg-white rounded-2xl p-8 shadow-sm">
-                                <h2 className="text-2xl font-bold text-gray-900 mb-6">Activities</h2>
-                                <div className="flex flex-wrap gap-3">
-                                    {tour.activities.map((activity, index) => (
-                                        <span key={index} className="px-4 py-2 bg-gray-100 rounded-full text-gray-700 font-medium">
-                                            {activity.name}
-                                        </span>
+                        {/* Gallery Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-[400px] rounded-2xl overflow-hidden">
+                            <div
+                                className="md:col-span-2 md:row-span-2 relative h-full cursor-pointer group"
+                                onClick={() => openLightbox(0)}
+                            >
+                                <Image
+                                    src={galleryImages[0].url}
+                                    alt={galleryImages[0].alt}
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+                            </div>
+                            {galleryImages.slice(1, 4).map((img, idx) => (
+                                <div
+                                    key={idx}
+                                    className="relative h-full hidden md:block cursor-pointer group"
+                                    onClick={() => openLightbox(idx + 1)}
+                                >
+                                    <Image
+                                        src={img.url}
+                                        alt={img.alt}
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                    />
+                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+                                </div>
+                            ))}
+                            <div
+                                className="relative h-full hidden md:block cursor-pointer group"
+                                onClick={() => openLightbox(4)}
+                            >
+                                <Image
+                                    src={galleryImages[4].url}
+                                    alt={galleryImages[4].alt}
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-black/50 flex items-center justify-center group-hover:bg-black/40 transition-colors">
+                                    <span className="text-white font-bold text-lg">+5 Photos</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Description */}
+                        <section>
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">Experience</h2>
+                            <p className="text-gray-700 leading-relaxed text-lg mb-8">{tour.description}</p>
+
+                            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                                <h3 className="font-bold text-gray-900 mb-4">Highlights</h3>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    {tour.highlights?.map((highlight, index) => (
+                                        <div key={index} className="flex items-start gap-2">
+                                            <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                                            <span className="text-gray-700 text-sm">{highlight}</span>
+                                        </div>
                                     ))}
                                 </div>
-                            </section>
-                        )}
+                            </div>
+                        </section>
 
-                        {/* Itinerary */}
-                        <section className="bg-white rounded-2xl p-8 shadow-sm">
-                            <h2 className="text-3xl font-bold text-gray-900 mb-6">{t('itinerary')}</h2>
-                            <div className="space-y-8">
-                                {Object.entries(tour.content.itinerary).map(([key, day], index) => (
-                                    <div key={key} className="relative pl-8 border-l-2 border-primary-teal/30 last:border-0">
-                                        <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary-teal" />
-                                        <h3 className="text-xl font-bold text-gray-900 mb-4">{day.title}</h3>
-                                        <ul className="space-y-2">
-                                            {day.activities.map((activity, actIndex) => (
-                                                <li key={actIndex} className="text-gray-600 leading-relaxed flex items-start gap-2">
-                                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0" />
-                                                    <span>{activity}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
+                        {/* Program */}
+                        <section>
+                            <h2 className="text-2xl font-bold text-gray-900 mb-8">Typical Itinerary</h2>
+                            <div className="space-y-8 relative before:absolute before:inset-0 before:ml-2.5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
+                                {programSteps.map((step, index) => (
+                                    <div key={index} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                                        <div className="flex items-center justify-center w-5 h-5 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-terracotta text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                                        </div>
+                                        <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded-xl border border-gray-100 shadow-sm">
+                                            <div className="flex items-center justify-between mb-1">
+                                                <h3 className="font-bold text-gray-900">{step.title}</h3>
+                                                <time className="font-mono text-xs text-gray-500">{step.time}</time>
+                                            </div>
+                                            <p className="text-gray-600 text-sm">{step.description}</p>
+                                        </div>
                                     </div>
                                 ))}
                             </div>
                         </section>
 
                         {/* Included/Excluded */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <section className="bg-white rounded-2xl p-8 shadow-sm">
-                                <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('included')}</h2>
-                                <ul className="space-y-3">
-                                    {tour.content.includes.map((item, index) => (
-                                        <li key={index} className="flex items-start gap-3">
-                                            <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                                            <span className="text-gray-700">{item}</span>
-                                        </li>
-                                    ))}
+                        <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                    <Check className="w-5 h-5 text-green-500" /> Included
+                                </h3>
+                                <ul className="space-y-2">
+                                    <li className="flex items-center gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500" /> Hotel pickup and drop-off</li>
+                                    <li className="flex items-center gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500" /> Transport by air-conditioned vehicle</li>
+                                    <li className="flex items-center gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500" /> Driver/Guide</li>
+                                    <li className="flex items-center gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500" /> Local taxes</li>
                                 </ul>
-                            </section>
-
-                            <section className="bg-white rounded-2xl p-8 shadow-sm">
-                                <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('excluded')}</h2>
-                                <ul className="space-y-3">
-                                    {tour.content.excludes.map((item, index) => (
-                                        <li key={index} className="flex items-start gap-3">
-                                            <X className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
-                                            <span className="text-gray-700">{item}</span>
-                                        </li>
-                                    ))}
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                    <X className="w-5 h-5 text-red-500" /> Not Included
+                                </h3>
+                                <ul className="space-y-2">
+                                    <li className="flex items-center gap-2 text-sm text-gray-600"><X className="w-4 h-4 text-red-500" /> Lunch and drinks</li>
+                                    <li className="flex items-center gap-2 text-sm text-gray-600"><X className="w-4 h-4 text-red-500" /> Entrance fees to monuments</li>
+                                    <li className="flex items-center gap-2 text-sm text-gray-600"><X className="w-4 h-4 text-red-500" /> Tips</li>
                                 </ul>
-                            </section>
-                        </div>
+                            </div>
+                        </section>
 
-                        {/* FAQs */}
-                        {tour.content.faqs && tour.content.faqs.length > 0 && (
-                            <section className="bg-white rounded-2xl p-8 shadow-sm">
-                                <h2 className="text-3xl font-bold text-gray-900 mb-6">FAQ</h2>
-                                <div className="space-y-4">
-                                    {tour.content.faqs.map((faq, index) => (
-                                        <div key={index} className="border-b border-gray-100 last:border-0 pb-4 last:pb-0">
-                                            <h3 className="font-bold text-gray-900 mb-2">{faq.question}</h3>
-                                            <p className="text-gray-600">{faq.answer}</p>
+                        {/* Reviews Grid */}
+                        <section>
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">Guest Reviews</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {reviews.map((review, index) => (
+                                    <div key={index} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                                        <div className="flex justify-between items-start mb-4">
+                                            <div>
+                                                <h4 className="font-bold text-gray-900">{review.name}</h4>
+                                                <span className="text-xs text-gray-500">{review.country}</span>
+                                            </div>
+                                            <div className="flex gap-0.5">
+                                                {[...Array(review.rating)].map((_, i) => (
+                                                    <Star key={i} className="w-4 h-4 text-accent-yellow fill-accent-yellow" />
+                                                ))}
+                                            </div>
                                         </div>
-                                    ))}
-                                </div>
-                            </section>
-                        )}
-
-                        {/* Map */}
-                        {tour.map && (
-                            <section className="bg-white rounded-2xl p-8 shadow-sm overflow-hidden">
-                                <h2 className="text-3xl font-bold text-gray-900 mb-6">Map</h2>
-                                <div className="aspect-video w-full rounded-xl overflow-hidden">
-                                    <iframe
-                                        src={tour.map.embed_url}
-                                        width="100%"
-                                        height="100%"
-                                        style={{ border: 0 }}
-                                        allowFullScreen
-                                        loading="lazy"
-                                        referrerPolicy="no-referrer-when-downgrade"
-                                    />
-                                </div>
-                            </section>
-                        )}
+                                        <p className="text-gray-600 text-sm italic">"{review.text}"</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
                     </div>
 
-                    {/* Sidebar */}
+                    {/* Right Column (Sidebar) */}
                     <div className="lg:col-span-1">
                         <div className="sticky top-32 space-y-6">
+
                             {/* Booking Card */}
-                            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-primary-teal">
-                                <div className="text-center mb-6">
-                                    {tour.price && (
-                                        <div className="text-4xl font-bold text-primary-teal mb-2">
-                                            {tour.price}
-                                        </div>
-                                    )}
-                                    <div className="text-gray-600">{t('perPerson')}</div>
+                            <div className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100 overflow-hidden relative">
+                                <div className="absolute top-0 left-0 w-full h-2 bg-terracotta" />
+
+                                <div className="mb-6">
+                                    <span className="text-gray-500 text-sm font-medium uppercase tracking-wide">Starting from</span>
+                                    <div className="flex items-baseline gap-1 mt-1">
+                                        <span className="text-3xl font-bold text-gray-900">€XXX</span>
+                                        <span className="text-gray-500">/ person</span>
+                                    </div>
                                 </div>
 
-                                <div className="space-y-4 mb-6">
-                                    <div className="flex items-center justify-between py-3 border-b border-gray-100">
-                                        <span className="text-gray-600">{t('duration')}</span>
-                                        <span className="font-semibold text-gray-900">{tour.duration.display_text}</span>
+                                <div className="space-y-4 mb-8">
+                                    <div className="flex items-center gap-3 text-gray-700">
+                                        <Calendar className="w-5 h-5 text-terracotta" />
+                                        <span>Daily departures</span>
                                     </div>
-                                    <div className="flex items-center justify-between py-3 border-b border-gray-100">
-                                        <span className="text-gray-600">{t('groupSize')}</span>
-                                        <span className="font-semibold text-gray-900">{tour.group_size.display_text}</span>
+                                    <div className="flex items-center gap-3 text-gray-700">
+                                        <Shield className="w-5 h-5 text-terracotta" />
+                                        <span>Free cancellation (24h)</span>
                                     </div>
-                                    <div className="flex items-center justify-between py-3 border-b border-gray-100">
-                                        <span className="text-gray-600">Trip Code</span>
-                                        <span className="font-semibold text-gray-900">{tour.trip_code}</span>
+                                    <div className="flex items-center gap-3 text-gray-700">
+                                        <MessageCircle className="w-5 h-5 text-terracotta" />
+                                        <span>Instant confirmation</span>
                                     </div>
-
                                 </div>
 
                                 <a
                                     href={whatsappUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="block w-full bg-[#25D366] hover:bg-[#20bd5a] text-white text-center font-bold py-4 rounded-full transition-all hover:shadow-lg flex items-center justify-center gap-2"
+                                    className="w-full bg-[#075E54] hover:bg-[#128C7E] text-white text-center font-bold py-4 rounded-xl transition-all hover:shadow-lg flex items-center justify-center gap-2 mb-4"
                                 >
                                     <MessageCircle className="w-5 h-5" />
                                     Book via WhatsApp
                                 </a>
 
-                                <p className="text-center text-sm text-gray-500 mt-4">
-                                    {t('contactUs')}
+                                <p className="text-xs text-center text-gray-500">
+                                    No payment required to inquire.
+                                </p>
+                            </div>
+
+                            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                                <h3 className="font-bold text-gray-900 mb-4">Why book with us?</h3>
+                                <ul className="space-y-4">
+                                    <li className="flex items-start gap-3">
+                                        <Shield className="w-5 h-5 text-terracotta mt-0.5" />
+                                        <div>
+                                            <h4 className="font-bold text-sm text-gray-900">Best Price Guarantee</h4>
+                                            <p className="text-xs text-gray-500">We match any competitor's price.</p>
+                                        </div>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <Calendar className="w-5 h-5 text-terracotta mt-0.5" />
+                                        <div>
+                                            <h4 className="font-bold text-sm text-gray-900">Free Cancellation</h4>
+                                            <p className="text-xs text-gray-500">Up to 24 hours before the trip.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <Info className="w-5 h-5 text-gray-400" />
+                                    <h3 className="font-bold text-gray-900">Important Info</h3>
+                                </div>
+                                <p className="text-sm text-gray-600 mb-2">
+                                    <span className="font-semibold">Departure:</span> 08:00 AM
+                                </p>
+                                <p className="text-sm text-gray-600 mb-2">
+                                    <span className="font-semibold">Return:</span> Approx 06:00 PM
+                                </p>
+                                <p className="text-sm text-gray-600">
+                                    <span className="font-semibold">Wear:</span> Comfortable shoes and clothing.
                                 </p>
                             </div>
                         </div>
@@ -239,9 +366,9 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
 
                 {/* Related Tours */}
                 {relatedTours.length > 0 && (
-                    <section className="mt-20">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
-                            {t('relatedTours')}
+                    <section className="mt-20 pt-12 border-t border-gray-200">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-8">
+                            Similar Excursions
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {relatedTours.map((relatedTour) => (
@@ -249,20 +376,32 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
                                     key={relatedTour.id}
                                     title={relatedTour.title}
                                     description={relatedTour.description}
-                                    duration={relatedTour.duration.display_text}
+                                    duration={relatedTour.duration}
                                     image={relatedTour.image.url}
                                     link={`/${locale}/excursions/${relatedTour.id}`}
                                     buttonText={t('details')}
                                     location={relatedTour.locations[0]?.name}
-                                    price={relatedTour.price}
-
-                                    rating={4.9}
+                                    rating={4.8}
                                 />
                             ))}
                         </div>
                     </section>
                 )}
             </div>
+
+            <MobileBookingBar
+                price="€XXX"
+                whatsappUrl={whatsappUrl}
+            />
+
+            <Lightbox
+                isOpen={isLightboxOpen}
+                onClose={() => setIsLightboxOpen(false)}
+                images={galleryImages}
+                currentIndex={photoIndex}
+                onNext={() => setPhotoIndex((prev) => (prev + 1) % galleryImages.length)}
+                onPrev={() => setPhotoIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)}
+            />
         </div>
     );
 }

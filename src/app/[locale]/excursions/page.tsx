@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import TourCard from '../components/TourCard';
 import { Search, Filter, X } from 'lucide-react';
 import Image from 'next/image';
-import { excursions } from '@/data/excursions';
+import { siteData } from '@/data/siteData';
 
 export default function ExcursionsPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = use(params);
@@ -14,43 +14,35 @@ export default function ExcursionsPage({ params }: { params: Promise<{ locale: s
     const searchParams = useSearchParams();
     const [searchQuery, setSearchQuery] = useState(searchParams.get('search') || '');
     const [selectedLocation, setSelectedLocation] = useState('all');
-    const [selectedPrice, setSelectedPrice] = useState('all');
 
     // Extract unique locations from excursions
-    const locations = ['all', ...Array.from(new Set(excursions.flatMap(t => t.locations.map(l => l.name))))];
+    const locations = ['all', ...Array.from(new Set(
+        siteData.excursions.flatMap(t => t.locations.map(l => l.name.trim()))
+    ))].sort();
 
-    const filteredTours = excursions.filter(tour => {
+    const filteredTours = siteData.excursions.filter(tour => {
         const matchesSearch = searchQuery === '' ||
             tour.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
             tour.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
             tour.locations.some(l => l.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
-        const matchesLocation = selectedLocation === 'all' || tour.locations.some(l => l.name === selectedLocation);
+        const matchesLocation = selectedLocation === 'all' ||
+            tour.locations.some(l => l.name.trim().toLowerCase() === selectedLocation.toLowerCase());
 
-        // Parse price string to number for filtering (assuming format "$120")
-        const priceValue = tour.price ? parseInt(tour.price.replace(/[^0-9]/g, '')) : 0;
-
-        const matchesPrice = selectedPrice === 'all' ||
-            (selectedPrice === 'low' && priceValue < 150) ||
-            (selectedPrice === 'medium' && priceValue >= 150 && priceValue < 300) ||
-            (selectedPrice === 'high' && priceValue >= 300);
-
-        return matchesSearch && matchesLocation && matchesPrice;
+        return matchesSearch && matchesLocation;
     });
 
     const clearFilters = () => {
         setSearchQuery('');
         setSelectedLocation('all');
-        setSelectedPrice('all');
     };
 
-    const hasActiveFilters = searchQuery !== '' || selectedLocation !== 'all' ||
-        selectedPrice !== 'all';
+    const hasActiveFilters = searchQuery !== '' || selectedLocation !== 'all';
 
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section - Full height behind header */}
-            <section className="relative h-[50vh] min-h-[400px] max-h-[600px]">
+            <section className="relative h-[60vh] min-h-[400px] max-h-[600px]">
                 <Image
                     src="https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?q=80&w=2067&auto=format&fit=crop"
                     alt="Excursions"
@@ -105,20 +97,6 @@ export default function ExcursionsPage({ params }: { params: Promise<{ locale: s
                             </select>
                         </div>
 
-                        {/* Price Filter */}
-                        <div className="min-w-[160px]">
-                            <select
-                                value={selectedPrice}
-                                onChange={(e) => setSelectedPrice(e.target.value)}
-                                className="w-full px-3 py-2.5 border border-gray-200 rounded-lg focus:border-primary-teal focus:ring-1 focus:ring-primary-teal focus:outline-none transition-all text-sm text-gray-700 bg-white cursor-pointer"
-                            >
-                                <option value="all">{t('filter.price')}: {t('filter.all')}</option>
-                                <option value="low">Under $150</option>
-                                <option value="medium">$150 - $300</option>
-                                <option value="high">Over $300</option>
-                            </select>
-                        </div>
-
                         {/* Clear Filters Button */}
                         {hasActiveFilters && (
                             <>
@@ -141,7 +119,7 @@ export default function ExcursionsPage({ params }: { params: Promise<{ locale: s
                 {/* Results Count */}
                 <div className="mb-6 text-center">
                     <p className="text-gray-600 text-sm">
-                        Showing <span className="font-bold text-primary-teal">{filteredTours.length}</span> of {excursions.length} excursions
+                        Showing <span className="font-bold text-primary-teal">{filteredTours.length}</span> of {siteData.excursions.length} excursions
                     </p>
                 </div>
 
@@ -153,13 +131,12 @@ export default function ExcursionsPage({ params }: { params: Promise<{ locale: s
                                 key={tour.id}
                                 title={tour.title}
                                 description={tour.description}
-                                duration={tour.duration.display_text}
+                                duration={tour.duration}
                                 image={tour.image.url}
                                 link={`/${locale}/excursions/${tour.id}`}
                                 buttonText={t('details')}
                                 location={tour.locations[0]?.name}
-                                price={tour.price}
-                                rating={4.9} // Mock rating as it's not in the new structure yet
+                                rating={4.9}
                             />
                         ))}
                     </div>

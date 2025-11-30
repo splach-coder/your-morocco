@@ -10,11 +10,11 @@ interface HeaderProps {
   locale: string;
   translations: {
     home: string;
+    services: string;
+    tours: string;
     excursions: string;
-    about: string;
+    activities: string;
     contact: string;
-    reviews: string;
-    blogs: string;
   };
 }
 
@@ -36,9 +36,11 @@ export default function Header({ locale, translations }: HeaderProps) {
 
   const navigationLinks = [
     { href: `/${locale}`, label: translations.home },
+    { href: `/${locale}/services`, label: translations.services },
+    { href: `/${locale}/tours`, label: translations.tours },
     { href: `/${locale}/excursions`, label: translations.excursions },
-    { href: `/${locale}/about`, label: translations.about },
-    { href: `/${locale}/contact`, label: translations.contact },
+    { href: `/${locale}/activities`, label: translations.activities },
+    { href: `/${locale}/blog`, label: 'Blog' },
   ];
 
   const switchLocale = (newLocale: string) => {
@@ -70,9 +72,10 @@ export default function Header({ locale, translations }: HeaderProps) {
                 <NextImage
                   src="/images/logo.png"
                   alt="Your Morocco Logo"
-                  fill
-                  className="object-contain"
+                  width={180}
+                  height={54}
                   priority
+                  className="object-contain"
                 />
               </div>
             </div>
