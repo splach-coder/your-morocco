@@ -37,7 +37,7 @@ export default function GallerySlider({ images, title }: GallerySliderProps) {
     };
 
     return (
-        <section className="py-12 bg-white">
+        <section className="pb-12">
             <div className="container-custom">
                 {title && (
                     <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">

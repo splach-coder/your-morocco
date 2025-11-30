@@ -4,7 +4,7 @@ import { use } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Calendar, Clock, Tag, Share2, Facebook, Twitter, Linkedin, MessageCircle } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar, Clock, Tag, Share2, Facebook, Twitter, Linkedin, MessageCircle } from 'lucide-react';
 import { blogPosts } from '@/data/blogData';
 import ReactMarkdown from 'react-markdown';
 
@@ -61,21 +61,6 @@ export default function BlogPostPage({ params }: { params: Promise<{ locale: str
                             </h1>
 
                             <div className="flex flex-wrap items-center gap-6 text-white/90">
-                                <div className="flex items-center gap-3">
-                                    <div className="w-12 h-12 rounded-full overflow-hidden relative">
-                                        <Image
-                                            src={post.author.avatar}
-                                            alt={post.author.name}
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                    <div>
-                                        <p className="font-bold text-white">{post.author.name}</p>
-                                        <p className="text-sm text-white/80">{post.author.role}</p>
-                                    </div>
-                                </div>
-
                                 <div className="flex items-center gap-2">
                                     <Calendar className="w-5 h-5" />
                                     <span>{new Date(post.published_date).toLocaleDateString('en-US', {
@@ -151,26 +136,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ locale: str
                             </ReactMarkdown>
                         </div>
 
-                        {/* Author Bio */}
-                        <div className="mt-16 p-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl border border-gray-200">
-                            <div className="flex items-start gap-6">
-                                <div className="w-20 h-20 rounded-full overflow-hidden relative flex-shrink-0">
-                                    <Image
-                                        src={post.author.avatar}
-                                        alt={post.author.name}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
-                                <div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-1">Written by {post.author.name}</h3>
-                                    <p className="text-primary-teal font-medium mb-3">{post.author.role}</p>
-                                    <p className="text-gray-600">
-                                        Passionate about sharing the beauty and culture of Morocco with travelers from around the world.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </article>
@@ -221,29 +187,44 @@ export default function BlogPostPage({ params }: { params: Promise<{ locale: str
                 </section>
             )}
 
-            {/* CTA Section */}
-            <section className="py-20 bg-gradient-to-br from-primary-teal to-primary-teal-dark">
+            {/* Minimalist CTA Section */}
+            <section className="py-24 bg-white border-t border-gray-100">
                 <div className="container-custom">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-center max-w-2xl mx-auto"
-                    >
-                        <h2 className="text-4xl font-bold text-white mb-4">
-                            Ready to Experience Morocco?
-                        </h2>
-                        <p className="text-white/90 text-lg mb-8">
-                            Let us help you plan your perfect Moroccan adventure
-                        </p>
-                        <Link
-                            href={`/${locale}/contact`}
-                            className="inline-flex items-center gap-3 px-8 py-4 bg-terracotta hover:bg-terracotta-dark text-white font-bold rounded-xl transition-all hover:shadow-xl"
+                    <div className="max-w-3xl mx-auto text-center">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5 }}
                         >
-                            <MessageCircle className="w-5 h-5" />
-                            Contact Us
-                        </Link>
-                    </motion.div>
+                            <span className="inline-block px-4 py-1.5 bg-primary-teal/10 text-primary-teal rounded-full text-sm font-bold mb-6 uppercase tracking-wider">
+                                Plan Your Trip
+                            </span>
+                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                                Inspired by this story?
+                            </h2>
+                            <p className="text-xl text-gray-600 mb-10 font-light leading-relaxed">
+                                Turn your dream Moroccan adventure into reality. Our local experts are ready to craft a personalized itinerary just for you.
+                            </p>
+
+                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                                <Link
+                                    href={`/${locale}/contact`}
+                                    className="w-full sm:w-auto px-8 py-4 bg-terracotta hover:bg-terracotta-dark text-white font-bold rounded-full transition-all hover:shadow-lg hover:-translate-y-1 flex items-center justify-center gap-2"
+                                >
+                                    <MessageCircle className="w-5 h-5" />
+                                    Start Planning
+                                </Link>
+                                <Link
+                                    href={`/${locale}/tours`}
+                                    className="w-full sm:w-auto px-8 py-4 bg-white border-2 border-gray-200 text-gray-900 font-bold rounded-full hover:border-gray-900 hover:bg-gray-50 transition-all flex items-center justify-center gap-2"
+                                >
+                                    Explore Tours
+                                    <ArrowRight className="w-5 h-5" />
+                                </Link>
+                            </div>
+                        </motion.div>
+                    </div>
                 </div>
             </section>
         </div>

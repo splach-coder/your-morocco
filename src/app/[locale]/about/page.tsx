@@ -304,7 +304,7 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white text-primary-teal px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all"
             >
-              <Star className="w-5 h-5 fill-accent-yellow text-accent-yellow" />
+              <Star className="w-5 h-5 fill-current text-accent-yellow" />
               View on Google Maps
               <ArrowRight className="w-4 h-4" />
             </a>

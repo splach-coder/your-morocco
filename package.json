@@ -13,6 +13,7 @@
     "@portabletext/react": "^3.2.1",
     "@sanity/client": "^7.8.1",
     "@sanity/image-url": "^1.1.0",
+    "@use-gesture/react": "^10.3.1",
     "framer-motion": "^12.23.6",
     "lucide-react": "^0.535.0",
     "next": "15.4.3",

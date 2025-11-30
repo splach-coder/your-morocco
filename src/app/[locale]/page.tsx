@@ -175,7 +175,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
       </section>
 
       {/* Featured Tours Section - Premium Carousel */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      <section className="py-20 bg-gray-50 relative overflow-hidden">
         {/* Decorative background element */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50 -skew-x-12 translate-x-1/2 z-0" />
 
@@ -245,7 +245,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
       </section>
 
       {/* Featured Excursions Section - Landscape Cards */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="container-custom">
           <motion.div
             initial="hidden"
@@ -332,7 +332,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
       </section>
 
       {/* Featured Activities Section - Creative Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="container-custom">
           <motion.div
             initial="hidden"
@@ -383,15 +383,12 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
 
-                  <div className="absolute top-6 right-6 bg-white/20 backdrop-blur-md p-2 rounded-full border border-white/30 group-hover:bg-white group-hover:text-terracotta text-white transition-all duration-300">
+                  <div className="absolute top-6 right-6 bg-white/20 backdrop-blur-sm p-2 rounded-full border border-white/30 group-hover:bg-terracotta text-white transition-all duration-300">
                     <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                   </div>
 
                   <div className="absolute bottom-0 left-0 p-8 w-full">
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="bg-terracotta text-white text-xs font-bold px-3 py-1 rounded-full">
-                        {activity.duration}
-                      </span>
                       {activity.locations && activity.locations.length > 0 && (
                         <span className="text-white/80 text-xs font-medium flex items-center gap-1">
                           <MapPin className="w-3 h-3" /> {activity.locations[0]}
@@ -403,7 +400,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
                       {activity.title}
                     </h3>
 
-                    <p className={`text-gray-200 line-clamp-2 text-sm md:text-base transform transition-all duration-500 ${index === 0 ? 'opacity-100' : 'opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0'}`}>
+                    <p className={`text-gray-200 line-clamp-2 text-sm md:text-base transform transition-all duration-500 ${index === 0 ? 'opacity-100' : 'opacity-100 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0'}`}>
                       {activity.description}
                     </p>
                   </div>
@@ -464,8 +461,8 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
       </section>
 
       {/* Reviews Section */}
-      <section className="py-20 bg-gray-50 overflow-hidden">
-        <div className="container-custom">
+      <section className="pt-20 pb-8 bg-white overflow-hidden">
+        <div className="container-custom h-full">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -509,7 +506,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
                   slidesPerView: 3,
                 },
               }}
-              className="pb-16 !px-2"
+              className="!px-2"
             >
               {[
                 {
@@ -549,12 +546,12 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
                   avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop'
                 }
               ].map((review, index) => (
-                <SwiperSlide key={index} className="h-auto">
-                  <figure className="flex flex-col justify-between h-full p-8 shadow-lg bg-white rounded-xl border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                <SwiperSlide key={index} className="h-full py-12">
+                  <figure className="flex flex-col justify-between h-[350px] p-8 shadow-lg bg-white rounded-xl border border-gray-100 hover:shadow-xl transition-shadow duration-300">
                     <div>
                       <div className="flex gap-1 mb-4">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-accent-yellow text-accent-yellow" />
+                          <Star key={i} className="w-4 h-4 fill-current text-accent-yellow" />
                         ))}
                       </div>
                       <blockquote className="text-base italic font-medium text-gray-700 leading-relaxed">
@@ -588,7 +585,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}

@@ -132,7 +132,7 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
                                     <span className="font-medium">{tour.group_size || 'Small Group'}</span>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <Star className="w-5 h-5 text-accent-yellow fill-accent-yellow" />
+                                    <Star className="w-5 h-5 text-accent-yellow fill-current" />
                                     <span className="font-medium">4.9</span>
                                     <span className="text-sm opacity-80">({reviews.length} reviews)</span>
                                 </div>
@@ -268,7 +268,7 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
                                             </div>
                                             <div className="flex gap-0.5">
                                                 {[...Array(review.rating)].map((_, i) => (
-                                                    <Star key={i} className="w-4 h-4 text-accent-yellow fill-accent-yellow" />
+                                                    <Star key={i} className="w-4 h-4 text-accent-yellow fill-current" />
                                                 ))}
                                             </div>
                                         </div>

@@ -149,7 +149,7 @@ export default function Hero({
                 />
                 <button
                   type="submit"
-                  className="bg-primary-teal hover:bg-primary-teal-dark text-white font-semibold px-6 md:px-8 py-3 rounded-full transition-all shadow-md hover:shadow-lg flex items-center gap-2"
+                  className="bg-terracotta hover:bg-terracotta-dark cursor-pointer text-white font-semibold px-6 md:px-8 py-3 rounded-full transition-all shadow-md hover:shadow-lg flex items-center gap-2"
                 >
                   <span className="hidden md:inline">{searchButton}</span>
                   <span className="md:hidden"><Search className="w-5 h-5" /></span>

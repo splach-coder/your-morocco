@@ -149,7 +149,7 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                         </div>
                         <div className="flex items-center gap-4">
                             <div className="flex items-center gap-1">
-                                <Star className="w-4 h-4 text-accent-yellow fill-accent-yellow" />
+                                <Star className="w-4 h-4 text-accent-yellow fill-current" />
                                 <span className="font-bold text-gray-900">4.9</span>
                                 <span className="text-gray-500">({reviews.length} reviews)</span>
                             </div>
@@ -229,7 +229,7 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                             <div className="flex items-center justify-between mb-8">
                                 <h2 className="text-3xl font-bold text-gray-900">Traveler Reviews</h2>
                                 <div className="flex items-center gap-2">
-                                    <Star className="w-6 h-6 text-accent-yellow fill-accent-yellow" />
+                                    <Star className="w-6 h-6 text-accent-yellow fill-current" />
                                     <span className="text-2xl font-bold text-gray-900">4.9</span>
                                     <span className="text-gray-500">/ 5</span>
                                 </div>
@@ -243,14 +243,14 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                                 breakpoints={{
                                     768: { slidesPerView: 2 }
                                 }}
-                                className="pb-12"
+                                className=""
                             >
                                 {reviews.map((review, index) => (
-                                    <SwiperSlide key={index} className="h-auto">
-                                        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm h-full flex flex-col">
+                                    <SwiperSlide key={index} className="h-full pb-12">
+                                        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm h-[200px] flex flex-col">
                                             <div className="flex gap-1 mb-4">
                                                 {[...Array(review.rating)].map((_, i) => (
-                                                    <Star key={i} className="w-4 h-4 text-accent-yellow fill-accent-yellow" />
+                                                    <Star key={i} className="w-4 h-4 text-accent-yellow fill-current" />
                                                 ))}
                                             </div>
                                             <p className="text-gray-700 mb-6 flex-grow italic">"{review.text}"</p>
