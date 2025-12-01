@@ -84,7 +84,7 @@ export default function Hero({
   const titleParts = title.includes(',') ? title.split(',') : [title, ''];
 
   return (
-    <section className="relative w-full h-screen min-h-[600px] max-h-[900px] overflow-hidden bg-black">
+    <section className="relative w-full h-screen md:h-screen min-h-[500px] md:min-h-[600px] overflow-hidden bg-black">
       {/* Background Image with Zoom Effect */}
       <motion.div
         initial={{ scale: 1.1 }}
@@ -113,14 +113,14 @@ export default function Hero({
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-10"
+            className="mb-6 md:mb-10"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-3xl font-bold text-white mb-6 leading-tight tracking-tight drop-shadow-lg">
+            <h1 className="text-xl sm:text-5xl md:text-3xl font-bold text-white mb-4 md:mb-6 leading-tight tracking-tight drop-shadow-lg">
               {titleParts[0]}
               {titleParts[1] && (
                 <>
-                  <br className="hidden md:block" />
-                  <span className="text-lg md:text-xl lg:text-7xl text-accent-yellow italic ml-2 md:ml-0">{titleParts[1]}</span>
+                  <br className="block" />
+                  <span className="text-4xl md:text-xl lg:text-7xl text-accent-yellow italic ml-2 md:ml-0">{titleParts[1]}</span>
                 </>
               )}
             </h1>
@@ -135,9 +135,9 @@ export default function Hero({
             ref={searchRef}
           >
             <form onSubmit={handleSearch} className="relative z-20">
-              <div className="bg-white p-2 rounded-full shadow-2xl flex items-center transition-transform hover:scale-[1.01] duration-300">
-                <div className="pl-4 pr-2 text-gray-400">
-                  <Search className="w-5 h-5" />
+              <div className="bg-white p-1.5 md:p-2 rounded-full shadow-2xl flex items-center transition-transform hover:scale-[1.01] duration-300">
+                <div className="pl-3 md:pl-4 pr-2 text-gray-400">
+                  <Search className="w-3 h-3 md:w-5 md:h-5" />
                 </div>
                 <input
                   type="text"
@@ -145,14 +145,14 @@ export default function Hero({
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onFocus={() => setIsDropdownOpen(true)}
                   placeholder={searchPlaceholder}
-                  className="flex-1 bg-transparent border-none focus:ring-0 text-gray-900 placeholder-gray-500 text-base md:text-lg py-3 focus:outline-none"
+                  className="flex-1 bg-transparent border-none focus:ring-0 text-gray-900 placeholder-gray-500 text-sm md:text-lg py-2 md:py-3 focus:outline-none"
                 />
                 <button
                   type="submit"
-                  className="bg-terracotta hover:bg-terracotta-dark cursor-pointer text-white font-semibold px-6 md:px-8 py-3 rounded-full transition-all shadow-md hover:shadow-lg flex items-center gap-2"
+                  className="bg-terracotta hover:bg-terracotta-dark cursor-pointer text-white font-semibold px-3 md:px-8 py-2 md:py-3 rounded-full transition-all shadow-md hover:shadow-lg flex items-center gap-2"
                 >
                   <span className="hidden md:inline">{searchButton}</span>
-                  <span className="md:hidden"><Search className="w-5 h-5" /></span>
+                  <span className="md:hidden"><Search className="w-3 h-3" /></span>
                 </button>
               </div>
             </form>

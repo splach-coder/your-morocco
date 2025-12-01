@@ -1,12 +1,17 @@
 'use client';
 
 import { useState } from 'react';
-import { X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
 
 export default function WhatsAppButton() {
     const [isOpen, setIsOpen] = useState(false);
     const t = useTranslations('WhatsApp');
+    const pathname = usePathname();
+
+    // Check if we are on a detail page where MobileBookingBar is active
+    // This assumes URLs like /en/excursions/123 or /fr/tours/abc
+    const isDetailPage = /\/(excursions|tours)\/.+/.test(pathname);
 
     // Replace with your actual WhatsApp number (international format without + or spaces)
     const whatsappNumber = '212123456789'; // Example: Morocco number
@@ -16,7 +21,7 @@ export default function WhatsAppButton() {
     return (
         <>
             {/* Floating WhatsApp Button */}
-            <div className="fixed bottom-6 right-6 z-50">
+            <div className={`fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 ${isDetailPage ? 'hidden md:block' : ''}`}>
                 <a
                     href={whatsappUrl}
                     target="_blank"
@@ -27,11 +32,11 @@ export default function WhatsAppButton() {
                 >
                     {/* Expandable Text Background - appears behind the circle */}
                     <div
-                        className={`absolute right-0 h-16 bg-[#075E54] group-hover:bg-[#064b43] rounded-full shadow-2xl transition-all duration-300 ${isOpen ? 'w-auto pr-20 pl-6 opacity-100' : 'w-16 pr-0 pl-0 opacity-0'
+                        className={`absolute right-0 h-12 md:h-16 bg-[#075E54] group-hover:bg-[#064b43] rounded-full shadow-2xl transition-all duration-300 ${isOpen ? 'w-auto pr-16 md:pr-20 pl-4 md:pl-6 opacity-100' : 'w-12 md:w-16 pr-0 pl-0 opacity-0'
                             }`}
                     >
                         <div className="flex items-center h-full">
-                            <span className={`font-semibold whitespace-nowrap text-white transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'
+                            <span className={`font-semibold whitespace-nowrap text-white text-sm md:text-base transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'
                                 }`}>
                                 {t('chatWithUs')}
                             </span>
@@ -39,9 +44,9 @@ export default function WhatsAppButton() {
                     </div>
 
                     {/* Circular Icon - Always stays circular */}
-                    <div className="relative w-16 h-16 bg-[#075E54] group-hover:bg-[#064b43] rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 z-10">
+                    <div className="relative w-12 h-12 md:w-16 md:h-16 bg-[#075E54] group-hover:bg-[#064b43] rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 z-10">
                         <svg
-                            className="w-9 h-9 text-white"
+                            className="w-6 h-6 md:w-9 md:h-9 text-white"
                             viewBox="0 0 24 24"
                             fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg"

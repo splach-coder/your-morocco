@@ -603,19 +603,19 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
 
             <div className="absolute inset-0 flex items-center ">
-              <div className="px-8 md:px-16 max-w-2xl">
-                <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+              <div className="px-4 md:px-16 max-w-2xl">
+                <h2 className="text-3xl md:text-6xl font-bold text-white mb-6 leading-tight">
                   {t('cta.title')}
                 </h2>
-                <p className="text-xl text-gray-200 mb-10 leading-relaxed">
+                <p className="text-lg md:text-xl text-gray-200 mb-10 leading-relaxed">
                   {t('cta.subtitle')}
                 </p>
                 <Link
                   href={`/${locale}/contact`}
-                  className="inline-flex items-center gap-3 bg-terracotta hover:bg-terracotta-dark text-white px-8 py-4 rounded-xl font-bold text-lg transition-all hover:translate-x-1"
+                  className="inline-flex items-center gap-3 bg-terracotta hover:bg-terracotta-dark text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-lg transition-all hover:translate-x-1"
                 >
                   {t('cta.button')}
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-4 md:w-5 h-4 md:h-5" />
                 </Link>
               </div>
             </div>

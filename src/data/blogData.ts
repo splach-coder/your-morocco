@@ -383,7 +383,7 @@ Moroccan cuisine is about more than food – it's about community, hospitality, 
         category: "Food & Culture",
         tags: ["Moroccan Food", "Cuisine", "Cooking", "Culture", "Travel"],
         featured_image: {
-            url: "https://images.unsplash.com/photo-1585937421612-70e008356f33?q=80&w=2000",
+            url: "https://images.unsplash.com/photo-1650678192497-28e426bb627c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             alt: "Traditional Moroccan tagine dish"
         },
         published_date: "2025-01-05",

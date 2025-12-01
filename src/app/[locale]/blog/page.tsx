@@ -38,7 +38,7 @@ export default function BlogPage() {
             {/* Trendy Hero Section - 50vh */}
             <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
                 <Image
-                    src="https://images.unsplash.com/photo-1512551870626-44d56782b775?q=80&w=2070&auto=format&fit=crop"
+                    src="https://images.unsplash.com/photo-1763146742217-801c1d057792?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Morocco Travel Blog"
                     fill
                     className="object-cover"

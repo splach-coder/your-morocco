@@ -93,28 +93,6 @@ export default function BlogPostPage({ params }: { params: Promise<{ locale: str
                                     </span>
                                 ))}
                             </div>
-
-                            <div className="flex items-center gap-3">
-                                <span className="text-sm font-medium text-gray-600">Share:</span>
-                                <button
-                                    onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, '_blank')}
-                                    className="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:opacity-80 transition-opacity"
-                                >
-                                    <Facebook className="w-5 h-5" />
-                                </button>
-                                <button
-                                    onClick={() => window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(post.title)}`, '_blank')}
-                                    className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:opacity-80 transition-opacity"
-                                >
-                                    <Twitter className="w-5 h-5" />
-                                </button>
-                                <button
-                                    onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, '_blank')}
-                                    className="w-10 h-10 rounded-full bg-[#0A66C2] text-white flex items-center justify-center hover:opacity-80 transition-opacity"
-                                >
-                                    <Linkedin className="w-5 h-5" />
-                                </button>
-                            </div>
                         </div>
 
                         {/* Article Content */}

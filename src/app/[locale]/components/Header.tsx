@@ -22,13 +22,18 @@ export default function Header({ locale, translations }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+
+    // Set initial scroll state
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -40,6 +45,7 @@ export default function Header({ locale, translations }: HeaderProps) {
     { href: `/${locale}/tours`, label: translations.tours },
     { href: `/${locale}/excursions`, label: translations.excursions },
     { href: `/${locale}/activities`, label: translations.activities },
+    { href: `/${locale}/gallery`, label: 'Gallery' },
     { href: `/${locale}/blog`, label: 'Blog' },
   ];
 
@@ -56,13 +62,29 @@ export default function Header({ locale, translations }: HeaderProps) {
     }
   };
 
+  // Always render with transparent background initially to match server render
+  const headerClassName = mounted && isScrolled
+    ? 'bg-white shadow-md py-3'
+    : 'bg-transparent py-5';
+
+  const linkClassName = (mounted && isScrolled)
+    ? 'text-gray-700 hover:text-primary-teal'
+    : 'text-white hover:text-accent-yellow';
+
+  const underlineClassName = (mounted && isScrolled) ? 'bg-primary-teal' : 'bg-accent-yellow';
+
+  const languageButtonClassName = (isActive: boolean) => {
+    if (isActive) return 'bg-primary-teal text-white';
+    if (mounted && isScrolled) return 'text-gray-700 hover:bg-gray-100';
+    return 'text-white hover:bg-white/10';
+  };
+
+  const mobileButtonClassName = (mounted && isScrolled) || isMobileMenuOpen
+    ? 'hover:bg-gray-100 text-gray-900'
+    : 'hover:bg-white/10 text-white';
+
   return (
-    <header
-      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled
-        ? 'bg-white shadow-md py-3'
-        : 'bg-transparent py-5'
-        }`}
-    >
+    <header className={`fixed w-full z-50 transition-all duration-300 ${headerClassName}`}>
       <div className="container-custom">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -87,14 +109,10 @@ export default function Header({ locale, translations }: HeaderProps) {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-semibold transition-colors relative group ${isScrolled
-                  ? 'text-gray-700 hover:text-primary-teal'
-                  : 'text-white hover:text-accent-yellow'
-                  }`}
+                className={`text-sm font-semibold transition-colors relative group ${linkClassName}`}
               >
                 {link.label}
-                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full ${isScrolled ? 'bg-primary-teal' : 'bg-accent-yellow'
-                  }`}></span>
+                <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full ${underlineClassName}`}></span>
               </Link>
             ))}
           </nav>
@@ -105,19 +123,13 @@ export default function Header({ locale, translations }: HeaderProps) {
             <div className="hidden lg:flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1.5">
               <button
                 onClick={() => switchLocale('en')}
-                className={`text-xs font-semibold px-2 py-1 rounded-full transition-colors ${locale === 'en'
-                  ? 'bg-primary-teal text-white'
-                  : isScrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'
-                  }`}
+                className={`text-xs font-semibold px-2 py-1 rounded-full transition-colors ${languageButtonClassName(locale === 'en')}`}
               >
                 EN
               </button>
               <button
                 onClick={() => switchLocale('fr')}
-                className={`text-xs font-semibold px-2 py-1 rounded-full transition-colors ${locale === 'fr'
-                  ? 'bg-primary-teal text-white'
-                  : isScrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'
-                  }`}
+                className={`text-xs font-semibold px-2 py-1 rounded-full transition-colors ${languageButtonClassName(locale === 'fr')}`}
               >
                 FR
               </button>
@@ -134,10 +146,7 @@ export default function Header({ locale, translations }: HeaderProps) {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`lg:hidden p-2 rounded-full transition-colors relative z-50 ${isScrolled || isMobileMenuOpen
-                ? 'hover:bg-gray-100 text-gray-900'
-                : 'hover:bg-white/10 text-white'
-                }`}
+              className={`lg:hidden p-2 rounded-full transition-colors relative z-50 ${mobileButtonClassName}`}
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? (
