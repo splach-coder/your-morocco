@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import NextImage from 'next/image';
 import { useState, useEffect } from 'react';
-import { Menu, X, Search } from 'lucide-react';
+import { Menu, X, Search, ChevronRight, ArrowLeft } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 
 interface HeaderProps {
@@ -39,6 +39,18 @@ export default function Header({ locale, translations }: HeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   const navigationLinks = [
     { href: `/${locale}`, label: translations.home },
     { href: `/${locale}/services`, label: translations.services },
@@ -49,9 +61,24 @@ export default function Header({ locale, translations }: HeaderProps) {
     { href: `/${locale}/blog`, label: 'Blog' },
   ];
 
+  const mainCategories = [
+    { href: `/${locale}/tours`, label: translations.tours, subtitle: 'Multi-day adventures' },
+    { href: `/${locale}/excursions`, label: translations.excursions, subtitle: 'Day trips & getaways' },
+    { href: `/${locale}/activities`, label: translations.activities, subtitle: 'Experiences & fun' },
+  ];
+
+  const secondaryLinks = [
+    { href: `/${locale}`, label: translations.home },
+    { href: `/${locale}/services`, label: translations.services },
+    { href: `/${locale}/gallery`, label: 'Gallery' },
+    { href: `/${locale}/blog`, label: 'Blog' },
+    { href: `/${locale}/contact`, label: translations.contact },
+  ];
+
   const switchLocale = (newLocale: string) => {
     const newPath = pathname.replace(`/${locale}`, `/${newLocale}`);
     router.push(newPath);
+    setIsMobileMenuOpen(false);
   };
 
   const handleSearch = (e: React.FormEvent) => {
@@ -84,7 +111,7 @@ export default function Header({ locale, translations }: HeaderProps) {
     : 'hover:bg-white/10 text-white';
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 ${headerClassName}`}>
+    <header className={`fixed w-full z-[100] transition-all duration-300 ${headerClassName}`}>
       <div className="container-custom">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -150,7 +177,7 @@ export default function Header({ locale, translations }: HeaderProps) {
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
+                <span className="sr-only">Close menu</span> // Close icon is inside the menu overlay now
               ) : (
                 <Menu className="w-6 h-6" />
               )}
@@ -158,49 +185,112 @@ export default function Header({ locale, translations }: HeaderProps) {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Overlay */}
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 bg-white z-40 flex flex-col pt-24 px-6 lg:hidden overflow-y-auto">
-            <nav className="flex flex-col space-y-6 mb-8">
-              {navigationLinks.map((link) => (
+          <div className="fixed inset-0 bg-white z-[101] flex flex-col lg:hidden overflow-y-auto animate-in slide-in-from-right duration-300">
+
+            {/* 1. Banner Header Section */}
+            <div className="relative h-48 w-full flex-shrink-0">
+              <NextImage
+                src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?q=80&w=2070" // Placeholder Moroccan image
+                alt="Menu Banner"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-black/50" />
+
+              {/* Header Content */}
+              <div className="absolute inset-0 p-6 flex flex-col justify-between">
+                <div className="flex justify-between items-start">
+                  <button
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-white/80 hover:text-white p-1"
+                  >
+                    <ArrowLeft className="w-6 h-6" />
+                  </button>
+                  <button
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-white/80 hover:text-white p-1"
+                  >
+                    <X className="w-6 h-6" />
+                  </button>
+                </div>
+
+                <div className="flex items-end justify-end">
+                  <Link
+                    href={`/${locale}`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-white text-xs font-bold border-b border-white/30 pb-0.5 hover:border-white transition-colors"
+                  >
+                    VIEW HOME
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* 2. Main Navigation Blocks */}
+            <div className="px-2 py-2 space-y-2 bg-gray-50/50">
+              {mainCategories.map((category) => (
                 <Link
-                  key={link.href}
-                  href={link.href}
+                  key={category.href}
+                  href={category.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-2xl font-bold text-gray-900 hover:text-primary-teal transition-colors"
+                  className="flex items-center justify-between bg-white p-4 rounded-xl border border-gray-100 shadow-sm active:scale-[0.98] transition-all"
                 >
-                  {link.label}
+                  <div>
+                    <span className="block font-bold text-gray-900">{category.label}</span>
+                    <span className="block text-xs text-gray-500 mt-0.5">{category.subtitle}</span>
+                  </div>
+                  <ChevronRight className="w-5 h-5 text-gray-300" />
                 </Link>
               ))}
-            </nav>
-
-            <div className="pt-6 border-t border-gray-200 space-y-4">
-              <div className="flex items-center gap-3">
-                <span className="text-sm font-medium text-gray-700">Language:</span>
-                <button
-                  onClick={() => { switchLocale('en'); setIsMobileMenuOpen(false); }}
-                  className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${locale === 'en' ? 'bg-primary-teal text-white' : 'bg-gray-100 text-gray-700'
-                    }`}
-                >
-                  English
-                </button>
-                <button
-                  onClick={() => { switchLocale('fr'); setIsMobileMenuOpen(false); }}
-                  className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors ${locale === 'fr' ? 'bg-primary-teal text-white' : 'bg-gray-100 text-gray-700'
-                    }`}
-                >
-                  Français
-                </button>
-              </div>
-
-              <Link
-                href={`/${locale}/contact`}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block w-full bg-terracotta hover:bg-terracotta-dark text-white px-6 py-3 rounded-full font-semibold text-center transition-all"
-              >
-                {translations.contact}
-              </Link>
             </div>
+
+            {/* 3. Secondary Navigation List */}
+            <div className="flex-1 px-6 py-3 bg-white">
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Menu</p>
+              {/* Line */}
+              <div className="w-full h-[1px] bg-gray-200"></div>
+              <nav className="space-y-2">
+                {secondaryLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-gray-600 hover:text-terracotta font-medium transition-colors border-b border-gray-50 last:border-0"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+
+              {/* Language Switcher in Menu */}
+              <div className="mt-8 pt-8 border-t border-gray-100">
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Language</p>
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => switchLocale('en')}
+                    className={`flex-1 py-2.5 rounded-lg text-sm font-semibold border transition-all ${locale === 'en'
+                      ? 'bg-terracotta text-white border-terracotta'
+                      : 'bg-white text-gray-600 border-gray-200 hover:border-gray-300'
+                      }`}
+                  >
+                    English
+                  </button>
+                  <button
+                    onClick={() => switchLocale('fr')}
+                    className={`flex-1 py-2.5 rounded-lg text-sm font-semibold border transition-all ${locale === 'fr'
+                      ? 'bg-terracotta text-white border-terracotta'
+                      : 'bg-white text-gray-600 border-gray-200 hover:border-gray-300'
+                      }`}
+                  >
+                    Français
+                  </button>
+                </div>
+              </div>
+            </div>
+
           </div>
         )}
       </div>

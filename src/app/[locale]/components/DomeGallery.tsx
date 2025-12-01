@@ -56,40 +56,24 @@ const DEFAULT_IMAGES: ImageItem[] = [
 
     // Real Unsplash picks
     {
-        src: 'https://images.unsplash.com/photos/S0fblDXpNBo?q=80&w=2070&auto=format&fit=crop',
+        src: 'https://plus.unsplash.com/premium_photo-1666866588078-62ec249eab12?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?q=80&w=2070&auto=format&fit=crop',
         alt: 'Statue in front of a building — Marrakech street'
     },
     {
-        src: 'https://images.unsplash.com/photos/pu_Ds3tJIf4?q=80&w=2070&auto=format&fit=crop',
+        src: 'https://images.unsplash.com/photo-1703778457540-bac414b4c13a?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         alt: 'Palm tree forest — Marrakesh greenery'
     },
     {
-        src: 'https://images.unsplash.com/photos/PLoVluwF3gQ?q=80&w=2070&auto=format&fit=crop',
+        src: 'https://plus.unsplash.com/premium_photo-1697730075333-822144628df6?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         alt: 'Palm tree near swimming pool — riad vibe in Marrakech'
     },
     {
-        src: 'https://images.unsplash.com/photos/7ZpjxUUV9b4?q=80&w=2070&auto=format&fit=crop',
+        src: 'https://plus.unsplash.com/premium_photo-1685290652654-606b3915f8b8?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         alt: 'Outdoor restaurant with scenic Moroccan landscape'
     },
     {
-        src: 'https://images.unsplash.com/photos/KfmRwj3XPUI?q=80&w=2070&auto=format&fit=crop',
+        src: 'https://plus.unsplash.com/premium_photo-1755706182208-37c8794f0b47?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         alt: 'Rustic outdoor restaurant décor — Agafay region'
-    },
-    {
-        src: 'https://images.unsplash.com/photos/CFh5HrnaX7I?q=80&w=2070&auto=format&fit=crop',
-        alt: 'Brown brick wall under blue sky — Marrakech architecture'
-    },
-    {
-        src: 'https://images.unsplash.com/photos/9wChvkSwfhE?q=80&w=2070&auto=format&fit=crop',
-        alt: 'Beautiful outdoor restaurant ready for dining — Moroccan resort'
-    },
-    {
-        src: 'https://images.unsplash.com/photos/JiYfblhR5cM?q=80&w=2070&auto=format&fit=crop',
-        alt: 'Sunset over a city with a clock tower — Moroccan cityscape'
-    },
-    {
-        src: 'https://images.unsplash.com/photos/zLUdzU3UcQg?q=80&w=2070&auto=format&fit=crop',
-        alt: 'People riding camels through the desert — Sahara vibe'
     }
 ];
 
