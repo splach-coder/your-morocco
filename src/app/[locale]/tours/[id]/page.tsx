@@ -94,7 +94,7 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Hero Section */}
-            <div className="relative h-[70vh] min-h-[500px]">
+            <div className="relative h-[40vh] md:h-[70vh] min-h-[300px] md:min-h-[500px]">
                 <Image
                     src={tour.image.url}
                     alt={tour.image.alt || tour.title}
@@ -104,29 +104,29 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
-                <div className="absolute inset-0 flex items-end pb-12">
+                <div className="absolute inset-0 flex items-end pb-6 md:pb-12">
                     <div className="container-custom w-full">
                         <Link
                             href={`/${locale}/tours`}
-                            className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-6 backdrop-blur-sm bg-black/20 px-4 py-2 rounded-full w-fit"
+                            className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-2 md:mb-6 backdrop-blur-sm bg-black/20 px-3 py-1.5 md:px-4 md:py-2 rounded-full w-fit"
                         >
                             <ArrowLeft className="w-4 h-4" />
                             <span className="text-sm font-medium">Back to Tours</span>
                         </Link>
 
                         <div className="max-w-4xl">
-                            <span className="text-accent-yellow font-bold tracking-wider uppercase text-sm mb-2 block">Multi-Day Tour</span>
-                            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">{tour.title}</h1>
+                            <span className="text-accent-yellow font-bold tracking-wider uppercase text-xs md:text-sm mb-1 md:mb-2 block">Multi-Day Tour</span>
+                            <h1 className="text-2xl md:text-6xl lg:text-7xl font-bold text-white mb-3 md:mb-6 leading-tight">{tour.title}</h1>
 
-                            <div className="flex flex-wrap gap-4 md:gap-8 text-white/90">
+                            <div className="flex flex-wrap gap-2 md:gap-8 text-white/90 text-xs md:text-base">
                                 {tour.duration && (
-                                    <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+                                    <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-white/10">
                                         <Clock className="w-5 h-5 text-accent-yellow" />
                                         <span className="font-medium">{tour.duration}</span>
                                     </div>
                                 )}
                                 {tour.locations && tour.locations.length > 0 && (
-                                    <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
+                                    <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-white/10">
                                         <MapPin className="w-5 h-5 text-accent-yellow" />
                                         <span className="font-medium">{tour.locations[0].name} Start</span>
                                     </div>
@@ -161,18 +161,18 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                 </div>
             </div>
 
-            <div className="container-custom py-12 lg:py-20">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div className="container-custom py-8 lg:py-20">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
                     {/* Main Content */}
                     <div className="lg:col-span-2 space-y-16">
                         {/* Overview */}
                         <section id="overview" className="scroll-mt-24">
-                            <h2 className="text-3xl font-bold text-gray-900 mb-6">About this tour</h2>
-                            <p className="text-gray-700 leading-relaxed text-lg mb-8">{tour.description}</p>
+                            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6">About this tour</h2>
+                            <p className="text-gray-700 leading-relaxed text-base md:text-lg mb-6 md:mb-8">{tour.description}</p>
 
                             {/* Highlights Grid */}
                             {tour.highlights && (
-                                <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                                <div className="bg-white rounded-2xl p-6 md:p-8 border border-gray-100 shadow-sm">
                                     <h3 className="text-xl font-bold text-gray-900 mb-6">Highlights</h3>
                                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
                                         {tour.highlights.map((highlight, index) => (
