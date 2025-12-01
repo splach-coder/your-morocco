@@ -9,6 +9,10 @@ import TourCard from '../../components/TourCard';
 import MobileBookingBar from '../../components/MobileBookingBar';
 import Lightbox from '../../components/Lightbox';
 import { siteData } from '@/data/siteData';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 // Mock reviews generator
 const getReviewsForActivity = (id: number, title: string) => {
@@ -70,7 +74,7 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
     return (
         <div className="min-h-screen bg-white">
             {/* Hero Section - Dynamic & Action Oriented */}
-            <div className="relative h-[60vh] min-h-[400px] overflow-hidden">
+            <div className="relative h-[40vh] md:h-[60vh] min-h-[300px] md:min-h-[400px] overflow-hidden">
                 <Image
                     src={activity.image.url}
                     alt={activity.image.alt || activity.title}
@@ -80,20 +84,20 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
 
-                <div className="absolute inset-0 flex items-center">
+                <div className="absolute inset-0 flex items-end pb-6 md:pb-0 md:items-center">
                     <div className="container-custom w-full">
                         <div className="max-w-2xl">
                             <Link
                                 href={`/${locale}/activities`}
-                                className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-6 text-sm font-medium"
+                                className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-2 md:mb-6 text-xs md:text-sm font-medium backdrop-blur-sm bg-black/20 px-3 py-1.5 md:bg-transparent md:p-0 rounded-full md:rounded-none w-fit"
                             >
                                 <ArrowLeft className="w-4 h-4" />
                                 Back to Activities
                             </Link>
 
-                            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">{activity.title}</h1>
+                            <h1 className="text-2xl md:text-6xl font-bold text-white mb-3 md:mb-6 leading-tight">{activity.title}</h1>
 
-                            <div className="flex flex-wrap gap-6 text-white/90">
+                            <div className="flex flex-wrap gap-3 md:gap-6 text-white/90 text-sm md:text-base">
                                 {activity.duration && (
                                     <div className="flex items-center gap-2">
                                         <Clock className="w-5 h-5 text-accent-yellow" />
@@ -117,52 +121,80 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
                 </div>
             </div>
 
-            <div className="container-custom py-12 lg:py-16">
+            <div className="container-custom py-8 lg:py-16">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                     {/* Main Content */}
                     <div className="lg:col-span-2 space-y-12">
 
                         {/* Gallery Grid */}
-                        <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-[400px] rounded-2xl overflow-hidden">
-                            <div
-                                className="md:col-span-2 md:row-span-2 relative h-full cursor-pointer group"
-                                onClick={() => openLightbox(0)}
-                            >
-                                <Image
-                                    src={galleryImages[0].url}
-                                    alt={galleryImages[0].alt}
-                                    fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                                />
-                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+                        {/* Gallery Section */}
+                        <div className="h-[300px] md:h-[400px] rounded-2xl overflow-hidden">
+                            {/* Mobile Slider */}
+                            <div className="block md:hidden h-full">
+                                <Swiper
+                                    modules={[Pagination, Autoplay]}
+                                    pagination={{ clickable: true }}
+                                    autoplay={{ delay: 3000 }}
+                                    loop={true}
+                                    className="h-full w-full"
+                                >
+                                    {galleryImages.map((img, idx) => (
+                                        <SwiperSlide key={idx} onClick={() => openLightbox(idx)}>
+                                            <div className="relative h-full w-full">
+                                                <Image
+                                                    src={img.url}
+                                                    alt={img.alt}
+                                                    fill
+                                                    className="object-cover"
+                                                />
+                                            </div>
+                                        </SwiperSlide>
+                                    ))}
+                                </Swiper>
                             </div>
-                            {galleryImages.slice(1, 4).map((img, idx) => (
+
+                            {/* Desktop Grid */}
+                            <div className="hidden md:grid grid-cols-4 grid-rows-2 gap-4 h-full">
                                 <div
-                                    key={idx}
-                                    className="relative h-full hidden md:block cursor-pointer group"
-                                    onClick={() => openLightbox(idx + 1)}
+                                    className="col-span-2 row-span-2 relative h-full cursor-pointer group"
+                                    onClick={() => openLightbox(0)}
                                 >
                                     <Image
-                                        src={img.url}
-                                        alt={img.alt}
+                                        src={galleryImages[0].url}
+                                        alt={galleryImages[0].alt}
                                         fill
                                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                                     />
                                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
                                 </div>
-                            ))}
-                            <div
-                                className="relative h-full hidden md:block cursor-pointer group"
-                                onClick={() => openLightbox(4)}
-                            >
-                                <Image
-                                    src={galleryImages[4].url}
-                                    alt={galleryImages[4].alt}
-                                    fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                                />
-                                <div className="absolute inset-0 bg-black/50 flex items-center justify-center group-hover:bg-black/40 transition-colors">
-                                    <span className="text-white font-bold text-lg">+5 Photos</span>
+                                {galleryImages.slice(1, 4).map((img, idx) => (
+                                    <div
+                                        key={idx}
+                                        className="relative h-full cursor-pointer group"
+                                        onClick={() => openLightbox(idx + 1)}
+                                    >
+                                        <Image
+                                            src={img.url}
+                                            alt={img.alt}
+                                            fill
+                                            className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                        />
+                                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+                                    </div>
+                                ))}
+                                <div
+                                    className="relative h-full cursor-pointer group"
+                                    onClick={() => openLightbox(4)}
+                                >
+                                    <Image
+                                        src={galleryImages[4].url}
+                                        alt={galleryImages[4].alt}
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                    />
+                                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center group-hover:bg-black/40 transition-colors">
+                                        <span className="text-white font-bold text-lg">+5 Photos</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

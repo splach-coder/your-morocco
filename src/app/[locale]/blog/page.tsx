@@ -67,7 +67,7 @@ export default function BlogPage() {
 
             {/* Categories - Minimal & Clean */}
             <section className="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-gray-100 py-4">
-                <div className="container-custom overflow-x-auto overflow-y-hidden no-scrollbar">
+                <div className="hidden md:block container-custom overflow-y-hidden overflow-x-hidden no-scrollbar">
                     <div className="flex items-center justify-center gap-3 min-w-max">
                         {categories.map((category) => (
                             <button

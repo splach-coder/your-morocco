@@ -44,7 +44,7 @@ export default function ItineraryTimeline({ days, title = "Day by Day Itinerary"
     };
 
     return (
-        <section className="bg-white rounded-2xl p-8 shadow-sm">
+        <section className="bg-white rounded-2xl p-4 md:p-8 shadow-sm">
             <div className="max-w-4xl">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

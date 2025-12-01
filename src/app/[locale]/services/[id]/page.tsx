@@ -117,7 +117,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ locale
                                     href={whatsappUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="block w-full bg-[#25D366] hover:bg-[#20bd5a] text-white text-center font-bold py-4 rounded-full transition-all hover:shadow-lg flex items-center justify-center gap-2"
+                                    className="block w-full bg-[#075E54] hover:bg-[#064b43] text-white text-center font-bold py-4 rounded-full transition-all hover:shadow-lg flex items-center justify-center gap-2"
                                 >
                                     <MessageCircle className="w-5 h-5" />
                                     Book via WhatsApp

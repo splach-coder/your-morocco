@@ -247,7 +247,7 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                             >
                                 {reviews.map((review, index) => (
                                     <SwiperSlide key={index} className="h-full pb-12">
-                                        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm h-[200px] flex flex-col">
+                                        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm h-[220px] flex flex-col">
                                             <div className="flex gap-1 mb-4">
                                                 {[...Array(review.rating)].map((_, i) => (
                                                     <Star key={i} className="w-4 h-4 text-accent-yellow fill-current" />
