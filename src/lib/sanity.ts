@@ -6,7 +6,7 @@ import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
 // --- YOUR SANITY CONFIGURATION ---
 export const client = createClient({
-  projectId: 'yqu0ijt0', // Your Project ID
+  projectId: 'jup7jphm', // Your Project ID
   dataset: 'production',
   apiVersion: '2025-01-01',
   useCdn: false, // Recommended for Next.js to leverage server-side caching
