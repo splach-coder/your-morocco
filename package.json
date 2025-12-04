@@ -11,7 +11,6 @@
   "dependencies": {
     "@fontsource/cormorant-garamond": "^5.2.9",
     "@portabletext/react": "^3.2.1",
-    "@sanity/client": "^7.8.1",
     "@sanity/image-url": "^1.1.0",
     "@use-gesture/react": "^10.3.1",
     "framer-motion": "^12.23.6",
@@ -26,6 +25,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@sanity/client": "^7.13.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -33,6 +33,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.4.3",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }

@@ -1,0 +1,156 @@
+[
+  {
+    "name": {
+      "en": "Marrakech",
+      "fr": "Marrakech"
+    },
+    "slug": "marrakech",
+    "description": {
+      "en": "The Red City, known for its vibrant souks, stunning palaces, and the famous Jemaa el-Fnaa square.",
+      "fr": "La Ville Rouge, connue pour ses souks animés, ses palais magnifiques et la célèbre place Jemaa el-Fnaa."
+    }
+  },
+  {
+    "name": {
+      "en": "Fes",
+      "fr": "Fès"
+    },
+    "slug": "fes",
+    "description": {
+      "en": "Morocco's cultural and spiritual capital, home to the world's oldest university and a UNESCO World Heritage medina.",
+      "fr": "Capitale culturelle et spirituelle du Maroc, abritant la plus ancienne université du monde et une médina classée au patrimoine mondial de l'UNESCO."
+    }
+  },
+  {
+    "name": {
+      "en": "Merzouga",
+      "fr": "Merzouga"
+    },
+    "slug": "merzouga",
+    "description": {
+      "en": "Gateway to the Sahara Desert, famous for its towering sand dunes of Erg Chebbi.",
+      "fr": "Porte d'entrée du désert du Sahara, célèbre pour ses immenses dunes de sable d'Erg Chebbi."
+    }
+  },
+  {
+    "name": {
+      "en": "Essaouira",
+      "fr": "Essaouira"
+    },
+    "slug": "essaouira",
+    "description": {
+      "en": "Charming coastal town with windswept beaches, fresh seafood, and a relaxed artistic atmosphere.",
+      "fr": "Charmante ville côtière avec des plages balayées par le vent, des fruits de mer frais et une atmosphère artistique détendue."
+    }
+  },
+  {
+    "name": {
+      "en": "Casablanca",
+      "fr": "Casablanca"
+    },
+    "slug": "casablanca",
+    "description": {
+      "en": "Morocco's economic hub, home to the magnificent Hassan II Mosque and Art Deco architecture.",
+      "fr": "Centre économique du Maroc, abritant la magnifique mosquée Hassan II et l'architecture Art déco."
+    }
+  },
+  {
+    "name": {
+      "en": "Chefchaouen",
+      "fr": "Chefchaouen"
+    },
+    "slug": "chefchaouen",
+    "description": {
+      "en": "The Blue Pearl of Morocco, a picturesque mountain town painted in shades of blue.",
+      "fr": "La Perle Bleue du Maroc, une ville de montagne pittoresque peinte en nuances de bleu."
+    }
+  },
+  {
+    "name": {
+      "en": "Ouarzazate",
+      "fr": "Ouarzazate"
+    },
+    "slug": "ouarzazate",
+    "description": {
+      "en": "The Hollywood of Africa, known for its film studios and as gateway to the desert.",
+      "fr": "Le Hollywood de l'Afrique, connu pour ses studios de cinéma et comme porte d'entrée du désert."
+    }
+  },
+  {
+    "name": {
+      "en": "Zagora",
+      "fr": "Zagora"
+    },
+    "slug": "zagora",
+    "description": {
+      "en": "Desert town famous for its palm groves and proximity to the Sahara.",
+      "fr": "Ville désertique célèbre pour ses palmeraies et sa proximité du Sahara."
+    }
+  },
+  {
+    "name": {
+      "en": "Rabat",
+      "fr": "Rabat"
+    },
+    "slug": "rabat",
+    "description": {
+      "en": "Morocco's capital city, blending modern governance with historical landmarks.",
+      "fr": "Capitale du Maroc, alliant gouvernance moderne et sites historiques."
+    }
+  },
+  {
+    "name": {
+      "en": "Ourika Valley",
+      "fr": "Vallée de l'Ourika"
+    },
+    "slug": "ourika-valley",
+    "description": {
+      "en": "Lush mountain valley with waterfalls and traditional Berber villages.",
+      "fr": "Vallée de montagne luxuriante avec cascades et villages berbères traditionnels."
+    }
+  },
+  {
+    "name": {
+      "en": "Ouzoud Waterfalls",
+      "fr": "Cascades d'Ouzoud"
+    },
+    "slug": "ouzoud-waterfalls",
+    "description": {
+      "en": "The highest waterfalls in North Africa, surrounded by olive groves.",
+      "fr": "Les plus hautes cascades d'Afrique du Nord, entourées d'oliveraies."
+    }
+  },
+  {
+    "name": {
+      "en": "Imlil",
+      "fr": "Imlil"
+    },
+    "slug": "imlil",
+    "description": {
+      "en": "Mountain village in the High Atlas, base for trekking adventures.",
+      "fr": "Village de montagne du Haut Atlas, base pour les aventures de trekking."
+    }
+  },
+  {
+    "name": {
+      "en": "Agafay Desert",
+      "fr": "Désert d'Agafay"
+    },
+    "slug": "agafay-desert",
+    "description": {
+      "en": "Rocky desert near Marrakech, perfect for day trips and activities.",
+      "fr": "Désert rocheux près de Marrakech, parfait pour les excursions d'une journée et les activités."
+    }
+  },
+  {
+    "name": {
+      "en": "Atlas Mountains",
+      "fr": "Montagnes de l'Atlas"
+    },
+    "slug": "atlas-mountains",
+    "description": {
+      "en": "Majestic mountain range offering stunning views and Berber culture.",
+      "fr": "Chaîne de montagnes majestueuse offrant des vues magnifiques et la culture berbère."
+    }
+  }
+]
