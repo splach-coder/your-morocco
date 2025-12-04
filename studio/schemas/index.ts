@@ -1,21 +1,17 @@
-// Import localized types
-import localizedString from './localizedString';
-import localizedText from './localizedText';
-import localizedBlockContent from './localizedBlockContent';
-
-// Import document types
-import location from './location';
-import tour from './tour';
-import excursion from './excursion';
-import activity from './activity';
-import service from './service';
-import galleryImage from './galleryImage';
-import blogPost from './blogPost';
-import testimonial from './testimonial';
-import faq from './faq';
+import activity from './activity'
+import blogPost from './blogPost'
+import excursion from './excursion'
+import galleryImage from './galleryImage'
+import localizedBlockContent from './localizedBlockContent'
+import localizedString from './localizedString'
+import localizedText from './localizedText'
+import location from './location'
+import service from './service'
+import testimonial from './testimonial'
+import tour from './tour'
 
 export const schemaTypes = [
-    // Localized field types
+    // Helper types
     localizedString,
     localizedText,
     localizedBlockContent,
@@ -29,5 +25,4 @@ export const schemaTypes = [
     galleryImage,
     blogPost,
     testimonial,
-    faq,
-];
+]

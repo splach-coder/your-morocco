@@ -1,44 +1,60 @@
-import { defineType, defineField, defineArrayMember } from 'sanity';
-import { FileText } from 'lucide-react';
+import { defineField, defineType } from 'sanity'
 
 export default defineType({
     name: 'blogPost',
     title: 'Blog Post',
     type: 'document',
-    icon: FileText,
     fields: [
         defineField({
             name: 'title',
-            title: 'Post Title',
-            type: 'localizedString',
-            validation: (Rule) => Rule.required(),
+            title: 'Title',
+            type: 'string',
         }),
         defineField({
             name: 'slug',
             title: 'Slug',
             type: 'slug',
             options: {
-                source: 'title.en',
+                source: 'title',
                 maxLength: 96,
             },
-            validation: (Rule) => Rule.required(),
         }),
         defineField({
             name: 'excerpt',
             title: 'Excerpt',
-            type: 'localizedText',
-            description: 'Short summary for previews',
-            validation: (Rule) => Rule.required().max(300),
+            type: 'text',
+            rows: 3,
         }),
         defineField({
             name: 'content',
             title: 'Content',
-            type: 'localizedBlockContent',
-            validation: (Rule) => Rule.required(),
+            type: 'markdown', // Using markdown as the data is currently markdown strings
+            description: 'The main content of the blog post in Markdown format.',
         }),
         defineField({
-            name: 'mainImage',
-            title: 'Main Image',
+            name: 'author',
+            title: 'Author',
+            type: 'object',
+            fields: [
+                defineField({ name: 'name', type: 'string', title: 'Name' }),
+                defineField({ name: 'role', type: 'string', title: 'Role' }),
+                defineField({ name: 'avatar', type: 'image', title: 'Avatar' }),
+            ],
+        }),
+        defineField({
+            name: 'category',
+            title: 'Category',
+            type: 'string',
+        }),
+        defineField({
+            name: 'tags',
+            title: 'Tags',
+            type: 'array',
+            of: [{ type: 'string' }],
+        }),
+        defineField({
+            name: 'featuredImage',
+            title: 'Featured Image',
             type: 'image',
             options: {
                 hotspot: true,
@@ -46,131 +62,37 @@ export default defineType({
             fields: [
                 {
                     name: 'alt',
-                    title: 'Alt Text',
-                    type: 'localizedString',
+                    type: 'string',
+                    title: 'Alternative Text',
                 },
             ],
-            validation: (Rule) => Rule.required(),
         }),
         defineField({
-            name: 'author',
-            title: 'Author',
+            name: 'publishedDate',
+            title: 'Published Date',
+            type: 'date',
+        }),
+        defineField({
+            name: 'readTime',
+            title: 'Read Time',
+            type: 'string',
+            description: 'e.g., "8 min read"',
+        }),
+        defineField({
+            name: 'seo',
+            title: 'SEO',
             type: 'object',
             fields: [
-                {
-                    name: 'name',
-                    title: 'Name',
-                    type: 'string',
-                    validation: (Rule) => Rule.required(),
-                },
-                {
-                    name: 'image',
-                    title: 'Image',
-                    type: 'image',
-                    options: {
-                        hotspot: true,
-                    },
-                },
-                {
-                    name: 'bio',
-                    title: 'Bio',
-                    type: 'localizedText',
-                },
+                defineField({ name: 'metaTitle', type: 'string', title: 'Meta Title' }),
+                defineField({ name: 'metaDescription', type: 'text', title: 'Meta Description' }),
+                defineField({ name: 'keywords', type: 'array', of: [{ type: 'string' }], title: 'Keywords' }),
             ],
-        }),
-        defineField({
-            name: 'category',
-            title: 'Category',
-            type: 'string',
-            options: {
-                list: [
-                    { title: 'Travel Tips', value: 'travel-tips' },
-                    { title: 'Culture', value: 'culture' },
-                    { title: 'Food & Cuisine', value: 'food' },
-                    { title: 'Destinations', value: 'destinations' },
-                    { title: 'Adventure', value: 'adventure' },
-                    { title: 'Guides', value: 'guides' },
-                ],
-            },
-            validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-            name: 'tags',
-            title: 'Tags',
-            type: 'array',
-            of: [defineArrayMember({ type: 'string' })],
-            options: {
-                layout: 'tags',
-            },
-        }),
-        defineField({
-            name: 'relatedLocations',
-            title: 'Related Locations',
-            type: 'array',
-            of: [
-                defineArrayMember({
-                    type: 'reference',
-                    to: [{ type: 'location' }],
-                }),
-            ],
-        }),
-        defineField({
-            name: 'relatedTours',
-            title: 'Related Tours',
-            type: 'array',
-            of: [
-                defineArrayMember({
-                    type: 'reference',
-                    to: [{ type: 'tour' }],
-                }),
-            ],
-        }),
-        defineField({
-            name: 'readingTime',
-            title: 'Reading Time (minutes)',
-            type: 'number',
-            description: 'Estimated reading time in minutes',
-        }),
-        defineField({
-            name: 'featured',
-            title: 'Featured Post',
-            type: 'boolean',
-            description: 'Display this post prominently on the blog page',
-            initialValue: false,
-        }),
-        defineField({
-            name: 'publishedAt',
-            title: 'Published At',
-            type: 'datetime',
-            validation: (Rule) => Rule.required(),
-            initialValue: () => new Date().toISOString(),
         }),
     ],
     preview: {
         select: {
-            title: 'title.en',
-            media: 'mainImage',
-            author: 'author.name',
-            category: 'category',
-        },
-        prepare({ title, media, author, category }) {
-            return {
-                title,
-                subtitle: `${category} - by ${author || 'Anonymous'}`,
-                media,
-            };
+            title: 'title',
+            media: 'featuredImage',
         },
     },
-    orderings: [
-        {
-            title: 'Published Date, New',
-            name: 'publishedAtDesc',
-            by: [{ field: 'publishedAt', direction: 'desc' }],
-        },
-        {
-            title: 'Published Date, Old',
-            name: 'publishedAtAsc',
-            by: [{ field: 'publishedAt', direction: 'asc' }],
-        },
-    ],
-});
+})
