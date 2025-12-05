@@ -70,24 +70,15 @@ export const siteData = {
             url: "https://your-morocco.com/itinerary/merzouga-desert-3-days-tour/",
             duration: "3 Day(s) 2 Night(s)",
             locations: [
-                {
-                    name: "Marrakech",
-                    url: "https://your-morocco.com/travel-locations/marrakech/"
-                },
-                {
-                    name: "Merzouga",
-                    url: "https://your-morocco.com/travel-locations/merzouga/"
-                },
-                {
-                    name: "Ouarzazate",
-                    url: "https://your-morocco.com/travel-locations/ouarzazate/"
-                }
+                { name: "Marrakech" },
+                { name: "Merzouga" },
+                { name: "Ouarzazate" }
             ],
             group_size: "unlimited",
             description: "Experience the Sahara on a 3-day Merzouga desert tour from Marrakech. Visit Ait Ben Haddou, ride camels at sunset, and sleep under the stars.",
             image: {
-                "url": "https://your-morocco.com/wp-content/uploads/2025/07/Merzouga-1024x536.webp",
-                "alt": "Visit Merzouga Morocco"
+                url: "/images/marzouga.png",
+                alt: "Visit Merzouga Morocco"
             },
             highlights: [
                 "Scenic drive through the Atlas Mountains",
@@ -106,23 +97,14 @@ export const siteData = {
             url: "https://your-morocco.com/itinerary/marrakech-to-ouarzazate-4-days-trip/",
             duration: "4 Day(s) 3 Night(s)",
             locations: [
-                {
-                    name: "Marrakech",
-                    url: "https://your-morocco.com/travel-locations/marrakech/"
-                },
-                {
-                    name: "Merzouga",
-                    url: "https://your-morocco.com/travel-locations/merzouga/"
-                },
-                {
-                    name: "Ouarzazate",
-                    url: "https://your-morocco.com/travel-locations/ouarzazate/"
-                }
+                { name: "Marrakech" },
+                { name: "Merzouga" },
+                { name: "Ouarzazate" }
             ],
             group_size: "unlimited",
             description: "Discover southern Morocco on a 4-day tour from Marrakech to Ouarzazate. Visit Dadès Gorges, ride camels in Merzouga, and explore desert landscapes and ancient kasbahs.",
             image: {
-                url: "https://your-morocco.com/wp-content/uploads/2025/07/Merzouga-1024x536.webp",
+                url: "/images/marzouga.png",
                 alt: "Visit Merzouga Morocco"
             },
             highlights: [
@@ -142,24 +124,15 @@ export const siteData = {
             url: "https://your-morocco.com/itinerary/5-days-tour-from-marrakech/",
             duration: "5 Day(s) 4 Night(s)",
             locations: [
-                {
-                    name: "Chefchaouen",
-                    url: "https://your-morocco.com/travel-locations/chefchaouen/"
-                },
-                {
-                    name: "Fes",
-                    url: "https://your-morocco.com/travel-locations/fes/"
-                },
-                {
-                    name: "Merzouga",
-                    url: "https://your-morocco.com/travel-locations/merzouga/"
-                }
+                { name: "Chefchaouen" },
+                { name: "Fes" },
+                { name: "Merzouga" }
             ],
             group_size: "unlimited",
             description: "Experience Morocco's highlights on a 5-day tour from Marrakech to Merzouga, Fes, Chefchaouen, and Casablanca. Camel rides, historic sites, and stunning landscapes await.",
             image: {
-                "url": "https://your-morocco.com/wp-content/uploads/2025/07/Marrakech-1024x536.webp",
-                "alt": "Visit Marrakech Morocco"
+                url: "/images/marrakech.png",
+                alt: "Visit Marrakech Morocco"
             },
             highlights: [
                 "Comprehensive tour of Morocco's imperial cities",
@@ -181,16 +154,13 @@ export const siteData = {
             url: "https://your-morocco.com/itinerary/zagora-2-days-excursion/",
             duration: "2 Day(s) 1 Night(s)",
             locations: [
-                {
-                    name: "Zagora",
-                    url: "https://your-morocco.com/travel-locations/zagora/"
-                }
+                { name: "Zagora" }
             ],
             group_size: "unlimited",
             description: "Book a two day excursion from Marrakech to Zagora including camel rides, a night in a Berber camp, and visits to Ait Ben Haddou.",
             image: {
-                "url": "https://your-morocco.com/wp-content/uploads/2025/07/ZAGORA-1024x536.webp",
-                "alt": "Visit ZAGORA Morocco"
+                url: "/images/Zagora.png",
+                alt: "Visit ZAGORA Morocco"
             },
             highlights: [
                 "Drive through the Draa Valley",
@@ -209,20 +179,14 @@ export const siteData = {
             url: "https://your-morocco.com/itinerary/ouzoud-waterfalls-1-day-excursion/",
             duration: "1 Day",
             locations: [
-                {
-                    name: "Marrakech",
-                    url: "https://your-morocco.com/travel-locations/marrakech/"
-                },
-                {
-                    name: "Ouzoud Waterfalls",
-                    url: "https://your-morocco.com/travel-locations/ouzoud-waterfalls/"
-                }
+                { name: "Marrakech" },
+                { name: "Ouzoud Waterfalls" }
             ],
             group_size: "unlimited",
             description: "Escape to nature with a full-day trip to Ouzoud Waterfalls from Marrakech. Enjoy scenic hikes, boat rides, and breathtaking views on this relaxing day trip.",
             image: {
-                "url": "https://your-morocco.com/wp-content/uploads/2025/07/OUZOUD-1024x536.webp",
-                "alt": "visit OUZOUD Waterfalls"
+                url: "/images/ouzoud.png",
+                alt: "visit OUZOUD Waterfalls"
             },
             highlights: [
                 "See the highest waterfalls in North Africa",
@@ -241,20 +205,14 @@ export const siteData = {
             url: "https://your-morocco.com/itinerary/ourika-valley-1-day-excursion/",
             duration: "1 Day",
             locations: [
-                {
-                    name: "Marrakech",
-                    url: "https://your-morocco.com/travel-locations/marrakech/"
-                },
-                {
-                    name: "Ourika Valley",
-                    url: "https://your-morocco.com/travel-locations/ourika-valley/"
-                }
+                { name: "Marrakech" },
+                { name: "Ourika Valley" }
             ],
             group_size: "unlimited",
             description: "Discover the beauty of the Ourika Valley on a 1 day excursion from Marrakech. Enjoy scenic views, Berber villages, waterfalls, and a peaceful escape.",
             image: {
-                "url": "https://your-morocco.com/wp-content/uploads/2025/07/OURIKA-VALLEY-MOROCCO-1024x536.webp",
-                "alt": "visit OURIKA VALLEY MOROCCO"
+                url: "/images/Ourika Valley.png",
+                alt: "visit OURIKA VALLEY MOROCCO"
             },
             highlights: [
                 "Visit a traditional Berber house",
@@ -273,16 +231,13 @@ export const siteData = {
             url: "https://your-morocco.com/itinerary/casablanca-excursion/",
             duration: "1 Day(s)",
             locations: [
-                {
-                    name: "Casablanca",
-                    url: "https://your-morocco.com/travel-locations/casablanca/"
-                }
+                { name: "Casablanca" }
             ],
             group_size: "unlimited",
             description: "Explore Casablanca on a guided day tour. Visit the Hassan II Mosque, Art Deco landmarks, Habous Quarter, and the Corniche on this cultural day trip.",
             image: {
-                "url": "https://your-morocco.com/wp-content/uploads/2025/07/Casablanca-1024x536.webp",
-                "alt": "visit Casablanca Morocco"
+                url: "/images/casablanca.png",
+                alt: "visit Casablanca Morocco"
             },
             highlights: [
                 "Visit the magnificent Hassan II Mosque",
@@ -301,20 +256,14 @@ export const siteData = {
             url: "https://your-morocco.com/itinerary/essaouira-excursion/",
             duration: "1 Day(s)",
             locations: [
-                {
-                    name: "Essaouira",
-                    url: "https://your-morocco.com/travel-locations/essaouira/"
-                },
-                {
-                    name: "Marrakech",
-                    url: "https://your-morocco.com/travel-locations/marrakech/"
-                }
+                { name: "Essaouira" },
+                { name: "Marrakech" }
             ],
             group_size: "unlimited",
             description: "Explore Essaouira on a full-day trip from Marrakech. Visit the medina, enjoy the beach, and discover local crafts in this charming coastal city.",
             image: {
-                "url": "https://your-morocco.com/wp-content/uploads/2025/07/ESSAOUIRA-1024x536.webp",
-                "alt": "Visit ESSAOUIRA MOROCCO"
+                url: "/images/Essaouira.png",
+                alt: "Visit ESSAOUIRA MOROCCO"
             },
             highlights: [
                 "Walk through the historic Medina (UNESCO site)",
@@ -333,16 +282,13 @@ export const siteData = {
             url: "https://your-morocco.com/itinerary/rabat-excursion/",
             duration: "1 Day(s)",
             locations: [
-                {
-                    name: "Rabat",
-                    url: "https://your-morocco.com/travel-locations/rabat/"
-                }
+                { name: "Rabat" }
             ],
             group_size: "unlimited",
             description: "Visit Morocco's capital on a guided Rabat excursion. Explore Hassan Tower, Kasbah of the Udayas, Chellah ruins, and the Royal Palace in a day.",
             image: {
-                "url": "https://your-morocco.com/wp-content/uploads/2025/07/Rabat-1024x536.webp",
-                "alt": "visit Rabat Morocco"
+                url: "/images/rabat.png",
+                alt: "visit Rabat Morocco"
             },
             highlights: [
                 "See the Hassan Tower and Mausoleum of Mohammed V",
@@ -361,16 +307,13 @@ export const siteData = {
             url: "https://your-morocco.com/itinerary/fes-excursion/",
             duration: "1 Day(s)",
             locations: [
-                {
-                    name: "Fes",
-                    url: "https://your-morocco.com/travel-locations/fes/"
-                }
+                { name: "Fes" }
             ],
             group_size: "unlimited",
             description: "Explore the cultural heart of Morocco with a guided Fes excursion. Visit Al Quaraouiyine, Chouara Tannery, and the old medina in one unforgettable day.",
             image: {
-                "url": "https://your-morocco.com/wp-content/uploads/2025/07/Fes-1024x536.webp",
-                "alt": "Visit Fez Morocco"
+                url: "/images/Fes.png",
+                alt: "Visit Fez Morocco"
             },
             highlights: [
                 "Get lost in the Medina of Fes el-Bali",
@@ -389,16 +332,13 @@ export const siteData = {
             url: "https://your-morocco.com/itinerary/ouarzazate-excursion/",
             duration: "1 Day(s)",
             locations: [
-                {
-                    name: "Ouarzazate",
-                    url: "https://your-morocco.com/travel-locations/ouarzazate/"
-                }
+                { name: "Ouarzazate" }
             ],
             group_size: "unlimited",
             description: "Join a full-day trip from Marrakech to Ouarzazate and Ait Ben Haddou. Visit film studios, ancient kasbahs, and enjoy scenic views through the Atlas Mountains.",
             image: {
-                "url": "https://your-morocco.com/wp-content/uploads/2025/07/Ouarzazate-1024x536.webp",
-                "alt": "Ouarzazate Morocco tour"
+                url: "/images/ouarzazate.png",
+                alt: "Ouarzazate Morocco tour"
             },
             highlights: [
                 "Cross the Tizi n'Tichka pass",
@@ -417,16 +357,13 @@ export const siteData = {
             url: "https://your-morocco.com/itinerary/merzouga-excursion/",
             duration: "3 Day(s) 2 Night(s)",
             locations: [
-                {
-                    name: "Merzouga",
-                    url: "https://your-morocco.com/travel-locations/merzouga/"
-                }
+                { name: "Merzouga" }
             ],
             group_size: "unlimited",
             description: "Join a 3 day desert tour from Marrakech to Merzouga. Visit Ait Ben Haddou, ride camels, sleep in a Berber camp, and explore the Sahara.",
             image: {
-                "url": "https://your-morocco.com/wp-content/uploads/2025/07/Merzouga-1024x536.webp",
-                "alt": "Visit Merzouga Morocco"
+                url: "/images/marzouga.png",
+                alt: "Visit Merzouga Morocco"
             },
             highlights: [
                 "Experience the Sahara Desert",
@@ -445,16 +382,13 @@ export const siteData = {
             url: "https://your-morocco.com/itinerary/marrakech-excursion/",
             duration: "1 Day(s)",
             locations: [
-                {
-                    name: "Marrakech",
-                    url: "https://your-morocco.com/travel-locations/marrakech/"
-                }
+                { name: "Marrakech" }
             ],
             group_size: "unlimited",
             description: "Explore Marrakech in one day with a guided city tour. Visit the medina, Bahia Palace, Majorelle Garden, and Jemaa el-Fnaa for a complete experience.",
             image: {
-                "url": "https://your-morocco.com/wp-content/uploads/2025/07/Marrakech-1024x536.webp",
-                "alt": "Visit Marrakech Morocco"
+                url: "/images/marrakech.png",
+                alt: "Visit Marrakech Morocco"
             },
             highlights: [
                 "Visit the Koutoubia Mosque",
