@@ -28,7 +28,8 @@ export default defineType({
         defineField({
             name: 'content',
             title: 'Content',
-            type: 'markdown', // Using markdown as the data is currently markdown strings
+            type: 'text', // Changed from 'markdown' to 'text' to avoid plugin dependency issues
+            rows: 20,
             description: 'The main content of the blog post in Markdown format.',
         }),
         defineField({

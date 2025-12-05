@@ -32,7 +32,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ locale
         .filter(t => t.id !== service.id)
         .slice(0, 3);
 
-    const whatsappNumber = '212123456789';
+    const whatsappNumber = '212706880866';
     const bookingMessage = encodeURIComponent(`Hello, I am interested in the service: ${service.title}. Please provide more information.`);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${bookingMessage}`;
 
@@ -109,6 +109,12 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ locale
                         <div className="sticky top-32 space-y-6">
                             <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-primary-teal">
                                 <h3 className="text-xl font-bold mb-4 text-center">Book This Service</h3>
+                                {service.price && (
+                                    <div className="text-center mb-4">
+                                        <span className="text-gray-500 text-sm">Starting from</span>
+                                        <div className="text-3xl font-bold text-primary-teal">{service.price}</div>
+                                    </div>
+                                )}
                                 <p className="text-gray-600 mb-6 text-center text-sm">
                                     Reserve now and pay later. Contact us via WhatsApp to secure your spot.
                                 </p>
@@ -152,6 +158,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ locale
                                     duration=""
                                     image={relatedService.image.url}
                                     link={`/${locale}/services/${relatedService.id}`}
+                                    price={relatedService.price}
                                     buttonText={t('details')}
                                     location=""
                                 />

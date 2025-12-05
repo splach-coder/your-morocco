@@ -17,7 +17,8 @@ export const siteData = {
                 "Flight tracking for delayed arrivals",
                 "Fixed prices with no hidden fees"
             ],
-            suitable_for: ["Solo travelers", "Families", "Groups", "Business travelers"]
+            suitable_for: ["Solo travelers", "Families", "Groups", "Business travelers"],
+            price: "From $25"
         },
         {
             id: 419,
@@ -36,7 +37,8 @@ export const siteData = {
                 "Knowledgeable local drivers",
                 "Safe and reliable"
             ],
-            suitable_for: ["All travelers"]
+            suitable_for: ["All travelers"],
+            price: "From $30"
         },
         {
             id: 417,
@@ -55,46 +57,12 @@ export const siteData = {
                 "Fuel and insurance included",
                 "Local insights and tips"
             ],
-            suitable_for: ["Couples", "Families", "Small groups", "Photographers"]
+            suitable_for: ["Couples", "Families", "Small groups", "Photographers"],
+            price: "From $50/day"
         }
     ],
 
     tours: [
-        {
-            id: 467,
-            trip_code: "WT-CODE 467",
-            title: "Marrakech to Merzouga 4 Days Tour",
-            url: "https://your-morocco.com/itinerary/marrakech-to-ouarzazate-4-days-trip/",
-            duration: "4 Day(s) 3 Night(s)",
-            locations: [
-                {
-                    name: "Marrakech",
-                    url: "https://your-morocco.com/travel-locations/marrakech/"
-                },
-                {
-                    name: "Merzouga",
-                    url: "https://your-morocco.com/travel-locations/merzouga/"
-                },
-                {
-                    name: "Ouarzazate",
-                    url: "https://your-morocco.com/travel-locations/ouarzazate/"
-                }
-            ],
-            group_size: "17 maximum",
-            description: "Discover southern Morocco on a 4-day tour from Marrakech to Ouarzazate. Visit Dadès Gorges, ride camels in Merzouga, and explore desert landscapes and ancient kasbahs.",
-            image: {
-                url: "https://your-morocco.com/wp-content/uploads/2025/07/Merzouga-1024x536.webp",
-                alt: "Visit Merzouga Morocco"
-            },
-            highlights: [
-                "Cross the High Atlas Mountains via Tizi n'Tichka pass",
-                "Visit the UNESCO World Heritage site of Ait Ben Haddou",
-                "Explore the Dades and Todra Gorges",
-                "Camel trek in the Merzouga Sahara Desert",
-                "Overnight stay in a traditional desert camp"
-            ],
-            suitable_for: ["Adventure seekers", "Families", "Couples", "Groups"]
-        },
         {
             id: 465,
             trip_code: "WT-CODE 465",
@@ -115,7 +83,7 @@ export const siteData = {
                     url: "https://your-morocco.com/travel-locations/ouarzazate/"
                 }
             ],
-            group_size: "17 maximum",
+            group_size: "unlimited",
             description: "Experience the Sahara on a 3-day Merzouga desert tour from Marrakech. Visit Ait Ben Haddou, ride camels at sunset, and sleep under the stars.",
             image: {
                 "url": "https://your-morocco.com/wp-content/uploads/2025/07/Merzouga-1024x536.webp",
@@ -128,7 +96,44 @@ export const siteData = {
                 "Night in a Berber desert camp with music",
                 "Sunrise over the Sahara Desert"
             ],
-            suitable_for: ["Couples", "Friends", "Solo travelers"]
+            suitable_for: ["Couples", "Friends", "Solo travelers"],
+            price: "$180"
+        },
+        {
+            id: 467,
+            trip_code: "WT-CODE 467",
+            title: "Marrakech to Merzouga 4 Days Tour",
+            url: "https://your-morocco.com/itinerary/marrakech-to-ouarzazate-4-days-trip/",
+            duration: "4 Day(s) 3 Night(s)",
+            locations: [
+                {
+                    name: "Marrakech",
+                    url: "https://your-morocco.com/travel-locations/marrakech/"
+                },
+                {
+                    name: "Merzouga",
+                    url: "https://your-morocco.com/travel-locations/merzouga/"
+                },
+                {
+                    name: "Ouarzazate",
+                    url: "https://your-morocco.com/travel-locations/ouarzazate/"
+                }
+            ],
+            group_size: "unlimited",
+            description: "Discover southern Morocco on a 4-day tour from Marrakech to Ouarzazate. Visit Dadès Gorges, ride camels in Merzouga, and explore desert landscapes and ancient kasbahs.",
+            image: {
+                url: "https://your-morocco.com/wp-content/uploads/2025/07/Merzouga-1024x536.webp",
+                alt: "Visit Merzouga Morocco"
+            },
+            highlights: [
+                "Cross the High Atlas Mountains via Tizi n'Tichka pass",
+                "Visit the UNESCO World Heritage site of Ait Ben Haddou",
+                "Explore the Dades and Todra Gorges",
+                "Camel trek in the Merzouga Sahara Desert",
+                "Overnight stay in a traditional desert camp"
+            ],
+            suitable_for: ["Adventure seekers", "Families", "Couples", "Groups"],
+            price: "$240"
         },
         {
             id: 463,
@@ -150,7 +155,7 @@ export const siteData = {
                     url: "https://your-morocco.com/travel-locations/merzouga/"
                 }
             ],
-            group_size: "17 maximum",
+            group_size: "unlimited",
             description: "Experience Morocco's highlights on a 5-day tour from Marrakech to Merzouga, Fes, Chefchaouen, and Casablanca. Camel rides, historic sites, and stunning landscapes await.",
             image: {
                 "url": "https://your-morocco.com/wp-content/uploads/2025/07/Marrakech-1024x536.webp",
@@ -163,7 +168,8 @@ export const siteData = {
                 "Explore the labyrinthine medina of Fes",
                 "See the Hassan II Mosque in Casablanca"
             ],
-            suitable_for: ["Culture lovers", "History buffs", "Adventurers"]
+            suitable_for: ["Culture lovers", "History buffs", "Adventurers"],
+            price: "$380"
         }
     ],
 
@@ -180,7 +186,7 @@ export const siteData = {
                     url: "https://your-morocco.com/travel-locations/zagora/"
                 }
             ],
-            group_size: "17 maximum",
+            group_size: "unlimited",
             description: "Book a two day excursion from Marrakech to Zagora including camel rides, a night in a Berber camp, and visits to Ait Ben Haddou.",
             image: {
                 "url": "https://your-morocco.com/wp-content/uploads/2025/07/ZAGORA-1024x536.webp",
@@ -193,7 +199,8 @@ export const siteData = {
                 "Overnight in a traditional camp",
                 "Stargazing in the desert"
             ],
-            suitable_for: ["Short stay travelers", "Families", "Couples"]
+            suitable_for: ["Short stay travelers", "Families", "Couples"],
+            price: "$150"
         },
         {
             id: 294,
@@ -211,7 +218,7 @@ export const siteData = {
                     url: "https://your-morocco.com/travel-locations/ouzoud-waterfalls/"
                 }
             ],
-            group_size: "17 maximum",
+            group_size: "unlimited",
             description: "Escape to nature with a full-day trip to Ouzoud Waterfalls from Marrakech. Enjoy scenic hikes, boat rides, and breathtaking views on this relaxing day trip.",
             image: {
                 "url": "https://your-morocco.com/wp-content/uploads/2025/07/OUZOUD-1024x536.webp",
@@ -224,7 +231,8 @@ export const siteData = {
                 "Optional boat ride near the falls",
                 "Lunch with a view of the waterfalls"
             ],
-            suitable_for: ["Nature lovers", "Families", "Photographers"]
+            suitable_for: ["Nature lovers", "Families", "Photographers"],
+            price: "$55"
         },
         {
             id: 289,
@@ -242,7 +250,7 @@ export const siteData = {
                     url: "https://your-morocco.com/travel-locations/ourika-valley/"
                 }
             ],
-            group_size: "17 maximum",
+            group_size: "unlimited",
             description: "Discover the beauty of the Ourika Valley on a 1 day excursion from Marrakech. Enjoy scenic views, Berber villages, waterfalls, and a peaceful escape.",
             image: {
                 "url": "https://your-morocco.com/wp-content/uploads/2025/07/OURIKA-VALLEY-MOROCCO-1024x536.webp",
@@ -255,7 +263,8 @@ export const siteData = {
                 "Shop for local crafts and argan oil",
                 "Lunch by the river"
             ],
-            suitable_for: ["Families", "Nature lovers", "Hikers"]
+            suitable_for: ["Families", "Nature lovers", "Hikers"],
+            price: "$45"
         },
         {
             id: 259,
@@ -269,7 +278,7 @@ export const siteData = {
                     url: "https://your-morocco.com/travel-locations/casablanca/"
                 }
             ],
-            group_size: "17 maximum",
+            group_size: "unlimited",
             description: "Explore Casablanca on a guided day tour. Visit the Hassan II Mosque, Art Deco landmarks, Habous Quarter, and the Corniche on this cultural day trip.",
             image: {
                 "url": "https://your-morocco.com/wp-content/uploads/2025/07/Casablanca-1024x536.webp",
@@ -282,7 +291,8 @@ export const siteData = {
                 "See the Art Deco architecture",
                 "Visit Mohammed V Square"
             ],
-            suitable_for: ["Culture lovers", "Architecture enthusiasts"]
+            suitable_for: ["Culture lovers", "Architecture enthusiasts"],
+            price: "$85"
         },
         {
             id: 255,
@@ -300,7 +310,7 @@ export const siteData = {
                     url: "https://your-morocco.com/travel-locations/marrakech/"
                 }
             ],
-            group_size: "17 maximum",
+            group_size: "unlimited",
             description: "Explore Essaouira on a full-day trip from Marrakech. Visit the medina, enjoy the beach, and discover local crafts in this charming coastal city.",
             image: {
                 "url": "https://your-morocco.com/wp-content/uploads/2025/07/ESSAOUIRA-1024x536.webp",
@@ -313,7 +323,8 @@ export const siteData = {
                 "See the fishing port and blue boats",
                 "Shop for thuya wood crafts"
             ],
-            suitable_for: ["Beach lovers", "History buffs", "Relaxation seekers"]
+            suitable_for: ["Beach lovers", "History buffs", "Relaxation seekers"],
+            price: "$65"
         },
         {
             id: 253,
@@ -327,7 +338,7 @@ export const siteData = {
                     url: "https://your-morocco.com/travel-locations/rabat/"
                 }
             ],
-            group_size: "17 maximum",
+            group_size: "unlimited",
             description: "Visit Morocco's capital on a guided Rabat excursion. Explore Hassan Tower, Kasbah of the Udayas, Chellah ruins, and the Royal Palace in a day.",
             image: {
                 "url": "https://your-morocco.com/wp-content/uploads/2025/07/Rabat-1024x536.webp",
@@ -340,7 +351,8 @@ export const siteData = {
                 "View the Royal Palace exterior",
                 "Stroll through the Andalusian Gardens"
             ],
-            suitable_for: ["History buffs", "Culture lovers"]
+            suitable_for: ["History buffs", "Culture lovers"],
+            price: "$90"
         },
         {
             id: 251,
@@ -354,7 +366,7 @@ export const siteData = {
                     url: "https://your-morocco.com/travel-locations/fes/"
                 }
             ],
-            group_size: "17 maximum",
+            group_size: "unlimited",
             description: "Explore the cultural heart of Morocco with a guided Fes excursion. Visit Al Quaraouiyine, Chouara Tannery, and the old medina in one unforgettable day.",
             image: {
                 "url": "https://your-morocco.com/wp-content/uploads/2025/07/Fes-1024x536.webp",
@@ -367,7 +379,8 @@ export const siteData = {
                 "Admire the Bou Inania Madrasa",
                 "Explore the souks and artisan workshops"
             ],
-            suitable_for: ["Culture lovers", "History buffs", "Shoppers"]
+            suitable_for: ["Culture lovers", "History buffs", "Shoppers"],
+            price: "$95"
         },
         {
             id: 40,
@@ -381,7 +394,7 @@ export const siteData = {
                     url: "https://your-morocco.com/travel-locations/ouarzazate/"
                 }
             ],
-            group_size: "17 maximum",
+            group_size: "unlimited",
             description: "Join a full-day trip from Marrakech to Ouarzazate and Ait Ben Haddou. Visit film studios, ancient kasbahs, and enjoy scenic views through the Atlas Mountains.",
             image: {
                 "url": "https://your-morocco.com/wp-content/uploads/2025/07/Ouarzazate-1024x536.webp",
@@ -394,7 +407,8 @@ export const siteData = {
                 "Walk through Ait Ben Haddou",
                 "Enjoy desert landscapes"
             ],
-            suitable_for: ["Film fans", "History buffs", "Sightseers"]
+            suitable_for: ["Film fans", "History buffs", "Sightseers"],
+            price: "$70"
         },
         {
             id: 41,
@@ -408,7 +422,7 @@ export const siteData = {
                     url: "https://your-morocco.com/travel-locations/merzouga/"
                 }
             ],
-            group_size: "17 maximum",
+            group_size: "unlimited",
             description: "Join a 3 day desert tour from Marrakech to Merzouga. Visit Ait Ben Haddou, ride camels, sleep in a Berber camp, and explore the Sahara.",
             image: {
                 "url": "https://your-morocco.com/wp-content/uploads/2025/07/Merzouga-1024x536.webp",
@@ -421,7 +435,8 @@ export const siteData = {
                 "Visit Todra Gorges",
                 "See the starry night sky"
             ],
-            suitable_for: ["Adventure seekers", "Nature lovers"]
+            suitable_for: ["Adventure seekers", "Nature lovers"],
+            price: "$180"
         },
         {
             id: 38,
@@ -435,7 +450,7 @@ export const siteData = {
                     url: "https://your-morocco.com/travel-locations/marrakech/"
                 }
             ],
-            group_size: "17 maximum",
+            group_size: "unlimited",
             description: "Explore Marrakech in one day with a guided city tour. Visit the medina, Bahia Palace, Majorelle Garden, and Jemaa el-Fnaa for a complete experience.",
             image: {
                 "url": "https://your-morocco.com/wp-content/uploads/2025/07/Marrakech-1024x536.webp",
@@ -448,7 +463,8 @@ export const siteData = {
                 "Experience Jemaa el-Fnaa square",
                 "Shop in the souks"
             ],
-            suitable_for: ["City explorers", "Culture lovers", "Shoppers"]
+            suitable_for: ["City explorers", "Culture lovers", "Shoppers"],
+            price: "$50"
         }
     ],
 
@@ -473,6 +489,7 @@ export const siteData = {
             locations: ["Marrakech", "Fes", "Essaouira", "Ouarzazate", "Merzouga"],
             duration: "Flexible - available throughout your journey",
             suitable_for: ["Solo travelers", "Couples", "Families", "Groups", "Special occasions", "Team-building events"],
+            price: "$45 per person",
             booking_form: {
                 fields: [
                     { name: "full_name", type: "text", required: true, label: "Full name" },
@@ -508,6 +525,7 @@ export const siteData = {
             duration: "Flexible - short adventures to full-day experiences",
             suitable_for: ["Couples", "Groups of friends", "Families with teens", "Corporate team-building", "Adventure seekers"],
             skill_level: "All levels (beginner to experienced)",
+            price: "$65 per person",
             booking_form: {
                 fields: [
                     { name: "full_name", type: "text", required: true, label: "Full name" },
@@ -542,6 +560,7 @@ export const siteData = {
             locations: ["Merzouga", "Zagora", "Agafay Desert", "Essaouira outskirts", "Various regions"],
             duration_options: ["1-hour rides", "Half-day journeys", "Full desert experiences with overnight stays"],
             suitable_for: ["All ages", "Couples", "Families", "Groups", "Peaceful adventure seekers"],
+            price: "From $35",
             booking_form: {
                 fields: [
                     { name: "full_name", type: "text", required: true, label: "Full name" },
@@ -576,6 +595,7 @@ export const siteData = {
             locations: ["Marrakech", "Fes", "Casablanca", "Other culturally rich cities"],
             tour_types: ["Street food tours", "Vegetarian dishes", "Sweets and pastries", "Adventurous tasting"],
             suitable_for: ["Couples", "Solo travelers", "Families", "Small groups", "Honeymoon trips", "Photography tours", "Business travel"],
+            price: "$55 per person",
             booking_form: {
                 fields: [
                     { name: "full_name", type: "text", required: true, label: "Full name" },
@@ -611,6 +631,7 @@ export const siteData = {
             duration: "Approximately 1 hour flight + breakfast",
             schedule: "Early morning pickup, sunrise flight",
             suitable_for: ["Couples", "Honeymooners", "Families", "Small private groups", "Special occasions"],
+            price: "$220 per person",
             booking_form: {
                 fields: [
                     { name: "full_name", type: "text", required: true, label: "Full name" },

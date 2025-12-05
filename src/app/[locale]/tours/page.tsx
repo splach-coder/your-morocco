@@ -45,6 +45,7 @@ export default function ToursPage() {
                             duration={tour.duration}
                             image={tour.image.url}
                             link={`/${locale}/tours/${tour.id}`}
+                            price={tour.price}
                             buttonText={t('viewDetails')}
                             location={tour.locations[0]?.name}
                         />

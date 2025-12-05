@@ -67,7 +67,7 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
         .filter(t => t.id !== activity.id)
         .slice(0, 3);
 
-    const whatsappNumber = '212123456789';
+    const whatsappNumber = '212706880866';
     const bookingMessage = encodeURIComponent(`Hello, I am interested in booking the activity: ${activity.title}. Please provide more information.`);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${bookingMessage}`;
 
@@ -269,7 +269,7 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
                             <div className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
                                 <div className="flex items-center justify-between mb-6">
                                     <span className="text-gray-500 font-medium">Price per person</span>
-                                    <span className="text-2xl font-bold text-gray-900">€XX</span>
+                                    <span className="text-2xl font-bold text-gray-900">{activity.price || 'Contact us'}</span>
                                 </div>
 
                                 <a
@@ -328,6 +328,7 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
                                     duration={relatedActivity.duration || ""}
                                     image={relatedActivity.image.url}
                                     link={`/${locale}/activities/${relatedActivity.id}`}
+                                    price={relatedActivity.price}
                                     buttonText={t('details')}
                                     location={relatedActivity.locations && relatedActivity.locations.length > 0
                                         ? relatedActivity.locations[0]
@@ -341,7 +342,7 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
             </div>
 
             <MobileBookingBar
-                price="€XX"
+                price={activity.price || 'Contact us'}
                 whatsappUrl={whatsappUrl}
             />
 

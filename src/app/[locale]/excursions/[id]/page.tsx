@@ -55,7 +55,7 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
         .filter(t => t.id !== tour.id)
         .slice(0, 3);
 
-    const whatsappNumber = '212123456789';
+    const whatsappNumber = '212706880866';
     const bookingMessage = encodeURIComponent(`Hello, I am interested in booking the excursion: ${tour.title} (Code: ${tour.trip_code}). Please provide more information.`);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${bookingMessage}`;
 
@@ -318,8 +318,8 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
                                 <div className="mb-6">
                                     <span className="text-gray-500 text-sm font-medium uppercase tracking-wide">Starting from</span>
                                     <div className="flex items-baseline gap-1 mt-1">
-                                        <span className="text-3xl font-bold text-gray-900">€XXX</span>
-                                        <span className="text-gray-500">/ person</span>
+                                        <span className="text-3xl font-bold text-gray-900">{tour.price || 'Contact us'}</span>
+                                        {tour.price && <span className="text-gray-500">/ person</span>}
                                     </div>
                                 </div>
 
@@ -418,7 +418,7 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
             </div>
 
             <MobileBookingBar
-                price="€XXX"
+                price={tour.price || 'Contact us'}
                 whatsappUrl={whatsappUrl}
             />
 

@@ -45,6 +45,7 @@ export default function ActivitiesPage() {
                             duration={activity.duration || ""}
                             image={activity.image.url}
                             link={`/${locale}/activities/${activity.id}`}
+                            price={activity.price}
                             buttonText={t('viewDetails')}
                             location={activity.locations && activity.locations.length > 0 ? activity.locations[0] : ""}
                         />

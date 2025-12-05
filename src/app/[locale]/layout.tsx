@@ -9,6 +9,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 import Script from 'next/script';
 import AnalyticsListener from '@/lib/AnalyticsListener';
 import Footer from './components/Footer';
+import { OrganizationSchema } from '@/components/StructuredData';
 
 // ---  SEO Metadata
 export const metadata = {
@@ -110,6 +111,7 @@ export default async function LocaleLayout({
       </head>
       <body cz-shortcut-listen="true">
         <AnalyticsListener />
+        <OrganizationSchema />
         <HeaderWithTranslations locale={locale} />
         <NextIntlClientProvider messages={messages}>
           {children}

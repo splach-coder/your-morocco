@@ -134,6 +134,7 @@ export default function ExcursionsPage({ params }: { params: Promise<{ locale: s
                                 duration={tour.duration}
                                 image={tour.image.url}
                                 link={`/${locale}/excursions/${tour.id}`}
+                                price={tour.price}
                                 buttonText={t('details')}
                                 location={tour.locations[0]?.name}
                                 rating={4.9}

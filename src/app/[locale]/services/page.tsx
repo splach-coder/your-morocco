@@ -45,6 +45,7 @@ export default function ServicesPage() {
                             duration=""
                             image={service.image.url}
                             link={`/${locale}/services/${service.id}`}
+                            price={service.price}
                             buttonText={t('viewDetails')}
                             location=""
                         />
