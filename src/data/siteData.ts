@@ -10,6 +10,15 @@ export const siteData = {
                 url: "https://your-morocco.com/wp-content/uploads/2025/06/visit-morocco.webp",
                 alt: "Visit Morocco"
             },
+            banner_image: {
+                url: "https://your-morocco.com/wp-content/uploads/2025/06/visit-morocco.webp",
+                alt: "Visit Morocco"
+            },
+            gallery: [
+                { url: "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&q=80&w=1200", alt: "Morocco Airport Transfer" },
+                { url: "https://images.unsplash.com/photo-1597212618440-806262de4f6b?auto=format&fit=crop&q=80&w=1200", alt: "Comfortable Vehicle" },
+                { url: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=1200", alt: "Safe Travel" }
+            ],
             highlights: [
                 "24/7 availability",
                 "Professional and multilingual drivers",
@@ -30,6 +39,15 @@ export const siteData = {
                 url: "https://your-morocco.com/wp-content/uploads/2025/06/visit-morocco.webp",
                 alt: "Visit Morocco"
             },
+            banner_image: {
+                url: "https://your-morocco.com/wp-content/uploads/2025/06/visit-morocco.webp",
+                alt: "Visit Morocco"
+            },
+            gallery: [
+                { url: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1200", alt: "Hotel Transfer" },
+                { url: "https://images.unsplash.com/photo-1549144511-650a31eb2580?auto=format&fit=crop&q=80&w=1200", alt: "Luxury Service" },
+                { url: "https://images.unsplash.com/photo-1517840901100-8179e982acb7?auto=format&fit=crop&q=80&w=1200", alt: "Morocco Streets" }
+            ],
             highlights: [
                 "Door-to-door service",
                 "Help with luggage",
@@ -50,6 +68,15 @@ export const siteData = {
                 url: "https://your-morocco.com/wp-content/uploads/2025/06/visit-morocco.webp",
                 alt: "Visit Morocco"
             },
+            banner_image: {
+                url: "https://your-morocco.com/wp-content/uploads/2025/06/visit-morocco.webp",
+                alt: "Visit Morocco"
+            },
+            gallery: [
+                { url: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=1200", alt: "Private Driver" },
+                { url: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=1200", alt: "Scenic Drive" },
+                { url: "https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&q=80&w=1200", alt: "Morocco Road" }
+            ],
             highlights: [
                 "Flexible itinerary",
                 "Professional driver/guide",
@@ -80,6 +107,18 @@ export const siteData = {
                 url: "/images/marzouga.png",
                 alt: "Visit Merzouga Morocco"
             },
+            banner_image: {
+                url: "/images/merzouga/merzouga1.jpg",
+                alt: "Visit Merzouga Morocco"
+            },
+            gallery: [
+                { url: "/images/merzouga/merzouga2.jpg", alt: "Merzouga Camel Trek" },
+                { url: "/images/merzouga/merzouga3.jpg", alt: "Desert Camp" },
+                { url: "/images/merzouga/merzouga4.jpg", alt: "Sahara Dunes" },
+                { url: "/images/merzouga/merzouga5.jpg", alt: "Merzouga Sunset" },
+                { url: "/images/merzouga/merzouga6.jpg", alt: "Desert Landscape" },
+                { url: "/images/merzouga/merzouga7.jpg", alt: "Berber Life" }
+            ],
             highlights: [
                 "Scenic drive through the Atlas Mountains",
                 "Visit the Kasbah of Ait Ben Haddou",
@@ -107,6 +146,18 @@ export const siteData = {
                 url: "/images/marzouga.png",
                 alt: "Visit Merzouga Morocco"
             },
+            banner_image: {
+                url: "/images/merzouga/merzouga2.jpg",
+                alt: "Visit Merzouga Morocco"
+            },
+            gallery: [
+                { url: "/images/merzouga/merzouga1.jpg", alt: "Sahara Dunes" },
+                { url: "/images/merzouga/merzouga3.jpg", alt: "Desert Camp" },
+                { url: "/images/merzouga/merzouga4.jpg", alt: "Camel Trekking" },
+                { url: "/images/merzouga/merzouga5.jpg", alt: "Merzouga Landscape" },
+                { url: "/images/merzouga/merzouga6.jpg", alt: "Desert Adventure" },
+                { url: "/images/merzouga/merzouga7.jpg", alt: "Berber Tent" }
+            ],
             highlights: [
                 "Cross the High Atlas Mountains via Tizi n'Tichka pass",
                 "Visit the UNESCO World Heritage site of Ait Ben Haddou",
@@ -134,6 +185,18 @@ export const siteData = {
                 url: "/images/marrakech.png",
                 alt: "Visit Marrakech Morocco"
             },
+            banner_image: {
+                url: "/images/marrakech/marrakech.jpg",
+                alt: "Visit Marrakech Morocco"
+            },
+            gallery: [
+                { url: "/images/marrakech/marrakech1.jpg", alt: "Marrakech City" },
+                { url: "/images/marrakech/marrakech2.jpg", alt: "Medina Streets" },
+                { url: "/images/marrakech/marrakech3.jpg", alt: "Traditional Architecture" },
+                { url: "/images/marrakech/marrakech4.jpg", alt: "Busy Souks" },
+                { url: "/images/marrakech/marrakech5.jpg", alt: "Moroccan Design" },
+                { url: "/images/marrakech/marrakech6.jpg", alt: "City Views" }
+            ],
             highlights: [
                 "Comprehensive tour of Morocco's imperial cities",
                 "Desert experience in Merzouga",
@@ -162,6 +225,17 @@ export const siteData = {
                 url: "/images/Zagora.png",
                 alt: "Visit ZAGORA Morocco"
             },
+            banner_image: {
+                url: "/images/Zagoura/marvin-meyer-X0XRRXSVLU4-unsplash.jpg",
+                alt: "Visit ZAGORA Morocco"
+            },
+            gallery: [
+                { url: "/images/Zagoura/darolti-dan-GJw9zRK_VBs-unsplash.jpg", alt: "Zagora Desert" },
+                { url: "/images/Zagoura/gabriele-stravinskaite--mKpYC4RacA-unsplash.jpg", alt: "Camel Trek" },
+                { url: "/images/Zagoura/ismail-el-youssefi-geeSPCxnKzU-unsplash.jpg", alt: "Desert Landscape" },
+                { url: "/images/Zagoura/kristijan-nikodinovski-RfK4AQchykw-unsplash.jpg", alt: "Berber Camp" },
+                { url: "/images/Zagoura/raul-mermans-garcia-oWzVpeYyJ-w-unsplash.jpg", alt: "Zagora Sunset" }
+            ],
             highlights: [
                 "Drive through the Draa Valley",
                 "Visit Ait Ben Haddou Kasbah",
@@ -188,6 +262,17 @@ export const siteData = {
                 url: "/images/ouzoud.png",
                 alt: "visit OUZOUD Waterfalls"
             },
+            banner_image: {
+                url: "/images/ouzoud/rihards-sarma-mJGl8l1SiJk-unsplash.jpg",
+                alt: "visit OUZOUD Waterfalls"
+            },
+            gallery: [
+                { url: "/images/ouzoud/danai-tsoutreli-tqLc6On9KIA-unsplash.jpg", alt: "Ouzoud Falls" },
+                { url: "/images/ouzoud/selina-bubendorfer-jP51Ai2tQGE-unsplash.jpg", alt: "Waterfalls Nature" },
+                { url: "/images/ouzoud/sergio-teixeira-svdabxVg7-4-unsplash.jpg", alt: "Scenic View" },
+                { url: "/images/ouzoud/tobias-pfeifer-F8TGlff-qks-unsplash.jpg", alt: "Barbary Macaque" },
+                { url: "/images/ouzoud/tobias-pfeifer-IBT7zZDTtNg-unsplash.jpg", alt: "Ouzoud Landscape" }
+            ],
             highlights: [
                 "See the highest waterfalls in North Africa",
                 "Hike through olive groves",
@@ -214,6 +299,15 @@ export const siteData = {
                 url: "/images/Ourika Valley.png",
                 alt: "visit OURIKA VALLEY MOROCCO"
             },
+            banner_image: {
+                url: "/images/ourika/hassan-ahrouch-CfmIZwBvxNY-unsplash.jpg",
+                alt: "visit OURIKA VALLEY MOROCCO"
+            },
+            gallery: [
+                { url: "/images/ourika/abdelhamid-azoui-BGU0uaY0tJs-unsplash.jpg", alt: "Ourika Valley" },
+                { url: "/images/ourika/abderrahman-kamal-MilM52Qj32g-unsplash.jpg", alt: "River Side" },
+                { url: "/images/ourika/matthew-fainman-3yonP2JaGTU-unsplash.jpg", alt: "Atlas Mountains" }
+            ],
             highlights: [
                 "Visit a traditional Berber house",
                 "Hike to the Setti Fatma waterfalls",
@@ -239,6 +333,18 @@ export const siteData = {
                 url: "/images/casablanca.png",
                 alt: "visit Casablanca Morocco"
             },
+            banner_image: {
+                url: "/images/casablanca/oussama-rahib-NNECQHl9bJc-unsplash.jpg",
+                alt: "visit Casablanca Morocco"
+            },
+            gallery: [
+                { url: "/images/casablanca/eka-maitri-viryani-qL3_NSPo9o8-unsplash.jpg", alt: "Hassan II Mosque" },
+                { url: "/images/casablanca/imad-ghazal-gRE6Be-o_Hw-unsplash.jpg", alt: "Casablanca Streets" },
+                { url: "/images/casablanca/kristijan-nikodinovski-nkav4Pi-UwY-unsplash.jpg", alt: "City Architecture" },
+                { url: "/images/casablanca/mannie-nami-_aNm8TMzbUI-unsplash.jpg", alt: "Urban View" },
+                { url: "/images/casablanca/mehdi-sakout-54nOsVV1xI4-unsplash.jpg", alt: "Casablanca Life" },
+                { url: "/images/casablanca/zakaria-zayane-aBywMnV7ibk-unsplash.jpg", alt: "Corniche" }
+            ],
             highlights: [
                 "Visit the magnificent Hassan II Mosque",
                 "Stroll along the Corniche",
@@ -265,6 +371,19 @@ export const siteData = {
                 url: "/images/Essaouira.png",
                 alt: "Visit ESSAOUIRA MOROCCO"
             },
+            banner_image: {
+                url: "/images/essaouira/rigel-ibisQEDxODo-unsplash.jpg",
+                alt: "Visit ESSAOUIRA MOROCCO"
+            },
+            gallery: [
+                { url: "/images/essaouira/hamza-omlacho-M9GO4Gsd2SM-unsplash.jpg", alt: "Essaouira Port" },
+                { url: "/images/essaouira/mostapha-abidour-h9L1GfDgp0s-unsplash.jpg", alt: "Blue Boats" },
+                { url: "/images/essaouira/pete-bread-4eZeMUKdV-8-unsplash.jpg", alt: "Medina Walls" },
+                { url: "/images/essaouira/peter-schulz--leOF2nzJQ8-unsplash.jpg", alt: "Essaouira Beach" },
+                { url: "/images/essaouira/rigel-No_Y3bn4lNQ-unsplash.jpg", alt: "Coastal View" },
+                { url: "/images/essaouira/rigel-QWJjSOB9t0Y-unsplash.jpg", alt: "Skala de la Ville" },
+                { url: "/images/essaouira/youssef-aboutaleb-ad1FM2Xj0QQ-unsplash.jpg", alt: "Essaouira Streets" }
+            ],
             highlights: [
                 "Walk through the historic Medina (UNESCO site)",
                 "Visit the Skala de la Ville fortress",
@@ -290,6 +409,17 @@ export const siteData = {
                 url: "/images/rabat.png",
                 alt: "visit Rabat Morocco"
             },
+            banner_image: {
+                url: "/images/rabat/niklas-VqouWpsuziE-unsplash.jpg",
+                alt: "visit Rabat Morocco"
+            },
+            gallery: [
+                { url: "/images/rabat/framopia-EZqHkkyc0wg-unsplash.jpg", alt: "Hassan Tower" },
+                { url: "/images/rabat/hamza-nouasria-7zVLZu5twJs-unsplash.jpg", alt: "Kasbah of the Udayas" },
+                { url: "/images/rabat/mehdi-lamaaffar-PqX7EELWjh0-unsplash.jpg", alt: "Rabat Architecture" },
+                { url: "/images/rabat/soulaymane-elyoussfi-oDSEPEtrQFo-unsplash.jpg", alt: "Mausoleum of Mohammed V" },
+                { url: "/images/rabat/yous-gil-2Kyh6kB5Yh8-unsplash.jpg", alt: "Rabat City View" }
+            ],
             highlights: [
                 "See the Hassan Tower and Mausoleum of Mohammed V",
                 "Explore the Kasbah of the Udayas",
@@ -315,6 +445,17 @@ export const siteData = {
                 url: "/images/Fes.png",
                 alt: "Visit Fez Morocco"
             },
+            banner_image: {
+                url: "/images/fes/mauro-lima-buvA1ofvTMY-unsplash.jpg",
+                alt: "Visit Fez Morocco"
+            },
+            gallery: [
+                { url: "/images/fes/ben-ostrower-bjNv5Bg6h4U-unsplash.jpg", alt: "Fes Tannery" },
+                { url: "/images/fes/hamza-demnati-CJ_DC8Nd2Fk-unsplash.jpg", alt: "Fes Medina" },
+                { url: "/images/fes/hazy-momo-YSTtLgsvRa8-unsplash.jpg", alt: "Medina Streets" },
+                { url: "/images/fes/mauro-lima-mPD9BJ_QGXw-unsplash.jpg", alt: "Bab Bou Jeloud" },
+                { url: "/images/fes/toni-DBNhQdCG-XA-unsplash.jpg", alt: "Traditional Crafts" }
+            ],
             highlights: [
                 "Get lost in the Medina of Fes el-Bali",
                 "Visit the Chouara Tannery",
@@ -340,6 +481,18 @@ export const siteData = {
                 url: "/images/ouarzazate.png",
                 alt: "Ouarzazate Morocco tour"
             },
+            banner_image: {
+                url: "/images/ouarzazate/hassan-ouajbir-INcADDyMwwo-unsplash.jpg",
+                alt: "Ouarzazate Morocco tour"
+            },
+            gallery: [
+                { url: "/images/ouarzazate/abdou-faiz-lA-P8-vagrI-unsplash.jpg", alt: "Ait Ben Haddou" },
+                { url: "/images/ouarzazate/abdou-faiz-mBo2EUfJ7sY-unsplash.jpg", alt: "Kasbah Taourirt" },
+                { url: "/images/ouarzazate/abdou-faiz-wGy7RhTKODg-unsplash.jpg", alt: "Film Studios" },
+                { url: "/images/ouarzazate/cristiano-pinto-knB5iCogf5Q-unsplash.jpg", alt: "Desert Architecture" },
+                { url: "/images/ouarzazate/laurent-gence-UMEcD4j--_I-unsplash.jpg", alt: "Ouarzazate Landscape" },
+                { url: "/images/ouarzazate/sergio-otoya--3uyPo-2cOE-unsplash.jpg", alt: "Atlas Views" }
+            ],
             highlights: [
                 "Cross the Tizi n'Tichka pass",
                 "Visit Atlas Film Studios",
@@ -365,6 +518,18 @@ export const siteData = {
                 url: "/images/marzouga.png",
                 alt: "Visit Merzouga Morocco"
             },
+            banner_image: {
+                url: "/images/merzouga/merzouga3.jpg",
+                alt: "Visit Merzouga Morocco"
+            },
+            gallery: [
+                { url: "/images/merzouga/merzouga1.jpg", alt: "Camel Trek" },
+                { url: "/images/merzouga/merzouga2.jpg", alt: "Desert Camp Night" },
+                { url: "/images/merzouga/merzouga4.jpg", alt: "Merzouga Dunes" },
+                { url: "/images/merzouga/merzouga5.jpg", alt: "Sahara Sunset" },
+                { url: "/images/merzouga/merzouga6.jpg", alt: "Desert Life" },
+                { url: "/images/merzouga/merzouga7.jpg", alt: "Berber Traditions" }
+            ],
             highlights: [
                 "Experience the Sahara Desert",
                 "Camel trek at sunset",
@@ -390,6 +555,21 @@ export const siteData = {
                 url: "/images/marrakech.png",
                 alt: "Visit Marrakech Morocco"
             },
+            banner_image: {
+                url: "/images/marrakech/marrakech1.jpg",
+                alt: "Visit Marrakech Morocco"
+            },
+            gallery: [
+                { url: "/images/marrakech/marrakech2.jpg", alt: "Marrakech Streets" },
+                { url: "/images/marrakech/marrakech3.jpg", alt: "Majorelle Garden" },
+                { url: "/images/marrakech/marrakech4.jpg", alt: "Jemaa el-Fnaa" },
+                { url: "/images/marrakech/marrakech5.jpg", alt: "Koutoubia Mosque" },
+                { url: "/images/marrakech/marrakech6.jpg", alt: "Souks" },
+                { url: "/images/marrakech/marrakech7.jpg", alt: "Bahia Palace" },
+                { url: "/images/marrakech/marrakech8.jpg", alt: "Medina" },
+                { url: "/images/marrakech/marrakech9.jpg", alt: "Moroccan Architecture" },
+                { url: "/images/marrakech/marrakech10.jpg", alt: "Traditional Crafts" }
+            ],
             highlights: [
                 "Visit the Koutoubia Mosque",
                 "Explore the Bahia Palace",
@@ -410,9 +590,18 @@ export const siteData = {
             description: "Experiencing Morocco goes far beyond visiting its famous monuments and landscapes. One of the most memorable ways to connect with Moroccan culture is through its food. At Your-Morocco, we invite you to take part in an immersive cooking class that allows you to discover the country's rich culinary heritage in a friendly and authentic atmosphere.",
             categories: ["Activities", "Blog"],
             image: {
-                url: "https://your-morocco.com/wp-content/uploads/2025/06/cooking-class-Morocco-e1752097520327.png",
+                url: "/images/cookingclass.png",
                 alt: "Cooking Class Activity In Morocco"
             },
+            banner_image: {
+                url: "/images/cookingclass.png",
+                alt: "Cooking Class Activity In Morocco"
+            },
+            gallery: [
+                { url: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&q=80&w=1200", alt: "Moroccan Spices" },
+                { url: "https://images.unsplash.com/photo-1536306955966-a85240d40d43?auto=format&fit=crop&q=80&w=1200", alt: "Tagine Cooking" },
+                { url: "https://images.unsplash.com/photo-1587823377317-a065096739e5?auto=format&fit=crop&q=80&w=1200", alt: "Moroccan Food" }
+            ],
             highlights: [
                 "Learn to prepare iconic dishes like tagine, couscous, pastilla, and traditional pastries",
                 "Guided visit to local souk or market to select fresh ingredients",
@@ -445,9 +634,18 @@ export const siteData = {
             description: "If you're looking for excitement, stunning landscapes, and a sense of adventure, quad biking in Morocco is the perfect activity. With Your-Morocco, you can experience the thrill of riding a quad bike across some of the country's most breathtaking terrains from the rocky trails of the Agafay Desert to the golden dunes near Merzouga, and the palm groves just outside Marrakech.",
             categories: ["Activities", "Blog"],
             image: {
-                url: "https://your-morocco.com/wp-content/uploads/2025/06/quad-biking-morocco-e1752097582900.png",
+                url: "/images/quad.png",
                 alt: "Quad Biking Activity In Morocco"
             },
+            banner_image: {
+                url: "/images/quad.png",
+                alt: "Quad Biking Activity In Morocco"
+            },
+            gallery: [
+                { url: "https://images.unsplash.com/photo-1583151810574-885744cb9f56?auto=format&fit=crop&q=80&w=1200", alt: "Quad Biking" },
+                { url: "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?auto=format&fit=crop&q=80&w=1200", alt: "Desert Riding" },
+                { url: "https://images.unsplash.com/photo-1542668595-fae2231d86e4?auto=format&fit=crop&q=80&w=1200", alt: "Adventure in Morocco" }
+            ],
             highlights: [
                 "Ride across diverse terrains: Agafay Desert, Merzouga dunes, palm groves",
                 "Safety briefing and training for all skill levels",
@@ -481,9 +679,18 @@ export const siteData = {
             description: "Camel riding is one of the most iconic and peaceful ways to explore the beauty of Morocco. With Your-Morocco, you can enjoy a guided camel experience across stunning landscapes such as the golden dunes of the Sahara Desert, the rocky Agafay Desert near Marrakech, or the lush palm groves around traditional Berber villages.",
             categories: ["Activities", "Blog"],
             image: {
-                url: "https://your-morocco.com/wp-content/uploads/2025/06/food-tour-2-e1752097564918.png",
+                url: "/images/camels.png",
                 alt: "Camel Riding Activity In Morocco"
             },
+            banner_image: {
+                url: "/images/camels.png",
+                alt: "Camel Riding Activity In Morocco"
+            },
+            gallery: [
+                { url: "https://images.unsplash.com/photo-1512632500731-5e937d452093?auto=format&fit=crop&q=80&w=1200", alt: "Camel Caravan" },
+                { url: "https://images.unsplash.com/photo-1542668595-fae2231d86e4?auto=format&fit=crop&q=80&w=1200", alt: "Desert Sunset" },
+                { url: "https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?auto=format&fit=crop&q=80&w=1200", alt: "Sahara Dunes" }
+            ],
             highlights: [
                 "Ride through golden Sahara dunes, Agafay Desert, or palm groves",
                 "Experienced local guides ensuring safety and comfort",
@@ -516,9 +723,18 @@ export const siteData = {
             description: "A journey through Morocco is not complete without tasting its incredible street food and regional specialties. At Your-Morocco, we offer curated food tours that allow you to explore the country's culinary landscape while walking through its vibrant medinas, local neighborhoods, and hidden food corners. These tours are designed for curious travelers who want to eat like locals and understand the stories behind every bite.",
             categories: ["Activities", "Blog"],
             image: {
-                url: "https://your-morocco.com/wp-content/uploads/2025/06/food-tour-e1752097543666.png",
+                url: "/images/foodtour.png",
                 alt: "Food Tour Activity In Morocco"
             },
+            banner_image: {
+                url: "/images/foodtour.png",
+                alt: "Food Tour Activity In Morocco"
+            },
+            gallery: [
+                { url: "https://images.unsplash.com/photo-1549488344-c7052fb58f31?auto=format&fit=crop&q=80&w=1200", alt: "Moroccan Tea" },
+                { url: "https://images.unsplash.com/photo-1510619379895-3dd15fbf79fa?auto=format&fit=crop&q=80&w=1200", alt: "Moroccan Spices" },
+                { url: "https://images.unsplash.com/photo-1587823377317-a065096739e5?auto=format&fit=crop&q=80&w=1200", alt: "Street Food" }
+            ],
             highlights: [
                 "Explore vibrant medinas and hidden food corners",
                 "Taste street food: harira soup, brochettes, msemen, snail soup, fresh bread",
@@ -551,9 +767,18 @@ export const siteData = {
             description: "For travelers seeking a breathtaking and peaceful adventure, an air balloon ride over Morocco is an experience like no other. With Your-Morocco, you can soar above beautiful landscapes at sunrise, enjoying panoramic views of red earth hills, scattered Berber villages, and the majestic Atlas Mountains in the distance.",
             categories: ["Activities", "Blog"],
             image: {
-                url: "https://your-morocco.com/wp-content/uploads/2025/06/Air-balloon-Marrakech-e1752097218788.png",
+                url: "/images/airballon.png",
                 alt: "Air Balloon Activity In Morocco"
             },
+            banner_image: {
+                url: "/images/airballon.png",
+                alt: "Air Balloon Activity In Morocco"
+            },
+            gallery: [
+                { url: "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?auto=format&fit=crop&q=80&w=1200", alt: "Air Balloon at Sunrise" },
+                { url: "https://images.unsplash.com/photo-1549495570-877299a91177?auto=format&fit=crop&q=80&w=1200", alt: "Morocco Landscape" },
+                { url: "https://images.unsplash.com/photo-1597212618440-806262de4f6b?auto=format&fit=crop&q=80&w=1200", alt: "Atlas Mountains view" }
+            ],
             highlights: [
                 "Sunrise balloon ride with panoramic views",
                 "Fly over red earth hills, Berber villages, Atlas Mountains",

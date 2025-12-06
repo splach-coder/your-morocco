@@ -7,12 +7,8 @@ import Link from 'next/link';
 import { ArrowLeft, MessageCircle, CheckCircle, MapPin, Clock, Users, Calendar, Star, Shield, Info } from 'lucide-react';
 import TourCard from '../../components/TourCard';
 import MobileBookingBar from '../../components/MobileBookingBar';
-import Lightbox from '../../components/Lightbox';
+import GallerySlider from '../../components/GallerySlider';
 import { siteData } from '@/data/siteData';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
 
 // Mock reviews generator
 const getReviewsForActivity = (id: number, title: string) => {
@@ -28,24 +24,10 @@ const getReviewsForActivity = (id: number, title: string) => {
 export default function ActivityDetailPage({ params }: { params: Promise<{ locale: string; id: string }> }) {
     const { locale, id } = use(params);
     const t = useTranslations('ExcursionDetailPage');
-    const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-    const [photoIndex, setPhotoIndex] = useState(0);
-
     const activity = siteData.activities.find(e => e.id === Number(id));
 
     // Gallery Images
-    const galleryImages = activity ? [
-        { url: activity.image.url, alt: activity.title },
-        { url: "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?q=80&w=1200", alt: "Detail 1" },
-        { url: "https://images.unsplash.com/photo-1597212618440-806262de4f6b?q=80&w=1200", alt: "Detail 2" },
-        { url: "https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?q=80&w=1200", alt: "Detail 3" },
-        { url: "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=1200", alt: "Detail 4" },
-    ] : [];
-
-    const openLightbox = (index: number) => {
-        setPhotoIndex(index);
-        setIsLightboxOpen(true);
-    };
+    const galleryImages = activity?.gallery || [];
 
     if (!activity) {
         return (
@@ -76,8 +58,8 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
             {/* Hero Section - Dynamic & Action Oriented */}
             <div className="relative h-[40vh] md:h-[60vh] min-h-[300px] md:min-h-[400px] overflow-hidden">
                 <Image
-                    src={activity.image.url}
-                    alt={activity.image.alt || activity.title}
+                    src={activity.banner_image?.url || activity.image.url}
+                    alt={activity.banner_image?.alt || activity.image.alt || activity.title}
                     fill
                     className="object-cover hover:scale-105 transition-transform duration-[2s]"
                     priority
@@ -128,76 +110,7 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
 
                         {/* Gallery Grid */}
                         {/* Gallery Section */}
-                        <div className="h-[300px] md:h-[400px] rounded-2xl overflow-hidden">
-                            {/* Mobile Slider */}
-                            <div className="block md:hidden h-full">
-                                <Swiper
-                                    modules={[Pagination, Autoplay]}
-                                    pagination={{ clickable: true }}
-                                    autoplay={{ delay: 3000 }}
-                                    loop={true}
-                                    className="h-full w-full"
-                                >
-                                    {galleryImages.map((img, idx) => (
-                                        <SwiperSlide key={idx} onClick={() => openLightbox(idx)}>
-                                            <div className="relative h-full w-full">
-                                                <Image
-                                                    src={img.url}
-                                                    alt={img.alt}
-                                                    fill
-                                                    className="object-cover"
-                                                />
-                                            </div>
-                                        </SwiperSlide>
-                                    ))}
-                                </Swiper>
-                            </div>
-
-                            {/* Desktop Grid */}
-                            <div className="hidden md:grid grid-cols-4 grid-rows-2 gap-4 h-full">
-                                <div
-                                    className="col-span-2 row-span-2 relative h-full cursor-pointer group"
-                                    onClick={() => openLightbox(0)}
-                                >
-                                    <Image
-                                        src={galleryImages[0].url}
-                                        alt={galleryImages[0].alt}
-                                        fill
-                                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                                    />
-                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
-                                </div>
-                                {galleryImages.slice(1, 4).map((img, idx) => (
-                                    <div
-                                        key={idx}
-                                        className="relative h-full cursor-pointer group"
-                                        onClick={() => openLightbox(idx + 1)}
-                                    >
-                                        <Image
-                                            src={img.url}
-                                            alt={img.alt}
-                                            fill
-                                            className="object-cover group-hover:scale-105 transition-transform duration-700"
-                                        />
-                                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
-                                    </div>
-                                ))}
-                                <div
-                                    className="relative h-full cursor-pointer group"
-                                    onClick={() => openLightbox(4)}
-                                >
-                                    <Image
-                                        src={galleryImages[4].url}
-                                        alt={galleryImages[4].alt}
-                                        fill
-                                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                                    />
-                                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center group-hover:bg-black/40 transition-colors">
-                                        <span className="text-white font-bold text-lg">+5 Photos</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <GallerySlider images={galleryImages} />
 
                         {/* Description */}
                         <section>
@@ -346,14 +259,6 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
                 whatsappUrl={whatsappUrl}
             />
 
-            <Lightbox
-                isOpen={isLightboxOpen}
-                onClose={() => setIsLightboxOpen(false)}
-                images={galleryImages}
-                currentIndex={photoIndex}
-                onNext={() => setPhotoIndex((prev) => (prev + 1) % galleryImages.length)}
-                onPrev={() => setPhotoIndex((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)}
-            />
         </div>
     );
 }

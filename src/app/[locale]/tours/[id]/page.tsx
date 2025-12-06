@@ -97,8 +97,8 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
             {/* Hero Section */}
             <div className="relative h-[40vh] md:h-[70vh] min-h-[300px] md:min-h-[500px]">
                 <Image
-                    src={tour.image.url}
-                    alt={tour.image.alt || tour.title}
+                    src={tour.banner_image?.url || tour.image.url}
+                    alt={tour.banner_image?.alt || tour.image.alt || tour.title}
                     fill
                     className="object-cover"
                     priority
@@ -274,13 +274,7 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                         <section id="gallery" className="scroll-mt-24">
                             <GallerySlider
                                 title="Tour Gallery"
-                                images={[
-                                    { url: tour.image.url, alt: tour.image.alt || tour.title },
-                                    { url: 'https://images.unsplash.com/photo-1539020140153-e479b8c22e70?q=80&w=2070', alt: 'Desert landscape' },
-                                    { url: 'https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?q=80&w=2067', alt: 'Morocco scenery' },
-                                    { url: 'https://images.unsplash.com/photo-1597212618440-806262de4f6b?q=80&w=2072', alt: 'Marrakech' },
-                                    { url: 'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=2070', alt: 'Sahara sunset' },
-                                ]}
+                                images={tour.gallery || []}
                             />
                         </section>
                     </div>

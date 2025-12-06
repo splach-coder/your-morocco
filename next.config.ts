@@ -17,10 +17,12 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',
+        pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'your-morocco.com',
+        pathname: '/**',
       },
       // We add the Sanity CDN hostname now to be ready for the future
       {
