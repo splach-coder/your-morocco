@@ -97,6 +97,7 @@ export default function Hero({
           alt="Morocco landscape"
           fill
           priority
+          sizes="100vw"
           quality={90}
           className="object-cover opacity-90"
         />
