@@ -4,6 +4,39 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import DomeGallery from '../components/DomeGallery';
 
+const GALLERY_IMAGES = [
+    '/images/merzouga/merzouga1.jpg',
+    '/images/merzouga/merzouga2.jpg',
+    '/images/merzouga/merzouga3.jpg',
+    '/images/merzouga/merzouga4.jpg',
+    '/images/merzouga/merzouga5.jpg',
+    '/images/merzouga/merzouga6.jpg',
+    '/images/casablanca/oussama-rahib-NNECQHl9bJc-unsplash.jpg',
+    '/images/casablanca/eka-maitri-viryani-qL3_NSPo9o8-unsplash.jpg',
+    '/images/casablanca/kristijan-nikodinovski-nkav4Pi-UwY-unsplash.jpg',
+    '/images/casablanca/imad-ghazal-gRE6Be-o_Hw-unsplash.jpg',
+    '/images/ouarzazate/cristiano-pinto-knB5iCogf5Q-unsplash.jpg',
+    '/images/ouarzazate/hassan-ouajbir-INcADDyMwwo-unsplash.jpg',
+    '/images/ouarzazate/abdou-faiz-mBo2EUfJ7sY-unsplash.jpg',
+    '/images/cooking class/florian-d-bazac-PitkCiuzigI-unsplash.jpg',
+    '/images/cooking class/aziz-acharki-UBEcFUvkrcc-unsplash.jpg',
+    '/images/cooking class/maarten-van-den-heuvel-EzH46XCDQRY-unsplash.jpg',
+    '/images/Quad Biking/nils-5RfEgsnxeHo-unsplash.jpg',
+    '/images/Quad Biking/devon-janse-van-rensburg-08HCHS7EULI-unsplash.jpg',
+    '/images/Quad Biking/haris-khan-v40H7tLOZII-unsplash.jpg',
+    '/images/Camel Riding/peter-thomas-PotqZeNaUZ4-unsplash.jpg',
+    '/images/Camel Riding/sheila-c-KuXu8rx_1-8-unsplash.jpg',
+    '/images/Camel Riding/oussama-rahib-f7F8URbIx08-unsplash.jpg',
+    '/images/food tour/annie-spratt-wGzO3Qvp98Q-unsplash.jpg',
+    '/images/food tour/florian-d-bazac-PitkCiuzigI-unsplash.jpg',
+    '/images/airballon/danai-tsoutreli-3NAlBV5PlmE-unsplash.jpg',
+    '/images/airballon/justyna-jozefowicz-hZig-RKimQM-unsplash.jpg',
+    '/images/rabat/mehdi-lamaaffar-PqX7EELWjh0-unsplash.jpg',
+    '/images/rabat/niklas-VqouWpsuziE-unsplash.jpg',
+    '/images/essaouira/rigel-hppgLk1gxho-unsplash.jpg',
+    '/images/essaouira/hamza-omlacho-M9GO4Gsd2SM-unsplash.jpg'
+];
+
 export default function GalleryPage() {
     return (
         <div className="bg-gray-50">
@@ -32,6 +65,7 @@ export default function GalleryPage() {
             {/* 3D Dome Gallery Section */}
             <section className="h-[calc(100vh-200px)] md:h-[calc(100vh-80px+16rem)]  md:py-24 " style={{ background: '#f3f4f6' }}>
                 <DomeGallery
+                    images={GALLERY_IMAGES}
                     fit={0.65}
                     overlayBlurColor="#f3f4f6"
                     imageBorderRadius="12px"

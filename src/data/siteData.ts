@@ -594,13 +594,14 @@ export const siteData = {
                 alt: "Cooking Class Activity In Morocco"
             },
             banner_image: {
-                url: "/images/cookingclass.png",
+                url: "/images/cooking class/aziz-acharki-UBEcFUvkrcc-unsplash.jpg",
                 alt: "Cooking Class Activity In Morocco"
             },
             gallery: [
-                { url: "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&q=80&w=1200", alt: "Moroccan Spices" },
-                { url: "https://images.unsplash.com/photo-1536306955966-a85240d40d43?auto=format&fit=crop&q=80&w=1200", alt: "Tagine Cooking" },
-                { url: "https://images.unsplash.com/photo-1587823377317-a065096739e5?auto=format&fit=crop&q=80&w=1200", alt: "Moroccan Food" }
+                { url: "/images/cooking class/florian-d-bazac-PitkCiuzigI-unsplash.jpg", alt: "Fresh Ingredients" },
+                { url: "/images/cooking class/hamza-nouasria-q11NM0cFFzY-unsplash.jpg", alt: "Cooking Process" },
+                { url: "/images/cooking class/maarten-van-den-heuvel-EzH46XCDQRY-unsplash.jpg", alt: "Moroccan Spices" },
+                { url: "/images/cooking class/sour-moha-4Tgjeh1fWCc-unsplash.jpg", alt: "Traditional Tagine" }
             ],
             highlights: [
                 "Learn to prepare iconic dishes like tagine, couscous, pastilla, and traditional pastries",
@@ -638,13 +639,14 @@ export const siteData = {
                 alt: "Quad Biking Activity In Morocco"
             },
             banner_image: {
-                url: "/images/quad.png",
+                url: "/images/Quad Biking/adrien-delforge-VH2HRylVsiM-unsplash.jpg",
                 alt: "Quad Biking Activity In Morocco"
             },
             gallery: [
-                { url: "https://images.unsplash.com/photo-1583151810574-885744cb9f56?auto=format&fit=crop&q=80&w=1200", alt: "Quad Biking" },
-                { url: "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?auto=format&fit=crop&q=80&w=1200", alt: "Desert Riding" },
-                { url: "https://images.unsplash.com/photo-1542668595-fae2231d86e4?auto=format&fit=crop&q=80&w=1200", alt: "Adventure in Morocco" }
+                { url: "/images/Quad Biking/devon-janse-van-rensburg-08HCHS7EULI-unsplash.jpg", alt: "Desert Adventure" },
+                { url: "/images/Quad Biking/haris-khan-v40H7tLOZII-unsplash.jpg", alt: "Quad Biking Group" },
+                { url: "/images/Quad Biking/mayar-zidan-LVNcykwlDEg-unsplash.jpg", alt: "Scenic Route" },
+                { url: "/images/Quad Biking/nils-5RfEgsnxeHo-unsplash.jpg", alt: "Off-road Fun" }
             ],
             highlights: [
                 "Ride across diverse terrains: Agafay Desert, Merzouga dunes, palm groves",
@@ -683,13 +685,16 @@ export const siteData = {
                 alt: "Camel Riding Activity In Morocco"
             },
             banner_image: {
-                url: "/images/camels.png",
+                url: "/images/Camel Riding/dan-calderwood-7CPopIsaCkc-unsplash.jpg",
                 alt: "Camel Riding Activity In Morocco"
             },
             gallery: [
-                { url: "https://images.unsplash.com/photo-1512632500731-5e937d452093?auto=format&fit=crop&q=80&w=1200", alt: "Camel Caravan" },
-                { url: "https://images.unsplash.com/photo-1542668595-fae2231d86e4?auto=format&fit=crop&q=80&w=1200", alt: "Desert Sunset" },
-                { url: "https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?auto=format&fit=crop&q=80&w=1200", alt: "Sahara Dunes" }
+                { url: "/images/Camel Riding/dave-meckler-ZzVc3uZXnr8-unsplash.jpg", alt: "Desert Trek" },
+                { url: "/images/Camel Riding/oussama-rahib-f7F8URbIx08-unsplash.jpg", alt: "Sunset Ride" },
+                { url: "/images/Camel Riding/peter-thomas-PotqZeNaUZ4-unsplash.jpg", alt: "Camel Caravan" },
+                { url: "/images/Camel Riding/peter-thomas-nF8-ekoE0qw-unsplash.jpg", alt: "Sahara Experience" },
+                { url: "/images/Camel Riding/sheila-c-KuXu8rx_1-8-unsplash.jpg", alt: "Golden Dunes" },
+                { url: "/images/Camel Riding/tamar-dCMvzMV1jfc-unsplash.jpg", alt: "Camel Close-up" }
             ],
             highlights: [
                 "Ride through golden Sahara dunes, Agafay Desert, or palm groves",
@@ -727,13 +732,18 @@ export const siteData = {
                 alt: "Food Tour Activity In Morocco"
             },
             banner_image: {
-                url: "/images/foodtour.png",
+                url: "/images/food tour/adil-elouardii-_fcZ5jncgAw-unsplash.jpg",
                 alt: "Food Tour Activity In Morocco"
             },
             gallery: [
-                { url: "https://images.unsplash.com/photo-1549488344-c7052fb58f31?auto=format&fit=crop&q=80&w=1200", alt: "Moroccan Tea" },
-                { url: "https://images.unsplash.com/photo-1510619379895-3dd15fbf79fa?auto=format&fit=crop&q=80&w=1200", alt: "Moroccan Spices" },
-                { url: "https://images.unsplash.com/photo-1587823377317-a065096739e5?auto=format&fit=crop&q=80&w=1200", alt: "Street Food" }
+                { url: "/images/food tour/annie-spratt-_V4v7BbG338-unsplash.jpg", alt: "Local Delicacies" },
+                { url: "/images/food tour/annie-spratt-wGzO3Qvp98Q-unsplash.jpg", alt: "Street Food" },
+                { url: "/images/food tour/florian-d-bazac-PitkCiuzigI-unsplash.jpg", alt: "Traditional Dish" },
+                { url: "/images/food tour/il-vagabiondo-SW7mMXu12Ws-unsplash.jpg", alt: "Market Spices" },
+                { url: "/images/food tour/louis-hansel-k2ZCm7LCj8E-unsplash.jpg", alt: "Fresh Bread" },
+                { url: "/images/food tour/rigel-Zsw9CvJIeiw-unsplash.jpg", alt: "Moroccan Tea" },
+                { url: "/images/food tour/sour-moha-4Tgjeh1fWCc-unsplash.jpg", alt: "Tagine" },
+                { url: "/images/food tour/sour-moha-5t2SP3vQz28-unsplash.jpg", alt: "Culinary Art" }
             ],
             highlights: [
                 "Explore vibrant medinas and hidden food corners",
@@ -771,13 +781,18 @@ export const siteData = {
                 alt: "Air Balloon Activity In Morocco"
             },
             banner_image: {
-                url: "/images/airballon.png",
+                url: "/images/airballon/danai-tsoutreli-3NAlBV5PlmE-unsplash.jpg",
                 alt: "Air Balloon Activity In Morocco"
             },
             gallery: [
-                { url: "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?auto=format&fit=crop&q=80&w=1200", alt: "Air Balloon at Sunrise" },
-                { url: "https://images.unsplash.com/photo-1549495570-877299a91177?auto=format&fit=crop&q=80&w=1200", alt: "Morocco Landscape" },
-                { url: "https://images.unsplash.com/photo-1597212618440-806262de4f6b?auto=format&fit=crop&q=80&w=1200", alt: "Atlas Mountains view" }
+                { url: "/images/airballon/danai-tsoutreli-hqeYq7qSI7c-unsplash.jpg", alt: "Balloon View" },
+                { url: "/images/airballon/justyna-jozefowicz-hZig-RKimQM-unsplash.jpg", alt: "Sunrise Flight" },
+                { url: "/images/airballon/manoa-angelo-w7jeZ5NFSvQ-unsplash.jpg", alt: "Atlas Mountains" },
+                { url: "/images/airballon/matthieu-gouiffes-6JZhmw5VhsA-unsplash.jpg", alt: "Aerial Landscape" },
+                { url: "/images/airballon/mengyu-xu-Hu3DS4Rx4ts-unsplash.jpg", alt: "Desert From Above" },
+                { url: "/images/airballon/paul-lucyk-b_ZJPTbpUJw-unsplash.jpg", alt: "Balloon Shadow" },
+                { url: "/images/airballon/wouter-groote-veldman-6NDiNzFdOyI-unsplash.jpg", alt: "Preparing Flight" },
+                { url: "/images/airballon/wouter-groote-veldman-hGGyMkSSTZY-unsplash.jpg", alt: "Sky High" }
             ],
             highlights: [
                 "Sunrise balloon ride with panoramic views",
