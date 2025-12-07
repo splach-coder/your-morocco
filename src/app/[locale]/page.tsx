@@ -50,32 +50,32 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
 
   const offerings = [
     {
-      title: 'Multi-Day Tours',
-      description: 'Immersive journeys across Morocco\'s most iconic destinations',
+      title: t('offerings.multiDayTours.title'),
+      description: t('offerings.multiDayTours.description'),
       icon: Compass,
       link: `/${locale}/tours`,
       count: siteData.tours.length,
       color: 'from-blue-500 to-blue-600'
     },
     {
-      title: 'Day Excursions',
-      description: 'Perfect day trips to explore Morocco\'s hidden gems',
+      title: t('offerings.dayExcursions.title'),
+      description: t('offerings.dayExcursions.description'),
       icon: Map,
       link: `/${locale}/excursions`,
       count: siteData.excursions.length,
       color: 'from-emerald-500 to-emerald-600'
     },
     {
-      title: 'Activities',
-      description: 'Unique experiences from cooking classes to desert adventures',
+      title: t('offerings.activities.title'),
+      description: t('offerings.activities.description'),
       icon: Sparkles,
       link: `/${locale}/activities`,
       count: siteData.activities.length,
       color: 'from-amber-500 to-amber-600'
     },
     {
-      title: 'Services',
-      description: 'Airport transfers, private drivers, and hotel transfers',
+      title: t('offerings.services.title'),
+      description: t('offerings.services.description'),
       icon: Car,
       link: `/${locale}/services`,
       count: siteData.services.length,
@@ -125,12 +125,12 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
             variants={containerVariants}
             className="text-center mb-16"
           >
-            <span className="text-terracotta font-bold tracking-wider uppercase text-sm mb-2 block">Our Offerings</span>
+            <span className="text-terracotta font-bold tracking-wider uppercase text-sm mb-2 block">{t('offerings.label')}</span>
             <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
-              Discover Morocco Your Way
+              {t('offerings.title')}
             </motion.h2>
             <motion.p variants={itemVariants} className="text-lg text-gray-600 max-w-2xl mx-auto">
-              From multi-day adventures to quick excursions, unique activities, and seamless services
+              {t('offerings.subtitle')}
             </motion.p>
           </motion.div>
 
@@ -164,7 +164,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
                     </p>
 
                     <div className="flex items-center gap-2 text-terracotta font-bold text-sm transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                      Explore Options <ArrowRight className="w-4 h-4" />
+                      {t('offerings.exploreOptions')} <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>
                 </Link>
@@ -188,12 +188,12 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
             className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6"
           >
             <div className="max-w-2xl">
-              <span className="text-terracotta font-bold tracking-wider uppercase text-sm mb-2 block">Premium Journeys</span>
+              <span className="text-terracotta font-bold tracking-wider uppercase text-sm mb-2 block">{t('featuredTours.label')}</span>
               <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
-                Featured Multi-Day Tours
+                {t('featuredTours.title')}
               </motion.h2>
               <motion.p variants={itemVariants} className="text-lg text-gray-600">
-                Embark on unforgettable journeys across Morocco's diverse landscapes
+                {t('featuredTours.subtitle')}
               </motion.p>
             </div>
             <motion.div variants={itemVariants}>
@@ -201,7 +201,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
                 href={`/${locale}/tours`}
                 className="inline-flex items-center gap-2 text-terracotta font-bold hover:text-terracotta-dark transition-colors group"
               >
-                View All Tours
+                {t('featuredTours.viewAll')}
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </motion.div>
@@ -234,7 +234,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
                     duration={tour.duration}
                     image={tour.image.url}
                     link={`/${locale}/tours/${tour.id}`}
-                    buttonText="View Details"
+                    buttonText={t('featuredExcursions.viewDetails')}
                     location={tour.locations[0]?.name || ''}
                   />
                 </SwiperSlide>
@@ -255,12 +255,12 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
             className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6"
           >
             <div className="max-w-2xl">
-              <span className="text-terracotta font-bold tracking-wider uppercase text-sm mb-2 block">Day Trips</span>
+              <span className="text-terracotta font-bold tracking-wider uppercase text-sm mb-2 block">{t('featuredExcursions.label')}</span>
               <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
-                Popular Day Excursions
+                {t('featuredExcursions.title')}
               </motion.h2>
               <motion.p variants={itemVariants} className="text-lg text-gray-600">
-                Perfect day trips from major cities to Morocco's must-see destinations
+                {t('featuredExcursions.subtitle')}
               </motion.p>
             </div>
             <motion.div variants={itemVariants}>
@@ -268,7 +268,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
                 href={`/${locale}/excursions`}
                 className="inline-flex items-center gap-2 text-terracotta font-bold hover:text-terracotta-dark transition-colors group"
               >
-                View All Excursions
+                {t('featuredExcursions.viewAll')}
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </motion.div>
@@ -315,13 +315,13 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
                   <div className="flex items-center justify-between mt-auto pt-6 border-t border-gray-100">
                     <div className="flex items-center gap-2 text-sm text-gray-500">
                       <CheckCircle className="w-4 h-4 text-green-500" />
-                      <span>Instant Confirmation</span>
+                      <span>{t('featuredExcursions.instantConfirmation')}</span>
                     </div>
                     <Link
                       href={`/${locale}/excursions/${excursion.id}`}
                       className="text-terracotta font-bold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform"
                     >
-                      View Details <ArrowRight className="w-4 h-4" />
+                      {t('featuredExcursions.viewDetails')} <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
                 </div>
@@ -342,12 +342,12 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
             className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6"
           >
             <div className="max-w-2xl">
-              <span className="text-terracotta font-bold tracking-wider uppercase text-sm mb-2 block">Experiences</span>
+              <span className="text-terracotta font-bold tracking-wider uppercase text-sm mb-2 block">{t('featuredActivities.label')}</span>
               <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
-                Unique Experiences
+                {t('featuredActivities.title')}
               </motion.h2>
               <motion.p variants={itemVariants} className="text-lg text-gray-600">
-                Add special activities to make your Moroccan adventure truly memorable
+                {t('featuredActivities.subtitle')}
               </motion.p>
             </div>
             <motion.div variants={itemVariants}>
@@ -355,7 +355,7 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
                 href={`/${locale}/activities`}
                 className="inline-flex items-center gap-2 text-terracotta font-bold hover:text-terracotta-dark transition-colors group"
               >
-                View All Activities
+                {t('featuredActivities.viewAll')}
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </motion.div>
@@ -470,12 +470,12 @@ export default function Home({ params }: { params: Promise<{ locale: string }> }
             variants={containerVariants}
             className="text-center mb-12"
           >
-            <span className="text-terracotta font-bold tracking-wider uppercase text-sm mb-2 block">Testimonials</span>
+            <span className="text-terracotta font-bold tracking-wider uppercase text-sm mb-2 block">{t('testimonials.label')}</span>
             <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
-              Stories from our travelers
+              {t('testimonials.title')}
             </motion.h2>
             <motion.p variants={itemVariants} className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Real-world examples of how we create unforgettable memories.
+              {t('testimonials.subtitle')}
             </motion.p>
           </motion.div>
 

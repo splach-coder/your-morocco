@@ -41,31 +41,31 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
   const values = [
     {
       icon: Heart,
-      title: 'Passion for Morocco',
-      description: 'We are deeply passionate about sharing the beauty, culture, and traditions of Morocco with travelers from around the world.'
+      title: t('values.passion'),
+      description: t('values.passionDesc')
     },
     {
       icon: Shield,
-      title: 'Trust and Safety',
-      description: 'Your safety and comfort are our top priorities. We ensure every journey is secure, reliable, and worry free.'
+      title: t('values.trust'),
+      description: t('values.trustDesc')
     },
     {
       icon: Users,
-      title: 'Expert Local Guides',
-      description: 'Our experienced guides bring Morocco to life with authentic stories, insider knowledge, and warm hospitality.'
+      title: t('values.experts'),
+      description: t('values.expertsDesc')
     },
     {
       icon: Globe,
-      title: 'Sustainable Tourism',
-      description: 'We are committed to responsible travel that respects local communities and preserves Morocco’s natural beauty.'
+      title: t('values.sustainable'),
+      description: t('values.sustainableDesc')
     }
   ]
 
   const milestones = [
-    { year: '2015', title: 'Founded', description: 'Your Morocco was born from a passion to share authentic Moroccan experiences' },
-    { year: '2018', title: 'Expansion', description: 'Expanded our services to cover all major Moroccan destinations' },
-    { year: '2021', title: 'Recognition', description: 'Awarded Best Tour Operator in Morocco by Travel Excellence Awards' },
-    { year: '2024', title: 'Innovation', description: 'Launched sustainable tourism initiatives and eco friendly tours' }
+    { year: '2015', title: t('milestones.founded'), description: t('milestones.foundedDesc') },
+    { year: '2018', title: t('milestones.expansion'), description: t('milestones.expansionDesc') },
+    { year: '2021', title: t('milestones.recognition'), description: t('milestones.recognitionDesc') },
+    { year: '2024', title: t('milestones.innovation'), description: t('milestones.innovationDesc') }
   ]
 
   return (
@@ -100,7 +100,7 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8, ease: easeOut }}
             >
-              Crafting Unforgettable Moroccan Adventures Since 2015
+              {t('subtitle')}
             </motion.p>
           </div>
         </motion.div>
@@ -123,9 +123,7 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
               {t('missionText')}
             </motion.p>
             <motion.p variants={itemVariants} className="text-lg text-gray-600 leading-relaxed">
-              We believe that travel is more than just visiting new places. It is about creating meaningful connections,
-              experiencing authentic cultures, and making memories that last a lifetime. Our team of passionate travel
-              experts and local guides work tirelessly to ensure every journey with us is extraordinary.
+              {t('missionDesc')}
             </motion.p>
           </motion.div>
         </div>
@@ -141,10 +139,10 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
             className="text-center mb-16"
           >
             <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
-              Our Values
+              {t('values.title')}
             </motion.h2>
             <motion.p variants={itemVariants} className="text-lg text-gray-600 max-w-2xl mx-auto">
-              The principles that guide everything we do
+              {t('values.subtitle')}
             </motion.p>
           </motion.div>
 
@@ -196,10 +194,10 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
         <div className="container-custom relative z-10">
           <div className="max-w-xl mx-auto text-center lg:text-balance mb-12">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold tracking-tight text-white text-balance">
-              Stories from our travelers
+              {t('reviews.title')}
             </h2>
             <p className="text-base mt-4 font-medium text-gray-200">
-              Real-world examples of how we create unforgettable memories.
+              {t('reviews.subtitle')}
             </p>
           </div>
 
@@ -305,7 +303,7 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
               className="inline-flex items-center gap-2 bg-white text-primary-teal px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all"
             >
               <Star className="w-5 h-5 fill-current text-accent-yellow" />
-              View on Google Maps
+              {t('reviews.googleMap')}
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
@@ -322,10 +320,10 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
             className="grid grid-cols-2 md:grid-cols-4 gap-8"
           >
             {[
-              { value: '10,000+', label: 'Happy Travelers', icon: Users },
-              { value: '500+', label: 'Tours Completed', icon: MapPin },
-              { value: '4.9/5', label: 'Average Rating', icon: Star },
-              { value: '24/7', label: 'Customer Support', icon: Clock }
+              { value: '10,000+', label: t('stats.travelers'), icon: Users },
+              { value: '500+', label: t('stats.tours'), icon: MapPin },
+              { value: '4.9/5', label: t('stats.rating'), icon: Star },
+              { value: '24/7', label: t('stats.support'), icon: Clock }
             ].map((stat, index) => (
               <motion.div
                 key={index}

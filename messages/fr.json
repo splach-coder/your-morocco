@@ -8,30 +8,30 @@
     "contact": "Contact"
   },
   "footer": {
-    "description": "Découvrez la magie du Maroc avec des guides locaux experts. Des souks vibrants aux paysages désertiques sereins, nous créons des expériences inoubliables.",
+    "description": "Découvrez la magie du Maroc avec des guides locaux experts. Des souks animés aux paysages désertiques sereins, nous créons des expériences inoubliables.",
     "company": {
       "title": "Entreprise",
-      "aboutUs": "À Propos",
-      "ourStory": "Notre Histoire",
-      "travelBlog": "Blog Voyage",
+      "aboutUs": "À propos de nous",
+      "ourStory": "Notre histoire",
+      "travelBlog": "Blog de voyage",
       "careers": "Carrières",
-      "pressKit": "Presse"
+      "pressKit": "Dossier de presse"
     },
     "tours": {
       "title": "Circuits",
-      "cityTours": "Visites de Ville",
-      "desertExpeditions": "Expéditions Désert",
+      "cityTours": "Visites de ville",
+      "desertExpeditions": "Expéditions dans le désert",
       "atlasMountains": "Montagnes de l'Atlas",
-      "cookingClasses": "Cours de Cuisine",
-      "multiDayPackages": "Forfaits Multi-jours"
+      "cookingClasses": "Cours de cuisine",
+      "multiDayPackages": "Forfaits de plusieurs jours"
     },
     "support": {
-      "title": "Support",
+      "title": "Assistance",
       "contactUs": "Contactez-nous",
       "faqs": "FAQ",
-      "bookingInfo": "Infos Réservation",
-      "privacy": "Politique de Confidentialité",
-      "terms": "Conditions d'Utilisation"
+      "bookingInfo": "Infos réservation",
+      "privacy": "Politique de confidentialité",
+      "terms": "Conditions d'utilisation"
     },
     "copyright": "Your Morocco. Tous droits réservés.",
     "newsletter": "Abonnez-vous à notre newsletter",
@@ -45,79 +45,127 @@
       "searchButton": "Rechercher"
     },
     "featured": {
-      "title": "Découvrez les Trésors Cachés du Maroc",
-      "subtitle": "Des souks vibrants de Marrakech aux sommets majestueux du Haut Atlas, découvrez l'aventure marocaine parfaite.",
-      "learnMore": "En Savoir Plus",
-      "exploreAll": "Explorer Toutes les Destinations",
+      "title": "Découvrez les joyaux cachés du Maroc",
+      "subtitle": "Des souks animés de Marrakech aux sommets majestueux du Haut Atlas, découvrez l'aventure marocaine parfaite.",
+      "learnMore": "En savoir plus",
+      "exploreAll": "Explorer toutes les destinations",
       "location": "Lieu",
       "price": "Prix",
       "difficulty": "Difficulté"
     },
     "stats": {
-      "satisfaction": "Taux de Satisfaction Client",
-      "destinations": "Destinations Marocaines",
-      "guides": "Guides Locaux Experts",
-      "journeys": "Voyages Complétés"
+      "satisfaction": "Taux de satisfaction client",
+      "destinations": "Destinations marocaines",
+      "guides": "Guides locaux experts",
+      "journeys": "Voyages réalisés"
     },
     "whyChooseUs": {
-      "title": "Pourquoi Choisir Your Morocco",
-      "localGuides": "Guides Locaux Experts",
-      "localGuidesDesc": "Nos guides sont des Marocains locaux qui connaissent chaque coin du pays.",
-      "customTrips": "Voyages Personnalisables",
+      "title": "Pourquoi choisir Your Morocco",
+      "localGuides": "Guides locaux experts",
+      "localGuidesDesc": "Nos guides sont des locaux marocains qui connaissent chaque coin du pays.",
+      "customTrips": "Voyages personnalisables",
       "customTripsDesc": "Nous adaptons chaque aventure marocaine à vos besoins spécifiques.",
-      "support": "Support 24/7",
+      "support": "Assistance 24/7",
       "supportDesc": "Nous sommes là pour vous 24h/24 pendant votre voyage au Maroc.",
-      "reliability": "Fiable et Sûr",
-      "reliabilityDesc": "Votre sécurité et satisfaction sont nos priorités absolues."
+      "reliability": "Fiable et sûr",
+      "reliabilityDesc": "Votre sécurité et votre satisfaction sont nos priorités absolues."
     },
     "cta": {
-      "title": "Prêt à Explorer le Maroc?",
-      "subtitle": "Contactez notre équipe de voyage experte et commencez à créer votre aventure marocaine personnalisée aujourd'hui.",
-      "button": "Réserver Maintenant"
+      "title": "Prêt à explorer le Maroc ?",
+      "subtitle": "Contactez notre équipe d'experts en voyage et commencez à créer votre aventure marocaine personnalisée dès aujourd'hui.",
+      "button": "Réserver maintenant"
+    },
+    "offerings": {
+      "label": "Nos Offres",
+      "title": "Découvrez le Maroc à Votre Façon",
+      "subtitle": "Des aventures de plusieurs jours aux excursions rapides, activités uniques et services fluides",
+      "multiDayTours": {
+        "title": "Circuits de Plusieurs Jours",
+        "description": "Voyages immersifs à travers les destinations les plus emblématiques du Maroc"
+      },
+      "dayExcursions": {
+        "title": "Excursions d'une Journée",
+        "description": "Excursions parfaites pour explorer les joyaux cachés du Maroc"
+      },
+      "activities": {
+        "title": "Activités",
+        "description": "Expériences uniques, des cours de cuisine aux aventures dans le désert"
+      },
+      "services": {
+        "title": "Services",
+        "description": "Transferts aéroport, chauffeurs privés et transferts hôtel"
+      },
+      "exploreOptions": "Explorer les Options"
+    },
+    "featuredTours": {
+      "label": "Voyages Premium",
+      "title": "Circuits de Plusieurs Jours en Vedette",
+      "subtitle": "Embarquez pour des voyages inoubliables à travers les paysages diversifiés du Maroc",
+      "viewAll": "Voir Tous les Circuits"
+    },
+    "featuredExcursions": {
+      "label": "Excursions d'une Journée",
+      "title": "Excursions Populaires",
+      "subtitle": "Excursions d'une journée parfaites depuis les grandes villes vers les destinations incontournables du Maroc",
+      "viewAll": "Voir Toutes les Excursions",
+      "instantConfirmation": "Confirmation Immédiate",
+      "viewDetails": "Voir les Détails"
+    },
+    "featuredActivities": {
+      "label": "Expériences",
+      "title": "Expériences Uniques",
+      "subtitle": "Ajoutez des activités spéciales pour rendre votre aventure marocaine vraiment mémorable",
+      "viewAll": "Voir Toutes les Activités"
+    },
+    "testimonials": {
+      "label": "Témoignages",
+      "title": "Histoires de nos voyageurs",
+      "subtitle": "Exemples concrets de la façon dont nous créons des souvenirs inoubliables."
     }
   },
-  "ExcursionsPage": {
-    "title": "Explorer le Maroc",
-    "subtitle": "Découvrir Toutes les Destinations Marocaines",
-    "duration": "Durée",
-    "details": "Voir les Détails",
-    "filter": {
-      "all": "Tout",
-      "location": "Lieu",
-      "price": "Prix",
-      "difficulty": "Difficulté"
-    },
-    "search": "Rechercher des destinations marocaines..."
-  },
-  "ExcursionDetailPage": {
-    "backToExcursions": "Retour aux Excursions",
-    "bookNow": "Réserver sur WhatsApp",
-    "overview": "Aperçu",
-    "itinerary": "Itinéraire",
-    "included": "Inclus",
-    "excluded": "Non Inclus",
-    "requirements": "Exigences",
-    "gallery": "Galerie",
-    "relatedTours": "Circuits Similaires",
-    "duration": "Durée",
-    "groupSize": "Taille du Groupe",
-    "minAge": "Âge Minimum",
-    "difficulty": "Difficulté",
-    "location": "Lieu",
-    "price": "Prix",
-    "perPerson": "par personne",
-    "day": "Jour",
-    "contactUs": "Contactez-nous sur WhatsApp pour réserver"
-  },
   "AboutPage": {
-    "title": "À Propos de Nous",
+    "title": "À propos de nous",
+    "subtitle": "Créateur d'Aventures Marocaines Inoubliables depuis 2015",
     "mission": "Notre Mission",
     "missionText": "Offrir des expériences de voyage authentiques et inoubliables à travers le Maroc.",
-    "team": "Notre Équipe",
+    "missionDesc": "Nous croyons que le voyage est plus que la simple visite de nouveaux lieux. C'est créer des liens significatifs, découvrir des cultures authentiques et créer des souvenirs qui durent toute une vie.",
+    "values": {
+      "title": "Nos Valeurs",
+      "subtitle": "Les principes qui guident tout ce que nous faisons",
+      "passion": "Passion pour le Maroc",
+      "passionDesc": "Nous sommes profondément passionnés par le partage de la beauté, de la culture et des traditions du Maroc avec les voyageurs du monde entier.",
+      "trust": "Confiance et Sécurité",
+      "trustDesc": "Votre sécurité et votre confort sont nos priorités absolues. Nous veillons à ce que chaque voyage soit sûr, fiable et sans souci.",
+      "experts": "Guides Locaux Experts",
+      "expertsDesc": "Nos guides expérimentés donnent vie au Maroc avec des histoires authentiques, des connaissances d'initiés et une hospitalité chaleureuse.",
+      "sustainable": "Tourisme Durable",
+      "sustainableDesc": "Nous nous engageons pour un voyage responsable qui respecte les communautés locales et préserve la beauté naturelle du Maroc."
+    },
+    "milestones": {
+      "founded": "Fondé",
+      "foundedDesc": "Your Morocco est né d'une passion pour partager des expériences marocaines authentiques",
+      "expansion": "Expansion",
+      "expansionDesc": "Extension de nos services pour couvrir toutes les principales destinations marocaines",
+      "recognition": "Reconnaissance",
+      "recognitionDesc": "Élu Meilleur Tour Opérateur au Maroc par les Travel Excellence Awards",
+      "innovation": "Innovation",
+      "innovationDesc": "Lancement d'initiatives de tourisme durable et de circuits écologiques"
+    },
+    "reviews": {
+      "title": "Histoires de nos voyageurs",
+      "subtitle": "Exemples concrets de la façon dont nous créons des souvenirs inoubliables.",
+      "googleMap": "Voir sur Google Maps"
+    },
+    "stats": {
+      "travelers": "Voyageurs Heureux",
+      "tours": "Circuits Réalisés",
+      "rating": "Note Moyenne",
+      "support": "Support Client"
+    },
     "cta": {
-      "title": "Prêt à Commencer Votre Aventure Marocaine?",
+      "title": "Prêt à commencer votre aventure marocaine ?",
       "subtitle": "Laissez-nous vous aider à créer des souvenirs qui dureront toute une vie",
-      "button": "Contactez-nous"
+      "button": "Prendre contact"
     }
   },
   "ContactPage": {
@@ -125,28 +173,107 @@
     "name": "Nom",
     "email": "Email",
     "message": "Message",
-    "submit": "Envoyer le Message",
+    "submit": "Envoyer le message",
     "address": "Marrakech, Maroc",
     "phone": "+212 123 456 789",
     "whatsapp": "Discuter sur WhatsApp"
   },
   "WhatsApp": {
     "chatWithUs": "Discutez avec nous",
-    "bookingMessage": "Bonjour! Je suis intéressé par la réservation d'un circuit au Maroc."
+    "bookingMessage": "Bonjour ! Je suis intéressé par la réservation d'un circuit au Maroc."
+  },
+  "ListingPage": {
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "clearFilters": "Effacer les filtres",
+    "clear": "Effacer",
+    "showing": "Affichage de",
+    "of": "sur",
+    "noResults": "Aucun résultat trouvé",
+    "noResultsDesc": "Essayez d'ajuster vos filtres ou votre recherche",
+    "viewDetails": "Voir les détails",
+    "location": "Lieu",
+    "allLocations": "Tous les lieux"
+  },
+  "DetailPage": {
+    "back": "Retour",
+    "backToTours": "Retour aux Circuits",
+    "backToExcursions": "Retour aux Excursions",
+    "backToActivities": "Retour aux Activités",
+    "bookNow": "Réserver maintenant",
+    "bookViaWhatsapp": "Réserver via WhatsApp",
+    "requestViaWhatsapp": "Demander via WhatsApp",
+    "overview": "Aperçu",
+    "itinerary": "Itinéraire",
+    "reviews": "Avis",
+    "gallery": "Galerie",
+    "highlights": "Points forts",
+    "included": "Inclus",
+    "excluded": "Non inclus",
+    "suitableFor": "Parfait pour",
+    "whatToExpect": "À quoi s'attendre",
+    "goodToKnow": "Bon à savoir",
+    "goodToKnowDesc": "Veuillez arriver 15 minutes avant l'heure de début prévue. Vêtements confortables recommandés.",
+    "tags": {
+      "dayTrip": "Excursion d'une journée",
+      "multiDay": "Circuit de plusieurs jours",
+      "smallGroup": "Petit groupe"
+    },
+    "pricing": {
+      "startingFrom": "À partir de",
+      "perPerson": "par personne",
+      "contactUs": "Contactez-nous",
+      "noPayment": "Aucun paiement requis pour se renseigner."
+    },
+    "features": {
+      "dailyDepartures": "Départs quotidiens",
+      "freeCancellation": "Annulation gratuite (24h)",
+      "instantConfirmation": "Confirmation immédiate",
+      "duration": "Durée"
+    },
+    "info": {
+      "title": "Infos Importantes",
+      "departure": "Départ",
+      "return": "Retour",
+      "wear": "Tenue"
+    },
+    "trust": {
+      "title": "Pourquoi réserver avec nous ?",
+      "bestPrice": "Meilleur Prix Garanti",
+      "bestPriceDesc": "Nous nous alignons sur les prix des concurrents.",
+      "cancellation": "Annulation Gratuite",
+      "cancellationDesc": "Jusqu'à 24 heures avant le voyage.",
+      "help": "Besoin d'aide ?",
+      "helpDesc": "Pas sûr si cela vous convient ? Discutez avec nos experts locaux.",
+      "chat": "Discutez avec nous"
+    },
+    "sections": {
+      "relatedTours": "Vous aimerez aussi",
+      "similarExcursions": "Excursions Similaires",
+      "moreExperiences": "Plus d'Expériences",
+      "experience": "Expérience",
+      "guestReviews": "Avis des Invités",
+      "travelerReviews": "Avis des Voyageurs"
+    },
+    "itineraryRequest": "Itinéraire détaillé disponible sur demande."
   },
   "Services": {
-    "title": "Nos Services",
+    "title": "Nos services",
     "subtitle": "Des services professionnels pour rendre votre voyage confortable et mémorable.",
-    "viewDetails": "Voir les Détails"
+    "viewDetails": "Voir les détails"
   },
   "Tours": {
-    "title": "Nos Circuits",
+    "title": "Nos circuits",
     "subtitle": "Des circuits immersifs de plusieurs jours pour explorer le meilleur du Maroc.",
-    "viewDetails": "Voir les Détails"
+    "viewDetails": "Voir les détails"
   },
   "Activities": {
     "title": "Activités",
     "subtitle": "Des activités passionnantes pour ajouter de l'aventure à votre voyage.",
-    "viewDetails": "Voir les Détails"
+    "viewDetails": "Voir les détails"
+  },
+  "ExcursionsPage": {
+    "title": "Explorez le Maroc",
+    "subtitle": "Découvrez toutes les destinations marocaines"
   }
 }

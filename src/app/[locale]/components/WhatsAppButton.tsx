@@ -14,7 +14,7 @@ export default function WhatsAppButton() {
     const isDetailPage = /\/(excursions|tours)\/.+/.test(pathname);
 
     // Replace with your actual WhatsApp number (international format without + or spaces)
-    const whatsappNumber = '212706880866'; // Morocco booking number
+    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212706880866'; // Morocco booking number
     const message = encodeURIComponent(t('bookingMessage'));
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 

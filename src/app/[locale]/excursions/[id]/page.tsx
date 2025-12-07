@@ -24,7 +24,7 @@ const getReviewsForExcursion = (id: number, title: string) => {
 
 export default function ExcursionDetailPage({ params }: { params: Promise<{ locale: string; id: string }> }) {
     const { locale, id } = use(params);
-    const t = useTranslations('ExcursionDetailPage');
+    const t = useTranslations('DetailPage');
     const tour = siteData.excursions.find(e => e.id === Number(id));
 
     if (!tour) {
@@ -47,7 +47,7 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
         .filter(t => t.id !== tour.id)
         .slice(0, 3);
 
-    const whatsappNumber = '212706880866';
+    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212706880866';
     const bookingMessage = encodeURIComponent(`Hello, I am interested in booking the excursion: ${tour.title} (Code: ${tour.trip_code}). Please provide more information.`);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${bookingMessage}`;
 
@@ -93,7 +93,7 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
                         <div className="max-w-4xl">
                             <div className="flex items-center gap-3 mb-2 md:mb-4">
                                 <span className="bg-terracotta text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                                    Day Trip
+                                    {t('tags.dayTrip')}
                                 </span>
                                 {tour.locations && tour.locations.length > 0 && (
                                     <span className="text-white/90 text-sm font-medium flex items-center gap-1 bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full">
@@ -112,7 +112,7 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <Users className="w-5 h-5 text-accent-yellow" />
-                                    <span className="font-medium">{tour.group_size || 'Small Group'}</span>
+                                    <span className="font-medium">{tour.group_size || t('tags.smallGroup')}</span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <Star className="w-5 h-5 text-accent-yellow fill-current" />
@@ -136,11 +136,11 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
 
                         {/* Description */}
                         <section>
-                            <h2 className="text-2xl font-bold text-gray-900 mb-6">Experience</h2>
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('sections.experience')}</h2>
                             <p className="text-gray-700 leading-relaxed text-lg mb-8">{tour.description}</p>
 
                             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-                                <h3 className="font-bold text-gray-900 mb-4">Highlights</h3>
+                                <h3 className="font-bold text-gray-900 mb-4">{t('highlights')}</h3>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                     {tour.highlights?.map((highlight, index) => (
                                         <div key={index} className="flex items-start gap-2">
@@ -154,7 +154,7 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
 
                         {/* Program */}
                         <section>
-                            <h2 className="text-2xl font-bold text-gray-900 mb-8">Typical Itinerary</h2>
+                            <h2 className="text-2xl font-bold text-gray-900 mb-8">{t('itinerary')}</h2>
                             <div className="space-y-8 relative before:absolute before:inset-0 before:ml-2.5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
                                 {programSteps.map((step, index) => (
                                     <div key={index} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
@@ -176,7 +176,7 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
                         <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div>
                                 <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                    <Check className="w-5 h-5 text-green-500" /> Included
+                                    <Check className="w-5 h-5 text-green-500" /> {t('included')}
                                 </h3>
                                 <ul className="space-y-2">
                                     <li className="flex items-center gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500" /> Hotel pickup and drop-off</li>
@@ -187,7 +187,7 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
                             </div>
                             <div>
                                 <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                    <X className="w-5 h-5 text-red-500" /> Not Included
+                                    <X className="w-5 h-5 text-red-500" /> {t('excluded')}
                                 </h3>
                                 <ul className="space-y-2">
                                     <li className="flex items-center gap-2 text-sm text-gray-600"><X className="w-4 h-4 text-red-500" /> Lunch and drinks</li>
@@ -199,7 +199,7 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
 
                         {/* Reviews Grid */}
                         <section>
-                            <h2 className="text-2xl font-bold text-gray-900 mb-6">Guest Reviews</h2>
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('sections.guestReviews')}</h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 {reviews.map((review, index) => (
                                     <div key={index} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
@@ -230,25 +230,25 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
                                 <div className="absolute top-0 left-0 w-full h-2 bg-terracotta" />
 
                                 <div className="mb-6">
-                                    <span className="text-gray-500 text-sm font-medium uppercase tracking-wide">Starting from</span>
+                                    <span className="text-gray-500 text-sm font-medium uppercase tracking-wide">{t('pricing.startingFrom')}</span>
                                     <div className="flex items-baseline gap-1 mt-1">
-                                        <span className="text-3xl font-bold text-gray-900">{tour.price || 'Contact us'}</span>
-                                        {tour.price && <span className="text-gray-500">/ person</span>}
+                                        <span className="text-3xl font-bold text-gray-900">{tour.price || t('pricing.contactUs')}</span>
+                                        {tour.price && <span className="text-gray-500">/ {t('pricing.perPerson')}</span>}
                                     </div>
                                 </div>
 
                                 <div className="space-y-4 mb-8">
                                     <div className="flex items-center gap-3 text-gray-700">
                                         <Calendar className="w-5 h-5 text-terracotta" />
-                                        <span>Daily departures</span>
+                                        <span>{t('features.dailyDepartures')}</span>
                                     </div>
                                     <div className="flex items-center gap-3 text-gray-700">
                                         <Shield className="w-5 h-5 text-terracotta" />
-                                        <span>Free cancellation (24h)</span>
+                                        <span>{t('features.freeCancellation')}</span>
                                     </div>
                                     <div className="flex items-center gap-3 text-gray-700">
                                         <MessageCircle className="w-5 h-5 text-terracotta" />
-                                        <span>Instant confirmation</span>
+                                        <span>{t('features.instantConfirmation')}</span>
                                     </div>
                                 </div>
 
@@ -259,29 +259,29 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
                                     className="w-full bg-[#075E54] hover:bg-[#128C7E] text-white text-center font-bold py-4 rounded-xl transition-all hover:shadow-lg flex items-center justify-center gap-2 mb-4"
                                 >
                                     <MessageCircle className="w-5 h-5" />
-                                    Book via WhatsApp
+                                    {t('bookViaWhatsapp')}
                                 </a>
 
                                 <p className="text-xs text-center text-gray-500">
-                                    No payment required to inquire.
+                                    {t('pricing.noPayment')}
                                 </p>
                             </div>
 
                             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                                <h3 className="font-bold text-gray-900 mb-4">Why book with us?</h3>
+                                <h3 className="font-bold text-gray-900 mb-4">{t('trust.title')}</h3>
                                 <ul className="space-y-4">
                                     <li className="flex items-start gap-3">
                                         <Shield className="w-5 h-5 text-terracotta mt-0.5" />
                                         <div>
-                                            <h4 className="font-bold text-sm text-gray-900">Best Price Guarantee</h4>
-                                            <p className="text-xs text-gray-500">We match any competitor's price.</p>
+                                            <h4 className="font-bold text-sm text-gray-900">{t('trust.bestPrice')}</h4>
+                                            <p className="text-xs text-gray-500">{t('trust.bestPriceDesc')}</p>
                                         </div>
                                     </li>
                                     <li className="flex items-start gap-3">
                                         <Calendar className="w-5 h-5 text-terracotta mt-0.5" />
                                         <div>
-                                            <h4 className="font-bold text-sm text-gray-900">Free Cancellation</h4>
-                                            <p className="text-xs text-gray-500">Up to 24 hours before the trip.</p>
+                                            <h4 className="font-bold text-sm text-gray-900">{t('trust.cancellation')}</h4>
+                                            <p className="text-xs text-gray-500">{t('trust.cancellationDesc')}</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -290,16 +290,16 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
                             <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200">
                                 <div className="flex items-center gap-3 mb-4">
                                     <Info className="w-5 h-5 text-gray-400" />
-                                    <h3 className="font-bold text-gray-900">Important Info</h3>
+                                    <h3 className="font-bold text-gray-900">{t('info.title')}</h3>
                                 </div>
                                 <p className="text-sm text-gray-600 mb-2">
-                                    <span className="font-semibold">Departure:</span> 08:00 AM
+                                    <span className="font-semibold">{t('info.departure')}:</span> 08:00 AM
                                 </p>
                                 <p className="text-sm text-gray-600 mb-2">
-                                    <span className="font-semibold">Return:</span> Approx 06:00 PM
+                                    <span className="font-semibold">{t('info.return')}:</span> Approx 06:00 PM
                                 </p>
                                 <p className="text-sm text-gray-600">
-                                    <span className="font-semibold">Wear:</span> Comfortable shoes and clothing.
+                                    <span className="font-semibold">{t('info.wear')}:</span> Comfortable shoes and clothing.
                                 </p>
                             </div>
                         </div>
@@ -310,7 +310,7 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
                 {relatedTours.length > 0 && (
                     <section className="mt-20 pt-12 border-t border-gray-200">
                         <h2 className="text-2xl font-bold text-gray-900 mb-8">
-                            Similar Excursions
+                            {t('sections.similarExcursions')}
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {relatedTours.map((relatedTour) => (

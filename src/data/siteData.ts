@@ -7,17 +7,17 @@ export const siteData = {
             description: "Start your Moroccan journey the right way with a reliable airport transfer. We provide comfortable, air-conditioned vehicles and professional drivers to ensure a smooth arrival.",
             categories: ["Blog", "Services"],
             image: {
-                url: "https://your-morocco.com/wp-content/uploads/2025/06/visit-morocco.webp",
-                alt: "Visit Morocco"
+                url: "/images/services/transport_from_airport.png",
+                alt: "Airport Transfer Service"
             },
             banner_image: {
-                url: "https://your-morocco.com/wp-content/uploads/2025/06/visit-morocco.webp",
-                alt: "Visit Morocco"
+                url: "/images/services/banner.png",
+                alt: "Airport Transfer Service"
             },
             gallery: [
-                { url: "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?auto=format&fit=crop&q=80&w=1200", alt: "Morocco Airport Transfer" },
-                { url: "https://images.unsplash.com/photo-1597212618440-806262de4f6b?auto=format&fit=crop&q=80&w=1200", alt: "Comfortable Vehicle" },
-                { url: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=1200", alt: "Safe Travel" }
+                { url: "/images/services/transport_from_airport.png", alt: "Comfortable Transfer" },
+                { url: "/images/casablanca/casablanca.png", alt: "Casablanca Airport Transfer" },
+                { url: "/images/marrakech/marrakech.png", alt: "Marrakech Arrival" }
             ],
             highlights: [
                 "24/7 availability",
@@ -27,7 +27,7 @@ export const siteData = {
                 "Fixed prices with no hidden fees"
             ],
             suitable_for: ["Solo travelers", "Families", "Groups", "Business travelers"],
-            price: "From $25"
+            price: `From ${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}25`
         },
         {
             id: 419,
@@ -36,17 +36,17 @@ export const siteData = {
             description: "Arriving in a new country can be overwhelming, especially after a long flight. Our hotel transfer service ensures you get to your accommodation safely and comfortably.",
             categories: ["Blog", "Services"],
             image: {
-                url: "https://your-morocco.com/wp-content/uploads/2025/06/visit-morocco.webp",
-                alt: "Visit Morocco"
+                url: "/images/services/transport_from_hotel.png",
+                alt: "Hotel Transfer Service"
             },
             banner_image: {
-                url: "https://your-morocco.com/wp-content/uploads/2025/06/visit-morocco.webp",
-                alt: "Visit Morocco"
+                url: "/images/services/banner.png",
+                alt: "Hotel Transfer Service"
             },
             gallery: [
-                { url: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1200", alt: "Hotel Transfer" },
-                { url: "https://images.unsplash.com/photo-1549144511-650a31eb2580?auto=format&fit=crop&q=80&w=1200", alt: "Luxury Service" },
-                { url: "https://images.unsplash.com/photo-1517840901100-8179e982acb7?auto=format&fit=crop&q=80&w=1200", alt: "Morocco Streets" }
+                { url: "/images/services/transport_from_hotel.png", alt: "Hotel Pickup" },
+                { url: "/images/rabat/rabat.png", alt: "City Transfer" },
+                { url: "/images/fes/Fes.png", alt: "Comfortable Ride" }
             ],
             highlights: [
                 "Door-to-door service",
@@ -56,7 +56,7 @@ export const siteData = {
                 "Safe and reliable"
             ],
             suitable_for: ["All travelers"],
-            price: "From $30"
+            price: `From ${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}30`
         },
         {
             id: 417,
@@ -65,17 +65,17 @@ export const siteData = {
             description: "Rent Private Car & Driver in Morocco. Traveling through Morocco at your own pace is the best way to discover the country. Our private car and driver service gives you the freedom to explore.",
             categories: ["Blog", "Services"],
             image: {
-                url: "https://your-morocco.com/wp-content/uploads/2025/06/visit-morocco.webp",
-                alt: "Visit Morocco"
+                url: "/images/services/car_rental.png",
+                alt: "Private Car Rental"
             },
             banner_image: {
-                url: "https://your-morocco.com/wp-content/uploads/2025/06/visit-morocco.webp",
-                alt: "Visit Morocco"
+                url: "/images/services/banner.png",
+                alt: "Private Car Rental"
             },
             gallery: [
-                { url: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=1200", alt: "Private Driver" },
-                { url: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=1200", alt: "Scenic Drive" },
-                { url: "https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&q=80&w=1200", alt: "Morocco Road" }
+                { url: "/images/services/car_rental.png", alt: "Luxury Car Rental" },
+                { url: "/images/ouarzazate/ouarzazate.png", alt: "Road Trip" },
+                { url: "/images/merzouga/merzouga1.jpg", alt: "Desert Driving" }
             ],
             highlights: [
                 "Flexible itinerary",
@@ -85,7 +85,7 @@ export const siteData = {
                 "Local insights and tips"
             ],
             suitable_for: ["Couples", "Families", "Small groups", "Photographers"],
-            price: "From $50/day"
+            price: `From ${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}50/day`
         }
     ],
 
@@ -127,7 +127,7 @@ export const siteData = {
                 "Sunrise over the Sahara Desert"
             ],
             suitable_for: ["Couples", "Friends", "Solo travelers"],
-            price: "$180"
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}180`
         },
         {
             id: 467,
@@ -166,7 +166,7 @@ export const siteData = {
                 "Overnight stay in a traditional desert camp"
             ],
             suitable_for: ["Adventure seekers", "Families", "Couples", "Groups"],
-            price: "$240"
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}240`
         },
         {
             id: 463,
@@ -205,7 +205,7 @@ export const siteData = {
                 "See the Hassan II Mosque in Casablanca"
             ],
             suitable_for: ["Culture lovers", "History buffs", "Adventurers"],
-            price: "$380"
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}380`
         }
     ],
 
@@ -244,7 +244,7 @@ export const siteData = {
                 "Stargazing in the desert"
             ],
             suitable_for: ["Short stay travelers", "Families", "Couples"],
-            price: "$150"
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}150`
         },
         {
             id: 294,
@@ -281,7 +281,7 @@ export const siteData = {
                 "Lunch with a view of the waterfalls"
             ],
             suitable_for: ["Nature lovers", "Families", "Photographers"],
-            price: "$55"
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}55`
         },
         {
             id: 289,
@@ -316,7 +316,7 @@ export const siteData = {
                 "Lunch by the river"
             ],
             suitable_for: ["Families", "Nature lovers", "Hikers"],
-            price: "$45"
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}45`
         },
         {
             id: 259,
@@ -353,7 +353,7 @@ export const siteData = {
                 "Visit Mohammed V Square"
             ],
             suitable_for: ["Culture lovers", "Architecture enthusiasts"],
-            price: "$85"
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}85`
         },
         {
             id: 255,
@@ -392,7 +392,7 @@ export const siteData = {
                 "Shop for thuya wood crafts"
             ],
             suitable_for: ["Beach lovers", "History buffs", "Relaxation seekers"],
-            price: "$65"
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}65`
         },
         {
             id: 253,
@@ -428,7 +428,7 @@ export const siteData = {
                 "Stroll through the Andalusian Gardens"
             ],
             suitable_for: ["History buffs", "Culture lovers"],
-            price: "$90"
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}90`
         },
         {
             id: 251,
@@ -464,7 +464,7 @@ export const siteData = {
                 "Explore the souks and artisan workshops"
             ],
             suitable_for: ["Culture lovers", "History buffs", "Shoppers"],
-            price: "$95"
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}95`
         },
         {
             id: 40,
@@ -501,7 +501,7 @@ export const siteData = {
                 "Enjoy desert landscapes"
             ],
             suitable_for: ["Film fans", "History buffs", "Sightseers"],
-            price: "$70"
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}70`
         },
         {
             id: 41,
@@ -538,7 +538,7 @@ export const siteData = {
                 "See the starry night sky"
             ],
             suitable_for: ["Adventure seekers", "Nature lovers"],
-            price: "$180"
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}180`
         },
         {
             id: 38,
@@ -578,7 +578,7 @@ export const siteData = {
                 "Shop in the souks"
             ],
             suitable_for: ["City explorers", "Culture lovers", "Shoppers"],
-            price: "$50"
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}50`
         }
     ],
 
@@ -613,7 +613,7 @@ export const siteData = {
             locations: ["Marrakech", "Fes", "Essaouira", "Ouarzazate", "Merzouga"],
             duration: "Flexible - available throughout your journey",
             suitable_for: ["Solo travelers", "Couples", "Families", "Groups", "Special occasions", "Team-building events"],
-            price: "$45 per person",
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}45 per person`,
             booking_form: {
                 fields: [
                     { name: "full_name", type: "text", required: true, label: "Full name" },
@@ -659,7 +659,7 @@ export const siteData = {
             duration: "Flexible - short adventures to full-day experiences",
             suitable_for: ["Couples", "Groups of friends", "Families with teens", "Corporate team-building", "Adventure seekers"],
             skill_level: "All levels (beginner to experienced)",
-            price: "$65 per person",
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}65 per person`,
             booking_form: {
                 fields: [
                     { name: "full_name", type: "text", required: true, label: "Full name" },
@@ -706,7 +706,7 @@ export const siteData = {
             locations: ["Merzouga", "Zagora", "Agafay Desert", "Essaouira outskirts", "Various regions"],
             duration_options: ["1-hour rides", "Half-day journeys", "Full desert experiences with overnight stays"],
             suitable_for: ["All ages", "Couples", "Families", "Groups", "Peaceful adventure seekers"],
-            price: "From $35",
+            price: `From ${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}35`,
             booking_form: {
                 fields: [
                     { name: "full_name", type: "text", required: true, label: "Full name" },
@@ -755,7 +755,7 @@ export const siteData = {
             locations: ["Marrakech", "Fes", "Casablanca", "Other culturally rich cities"],
             tour_types: ["Street food tours", "Vegetarian dishes", "Sweets and pastries", "Adventurous tasting"],
             suitable_for: ["Couples", "Solo travelers", "Families", "Small groups", "Honeymoon trips", "Photography tours", "Business travel"],
-            price: "$55 per person",
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}55 per person`,
             booking_form: {
                 fields: [
                     { name: "full_name", type: "text", required: true, label: "Full name" },
@@ -805,7 +805,7 @@ export const siteData = {
             duration: "Approximately 1 hour flight + breakfast",
             schedule: "Early morning pickup, sunrise flight",
             suitable_for: ["Couples", "Honeymooners", "Families", "Small private groups", "Special occasions"],
-            price: "$220 per person",
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}220 per person`,
             booking_form: {
                 fields: [
                     { name: "full_name", type: "text", required: true, label: "Full name" },

@@ -3,14 +3,14 @@ export const contactData = {
         company: {
             name: "Your Morocco",
             email: "Book@your-morocco.com",
-            phone: "+212 661 918 349",
+            phone: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ? `+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER.match(/.{1,3}/g)?.join(' ')}` : "+212 706 880 866",
             tagline: "Discover, Travel, and Live Morocco.",
             base_location: "Marrakech"
         },
         booking_contact: {
             primary_email: "book@your-morocco.com",
             whatsapp: {
-                phone: "+212 661 918 349",
+                phone: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ? `+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}` : "+212706880866",
                 message: "Hello, this is Aziz from your-morocco.com how can i help you please?",
                 group_link: "https://chat.whatsapp.com/EQuPUtcPzEdIZVlT8JyyNw"
             },

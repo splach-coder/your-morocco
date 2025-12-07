@@ -52,7 +52,7 @@ ${formData.trip_details}
       {/* Banner Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?q=80&w=2070&auto=format&fit=crop"
+          src="/images/ouarzazate/ouarzazate.png"
           alt="Contact Us - Morocco Travel"
           fill
           className="object-cover"

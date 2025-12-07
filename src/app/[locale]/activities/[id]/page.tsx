@@ -49,7 +49,7 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
         .filter(t => t.id !== activity.id)
         .slice(0, 3);
 
-    const whatsappNumber = '212706880866';
+    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212706880866';
     const bookingMessage = encodeURIComponent(`Hello, I am interested in booking the activity: ${activity.title}. Please provide more information.`);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${bookingMessage}`;
 

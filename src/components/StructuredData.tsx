@@ -10,7 +10,7 @@ export function OrganizationSchema() {
         description: 'Discover authentic Moroccan experiences with expert local guides. From vibrant souks to serene desert landscapes.',
         url: 'https://your-morocco.com',
         logo: 'https://your-morocco.com/images/logo.png',
-        telephone: '+212706880866',
+        telephone: `+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212706880866'}`,
         email: 'book@your-morocco.com',
         address: {
             '@type': 'PostalAddress',

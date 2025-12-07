@@ -5,6 +5,7 @@ import { routing } from '@/i18n/routing';
 import Header from "@/app/[locale]/components/Header";
 import "../globals.css";
 import WhatsAppButton from './components/WhatsAppButton';
+import LicenseCheck from './components/LicenseCheck';
 
 import Script from 'next/script';
 import AnalyticsListener from '@/lib/AnalyticsListener';
@@ -114,6 +115,7 @@ export default async function LocaleLayout({
         <OrganizationSchema />
         <HeaderWithTranslations locale={locale} />
         <NextIntlClientProvider messages={messages}>
+          <LicenseCheck />
           {children}
           <Footer />
           <WhatsAppButton />

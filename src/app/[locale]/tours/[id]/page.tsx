@@ -56,7 +56,7 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
         .filter(t => t.id !== tour.id)
         .slice(0, 3);
 
-    const whatsappNumber = '212706880866';
+    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212706880866';
     const bookingMessage = encodeURIComponent(`Hello, I am interested in booking the tour: ${tour.title}. Please provide more information.`);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${bookingMessage}`;
 

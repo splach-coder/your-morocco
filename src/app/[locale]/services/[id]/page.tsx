@@ -32,7 +32,7 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ locale
         .filter(t => t.id !== service.id)
         .slice(0, 3);
 
-    const whatsappNumber = '212706880866';
+    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212706880866';
     const bookingMessage = encodeURIComponent(`Hello, I am interested in the service: ${service.title}. Please provide more information.`);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${bookingMessage}`;
 
@@ -41,8 +41,8 @@ export default function ServiceDetailPage({ params }: { params: Promise<{ locale
             {/* Hero Section */}
             <div className="relative h-[60vh] min-h-[400px]">
                 <Image
-                    src={service.image.url}
-                    alt={service.image.alt || service.title}
+                    src={service.banner_image.url}
+                    alt={service.banner_image.alt || service.title}
                     fill
                     className="object-cover"
                     priority

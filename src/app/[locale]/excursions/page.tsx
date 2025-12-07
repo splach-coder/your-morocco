@@ -11,6 +11,7 @@ import { siteData } from '@/data/siteData';
 export default function ExcursionsPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = use(params);
     const t = useTranslations('ExcursionsPage');
+    const tCommon = useTranslations('ListingPage');
     const searchParams = useSearchParams();
     const [searchQuery, setSearchQuery] = useState(searchParams.get('search') || '');
     const [selectedLocation, setSelectedLocation] = useState('all');
@@ -74,7 +75,7 @@ export default function ExcursionsPage({ params }: { params: Promise<{ locale: s
                                 type="text"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                placeholder={t('search')}
+                                placeholder={tCommon('search')}
                                 className="w-full pl-9 pr-3 py-2.5 border border-gray-200 rounded-lg focus:border-primary-teal focus:ring-1 focus:ring-primary-teal focus:outline-none transition-all text-sm text-gray-900 placeholder-gray-400"
                             />
                         </div>
@@ -109,7 +110,7 @@ export default function ExcursionsPage({ params }: { params: Promise<{ locale: s
                                     title="Clear all filters"
                                 >
                                     <X className="w-4 h-4" />
-                                    <span className="hidden sm:inline">Clear</span>
+                                    <span className="hidden sm:inline">{tCommon('clear')}</span>
                                 </button>
                             </>
                         )}
@@ -119,7 +120,7 @@ export default function ExcursionsPage({ params }: { params: Promise<{ locale: s
                 {/* Results Count */}
                 <div className="mb-6 text-center">
                     <p className="text-gray-600 text-sm">
-                        Showing <span className="font-bold text-primary-teal">{filteredTours.length}</span> of {siteData.excursions.length} excursions
+                        {tCommon('showing')} <span className="font-bold text-primary-teal">{filteredTours.length}</span> {tCommon('of')} {siteData.excursions.length} {t('title').toLowerCase()}
                     </p>
                 </div>
 
@@ -144,13 +145,13 @@ export default function ExcursionsPage({ params }: { params: Promise<{ locale: s
                 ) : (
                     <div className="text-center py-20">
                         <div className="text-6xl mb-4">🔍</div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-2">No excursions found</h3>
-                        <p className="text-gray-600 mb-6">Try adjusting your filters or search query</p>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-2">{tCommon('noResults')}</h3>
+                        <p className="text-gray-600 mb-6">{tCommon('noResultsDesc')}</p>
                         <button
                             onClick={clearFilters}
                             className="bg-terracotta hover:bg-terracotta-dark text-white px-8 py-3 rounded-full font-semibold transition-all"
                         >
-                            Clear filters
+                            {tCommon('clearFilters')}
                         </button>
                     </div>
                 )}

@@ -74,47 +74,94 @@
       "title": "Ready to Explore Morocco?",
       "subtitle": "Contact our expert travel team and begin crafting your custom Moroccan adventure today.",
       "button": "Book Now"
-    }
-  },
-  "ExcursionsPage": {
-    "title": "Explore Morocco",
-    "subtitle": "Discover All Moroccan Destinations",
-    "duration": "Duration",
-    "details": "View Details",
-    "filter": {
-      "all": "All",
-      "location": "Location",
-      "price": "Price",
-      "difficulty": "Difficulty"
     },
-    "search": "Search Moroccan destinations..."
-  },
-  "ExcursionDetailPage": {
-    "backToExcursions": "Back to Excursions",
-    "bookNow": "Book on WhatsApp",
-    "overview": "Overview",
-    "itinerary": "Itinerary",
-    "included": "What's Included",
-    "excluded": "What's Not Included",
-    "requirements": "Requirements",
-    "gallery": "Gallery",
-    "relatedTours": "Related Tours",
-    "duration": "Duration",
-    "groupSize": "Group Size",
-    "minAge": "Minimum Age",
-    "difficulty": "Difficulty",
-    "location": "Location",
-    "price": "Price",
-    "perPerson": "per person",
-    "day": "Day",
-    "contactUs": "Contact us on WhatsApp for booking",
-    "details": "View Details"
+    "offerings": {
+      "label": "Our Offerings",
+      "title": "Discover Morocco Your Way",
+      "subtitle": "From multi-day adventures to quick excursions, unique activities, and seamless services",
+      "multiDayTours": {
+        "title": "Multi-Day Tours",
+        "description": "Immersive journeys across Morocco's most iconic destinations"
+      },
+      "dayExcursions": {
+        "title": "Day Excursions",
+        "description": "Perfect day trips to explore Morocco's hidden gems"
+      },
+      "activities": {
+        "title": "Activities",
+        "description": "Unique experiences from cooking classes to desert adventures"
+      },
+      "services": {
+        "title": "Services",
+        "description": "Airport transfers, private drivers, and hotel transfers"
+      },
+      "exploreOptions": "Explore Options"
+    },
+    "featuredTours": {
+      "label": "Premium Journeys",
+      "title": "Featured Multi-Day Tours",
+      "subtitle": "Embark on unforgettable journeys across Morocco's diverse landscapes",
+      "viewAll": "View All Tours"
+    },
+    "featuredExcursions": {
+      "label": "Day Trips",
+      "title": "Popular Day Excursions",
+      "subtitle": "Perfect day trips from major cities to Morocco's must-see destinations",
+      "viewAll": "View All Excursions",
+      "instantConfirmation": "Instant Confirmation",
+      "viewDetails": "View Details"
+    },
+    "featuredActivities": {
+      "label": "Experiences",
+      "title": "Unique Experiences",
+      "subtitle": "Add special activities to make your Moroccan adventure truly memorable",
+      "viewAll": "View All Activities"
+    },
+    "testimonials": {
+      "label": "Testimonials",
+      "title": "Stories from our travelers",
+      "subtitle": "Real-world examples of how we create unforgettable memories."
+    }
   },
   "AboutPage": {
     "title": "About Us",
+    "subtitle": "Crafting Unforgettable Moroccan Adventures Since 2015",
     "mission": "Our Mission",
     "missionText": "To provide authentic and unforgettable travel experiences across Morocco.",
-    "team": "Our Team",
+    "missionDesc": "We believe that travel is more than just visiting new places. It is about creating meaningful connections, experiencing authentic cultures, and making memories that last a lifetime.",
+    "values": {
+      "title": "Our Values",
+      "subtitle": "The principles that guide everything we do",
+      "passion": "Passion for Morocco",
+      "passionDesc": "We are deeply passionate about sharing the beauty, culture, and traditions of Morocco with travelers from around the world.",
+      "trust": "Trust and Safety",
+      "trustDesc": "Your safety and comfort are our top priorities. We ensure every journey is secure, reliable, and worry free.",
+      "experts": "Expert Local Guides",
+      "expertsDesc": "Our experienced guides bring Morocco to life with authentic stories, insider knowledge, and warm hospitality.",
+      "sustainable": "Sustainable Tourism",
+      "sustainableDesc": "We are committed to responsible travel that respects local communities and preserves Morocco’s natural beauty."
+    },
+    "milestones": {
+      "founded": "Founded",
+      "foundedDesc": "Your Morocco was born from a passion to share authentic Moroccan experiences",
+      "expansion": "Expansion",
+      "expansionDesc": "Expanded our services to cover all major Moroccan destinations",
+      "recognition": "Recognition",
+      "recognitionDesc": "Awarded Best Tour Operator in Morocco by Travel Excellence Awards",
+      "innovation": "Innovation",
+      "innovationDesc": "Launched sustainable tourism initiatives and eco friendly tours"
+    },
+    "reviews": {
+      "title": "Stories from our travelers",
+      "subtitle": "Real-world examples of how we create unforgettable memories.",
+      "googleMap": "View on Google Maps"
+    },
+    "stats": {
+      "travelers": "Happy Travelers",
+      "tours": "Tours Completed",
+      "rating": "Average Rating",
+      "support": "Customer Support"
+    },
     "cta": {
       "title": "Ready to Start Your Moroccan Adventure?",
       "subtitle": "Let us help you create memories that will last a lifetime",
@@ -135,6 +182,81 @@
     "chatWithUs": "Chat with us",
     "bookingMessage": "Hello! I'm interested in booking a tour to Morocco."
   },
+  "ListingPage": {
+    "search": "Search",
+    "filter": "Filter",
+    "clearFilters": "Clear filters",
+    "clear": "Clear",
+    "showing": "Showing",
+    "of": "of",
+    "noResults": "No results found",
+    "noResultsDesc": "Try adjusting your filters or search query",
+    "viewDetails": "View Details",
+    "location": "Location",
+    "allLocations": "All Locations"
+  },
+  "DetailPage": {
+    "back": "Back",
+    "backToTours": "Back to Tours",
+    "backToExcursions": "Back to Excursions",
+    "backToActivities": "Back to Activities",
+    "bookNow": "Book Now",
+    "bookViaWhatsapp": "Book via WhatsApp",
+    "requestViaWhatsapp": "Request via WhatsApp",
+    "overview": "Overview",
+    "itinerary": "Itinerary",
+    "reviews": "Reviews",
+    "gallery": "Gallery",
+    "highlights": "Highlights",
+    "included": "Included",
+    "excluded": "Not Included",
+    "suitableFor": "Perfect for",
+    "whatToExpect": "What to expect",
+    "goodToKnow": "Good to know",
+    "goodToKnowDesc": "Please arrive 15 minutes before the scheduled start time. Comfortable clothing recommended.",
+    "tags": {
+      "dayTrip": "Day Trip",
+      "multiDay": "Multi-Day Tour",
+      "smallGroup": "Small Group"
+    },
+    "pricing": {
+      "startingFrom": "Starting from",
+      "perPerson": "per person",
+      "contactUs": "Contact us",
+      "noPayment": "No payment required to inquire."
+    },
+    "features": {
+      "dailyDepartures": "Daily departures",
+      "freeCancellation": "Free cancellation (24h)",
+      "instantConfirmation": "Instant confirmation",
+      "duration": "Duration"
+    },
+    "info": {
+      "title": "Important Info",
+      "departure": "Departure",
+      "return": "Return",
+      "wear": "Wear"
+    },
+    "trust": {
+      "title": "Why book with us?",
+      "bestPrice": "Best Price Guarantee",
+      "bestPriceDesc": "We match any competitor's price.",
+      "cancellation": "Free Cancellation",
+      "cancellationDesc": "Up to 24 hours before the trip.",
+      "help": "Need help?",
+      "helpDesc": "Not sure if this is right for you? Chat with our local experts.",
+      "chat": "Chat with us"
+    },
+    "sections": {
+      "relatedTours": "You might also like",
+      "similarExcursions": "Similar Excursions",
+      "moreExperiences": "More Experiences",
+      "experience": "Experience",
+      "guestReviews": "Guest Reviews",
+      "travelerReviews": "Traveler Reviews"
+    },
+    "itineraryRequest": "Detailed itinerary available upon request."
+  },
   "Services": {
     "title": "Our Services",
     "subtitle": "Professional services to make your journey comfortable and memorable.",
@@ -149,5 +271,9 @@
     "title": "Activities",
     "subtitle": "Exciting activities to add adventure to your trip.",
     "viewDetails": "View Details"
+  },
+  "ExcursionsPage": {
+    "title": "Explore Morocco",
+    "subtitle": "Discover All Moroccan Destinations"
   }
 }
