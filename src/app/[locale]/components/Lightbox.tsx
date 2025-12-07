@@ -79,6 +79,7 @@ export default function Lightbox({ isOpen, onClose, images, currentIndex, onNext
                         className="object-contain"
                         priority
                         sizes="100vw"
+                        quality={85}
                     />
                 </div>
             </div>

@@ -102,6 +102,8 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                     fill
                     className="object-cover"
                     priority
+                    sizes="100vw"
+                    quality={85}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
