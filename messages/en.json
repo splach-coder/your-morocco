@@ -1,4 +1,7 @@
 {
+  "Shared": {
+    "galleryImage": "Gallery image"
+  },
   "Header": {
     "home": "Home",
     "services": "Services",
@@ -203,7 +206,7 @@
     "bookNow": "Book Now",
     "bookViaWhatsapp": "Book via WhatsApp",
     "requestViaWhatsapp": "Request via WhatsApp",
-    "overview": "Overview",
+    "overview": "Description",
     "itinerary": "Itinerary",
     "reviews": "Reviews",
     "gallery": "Gallery",
@@ -223,7 +226,8 @@
       "startingFrom": "Starting from",
       "perPerson": "per person",
       "contactUs": "Contact us",
-      "noPayment": "No payment required to inquire."
+      "noPayment": "No payment required to inquire.",
+      "pricePerPerson": "Price per person"
     },
     "features": {
       "dailyDepartures": "Daily departures",
@@ -255,7 +259,54 @@
       "guestReviews": "Guest Reviews",
       "travelerReviews": "Traveler Reviews"
     },
-    "itineraryRequest": "Detailed itinerary available upon request."
+    "itineraryRequest": "Detailed itinerary available upon request.",
+    "tourNotFound": "Tour Not Found",
+    "days": "Days",
+    "start": "Start",
+    "viewDetails": "View Details",
+    "details": "Details",
+    "excursionNotFound": "Excursion Not Found",
+    "includedItems": {
+      "pickup": "Hotel pickup and drop-off",
+      "transport": "Transport by air-conditioned vehicle",
+      "driverGuide": "Driver/Guide",
+      "taxes": "Local taxes"
+    },
+    "excludedItems": {
+      "lunchDrinks": "Lunch and drinks",
+      "monumentFees": "Entrance fees to monuments",
+      "tips": "Tips"
+    },
+    "program": {
+      "pickup": { "title": "Pick up", "desc": "Pick up from your hotel or riad in Marrakech" },
+      "arrival": { "title": "Arrival", "desc": "Arrive at the destination and meet your local guide" },
+      "activity": { "title": "Activity", "desc": "Guided tour of the main attractions and photo opportunities" },
+      "lunch": { "title": "Lunch", "desc": "Traditional lunch at a local restaurant (optional)" },
+      "freeTime": { "title": "Free Time", "desc": "Free time to explore the local market or relax" },
+      "return": { "title": "Return", "desc": "Depart for Marrakech" },
+      "dropOff": { "title": "Drop off", "desc": "Drop off at your hotel or riad" }
+    },
+    "infoDetails": {
+      "departureTime": "08:00 AM",
+      "returnTime": "Approx 06:00 PM",
+      "wearDesc": "Comfortable shoes and clothing."
+    },
+    "activityNotFound": "Activity Not Found",
+    "activityHighlights": "Activity Highlights",
+    "whoIsThisFor": "Who is this for?",
+    "availableDaily": "Available Daily",
+    "serviceNotFound": "Service Not Found",
+    "backToServices": "Back to Services",
+    "serviceFeatures": "Service Features",
+    "bookService": "Book This Service",
+    "reserveNow": "Reserve now and pay later. Contact us via WhatsApp to secure your spot.",
+    "infoNeeded": "Information needed:",
+    "infoList": {
+      "fullName": "Full Name",
+      "date": "Date of Service",
+      "pickup": "Pickup/Drop-off Location",
+      "passengers": "Number of Passengers"
+    }
   },
   "Services": {
     "title": "Our Services",
@@ -274,6 +325,16 @@
   },
   "ExcursionsPage": {
     "title": "Explore Morocco",
-    "subtitle": "Discover All Moroccan Destinations"
+    "subtitle": "Discover All Moroccan Destinations",
+    "details": "Details",
+    "filter": {
+      "all": "All",
+      "location": "Location"
+    }
+  },
+  "GalleryPage": {
+    "title": "Client Gallery",
+    "subtitle": "Explore stunning moments captured by our clients during their unforgettable Moroccan adventures",
+    "alt": "Gallery"
   }
 }

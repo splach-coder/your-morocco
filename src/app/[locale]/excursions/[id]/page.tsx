@@ -8,30 +8,19 @@ import { ArrowLeft, Clock, Users, MapPin, Check, X, Star, MessageCircle, Calenda
 import TourCard from '../../components/TourCard';
 import GallerySlider from '../../components/GallerySlider';
 import MobileBookingBar from '../../components/MobileBookingBar';
-import { siteData } from '@/data/siteData';
+import { getSiteData } from '@/data/siteData';
 
 // Mock reviews generator
-const getReviewsForExcursion = (id: number, title: string) => {
-    const reviews = [
-        { name: "John D.", country: "USA", rating: 5, text: `Great day trip! The ${title} was beautiful and our driver was excellent.` },
-        { name: "Maria S.", country: "Spain", rating: 5, text: "Highly recommend this excursion. Very well organized and fun." },
-        { name: "Ahmed K.", country: "UAE", rating: 4, text: "Good experience, beautiful scenery. Lunch was delicious." },
-        { name: "Sophie L.", country: "France", rating: 5, text: "Une journée parfaite. Le guide était très gentil." },
-        { name: "Thomas M.", country: "Germany", rating: 5, text: "Everything was on time and as described. Great value." },
-    ];
-    return reviews.slice(0, 3 + (id % 3));
-};
-
 export default function ExcursionDetailPage({ params }: { params: Promise<{ locale: string; id: string }> }) {
     const { locale, id } = use(params);
     const t = useTranslations('DetailPage');
-    const tour = siteData.excursions.find(e => e.id === Number(id));
+    const tour = getSiteData(locale).excursions.find(e => e.id === Number(id));
 
     if (!tour) {
         return (
             <div className="pt-32 pb-16 min-h-screen bg-gray-50">
                 <div className="container-custom text-center">
-                    <h1 className="text-4xl font-bold text-gray-900 mb-4">Excursion Not Found</h1>
+                    <h1 className="text-4xl font-bold text-gray-900 mb-4">{t('excursionNotFound')}</h1>
                     <Link href={`/${locale}/excursions`} className="text-primary-teal hover:text-primary-teal-dark">
                         {t('backToExcursions')}
                     </Link>
@@ -40,27 +29,20 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
         );
     }
 
-    const reviews = getReviewsForExcursion(tour.id, tour.title);
+    const reviews = tour.reviews || [];
 
     // Get related tours (excluding current tour)
-    const relatedTours = siteData.excursions
+    const relatedTours = getSiteData(locale)
+        .excursions
         .filter(t => t.id !== tour.id)
         .slice(0, 3);
 
     const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212706880866';
-    const bookingMessage = encodeURIComponent(`Hello, I am interested in booking the excursion: ${tour.title} (Code: ${tour.trip_code}). Please provide more information.`);
+    const bookingMessage = encodeURIComponent(`Hello, I am interested in booking the excursion: ${tour.title}. Please provide more information.`);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${bookingMessage}`;
 
     // Sample program steps
-    const programSteps = [
-        { time: "08:00", title: "Pick up", description: "Pick up from your hotel or riad in Marrakech" },
-        { time: "10:00", title: "Arrival", description: "Arrive at the destination and meet your local guide" },
-        { time: "10:30", title: "Activity", description: "Guided tour of the main attractions and photo opportunities" },
-        { time: "13:00", title: "Lunch", description: "Traditional lunch at a local restaurant (optional)" },
-        { time: "14:30", title: "Free Time", description: "Free time to explore the local market or relax" },
-        { time: "16:00", title: "Return", description: "Depart for Marrakech" },
-        { time: "18:00", title: "Drop off", description: "Drop off at your hotel or riad" }
-    ];
+    const programSteps = tour.programSteps || [];
 
     // Gallery Images
     const galleryImages = tour?.gallery || [];
@@ -132,7 +114,7 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
 
                         {/* Gallery Grid */}
                         {/* Gallery Section */}
-                        <GallerySlider images={galleryImages} />
+                        <GallerySlider images={galleryImages} title={t('gallery')} />
 
                         {/* Description */}
                         <section>
@@ -179,10 +161,10 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
                                     <Check className="w-5 h-5 text-green-500" /> {t('included')}
                                 </h3>
                                 <ul className="space-y-2">
-                                    <li className="flex items-center gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500" /> Hotel pickup and drop-off</li>
-                                    <li className="flex items-center gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500" /> Transport by air-conditioned vehicle</li>
-                                    <li className="flex items-center gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500" /> Driver/Guide</li>
-                                    <li className="flex items-center gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500" /> Local taxes</li>
+                                    <li className="flex items-center gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500" /> {t('includedItems.pickup')}</li>
+                                    <li className="flex items-center gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500" /> {t('includedItems.transport')}</li>
+                                    <li className="flex items-center gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500" /> {t('includedItems.driverGuide')}</li>
+                                    <li className="flex items-center gap-2 text-sm text-gray-600"><Check className="w-4 h-4 text-green-500" /> {t('includedItems.taxes')}</li>
                                 </ul>
                             </div>
                             <div>
@@ -190,9 +172,9 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
                                     <X className="w-5 h-5 text-red-500" /> {t('excluded')}
                                 </h3>
                                 <ul className="space-y-2">
-                                    <li className="flex items-center gap-2 text-sm text-gray-600"><X className="w-4 h-4 text-red-500" /> Lunch and drinks</li>
-                                    <li className="flex items-center gap-2 text-sm text-gray-600"><X className="w-4 h-4 text-red-500" /> Entrance fees to monuments</li>
-                                    <li className="flex items-center gap-2 text-sm text-gray-600"><X className="w-4 h-4 text-red-500" /> Tips</li>
+                                    <li className="flex items-center gap-2 text-sm text-gray-600"><X className="w-4 h-4 text-red-500" /> {t('excludedItems.lunchDrinks')}</li>
+                                    <li className="flex items-center gap-2 text-sm text-gray-600"><X className="w-4 h-4 text-red-500" /> {t('excludedItems.monumentFees')}</li>
+                                    <li className="flex items-center gap-2 text-sm text-gray-600"><X className="w-4 h-4 text-red-500" /> {t('excludedItems.tips')}</li>
                                 </ul>
                             </div>
                         </section>
@@ -293,13 +275,13 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
                                     <h3 className="font-bold text-gray-900">{t('info.title')}</h3>
                                 </div>
                                 <p className="text-sm text-gray-600 mb-2">
-                                    <span className="font-semibold">{t('info.departure')}:</span> 08:00 AM
+                                    <span className="font-semibold">{t('info.departure')}:</span> {t('infoDetails.departureTime')}
                                 </p>
                                 <p className="text-sm text-gray-600 mb-2">
-                                    <span className="font-semibold">{t('info.return')}:</span> Approx 06:00 PM
+                                    <span className="font-semibold">{t('info.return')}:</span> {t('infoDetails.returnTime')}
                                 </p>
                                 <p className="text-sm text-gray-600">
-                                    <span className="font-semibold">{t('info.wear')}:</span> Comfortable shoes and clothing.
+                                    <span className="font-semibold">{t('info.wear')}:</span> {t('infoDetails.wearDesc')}
                                 </p>
                             </div>
                         </div>
@@ -321,7 +303,7 @@ export default function ExcursionDetailPage({ params }: { params: Promise<{ loca
                                     duration={relatedTour.duration}
                                     image={relatedTour.image.url}
                                     link={`/${locale}/excursions/${relatedTour.id}`}
-                                    buttonText={t('details')}
+                                    buttonText={t('viewDetails')}
                                     location={relatedTour.locations[0]?.name}
                                     rating={4.8}
                                 />

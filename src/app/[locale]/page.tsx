@@ -8,7 +8,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { use } from 'react';
 import { motion, Variants } from 'framer-motion';
-import { siteData } from '@/data/siteData';
+import { getSiteData } from '@/data/siteData';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -19,6 +19,7 @@ import { Shield, Users, Heart, Map, ArrowRight, Compass, Sparkles, Car, Utensils
 export default function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = use(params);
   const t = useTranslations('HomePage');
+  const siteData = getSiteData(locale);
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },

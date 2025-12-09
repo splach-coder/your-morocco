@@ -8,23 +8,12 @@ import { ArrowLeft, MessageCircle, CheckCircle, MapPin, Clock, Users, Calendar, 
 import TourCard from '../../components/TourCard';
 import MobileBookingBar from '../../components/MobileBookingBar';
 import GallerySlider from '../../components/GallerySlider';
-import { siteData } from '@/data/siteData';
-
-// Mock reviews generator
-const getReviewsForActivity = (id: number, title: string) => {
-    const reviews = [
-        { name: "Alex P.", country: "UK", rating: 5, text: `Such a fun experience! The ${title} was exactly what we were looking for.` },
-        { name: "Fatima Z.", country: "Morocco", rating: 5, text: "Very authentic and well organized. Highly recommended." },
-        { name: "Michael B.", country: "USA", rating: 4, text: "Great activity, learned a lot. The guide was very knowledgeable." },
-        { name: "Elena R.", country: "Italy", rating: 5, text: "Bellissima esperienza! We had so much fun." },
-    ];
-    return reviews.slice(0, 2 + (id % 3));
-};
+import { getSiteData } from '@/data/siteData';
 
 export default function ActivityDetailPage({ params }: { params: Promise<{ locale: string; id: string }> }) {
     const { locale, id } = use(params);
-    const t = useTranslations('ExcursionDetailPage');
-    const activity = siteData.activities.find(e => e.id === Number(id));
+    const t = useTranslations('DetailPage');
+    const activity = getSiteData(locale).activities.find(e => e.id === Number(id));
 
     // Gallery Images
     const galleryImages = activity?.gallery || [];
@@ -33,19 +22,20 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
         return (
             <div className="pt-32 pb-16 min-h-screen bg-gray-50">
                 <div className="container-custom text-center">
-                    <h1 className="text-4xl font-bold text-gray-900 mb-4">Activity Not Found</h1>
+                    <h1 className="text-4xl font-bold text-gray-900 mb-4">{t('activityNotFound')}</h1>
                     <Link href={`/${locale}/activities`} className="text-primary-teal hover:text-primary-teal-dark">
-                        Back to Activities
+                        {t('backToActivities')}
                     </Link>
                 </div>
             </div>
         );
     }
 
-    const reviews = getReviewsForActivity(activity.id, activity.title);
+    const reviews = activity.reviews || [];
 
     // Get related activities
-    const relatedActivities = siteData.activities
+    const relatedActivities = getSiteData(locale)
+        .activities
         .filter(t => t.id !== activity.id)
         .slice(0, 3);
 
@@ -76,7 +66,7 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
                                 className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-2 md:mb-6 text-xs md:text-sm font-medium backdrop-blur-sm bg-black/20 px-3 py-1.5 md:bg-transparent md:p-0 rounded-full md:rounded-none w-fit"
                             >
                                 <ArrowLeft className="w-4 h-4" />
-                                Back to Activities
+                                {t('backToActivities')}
                             </Link>
 
                             <h1 className="text-2xl md:text-6xl font-bold text-white mb-3 md:mb-6 leading-tight">{activity.title}</h1>
@@ -97,7 +87,7 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
                                 <div className="flex items-center gap-2">
                                     <Star className="w-5 h-5 text-accent-yellow fill-current" />
                                     <span className="font-medium">4.8</span>
-                                    <span className="text-sm opacity-80">({reviews.length} reviews)</span>
+                                    <span className="text-sm opacity-80">({reviews.length} {t('reviews').toLowerCase()})</span>
                                 </div>
                             </div>
                         </div>
@@ -112,17 +102,17 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
 
                         {/* Gallery Grid */}
                         {/* Gallery Section */}
-                        <GallerySlider images={galleryImages} />
+                        <GallerySlider images={galleryImages} title={t('gallery')} />
 
                         {/* Description */}
                         <section>
-                            <h2 className="text-2xl font-bold text-gray-900 mb-6">What to expect</h2>
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('whatToExpect')}</h2>
                             <p className="text-gray-700 leading-relaxed text-lg mb-8">{activity.description}</p>
 
                             {/* Highlights List */}
                             {activity.highlights && (
                                 <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
-                                    <h3 className="font-bold text-gray-900 mb-6">Activity Highlights</h3>
+                                    <h3 className="font-bold text-gray-900 mb-6">{t('activityHighlights')}</h3>
                                     <ul className="space-y-4">
                                         {activity.highlights.map((highlight, index) => (
                                             <li key={index} className="flex items-start gap-3">
@@ -140,7 +130,7 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
                         {/* Suitable For */}
                         {activity.suitable_for && (
                             <section>
-                                <h3 className="text-xl font-bold text-gray-900 mb-4">Who is this for?</h3>
+                                <h3 className="text-xl font-bold text-gray-900 mb-4">{t('whoIsThisFor')}</h3>
                                 <div className="flex flex-wrap gap-3">
                                     {activity.suitable_for.map((item, index) => (
                                         <span key={index} className="bg-white border border-gray-200 text-gray-600 px-4 py-2 rounded-full text-sm font-medium">
@@ -153,7 +143,7 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
 
                         {/* Reviews List */}
                         <section className="pt-8 border-t border-gray-100">
-                            <h2 className="text-2xl font-bold text-gray-900 mb-8">Traveler Reviews</h2>
+                            <h2 className="text-2xl font-bold text-gray-900 mb-8">{t('sections.travelerReviews')}</h2>
                             <div className="space-y-6">
                                 {reviews.map((review, index) => (
                                     <div key={index} className="flex gap-4 pb-6 border-b border-gray-100 last:border-0">
@@ -183,8 +173,8 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
                         <div className="sticky top-32 space-y-6">
                             <div className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
                                 <div className="flex items-center justify-between mb-6">
-                                    <span className="text-gray-500 font-medium">Price per person</span>
-                                    <span className="text-2xl font-bold text-gray-900">{activity.price || 'Contact us'}</span>
+                                    <span className="text-gray-500 font-medium">{t('pricing.pricePerPerson')}</span>
+                                    <span className="text-2xl font-bold text-gray-900">{activity.price || t('pricing.contactUs')}</span>
                                 </div>
 
                                 <a
@@ -194,21 +184,21 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
                                     className="block w-full bg-[#075E54] hover:bg-[#128C7E] text-white text-center font-bold py-4 rounded-xl transition-all hover:shadow-lg flex items-center justify-center gap-2 mb-4"
                                 >
                                     <MessageCircle className="w-5 h-5" />
-                                    Book via WhatsApp
+                                    {t('bookViaWhatsapp')}
                                 </a>
 
                                 <div className="space-y-3 text-sm text-gray-600">
                                     <div className="flex items-center gap-3">
                                         <Clock className="w-4 h-4 text-terracotta" />
-                                        <span>Duration: {activity.duration}</span>
+                                        <span>{t('features.duration')}: {activity.duration}</span>
                                     </div>
                                     <div className="flex items-center gap-3">
                                         <Calendar className="w-4 h-4 text-terracotta" />
-                                        <span>Available Daily</span>
+                                        <span>{t('availableDaily')}</span>
                                     </div>
                                     <div className="flex items-center gap-3">
                                         <Shield className="w-4 h-4 text-terracotta" />
-                                        <span>Free Cancellation (24h)</span>
+                                        <span>{t('features.freeCancellation')}</span>
                                     </div>
                                 </div>
                             </div>
@@ -217,9 +207,9 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
                                 <div className="flex items-start gap-3">
                                     <Info className="w-5 h-5 text-terracotta mt-0.5" />
                                     <div>
-                                        <h4 className="font-bold text-gray-900 text-sm mb-1">Good to know</h4>
+                                        <h4 className="font-bold text-gray-900 text-sm mb-1">{t('goodToKnow')}</h4>
                                         <p className="text-xs text-gray-600">
-                                            Please arrive 15 minutes before the scheduled start time. Comfortable clothing recommended.
+                                            {t('goodToKnowDesc')}
                                         </p>
                                     </div>
                                 </div>
@@ -232,7 +222,7 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
                 {relatedActivities.length > 0 && (
                     <section className="mt-20 pt-12 border-t border-gray-200">
                         <h2 className="text-3xl font-bold text-gray-900 mb-8">
-                            More Experiences
+                            {t('sections.moreExperiences')}
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {relatedActivities.map((relatedActivity) => (
@@ -257,7 +247,7 @@ export default function ActivityDetailPage({ params }: { params: Promise<{ local
             </div>
 
             <MobileBookingBar
-                price={activity.price || 'Contact us'}
+                price={activity.price || t('pricing.contactUs')}
                 whatsappUrl={whatsappUrl}
             />
 

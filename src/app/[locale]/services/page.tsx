@@ -1,6 +1,6 @@
 'use client';
 
-import { siteData } from '@/data/siteData';
+import { getSiteData } from '@/data/siteData';
 import TourCard from '@/app/[locale]/components/TourCard';
 import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
@@ -10,6 +10,7 @@ export default function ServicesPage() {
     const t = useTranslations('Services');
     const params = useParams();
     const locale = params.locale as string;
+    const siteData = getSiteData(locale);
 
     return (
         <div className="min-h-screen bg-gray-50">

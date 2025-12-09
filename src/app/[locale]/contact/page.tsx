@@ -52,7 +52,7 @@ ${formData.trip_details}
       {/* Banner Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <Image
-          src="/images/ouarzazate/ouarzazate.png"
+          src="/images/marrakech/marrakech4.jpg"
           alt="Contact Us - Morocco Travel"
           fill
           className="object-cover"
@@ -87,8 +87,7 @@ ${formData.trip_details}
             <div className="lg:col-span-7">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
                 <form onSubmit={handleSubmit} className="space-y-8">
@@ -190,8 +189,7 @@ ${formData.trip_details}
             <div className="lg:col-span-5 space-y-12 lg:pt-8">
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4 }}
               >
                 <h3 className="text-xl font-bold text-gray-900 mb-8 uppercase tracking-wide border-b border-gray-100 pb-4">
@@ -233,8 +231,7 @@ ${formData.trip_details}
 
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6 }}
               >
                 <h3 className="text-xl font-bold text-gray-900 mb-8 uppercase tracking-wide border-b border-gray-100 pb-4">

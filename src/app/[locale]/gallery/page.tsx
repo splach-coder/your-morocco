@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import DomeGallery from '../components/DomeGallery';
 
 const GALLERY_IMAGES = [
@@ -38,13 +39,14 @@ const GALLERY_IMAGES = [
 ];
 
 export default function GalleryPage() {
+    const t = useTranslations('GalleryPage');
     return (
         <div className="bg-gray-50">
             {/* Hero Banner Section */}
             <section className="relative h-[40vh] min-h-[400px] max-h-[600px]">
                 <Image
                     src="https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?q=80&w=2067&auto=format&fit=crop"
-                    alt="Gallery"
+                    alt={t('alt')}
                     fill
                     className="object-cover"
                     priority
@@ -52,10 +54,10 @@ export default function GalleryPage() {
                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                     <div className="text-center px-4">
                         <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-                            Client Gallery
+                            {t('title')}
                         </h1>
                         <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-6">
-                            Explore stunning moments captured by our clients during their unforgettable Moroccan adventures
+                            {t('subtitle')}
                         </p>
                         <div className="w-24 h-1 bg-accent-yellow mx-auto rounded-full"></div>
                     </div>

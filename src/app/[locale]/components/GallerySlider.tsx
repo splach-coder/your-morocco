@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useTranslations } from 'next-intl';
 import { Navigation, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
 import Image from 'next/image';
 import { Maximize2 } from 'lucide-react';
@@ -26,6 +27,7 @@ interface GallerySliderProps {
 export default function GallerySlider({ images, title }: GallerySliderProps) {
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
     const [photoIndex, setPhotoIndex] = useState(0);
+    const t = useTranslations('Shared');
 
     if (!images || images.length === 0) {
         return null;
@@ -79,7 +81,7 @@ export default function GallerySlider({ images, title }: GallerySliderProps) {
                                 >
                                     <Image
                                         src={image.url}
-                                        alt={image.alt || `Gallery image ${index + 1}`}
+                                        alt={image.alt || `${t('galleryImage')} ${index + 1}`}
                                         fill
                                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                                         sizes="(max-width: 640px) 288px, 384px"

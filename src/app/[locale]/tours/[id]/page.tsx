@@ -9,7 +9,7 @@ import TourCard from '../../components/TourCard';
 import GallerySlider from '../../components/GallerySlider';
 import ItineraryTimeline from '../../components/ItineraryTimeline';
 import MobileBookingBar from '../../components/MobileBookingBar';
-import { siteData } from '@/data/siteData';
+import { getSiteData } from '@/data/siteData';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -17,42 +17,30 @@ import 'swiper/css/pagination';
 import { TourSchema, BreadcrumbSchema } from '@/components/StructuredData';
 
 // Mock reviews generator
-const getReviewsForTour = (id: number, title: string) => {
-    const reviews = [
-        { name: "Sarah J.", country: "USA", rating: 5, text: `The ${title} was the highlight of our trip! Absolutely amazing experience.` },
-        { name: "Marco R.", country: "Italy", rating: 5, text: "Perfectly organized. Our driver was very professional and friendly." },
-        { name: "Emma W.", country: "UK", rating: 5, text: "Great itinerary. We saw so much in just a few days. The desert camp was magical." },
-        { name: "Hans M.", country: "Germany", rating: 5, text: "Unforgettable landscapes and great service. Highly recommended." },
-        { name: "Pierre L.", country: "France", rating: 5, text: "Une expérience magnifique. Le désert était magique." },
-        { name: "Yuki T.", country: "Japan", rating: 4, text: "Very good tour. The hotels were comfortable and food was delicious." },
-    ];
-    // Return a subset based on ID to make it look dynamic but consistent
-    return reviews.slice(0, 3 + (id % 4));
-};
-
 export default function TourDetailPage({ params }: { params: Promise<{ locale: string; id: string }> }) {
     const { locale, id } = use(params);
-    const t = useTranslations('ExcursionDetailPage');
+    const t = useTranslations('DetailPage');
 
-    const tour = siteData.tours.find(e => e.id === Number(id));
+    const tour = getSiteData(locale).tours.find(e => e.id === Number(id));
 
     if (!tour) {
         return (
             <div className="pt-32 pb-16 min-h-screen bg-gray-50">
                 <div className="container-custom text-center">
-                    <h1 className="text-4xl font-bold text-gray-900 mb-4">Tour Not Found</h1>
+                    <h1 className="text-4xl font-bold text-gray-900 mb-4">{t('tourNotFound')}</h1>
                     <Link href={`/${locale}/tours`} className="text-primary-teal hover:text-primary-teal-dark">
-                        Back to Tours
+                        {t('backToTours')}
                     </Link>
                 </div>
             </div>
         );
     }
 
-    const reviews = getReviewsForTour(tour.id, tour.title);
+    const reviews = tour.reviews || [];
 
     // Get related tours
-    const relatedTours = siteData.tours
+    const relatedTours = getSiteData(locale)
+        .tours
         .filter(t => t.id !== tour.id)
         .slice(0, 3);
 
@@ -60,37 +48,7 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
     const bookingMessage = encodeURIComponent(`Hello, I am interested in booking the tour: ${tour.title}. Please provide more information.`);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${bookingMessage}`;
 
-    // Sample itinerary data
-    const itineraryDays = [
-        {
-            day: 1,
-            title: "Marrakech to Dades Valley",
-            location: "Dades Valley",
-            description: "Depart from Marrakech and cross the High Atlas Mountains via the Tizi n'Tichka pass. Visit the UNESCO World Heritage site of Ait Ben Haddou and continue to Dades Valley.",
-            highlights: ["Cross the High Atlas Mountains", "Visit Ait Ben Haddou Kasbah", "Photo stops at scenic viewpoints", "Overnight in Dades Valley"]
-        },
-        {
-            day: 2,
-            title: "Dades Valley to Merzouga Desert",
-            location: "Merzouga",
-            description: "Journey through Todra Gorges and continue to the Sahara Desert. Experience a camel trek at sunset and spend the night in a traditional Berber camp under the stars.",
-            highlights: ["Explore Todra Gorges", "Camel trek in the Sahara", "Watch the sunset over the dunes", "Traditional dinner and Berber music", "Overnight in desert camp"]
-        },
-        {
-            day: 3,
-            title: "Merzouga Desert Exploration",
-            location: "Merzouga",
-            description: "Wake up early to watch the sunrise over the dunes. Explore the desert area, visit nomadic families, and experience the unique desert lifestyle.",
-            highlights: ["Sunrise over the dunes", "Visit nomadic Berber families", "Optional 4x4 desert tour", "Free time to explore", "Second night in desert camp"]
-        },
-        {
-            day: 4,
-            title: "Return to Marrakech",
-            location: "Marrakech",
-            description: "After breakfast, begin the journey back to Marrakech. Travel through the Draa Valley with stops at scenic viewpoints and local markets along the way.",
-            highlights: ["Drive through Draa Valley", "Visit local markets", "Scenic photo stops", "Arrive in Marrakech evening"]
-        }
-    ];
+    const itineraryDays = tour.itinerary || [];
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -114,11 +72,11 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                             className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-2 md:mb-6 backdrop-blur-sm bg-black/20 px-3 py-1.5 md:px-4 md:py-2 rounded-full w-fit"
                         >
                             <ArrowLeft className="w-4 h-4" />
-                            <span className="text-sm font-medium">Back to Tours</span>
+                            <span className="text-sm font-medium">{t('backToTours')}</span>
                         </Link>
 
                         <div className="max-w-4xl">
-                            <span className="text-accent-yellow font-bold tracking-wider uppercase text-xs md:text-sm mb-1 md:mb-2 block">Multi-Day Tour</span>
+                            <span className="text-accent-yellow font-bold tracking-wider uppercase text-xs md:text-sm mb-1 md:mb-2 block">{t('tags.multiDay')}</span>
                             <h1 className="text-2xl md:text-6xl lg:text-7xl font-bold text-white mb-3 md:mb-6 leading-tight">{tour.title}</h1>
 
                             <div className="flex flex-wrap gap-2 md:gap-8 text-white/90 text-xs md:text-base">
@@ -131,7 +89,7 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                                 {tour.locations && tour.locations.length > 0 && (
                                     <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-white/10">
                                         <MapPin className="w-5 h-5 text-accent-yellow" />
-                                        <span className="font-medium">{tour.locations[0].name} Start</span>
+                                        <span className="font-medium">{tour.locations[0].name} {t('start')}</span>
                                     </div>
                                 )}
                             </div>
@@ -145,19 +103,19 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                 <div className="container-custom py-4">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-8 text-sm font-medium text-gray-600">
-                            <a href="#overview" className="hover:text-terracotta transition-colors">Overview</a>
-                            <a href="#itinerary" className="hover:text-terracotta transition-colors">Itinerary</a>
-                            <a href="#reviews" className="hover:text-terracotta transition-colors">Reviews</a>
-                            <a href="#gallery" className="hover:text-terracotta transition-colors">Gallery</a>
+                            <a href="#overview" className="hover:text-terracotta transition-colors">{t('overview')}</a>
+                            <a href="#itinerary" className="hover:text-terracotta transition-colors">{t('itinerary')}</a>
+                            <a href="#reviews" className="hover:text-terracotta transition-colors">{t('reviews')}</a>
+                            <a href="#gallery" className="hover:text-terracotta transition-colors">{t('gallery')}</a>
                         </div>
                         <div className="flex items-center gap-4">
                             <div className="flex items-center gap-1">
                                 <Star className="w-4 h-4 text-accent-yellow fill-current" />
                                 <span className="font-bold text-gray-900">4.9</span>
-                                <span className="text-gray-500">({reviews.length} reviews)</span>
+                                <span className="text-gray-500">({reviews.length} {t('reviews').toLowerCase()})</span>
                             </div>
                             <a href={whatsappUrl} target="_blank" className="bg-terracotta hover:bg-terracotta-dark text-white px-6 py-2 rounded-full text-sm font-bold transition-colors">
-                                Book Now
+                                {t('bookNow')}
                             </a>
                         </div>
                     </div>
@@ -170,13 +128,13 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                     <div className="lg:col-span-2 space-y-16">
                         {/* Overview */}
                         <section id="overview" className="scroll-mt-24">
-                            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6">About this tour</h2>
+                            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6">{t('overview')}</h2>
                             <p className="text-gray-700 leading-relaxed text-base md:text-lg mb-6 md:mb-8">{tour.description}</p>
 
                             {/* Highlights Grid */}
                             {tour.highlights && (
                                 <div className="bg-white rounded-2xl p-6 md:p-8 border border-gray-100 shadow-sm">
-                                    <h3 className="text-xl font-bold text-gray-900 mb-6">Highlights</h3>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-6">{t('highlights')}</h3>
                                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
                                         {tour.highlights.map((highlight, index) => (
                                             <li key={index} className="flex items-start gap-3">
@@ -194,9 +152,9 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                         {/* Itinerary */}
                         <section id="itinerary" className="scroll-mt-24">
                             <div className="flex items-center justify-between mb-8">
-                                <h2 className="text-3xl font-bold text-gray-900">Tour Itinerary</h2>
+                                <h2 className="text-3xl font-bold text-gray-900">{t('itinerary')}</h2>
                                 <span className="bg-gray-100 text-gray-600 px-4 py-1 rounded-full text-sm font-medium">
-                                    {itineraryDays.length} Days
+                                    {itineraryDays.length} {t('days')}
                                 </span>
                             </div>
 
@@ -207,8 +165,8 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                                 />
                             ) : (
                                 <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200 text-center">
-                                    <p className="text-gray-600 mb-4">Detailed itinerary available upon request.</p>
-                                    <a href={whatsappUrl} target="_blank" className="text-terracotta font-bold hover:underline">Request via WhatsApp</a>
+                                    <p className="text-gray-600 mb-4">{t('itineraryRequest')}</p>
+                                    <a href={whatsappUrl} target="_blank" className="text-terracotta font-bold hover:underline">{t('requestViaWhatsapp')}</a>
                                 </div>
                             )}
                         </section>
@@ -216,7 +174,7 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                         {/* Suitable For */}
                         {tour.suitable_for && (
                             <section>
-                                <h3 className="text-xl font-bold text-gray-900 mb-4">Perfect for</h3>
+                                <h3 className="text-xl font-bold text-gray-900 mb-4">{t('suitableFor')}</h3>
                                 <div className="flex flex-wrap gap-3">
                                     {tour.suitable_for.map((item, index) => (
                                         <span key={index} className="bg-white border border-gray-200 text-gray-700 px-5 py-2.5 rounded-xl text-sm font-medium shadow-sm">
@@ -230,7 +188,7 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                         {/* Reviews Section */}
                         <section id="reviews" className="scroll-mt-24 pt-8 border-t border-gray-200">
                             <div className="flex items-center justify-between mb-8">
-                                <h2 className="text-3xl font-bold text-gray-900">Traveler Reviews</h2>
+                                <h2 className="text-3xl font-bold text-gray-900">{t('sections.travelerReviews')}</h2>
                                 <div className="flex items-center gap-2">
                                     <Star className="w-6 h-6 text-accent-yellow fill-current" />
                                     <span className="text-2xl font-bold text-gray-900">4.9</span>
@@ -275,7 +233,7 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                         {/* Gallery Section */}
                         <section id="gallery" className="scroll-mt-24">
                             <GallerySlider
-                                title="Tour Gallery"
+                                title={t('gallery')}
                                 images={tour.gallery || []}
                             />
                         </section>
@@ -289,25 +247,25 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                                 <div className="absolute top-0 left-0 w-full h-2 bg-terracotta" />
 
                                 <div className="mb-6">
-                                    <span className="text-gray-500 text-sm font-medium uppercase tracking-wide">Starting from</span>
+                                    <span className="text-gray-500 text-sm font-medium uppercase tracking-wide">{t('pricing.startingFrom')}</span>
                                     <div className="flex items-baseline gap-1 mt-1">
-                                        <span className="text-3xl font-bold text-gray-900">{tour.price || 'Contact us'}</span>
-                                        {tour.price && <span className="text-gray-500">/ person</span>}
+                                        <span className="text-3xl font-bold text-gray-900">{tour.price || t('pricing.contactUs')}</span>
+
                                     </div>
                                 </div>
 
                                 <div className="space-y-4 mb-8">
                                     <div className="flex items-center gap-3 text-gray-700">
                                         <Calendar className="w-5 h-5 text-terracotta" />
-                                        <span>Daily departures</span>
+                                        <span>{t('features.dailyDepartures')}</span>
                                     </div>
                                     <div className="flex items-center gap-3 text-gray-700">
                                         <Shield className="w-5 h-5 text-terracotta" />
-                                        <span>Free cancellation (24h)</span>
+                                        <span>{t('features.freeCancellation')}</span>
                                     </div>
                                     <div className="flex items-center gap-3 text-gray-700">
                                         <MessageCircle className="w-5 h-5 text-terracotta" />
-                                        <span>Instant confirmation</span>
+                                        <span>{t('features.instantConfirmation')}</span>
                                     </div>
                                 </div>
 
@@ -318,22 +276,22 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                                     className="block w-full bg-[#075E54] hover:bg-[#128C7E] text-white text-center font-bold py-4 rounded-xl transition-all hover:shadow-lg flex items-center justify-center gap-2 mb-4"
                                 >
                                     <MessageCircle className="w-5 h-5" />
-                                    Book via WhatsApp
+                                    {t('bookViaWhatsapp')}
                                 </a>
 
                                 <p className="text-xs text-center text-gray-500">
-                                    No payment required to inquire.
+                                    {t('pricing.noPayment')}
                                 </p>
                             </div>
 
                             {/* Help Card */}
                             <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200">
-                                <h3 className="font-bold text-gray-900 mb-2">Need help?</h3>
+                                <h3 className="font-bold text-gray-900 mb-2">{t('trust.help')}</h3>
                                 <p className="text-gray-600 text-sm mb-4">
-                                    Not sure if this tour is right for you? Chat with our local experts.
+                                    {t('trust.helpDesc')}
                                 </p>
                                 <a href={whatsappUrl} className="text-terracotta font-bold text-sm hover:underline">
-                                    Chat with us
+                                    {t('trust.chat')}
                                 </a>
                             </div>
                         </div>
@@ -344,7 +302,7 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                 {relatedTours.length > 0 && (
                     <section className="mt-24 pt-12 border-t border-gray-200">
                         <h2 className="text-3xl font-bold text-gray-900 mb-8">
-                            You might also like
+                            {t('sections.relatedTours')}
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             {relatedTours.map((relatedTour) => (
@@ -356,7 +314,7 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
                                     image={relatedTour.image.url}
                                     link={`/${locale}/tours/${relatedTour.id}`}
                                     price={relatedTour.price}
-                                    buttonText={t('details')}
+                                    buttonText={t('viewDetails')}
                                     location={relatedTour.locations[0]?.name}
                                 />
                             ))}
@@ -366,7 +324,7 @@ export default function TourDetailPage({ params }: { params: Promise<{ locale: s
             </div>
 
             <MobileBookingBar
-                price={tour.price || 'Contact us'}
+                price={tour.price || t('pricing.contactUs')}
                 whatsappUrl={whatsappUrl}
             />
         </div>

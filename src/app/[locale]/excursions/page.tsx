@@ -6,10 +6,11 @@ import { useSearchParams } from 'next/navigation';
 import TourCard from '../components/TourCard';
 import { Search, Filter, X } from 'lucide-react';
 import Image from 'next/image';
-import { siteData } from '@/data/siteData';
+import { getSiteData } from '@/data/siteData';
 
 export default function ExcursionsPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = use(params);
+    const siteData = getSiteData(locale);
     const t = useTranslations('ExcursionsPage');
     const tCommon = useTranslations('ListingPage');
     const searchParams = useSearchParams();
