@@ -13,7 +13,9 @@ import Footer from './components/Footer';
 import { OrganizationSchema } from '@/components/StructuredData';
 
 // ---  SEO Metadata
+// ---  SEO Metadata
 export const metadata = {
+  metadataBase: new URL('https://www.your-morocco.com'),
   title: {
     default: 'Your Morocco | Authentic Moroccan Experiences & Tours',
     template: '%s | Your Morocco',
@@ -39,7 +41,7 @@ export const metadata = {
     siteName: 'Your Morocco',
     images: [
       {
-        url: 'https://www.your-morocco.com/og-image.jpg',
+        url: '/images/niklas-VqouWpsuziE-unsplash.jpg',
         width: 1200,
         height: 630,
       },
