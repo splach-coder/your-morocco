@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "migrate": "tsx scripts/migrate-to-sanity.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.0"
+  }
+}

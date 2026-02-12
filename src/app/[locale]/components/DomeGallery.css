@@ -1,0 +1,168 @@
+.sphere-root {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+}
+
+.sphere-main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.stage {
+    position: absolute;
+    inset: 0;
+    perspective: 2000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sphere {
+    position: relative;
+    width: calc(var(--radius) * 2);
+    height: calc(var(--radius) * 2);
+    transform-style: preserve-3d;
+    transition: transform 0ms linear;
+}
+
+.item {
+    position: absolute;
+    transform-style: preserve-3d;
+    transform:
+        rotateY(calc((360deg / var(--segments-x) / 2) * var(--offset-x))) rotateX(calc((360deg / var(--segments-y) / 2) * var(--offset-y) * -1)) translateZ(var(--radius));
+    transition:
+        transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 300ms ease;
+}
+
+.item[data-focused="true"] {
+    transform:
+        rotateY(calc((360deg / var(--segments-x) / 2) * var(--offset-x) + var(--rot-y-delta, 0deg))) rotateX(calc((360deg / var(--segments-y) / 2) * var(--offset-y) * -1 + var(--rot-x-delta, 0deg))) translateZ(var(--radius));
+}
+
+.item__image {
+    width: calc(var(--radius) * 0.12 * var(--item-size-x, 2));
+    height: calc(var(--radius) * 0.12 * var(--item-size-y, 2));
+    border-radius: var(--tile-radius, 16px);
+    overflow: hidden;
+    cursor: pointer;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    transition: opacity 300ms ease-out;
+}
+
+.item__image--reference {
+    pointer-events: none;
+    opacity: 0 !important;
+}
+
+.item__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: var(--image-filter, none);
+    transition: filter 300ms ease;
+}
+
+.item__image:hover img {
+    filter: none;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center,
+            transparent 20%,
+            var(--overlay-blur-color, #060010) 100%);
+    z-index: 1;
+}
+
+.overlay--blur {
+    backdrop-filter: blur(0px);
+    z-index: 2;
+}
+
+.edge-fade {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 20%;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.edge-fade--top {
+    top: 0;
+    background: linear-gradient(to bottom,
+            var(--overlay-blur-color, #060010) 0%,
+            transparent 100%);
+}
+
+.edge-fade--bottom {
+    bottom: 0;
+    background: linear-gradient(to top,
+            var(--overlay-blur-color, #060010) 0%,
+            transparent 100%);
+}
+
+.viewer {
+    position: absolute;
+    inset: var(--viewer-pad, 16px);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.scrim {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    pointer-events: none;
+    transition: background 300ms ease;
+    z-index: 20;
+}
+
+.sphere-root[data-enlarging="true"] .scrim {
+    background: rgba(0, 0, 0, 0.85);
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.frame {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 25;
+}
+
+.enlarge {
+    border-radius: var(--enlarge-radius, 32px);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+.enlarge img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: none !important;
+}
+
+.enlarge-closing {
+    border-radius: var(--enlarge-radius, 32px);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+body.dg-scroll-lock {
+    overflow: hidden;
+    touch-action: none;
+}

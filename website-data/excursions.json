@@ -1,0 +1,324 @@
+[
+  {
+    "tripCode": "WT-CODE 296",
+    "title": {
+      "en": "Zagora 2 Days Excursion",
+      "fr": "Excursion de 2 jours à Zagora"
+    },
+    "slug": "zagora-2-days-excursion",
+    "shortDescription": {
+      "en": "Book a two day excursion from Marrakech to Zagora including camel rides, a night in a Berber camp, and visits to Ait Ben Haddou.",
+      "fr": "Réservez une excursion de deux jours de Marrakech à Zagora avec des balades à dos de chameau, une nuit dans un camp berbère et des visites à Ait Ben Haddou."
+    },
+    "duration": {
+      "days": 2,
+      "nights": 1,
+      "displayText": {
+        "en": "2 Days / 1 Night",
+        "fr": "2 Jours / 1 Nuit"
+      }
+    },
+    "price": {
+      "amount": 150,
+      "currency": "USD",
+      "priceType": {
+        "en": "Per Person",
+        "fr": "Par Personne"
+      }
+    },
+    "groupSize": {
+      "min": 1,
+      "max": 17
+    },
+    "locations": ["zagora"],
+    "pickupLocations": ["marrakech", "casablanca", "ouarzazate"],
+    "highlights": [
+      {
+        "en": "Drive through the Draa Valley",
+        "fr": "Traversée de la vallée du Draa"
+      },
+      {
+        "en": "Visit Ait Ben Haddou Kasbah",
+        "fr": "Visite de la Kasbah d'Ait Ben Haddou"
+      },
+      {
+        "en": "Camel ride in Zagora desert",
+        "fr": "Balade à dos de chameau dans le désert de Zagora"
+      },
+      {
+        "en": "Overnight in a traditional camp",
+        "fr": "Nuitée dans un camp traditionnel"
+      },
+      {
+        "en": "Stargazing in the desert",
+        "fr": "Observation des étoiles dans le désert"
+      }
+    ],
+    "itinerary": [
+      {
+        "dayNumber": 1,
+        "title": {
+          "en": "Day 1: Marrakech - Ait Ben Haddou - Zagora",
+          "fr": "Jour 1 : Marrakech - Ait Ben Haddou - Zagora"
+        },
+        "activities": [
+          {
+            "en": "Departure from Marrakech in the morning",
+            "fr": "Départ de Marrakech le matin"
+          },
+          {
+            "en": "Scenic drive through the High Atlas Mountains via Tizi n'Tichka",
+            "fr": "Traversée panoramique du Haut Atlas via Tizi n'Tichka"
+          },
+          {
+            "en": "Guided visit to Ait Ben Haddou Kasbah",
+            "fr": "Visite guidée de la Kasbah d'Ait Ben Haddou"
+          },
+          {
+            "en": "Lunch break in Ouarzazate or Agdz",
+            "fr": "Pause déjeuner à Ouarzazate ou Agdz"
+          },
+          {
+            "en": "Continue to Zagora through the Draa Valley",
+            "fr": "Continuation vers Zagora à travers la vallée du Draa"
+          },
+          {
+            "en": "Sunset camel ride to the desert camp",
+            "fr": "Balade à dos de chameau au coucher du soleil vers le camp du désert"
+          },
+          {
+            "en": "Dinner and overnight stay in a Berber tent",
+            "fr": "Dîner et nuitée dans une tente berbère"
+          }
+        ]
+      },
+      {
+        "dayNumber": 2,
+        "title": {
+          "en": "Day 2: Zagora - Ouarzazate - Marrakech",
+          "fr": "Jour 2 : Zagora - Ouarzazate - Marrakech"
+        },
+        "activities": [
+          {
+            "en": "Breakfast at the camp",
+            "fr": "Petit déjeuner au camp"
+          },
+          {
+            "en": "Sunrise in the desert (optional)",
+            "fr": "Lever du soleil dans le désert (facultatif)"
+          },
+          {
+            "en": "Camel ride back to the meeting point",
+            "fr": "Retour à dos de chameau au point de rencontre"
+          },
+          {
+            "en": "Return to Marrakech with scenic photo stops",
+            "fr": "Retour à Marrakech avec arrêts photo panoramiques"
+          },
+          {
+            "en": "Arrival in Marrakech in the late afternoon",
+            "fr": "Arrivée à Marrakech en fin d'après-midi"
+          }
+        ]
+      }
+    ],
+    "includes": [
+      {
+        "en": "Private transport in a comfortable air-conditioned vehicle",
+        "fr": "Transport privé dans un véhicule climatisé confortable"
+      },
+      {
+        "en": "Professional and experienced driver",
+        "fr": "Chauffeur professionnel et expérimenté"
+      },
+      {
+        "en": "Hotel pickup and drop-off in Marrakech",
+        "fr": "Prise en charge et retour à l'hôtel à Marrakech"
+      },
+      {
+        "en": "Guided visit to Ait Ben Haddou",
+        "fr": "Visite guidée d'Ait Ben Haddou"
+      },
+      {
+        "en": "Camel ride in Zagora desert",
+        "fr": "Balade à dos de chameau dans le désert de Zagora"
+      },
+      {
+        "en": "One-night stay in a traditional Berber camp (private tent)",
+        "fr": "Nuitée dans un camp berbère traditionnel (tente privée)"
+      },
+      {
+        "en": "Dinner and breakfast at the camp",
+        "fr": "Dîner et petit déjeuner au camp"
+      },
+      {
+        "en": "Bottled water and Wi-Fi during transport",
+        "fr": "Eau en bouteille et Wi-Fi pendant le transport"
+      }
+    ],
+    "excludes": [
+      {
+        "en": "Lunches during the trip",
+        "fr": "Déjeuners pendant le voyage"
+      },
+      {
+        "en": "Monument entrance fees",
+        "fr": "Frais d'entrée aux monuments"
+      },
+      {
+        "en": "Personal expenses such as souvenirs and snacks",
+        "fr": "Dépenses personnelles telles que souvenirs et collations"
+      },
+      {
+        "en": "Tips for the driver and camp staff",
+        "fr": "Pourboires pour le chauffeur et le personnel du camp"
+      },
+      {
+        "en": "Optional travel insurance",
+        "fr": "Assurance voyage facultative"
+      }
+    ],
+    "faqs": [
+      {
+        "question": {
+          "en": "What is the maximum group size?",
+          "fr": "Quelle est la taille maximale du groupe ?"
+        },
+        "answer": {
+          "en": "The maximum group size is 17 people.",
+          "fr": "La taille maximale du groupe est de 17 personnes."
+        }
+      }
+    ],
+     "mapEmbed": "https://maps.google.com/maps?q=zagora&t=m&z=15&output=embed&iwloc=near",
+    "reviews": {
+      "averageRating": 4.7,
+      "totalReviews": 12
+    },
+    "featured": true
+  },
+  {
+    "tripCode": "WT-CODE 001",
+    "title": {
+      "en": "Marrakech City Tour",
+      "fr": "Visite de la ville de Marrakech"
+    },
+    "slug": "marrakech-city-tour",
+    "shortDescription": {
+      "en": "Explore the vibrant souks, historical palaces, and hidden gems of the Red City with our expert guides.",
+      "fr": "Explorez les souks animés, les palais historiques et les trésors cachés de la Ville Rouge avec nos guides experts."
+    },
+    "duration": {
+      "days": 1,
+      "nights": 0,
+      "displayText": {
+        "en": "1 Day",
+        "fr": "1 Jour"
+      }
+    },
+    "price": {
+      "amount": 120,
+      "currency": "USD",
+      "priceType": {
+        "en": "Per Person",
+        "fr": "Par Personne"
+      }
+    },
+    "groupSize": {
+      "min": 1,
+      "max": 15
+    },
+    "locations": ["marrakech"],
+    "pickupLocations": ["marrakech"],
+    "highlights": [
+      {
+        "en": "Visit the Koutoubia Mosque",
+        "fr": "Visite de la mosquée Koutoubia"
+      },
+      {
+        "en": "Explore the Bahia Palace",
+        "fr": "Exploration du palais de la Bahia"
+      },
+      {
+        "en": "Wander through the Majorelle Garden",
+        "fr": "Promenade dans le jardin Majorelle"
+      },
+      {
+        "en": "Experience Jemaa el-Fnaa square",
+        "fr": "Découverte de la place Jemaa el-Fnaa"
+      },
+      {
+        "en": "Shop in the souks",
+        "fr": "Shopping dans les souks"
+      }
+    ],
+    "itinerary": [
+      {
+        "dayNumber": 1,
+        "title": {
+          "en": "Full Day City Tour",
+          "fr": "Visite complète de la ville d'une journée"
+        },
+        "activities": [
+          {
+            "en": "Morning: Medina & Souks exploration",
+            "fr": "Matin : Exploration de la Médina et des souks"
+          },
+          {
+            "en": "Midday: Bahia Palace visit",
+            "fr": "Midi : Visite du palais de la Bahia"
+          },
+          {
+            "en": "Afternoon: Majorelle Garden",
+            "fr": "Après-midi : Jardin Majorelle"
+          },
+          {
+            "en": "Evening: Jemaa el-Fnaa square",
+            "fr": "Soir : Place Jemaa el-Fnaa"
+          }
+        ]
+      }
+    ],
+    "includes": [
+      {
+        "en": "Professional English/French speaking guide",
+        "fr": "Guide professionnel parlant anglais/français"
+      },
+      {
+        "en": "Hotel pickup and drop-off",
+        "fr": "Prise en charge et retour à l'hôtel"
+      },
+      {
+        "en": "Entrance fees to all monuments",
+        "fr": "Frais d'entrée à tous les monuments"
+      },
+      {
+        "en": "Traditional Moroccan lunch",
+        "fr": "Déjeuner marocain traditionnel"
+      },
+      {
+        "en": "Bottled water",
+        "fr": "Eau en bouteille"
+      }
+    ],
+    "excludes": [
+      {
+        "en": "Personal expenses",
+        "fr": "Dépenses personnelles"
+      },
+      {
+        "en": "Tips and gratuities",
+        "fr": "Pourboires"
+      },
+      {
+        "en": "Additional meals and drinks",
+        "fr": "Repas et boissons supplémentaires"
+      }
+    ],
+    "reviews": {
+      "averageRating": 4.8,
+      "totalReviews": 45
+    },
+    "featured": true
+  }
+]

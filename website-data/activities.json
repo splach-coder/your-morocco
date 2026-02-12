@@ -1,0 +1,334 @@
+[
+  {
+    "title": {
+      "en": "Hot Air Balloon Activity",
+      "fr": "Activité de montgolfière"
+    },
+    "slug": "hot-air-balloon-morocco",
+    "shortDescription": {
+      "en": "For travelers seeking a breathtaking and peaceful adventure, an air balloon ride over Morocco is an experience like no other.",
+      "fr": "Pour les voyageurs à la recherche d'une aventure époustouflante et paisible, un vol en montgolfière au-dessus du Maroc est une expérience unique."
+    },
+    "duration": {
+      "en": "Approximately 1 hour flight + breakfast",
+      "fr": "Environ 1 heure de vol + petit déjeuner"
+    },
+    "price": {
+      "amount": 180,
+      "currency": "EUR",
+      "priceType": {
+        "en": "Per Person",
+        "fr": "Par Personne"
+      }
+    },
+    "category": "adventure",
+    "locations": ["marrakech", "agafay-desert"],
+    "highlights": [
+      {
+        "en": "Sunrise balloon ride with panoramic views",
+        "fr": "Vol en montgolfière au lever du soleil avec vues panoramiques"
+      },
+      {
+        "en": "Fly over red earth hills, Berber villages, Atlas Mountains",
+        "fr": "Survolez les collines de terre rouge, les villages berbères et les montagnes de l'Atlas"
+      },
+      {
+        "en": "Silent, peaceful sky experience",
+        "fr": "Expérience paisible et silencieuse dans le ciel"
+      },
+      {
+        "en": "Traditional Moroccan breakfast after landing",
+        "fr": "Petit déjeuner marocain traditionnel après l'atterrissage"
+      },
+      {
+        "en": "Flight certificate souvenir",
+        "fr": "Certificat de vol souvenir"
+      }
+    ],
+    "suitableFor": [
+      {
+        "en": "Couples",
+        "fr": "Couples"
+      },
+      {
+        "en": "Honeymooners",
+        "fr": "Jeunes mariés"
+      },
+      {
+        "en": "Families",
+        "fr": "Familles"
+      },
+      {
+        "en": "Special occasions",
+        "fr": "Occasions spéciales"
+      }
+    ],
+    "featured": true
+  },
+  {
+    "title": {
+      "en": "Camel Riding Activity",
+      "fr": "Activité de balade à dos de chameau"
+    },
+    "slug": "camel-riding-morocco",
+    "shortDescription": {
+      "en": "Camel riding is one of the most iconic and peaceful ways to explore the beauty of Morocco.",
+      "fr": "La balade à dos de chameau est l'un des moyens les plus emblématiques et paisibles d'explorer la beauté du Maroc."
+    },
+    "duration": {
+      "en": "1 hour to full day",
+      "fr": "1 heure à journée complète"
+    },
+    "price": {
+      "amount": 50,
+      "currency": "EUR",
+      "priceType": {
+        "en": "Per Person",
+        "fr": "Par Personne"
+      }
+    },
+    "category": "nature",
+    "locations": ["merzouga", "zagora", "agafay-desert", "essaouira"],
+    "highlights": [
+      {
+        "en": "Ride through golden Sahara dunes, Agafay Desert, or palm groves",
+        "fr": "Balade à travers les dunes dorées du Sahara, le désert d'Agafay ou les palmeraies"
+      },
+      {
+        "en": "Experienced local guides ensuring safety and comfort",
+        "fr": "Guides locaux expérimentés assurant sécurité et confort"
+      },
+      {
+        "en": "Traditional scarves and comfortable saddles provided",
+        "fr": "Foulards traditionnels et selles confortables fournis"
+      },
+      {
+        "en": "Learn about nomadic culture and enjoy mint tea",
+        "fr": "Découverte de la culture nomade et dégustation de thé à la menthe"
+      },
+      {
+        "en": "Options: 1-hour rides to full desert experiences with overnight stays",
+        "fr": "Options : balades d'1 heure à expériences complètes du désert avec nuitées"
+      }
+    ],
+    "suitableFor": [
+      {
+        "en": "All ages",
+        "fr": "Tous âges"
+      },
+      {
+        "en": "Couples",
+        "fr": "Couples"
+      },
+      {
+        "en": "Families",
+        "fr": "Familles"
+      },
+      {
+        "en": "Groups",
+        "fr": "Groupes"
+      }
+    ],
+    "featured": true
+  },
+  {
+    "title": {
+      "en": "Quad Biking Activity",
+      "fr": "Activité de quad"
+    },
+    "slug": "quad-biking-morocco",
+    "shortDescription": {
+      "en": "If you're looking for excitement, stunning landscapes, and a sense of adventure, quad biking in Morocco is the perfect activity.",
+      "fr": "Si vous recherchez de l'excitation, des paysages magnifiques et un sens de l'aventure, le quad au Maroc est l'activité parfaite."
+    },
+    "duration": {
+      "en": "2-4 hours",
+      "fr": "2-4 heures"
+    },
+    "price": {
+      "amount": 80,
+      "currency": "EUR",
+      "priceType": {
+        "en": "Per Person",
+        "fr": "Par Personne"
+      }
+    },
+    "category": "adventure",
+    "locations": ["agafay-desert", "merzouga", "marrakech"],
+    "highlights": [
+      {
+        "en": "Ride across diverse terrains: Agafay Desert, Merzouga dunes, palm groves",
+        "fr": "Conduite sur terrains variés : désert d'Agafay, dunes de Merzouga, palmeraies"
+      },
+      {
+        "en": "Safety briefing and training for all skill levels",
+        "fr": "Briefing de sécurité et formation pour tous niveaux"
+      },
+      {
+        "en": "Guided rides with scenic breaks and photo opportunities",
+        "fr": "Balades guidées avec pauses panoramiques et opportunités photo"
+      },
+      {
+        "en": "Traditional Moroccan tea in villages or desert camps",
+        "fr": "Thé marocain traditionnel dans les villages ou camps du désert"
+      },
+      {
+        "en": "Combine with camel rides, lunch, or village visits",
+        "fr": "Combinaison avec balades à dos de chameau, déjeuner ou visites de villages"
+      }
+    ],
+    "suitableFor": [
+      {
+        "en": "Adventure seekers",
+        "fr": "Chercheurs d'aventure"
+      },
+      {
+        "en": "Groups of friends",
+        "fr": "Groupes d'amis"
+      },
+      {
+        "en": "Families with teens",
+        "fr": "Familles avec adolescents"
+      }
+    ],
+    "requirements": [
+      {
+        "en": "Minimum age: 16 years",
+        "fr": "Âge minimum : 16 ans"
+      },
+      {
+        "en": "Valid driver's license (for some providers)",
+        "fr": "Permis de conduire valide (pour certains prestataires)"
+      }
+    ],
+    "featured": true
+  },
+  {
+    "title": {
+      "en": "Moroccan Cooking Class",
+      "fr": "Cours de cuisine marocaine"
+    },
+    "slug": "cooking-class-morocco",
+    "shortDescription": {
+      "en": "One of the most memorable ways to connect with Moroccan culture is through its food. Join an immersive cooking class.",
+      "fr": "L'un des moyens les plus mémorables de se connecter à la culture marocaine est à travers sa cuisine. Rejoignez un cours de cuisine immersif."
+    },
+    "duration": {
+      "en": "3-4 hours",
+      "fr": "3-4 heures"
+    },
+    "price": {
+      "amount": 60,
+      "currency": "EUR",
+      "priceType": {
+        "en": "Per Person",
+        "fr": "Par Personne"
+      }
+    },
+    "category": "cultural",
+    "locations": ["marrakech", "fes", "essaouira"],
+    "highlights": [
+      {
+        "en": "Learn to prepare iconic dishes like tagine, couscous, pastilla, and traditional pastries",
+        "fr": "Apprenez à préparer des plats emblématiques comme le tajine, le couscous, la pastilla et les pâtisseries traditionnelles"
+      },
+      {
+        "en": "Guided visit to local souk or market to select fresh ingredients",
+        "fr": "Visite guidée du souk ou marché local pour sélectionner des ingrédients frais"
+      },
+      {
+        "en": "Hands-on cooking session in traditional riad or family home",
+        "fr": "Session de cuisine pratique dans un riad traditionnel ou une maison familiale"
+      },
+      {
+        "en": "Learn about Moroccan spices, techniques, and cultural significance",
+        "fr": "Découverte des épices marocaines, techniques et signification culturelle"
+      },
+      {
+        "en": "Enjoy the meal you helped create with fellow travelers and hosts",
+        "fr": "Dégustez le repas que vous avez aidé à créer avec d'autres voyageurs et hôtes"
+      }
+    ],
+    "suitableFor": [
+      {
+        "en": "Food lovers",
+        "fr": "Amateurs de cuisine"
+      },
+      {
+        "en": "Cultural enthusiasts",
+        "fr": "Passionnés de culture"
+      },
+      {
+        "en": "Families",
+        "fr": "Familles"
+      },
+      {
+        "en": "Solo travelers",
+        "fr": "Voyageurs solo"
+      }
+    ],
+    "featured": true
+  },
+  {
+    "title": {
+      "en": "Moroccan Food Tour",
+      "fr": "Tour culinaire marocain"
+    },
+    "slug": "food-tour-morocco",
+    "shortDescription": {
+      "en": "Explore the country's culinary landscape while walking through its vibrant medinas, local neighborhoods, and hidden food corners.",
+      "fr": "Explorez le paysage culinaire du pays en vous promenant dans ses médinas animées, ses quartiers locaux et ses coins gastronomiques cachés."
+    },
+    "duration": {
+      "en": "3-4 hours",
+      "fr": "3-4 heures"
+    },
+    "price": {
+      "amount": 45,
+      "currency": "EUR",
+      "priceType": {
+        "en": "Per Person",
+        "fr": "Par Personne"
+      }
+    },
+    "category": "food-drink",
+    "locations": ["marrakech", "fes", "casablanca"],
+    "highlights": [
+      {
+        "en": "Explore vibrant medinas and hidden food corners",
+        "fr": "Explorez les médinas animées et les coins gastronomiques cachés"
+      },
+      {
+        "en": "Taste street food: harira soup, brochettes, msemen, snail soup, fresh bread",
+        "fr": "Dégustez la street food : soupe harira, brochettes, msemen, soupe d'escargots, pain frais"
+      },
+      {
+        "en": "Visit family-run bakeries, spice shops, traditional cafés",
+        "fr": "Visite de boulangeries familiales, boutiques d'épices, cafés traditionnels"
+      },
+      {
+        "en": "Learn about Morocco's diverse culinary influences",
+        "fr": "Découverte des diverses influences culinaires du Maroc"
+      },
+      {
+        "en": "Meet friendly vendors and observe cooking techniques",
+        "fr": "Rencontrez des vendeurs sympathiques et observez les techniques de cuisine"
+      }
+    ],
+    "suitableFor": [
+      {
+        "en": "Food enthusiasts",
+        "fr": "Passionnés de gastronomie"
+      },
+      {
+        "en": "Cultural explorers",
+        "fr": "Explorateurs culturels"
+      },
+      {
+        "en": "Photographers",
+        "fr": "Photographes"
+      }
+    ],
+    "featured": true
+  }
+]
