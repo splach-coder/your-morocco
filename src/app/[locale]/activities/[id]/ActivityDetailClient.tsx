@@ -1,6 +1,6 @@
 'use client';
 
-import { use } from 'react';
+import { use, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,6 +8,10 @@ import { ArrowLeft, MessageCircle, CheckCircle, MapPin, Clock, Users, Calendar, 
 import TourCard from '../../components/TourCard';
 import MobileBookingBar from '../../components/MobileBookingBar';
 import GallerySlider from '../../components/GallerySlider';
+import BookingSelector from '../../components/BookingSelector';
+import PricingDisplay from '../../components/PricingDisplay';
+import { useBooking } from '@/contexts/BookingContext';
+import { PricingStructure } from '@/types/sanity';
 
 interface ActivityDetailClientProps {
     activity: any;
@@ -17,15 +21,37 @@ interface ActivityDetailClientProps {
 
 export default function ActivityDetailClient({ activity, relatedActivities, locale }: ActivityDetailClientProps) {
     const t = useTranslations('DetailPage');
+    const { setBookingItem, getWhatsAppMessage } = useBooking();
 
     if (!activity) return null;
 
     const galleryImages = activity?.gallery || [];
     const reviews = activity.reviews || [];
 
+    // Create pricing structure from activity data (backward compatible)
+    const pricing: PricingStructure = activity.pricing || (activity.price?.amount ? {
+        type: 'fixed',
+        fixedPrice: {
+            amount: activity.price.amount,
+            currency: activity.price.currency || 'EUR',
+            perPerson: true
+        },
+        displayPrice: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL || '€'}${activity.price.amount}`
+    } : {
+        type: 'contact',
+        displayPrice: 'Contact us'
+    });
+
+    // Initialize booking on mount
+    useEffect(() => {
+        if (activity.id && activity.title) {
+            setBookingItem(activity.id, 'activity', activity.title, pricing);
+        }
+    }, [activity.id, activity.title]);
+
     const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212706880866';
-    const bookingMessage = encodeURIComponent(`Hello, I am interested in booking the activity: ${activity.title}. Please provide more information.`);
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${bookingMessage}`;
+    const bookingMessage = getWhatsAppMessage(locale);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(bookingMessage)}`;
 
     return (
         <div className="min-h-screen bg-white">
@@ -230,8 +256,9 @@ export default function ActivityDetailClient({ activity, relatedActivities, loca
             </div>
 
             <MobileBookingBar
-                price={activity.price || t('pricing.contactUs')}
+                pricing={pricing}
                 whatsappUrl={whatsappUrl}
+                locale={locale}
             />
 
         </div>

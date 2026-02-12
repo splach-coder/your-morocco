@@ -45,7 +45,7 @@ export default function PricingDisplay({
       )}
 
       <div className="flex items-baseline gap-2">
-        {hasCalculatedPrice && currentBooking ? (
+        {hasCalculatedPrice && currentBooking && currentBooking.calculatedPrice ? (
           // Show calculated price from booking
           <>
             <span className="text-3xl font-bold text-gray-900">
@@ -66,7 +66,7 @@ export default function PricingDisplay({
               {getPricingDisplayText(pricing, undefined, locale)}
             </span>
             {(pricing.type === 'fixed' && pricing.fixedPrice?.perPerson) ||
-            (pricing.type === 'tiered' && pricing.tiers) ? (
+              (pricing.type === 'tiered' && pricing.tiers) ? (
               <span className="text-gray-500">/ {t('perPerson')}</span>
             ) : null}
           </>

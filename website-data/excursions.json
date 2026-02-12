@@ -30,8 +30,14 @@
       "min": 1,
       "max": 17
     },
-    "locations": ["zagora"],
-    "pickupLocations": ["marrakech", "casablanca", "ouarzazate"],
+    "locations": [
+      "zagora"
+    ],
+    "pickupLocations": [
+      "marrakech",
+      "casablanca",
+      "ouarzazate"
+    ],
     "highlights": [
       {
         "en": "Drive through the Draa Valley",
@@ -190,7 +196,7 @@
         }
       }
     ],
-     "mapEmbed": "https://maps.google.com/maps?q=zagora&t=m&z=15&output=embed&iwloc=near",
+    "mapEmbed": "https://maps.google.com/maps?q=zagora&t=m&z=15&output=embed&iwloc=near",
     "reviews": {
       "averageRating": 4.7,
       "totalReviews": 12
@@ -228,8 +234,12 @@
       "min": 1,
       "max": 15
     },
-    "locations": ["marrakech"],
-    "pickupLocations": ["marrakech"],
+    "locations": [
+      "marrakech"
+    ],
+    "pickupLocations": [
+      "marrakech"
+    ],
     "highlights": [
       {
         "en": "Visit the Koutoubia Mosque",
@@ -319,6 +329,529 @@
       "averageRating": 4.8,
       "totalReviews": 45
     },
+    "featured": true
+  },
+  {
+    "tripCode": "WT-CODE 400",
+    "title": {
+      "en": "Agafay Desert Experience",
+      "fr": "Expérience du désert d'Agafay"
+    },
+    "slug": "agafay-desert-experience",
+    "shortDescription": {
+      "en": "Agafay afternoon with evening dinner show, 1-hour quad ride, and dromedary tour with private transport.",
+      "fr": "Agafay pour une après-midi avec soirée dîner spectacle, 1h quad, balade dromadaire avec transport privé."
+    },
+    "duration": {
+      "days": 1,
+      "nights": 0,
+      "displayText": {
+        "en": "Afternoon + Evening (15h - 22h)",
+        "fr": "Après-midi + Soirée (15h - 22h)"
+      }
+    },
+    "pricing": {
+      "type": "fixed",
+      "fixedPrice": {
+        "amount": 87,
+        "currency": "EUR",
+        "perPerson": true
+      },
+      "displayPrice": "€87"
+    },
+    "groupSize": {
+      "min": 1,
+      "max": 20
+    },
+    "locations": [
+      "agafay-desert"
+    ],
+    "pickupLocations": [
+      "marrakech"
+    ],
+    "highlights": [
+      {
+        "en": "1-hour quad biking adventure in Agafay Desert",
+        "fr": "1h de quad dans le désert d'Agafay"
+      },
+      {
+        "en": "Dromedary camel ride at sunset",
+        "fr": "Balade à dos de dromadaire au coucher du soleil"
+      },
+      {
+        "en": "Traditional Moroccan dinner with live show",
+        "fr": "Dîner marocain traditionnel avec spectacle"
+      },
+      {
+        "en": "Private air-conditioned transport",
+        "fr": "Transport privé climatisé"
+      }
+    ],
+    "includes": [
+      {
+        "en": "Private transport with air conditioning",
+        "fr": "Transport privé climatisé"
+      },
+      {
+        "en": "1-hour quad biking",
+        "fr": "1h de quad"
+      },
+      {
+        "en": "Dromedary ride",
+        "fr": "Balade à dromadaire"
+      },
+      {
+        "en": "Dinner with live entertainment",
+        "fr": "Dîner avec spectacle"
+      }
+    ],
+    "excludes": [
+      {
+        "en": "Tips and gratuities",
+        "fr": "Pourboires"
+      }
+    ],
+    "featured": true
+  },
+  {
+    "tripCode": "WT-CODE 401",
+    "title": {
+      "en": "Ourika Valley Day Trip",
+      "fr": "Excursion d'une journée dans la vallée de l'Ourika"
+    },
+    "slug": "ourika-valley-day-trip",
+    "shortDescription": {
+      "en": "Discover the Ourika Valley with a local guide for the waterfalls visit, including meal and private transport from Marrakech.",
+      "fr": "Découvrez la vallée de l'Ourika avec un guide local pour la visite des cascades, repas inclus et transport privé depuis Marrakech."
+    },
+    "duration": {
+      "days": 1,
+      "nights": 0,
+      "displayText": {
+        "en": "Full Day (9h - 16h30)",
+        "fr": "Journée complète (9h - 16h30)"
+      }
+    },
+    "pricing": {
+      "type": "tiered",
+      "tiers": [
+        {
+          "minPeople": 2,
+          "maxPeople": 4,
+          "pricePerPerson": 57,
+          "currency": "EUR"
+        },
+        {
+          "minPeople": 5,
+          "maxPeople": null,
+          "pricePerPerson": 37,
+          "currency": "EUR"
+        }
+      ],
+      "displayPrice": "From €57"
+    },
+    "groupSize": {
+      "min": 2,
+      "max": 20
+    },
+    "locations": [
+      "ourika-valley"
+    ],
+    "pickupLocations": [
+      "marrakech"
+    ],
+    "highlights": [
+      {
+        "en": "Visit the stunning Setti Fatma waterfalls",
+        "fr": "Visite des magnifiques cascades de Setti Fatma"
+      },
+      {
+        "en": "Local guide for waterfalls trek",
+        "fr": "Guide local pour la randonnée aux cascades"
+      },
+      {
+        "en": "Traditional Berber lunch included",
+        "fr": "Déjeuner berbère traditionnel inclus"
+      },
+      {
+        "en": "Scenic drive through the Atlas Mountains",
+        "fr": "Route panoramique à travers les montagnes de l'Atlas"
+      }
+    ],
+    "includes": [
+      {
+        "en": "Private air-conditioned transport",
+        "fr": "Transport privé climatisé"
+      },
+      {
+        "en": "Local guide for waterfall visit",
+        "fr": "Guide local pour la visite des cascades"
+      },
+      {
+        "en": "Traditional lunch",
+        "fr": "Déjeuner traditionnel"
+      }
+    ],
+    "excludes": [
+      {
+        "en": "Tips and personal expenses",
+        "fr": "Pourboires et dépenses personnelles"
+      }
+    ],
+    "featured": true
+  },
+  {
+    "tripCode": "WT-CODE 402",
+    "title": {
+      "en": "Essaouira Day Trip",
+      "fr": "Excursion d'une journée à Essaouira"
+    },
+    "slug": "essaouira-day-trip",
+    "shortDescription": {
+      "en": "Full day trip to the coastal city of Essaouira with private transport from Marrakech, exploring the UNESCO-listed medina and Atlantic coast.",
+      "fr": "Excursion d'une journée dans la ville côtière d'Essaouira avec transport privé depuis Marrakech, exploration de la médina classée UNESCO et de la côte atlantique."
+    },
+    "duration": {
+      "days": 1,
+      "nights": 0,
+      "displayText": {
+        "en": "Full Day (8h - 19h)",
+        "fr": "Journée complète (8h - 19h)"
+      }
+    },
+    "pricing": {
+      "type": "tiered",
+      "tiers": [
+        {
+          "minPeople": 2,
+          "maxPeople": 4,
+          "pricePerPerson": 65,
+          "currency": "EUR"
+        },
+        {
+          "minPeople": 5,
+          "maxPeople": null,
+          "pricePerPerson": 37,
+          "currency": "EUR"
+        }
+      ],
+      "displayPrice": "From €65"
+    },
+    "groupSize": {
+      "min": 2,
+      "max": 20
+    },
+    "locations": [
+      "essaouira"
+    ],
+    "pickupLocations": [
+      "marrakech"
+    ],
+    "highlights": [
+      {
+        "en": "Explore the UNESCO World Heritage medina",
+        "fr": "Explorez la médina classée au patrimoine mondial de l'UNESCO"
+      },
+      {
+        "en": "Visit the historic Portuguese ramparts",
+        "fr": "Visite des remparts portugais historiques"
+      },
+      {
+        "en": "Free time at the Atlantic beaches",
+        "fr": "Temps libre sur les plages de l'Atlantique"
+      },
+      {
+        "en": "Discover local art galleries and workshops",
+        "fr": "Découverte des galeries d'art et ateliers locaux"
+      }
+    ],
+    "includes": [
+      {
+        "en": "Private air-conditioned transport",
+        "fr": "Transport privé climatisé"
+      },
+      {
+        "en": "Professional driver",
+        "fr": "Chauffeur professionnel"
+      }
+    ],
+    "excludes": [
+      {
+        "en": "Lunch and drinks",
+        "fr": "Déjeuner et boissons"
+      },
+      {
+        "en": "Tips and personal expenses",
+        "fr": "Pourboires et dépenses personnelles"
+      }
+    ],
+    "featured": true
+  },
+  {
+    "tripCode": "WT-CODE 403",
+    "title": {
+      "en": "Ouzoud Waterfalls Day Trip",
+      "fr": "Excursion d'une journée aux cascades d'Ouzoud"
+    },
+    "slug": "ouzoud-waterfalls-day-trip",
+    "shortDescription": {
+      "en": "Full day trip to the magnificent Ouzoud Waterfalls with local guide for village visit and private transport from Marrakech.",
+      "fr": "Excursion d'une journée aux magnifiques cascades d'Ouzoud avec guide local pour la visite du village et transport privé depuis Marrakech."
+    },
+    "duration": {
+      "days": 1,
+      "nights": 0,
+      "displayText": {
+        "en": "Full Day (8h - 18h30)",
+        "fr": "Journée complète (8h - 18h30)"
+      }
+    },
+    "pricing": {
+      "type": "tiered",
+      "tiers": [
+        {
+          "minPeople": 2,
+          "maxPeople": 4,
+          "pricePerPerson": 75,
+          "currency": "EUR"
+        },
+        {
+          "minPeople": 5,
+          "maxPeople": null,
+          "pricePerPerson": 47,
+          "currency": "EUR"
+        }
+      ],
+      "displayPrice": "From €75"
+    },
+    "groupSize": {
+      "min": 2,
+      "max": 20
+    },
+    "locations": [
+      "ouzoud-waterfalls"
+    ],
+    "pickupLocations": [
+      "marrakech"
+    ],
+    "highlights": [
+      {
+        "en": "Visit Morocco's highest waterfalls (110m)",
+        "fr": "Visite des cascades les plus hautes du Maroc (110m)"
+      },
+      {
+        "en": "Local guide for village exploration",
+        "fr": "Guide local pour l'exploration du village"
+      },
+      {
+        "en": "See wild Barbary macaques",
+        "fr": "Observation des macaques de Barbarie sauvages"
+      },
+      {
+        "en": "Traditional Berber village experience",
+        "fr": "Expérience du village berbère traditionnel"
+      }
+    ],
+    "includes": [
+      {
+        "en": "Private air-conditioned transport",
+        "fr": "Transport privé climatisé"
+      },
+      {
+        "en": "Local guide for village visit",
+        "fr": "Guide local pour la visite du village"
+      }
+    ],
+    "excludes": [
+      {
+        "en": "Lunch and drinks",
+        "fr": "Déjeuner et boissons"
+      },
+      {
+        "en": "Tips and personal expenses",
+        "fr": "Pourboires et dépenses personnelles"
+      }
+    ],
+    "featured": true
+  },
+  {
+    "tripCode": "WT-CODE 404",
+    "title": {
+      "en": "Merzouga Desert 3 Days Tour",
+      "fr": "Circuit de 3 jours au désert de Merzouga"
+    },
+    "slug": "merzouga-3-day-tour",
+    "shortDescription": {
+      "en": "3-day desert adventure from Marrakech to Merzouga with 2 nights outside, including camel trek, desert camp, and visits to kasbahs and gorges.",
+      "fr": "Aventure de 3 jours dans le désert de Marrakech à Merzouga avec 2 nuits à l'extérieur, incluant trek à dos de chameau, camp dans le désert et visites de kasbahs et gorges."
+    },
+    "duration": {
+      "days": 3,
+      "nights": 2,
+      "displayText": {
+        "en": "3 Days / 2 Nights",
+        "fr": "3 Jours / 2 Nuits"
+      }
+    },
+    "pricing": {
+      "type": "tiered",
+      "tiers": [
+        {
+          "minPeople": 2,
+          "maxPeople": 4,
+          "pricePerPerson": 395,
+          "currency": "EUR"
+        },
+        {
+          "minPeople": 5,
+          "maxPeople": null,
+          "pricePerPerson": 287,
+          "currency": "EUR"
+        }
+      ],
+      "displayPrice": "From €395"
+    },
+    "groupSize": {
+      "min": 2,
+      "max": 20
+    },
+    "locations": [
+      "merzouga"
+    ],
+    "pickupLocations": [
+      "marrakech"
+    ],
+    "highlights": [
+      {
+        "en": "Cross the High Atlas via Tizi n'Tichka pass (2260m)",
+        "fr": "Traversée du Haut Atlas via le col de Tizi n'Tichka (2260m)"
+      },
+      {
+        "en": "Visit Ait Ben Haddou with local guide",
+        "fr": "Visite d'Ait Ben Haddou avec guide local"
+      },
+      {
+        "en": "Explore Dades and Todra Gorges",
+        "fr": "Exploration des gorges du Dadès et du Todra"
+      },
+      {
+        "en": "Camel trek to desert camp in Merzouga",
+        "fr": "Trek à dos de chameau vers le camp dans le désert de Merzouga"
+      },
+      {
+        "en": "Night under the stars in desert camp",
+        "fr": "Nuit sous les étoiles dans un camp du désert"
+      }
+    ],
+    "itinerary": [
+      {
+        "dayNumber": 1,
+        "title": {
+          "en": "Day 1: Marrakech - Ait Ben Haddou - Boumalne Dades",
+          "fr": "Jour 1 : Marrakech - Ait Ben Haddou - Boumalne Dadès"
+        },
+        "activities": [
+          {
+            "en": "Departure from Marrakech via Tizi n'Tichka pass (2260m)",
+            "fr": "Départ de Marrakech via le col de Tizi n'Tichka (2260m)"
+          },
+          {
+            "en": "Lunch at Ait Ben Haddou and guided kasbah visit",
+            "fr": "Déjeuner à Ait Ben Haddou et visite guidée de la kasbah"
+          },
+          {
+            "en": "Afternoon drive via Ouarzazate to Boumalne Dades",
+            "fr": "Route de l'après-midi via Ouarzazate vers Boumalne Dadès"
+          },
+          {
+            "en": "Overnight at hotel in Dades (half board)",
+            "fr": "Nuit à l'hôtel à Dadès (demi-pension)"
+          }
+        ]
+      },
+      {
+        "dayNumber": 2,
+        "title": {
+          "en": "Day 2: Dades - Todra - Merzouga Desert Camp",
+          "fr": "Jour 2 : Dadès - Todra - Camp du désert de Merzouga"
+        },
+        "activities": [
+          {
+            "en": "Visit Dades Gorges",
+            "fr": "Visite des gorges du Dadès"
+          },
+          {
+            "en": "Explore Todra Gorges in Tinghir",
+            "fr": "Exploration des gorges du Todra à Tinghir"
+          },
+          {
+            "en": "Lunch during the journey to Erfoud",
+            "fr": "Déjeuner pendant le trajet vers Erfoud"
+          },
+          {
+            "en": "Arrival in Merzouga and camel trek to desert camp",
+            "fr": "Arrivée à Merzouga et trek à dos de chameau vers le camp du désert"
+          },
+          {
+            "en": "Overnight in traditional desert camp",
+            "fr": "Nuit dans un camp du désert traditionnel"
+          }
+        ]
+      },
+      {
+        "dayNumber": 3,
+        "title": {
+          "en": "Day 3: Merzouga - Return to Marrakech",
+          "fr": "Jour 3 : Merzouga - Retour à Marrakech"
+        },
+        "activities": [
+          {
+            "en": "Camel ride back to auberge for breakfast",
+            "fr": "Retour à dos de chameau à l'auberge pour le petit déjeuner"
+          },
+          {
+            "en": "Return journey to Marrakech",
+            "fr": "Trajet de retour vers Marrakech"
+          },
+          {
+            "en": "Arrival in Marrakech around 20h",
+            "fr": "Arrivée à Marrakech vers 20h"
+          }
+        ]
+      }
+    ],
+    "includes": [
+      {
+        "en": "Private air-conditioned van with driver",
+        "fr": "Van privé climatisé avec chauffeur"
+      },
+      {
+        "en": "Camel trek to and from desert camp",
+        "fr": "Trek à dos de chameau aller-retour au camp du désert"
+      },
+      {
+        "en": "Local guide at Ait Ben Haddou",
+        "fr": "Guide local à Ait Ben Haddou"
+      },
+      {
+        "en": "1 night hotel in Dades (half board)",
+        "fr": "1 nuit à l'hôtel à Dadès (demi-pension)"
+      },
+      {
+        "en": "1 night in desert camp (dinner & breakfast)",
+        "fr": "1 nuit au camp du désert (dîner et petit déjeuner)"
+      }
+    ],
+    "excludes": [
+      {
+        "en": "Lunches during the trip",
+        "fr": "Déjeuners pendant le voyage"
+      },
+      {
+        "en": "Tips and gratuities",
+        "fr": "Pourboires"
+      }
+    ],
     "featured": true
   }
 ]

@@ -1,6 +1,6 @@
 'use client';
 
-import { use } from 'react';
+import { use, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,6 +8,10 @@ import { ArrowLeft, Clock, Users, MapPin, Check, X, Star, MessageCircle, Calenda
 import TourCard from '../../components/TourCard';
 import GallerySlider from '../../components/GallerySlider';
 import MobileBookingBar from '../../components/MobileBookingBar';
+import BookingSelector from '../../components/BookingSelector';
+import PricingDisplay from '../../components/PricingDisplay';
+import { useBooking } from '@/contexts/BookingContext';
+import { PricingStructure } from '@/types/sanity';
 
 interface ExcursionDetailClientProps {
     tour: any;
@@ -17,6 +21,7 @@ interface ExcursionDetailClientProps {
 
 export default function ExcursionDetailClient({ tour, relatedTours, locale }: ExcursionDetailClientProps) {
     const t = useTranslations('DetailPage');
+    const { setBookingItem, getWhatsAppMessage } = useBooking();
 
     if (!tour) return null;
 
@@ -24,9 +29,30 @@ export default function ExcursionDetailClient({ tour, relatedTours, locale }: Ex
     const programSteps = tour.programSteps || [];
     const galleryImages = tour?.gallery || [];
 
+    // Create pricing structure from tour data (backward compatible)
+    const pricing: PricingStructure = tour.pricing || (tour.price?.amount ? {
+        type: 'fixed',
+        fixedPrice: {
+            amount: tour.price.amount,
+            currency: tour.price.currency || 'EUR',
+            perPerson: true
+        },
+        displayPrice: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL || '€'}${tour.price.amount}`
+    } : {
+        type: 'contact',
+        displayPrice: 'Contact us'
+    });
+
+    // Initialize booking on mount
+    useEffect(() => {
+        if (tour.id && tour.title) {
+            setBookingItem(tour.id, 'excursion', tour.title, pricing);
+        }
+    }, [tour.id, tour.title]);
+
     const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212706880866';
-    const bookingMessage = encodeURIComponent(`Hello, I am interested in booking the excursion: ${tour.title}. Please provide more information.`);
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${bookingMessage}`;
+    const bookingMessage = getWhatsAppMessage(locale);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(bookingMessage)}`;
 
     return (
         <div className="min-h-screen bg-white">
@@ -192,13 +218,9 @@ export default function ExcursionDetailClient({ tour, relatedTours, locale }: Ex
                             <div className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100 overflow-hidden relative">
                                 <div className="absolute top-0 left-0 w-full h-2 bg-terracotta" />
 
-                                <div className="mb-6">
-                                    <div className="flex items-baseline gap-1 mt-1">
-                                        <span className="text-2xl font-bold text-gray-900">Contact us for pricing</span>
-                                    </div>
-                                </div>
+                                <PricingDisplay pricing={pricing} locale={locale} />
 
-                                <div className="space-y-4 mb-8">
+                                <div className="space-y-4 mb-6">
                                     <div className="flex items-center gap-3 text-gray-700">
                                         <Calendar className="w-5 h-5 text-terracotta" />
                                         <span>{t('features.dailyDepartures')}</span>
@@ -211,6 +233,10 @@ export default function ExcursionDetailClient({ tour, relatedTours, locale }: Ex
                                         <MessageCircle className="w-5 h-5 text-terracotta" />
                                         <span>{t('features.instantConfirmation')}</span>
                                     </div>
+                                </div>
+
+                                <div className="mb-6">
+                                    <BookingSelector pricing={pricing} locale={locale} />
                                 </div>
 
                                 <a
@@ -293,8 +319,9 @@ export default function ExcursionDetailClient({ tour, relatedTours, locale }: Ex
             </div>
 
             <MobileBookingBar
-                price={tour.price || 'Contact us'}
+                pricing={pricing}
                 whatsappUrl={whatsappUrl}
+                locale={locale}
             />
 
         </div>
