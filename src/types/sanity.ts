@@ -305,5 +305,41 @@ export interface BlogResponse {
     tags: string[];
 }
 
+// Pricing Tier for group-size-based pricing
+export interface PricingTier {
+    minPeople: number;
+    maxPeople: number | null; // null means unlimited
+    pricePerPerson: number;
+    currency: 'EUR' | 'USD' | 'MAD';
+    displayText?: string; // Optional custom display (e.g., "2-4 people")
+}
+
+// Pricing Structure supporting both fixed and tiered pricing
+export interface PricingStructure {
+    type: 'fixed' | 'tiered' | 'contact'; // fixed = per person, tiered = group-based, contact = no price
+    tiers?: PricingTier[]; // For tiered pricing
+    fixedPrice?: {
+        amount: number;
+        currency: 'EUR' | 'USD' | 'MAD';
+        perPerson?: boolean;
+    }; // For fixed pricing
+    displayPrice?: string; // Backward compatible display string (e.g., "From €57")
+}
+
+// Booking Selection State
+export interface BookingSelection {
+    itemId: string;
+    itemType: 'tour' | 'excursion' | 'service' | 'activity';
+    title: string;
+    peopleCount: number;
+    selectedDate: Date | null;
+    calculatedPrice: {
+        totalAmount: number;
+        pricePerPerson: number;
+        currency: string;
+    } | null;
+    pricing: PricingStructure;
+}
+
 // Helper type for optional localized content
 export type MaybeLocalized<T> = T | LocalizedString | LocalizedText;

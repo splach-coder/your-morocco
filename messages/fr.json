@@ -185,6 +185,16 @@
     "chatWithUs": "Discutez avec nous",
     "bookingMessage": "Bonjour ! Je suis intéressé par la réservation d'un circuit au Maroc."
   },
+  "BookingSelector": {
+    "numberOfPeople": "Nombre de Personnes",
+    "selectDate": "Sélectionner la Date",
+    "pricePerPerson": "par personne",
+    "totalPrice": "Prix Total",
+    "forPeople": "pour {count} {count, plural, one {personne} other {personnes}}",
+    "groupDiscount": "Réduction de groupe appliquée !",
+    "minimum": "Minimum",
+    "people": "personnes"
+  },
   "ListingPage": {
     "search": "Rechercher",
     "filter": "Filtrer",
@@ -227,7 +237,10 @@
       "perPerson": "par personne",
       "contactUs": "Contactez-nous",
       "noPayment": "Aucun paiement requis pour se renseigner.",
-      "pricePerPerson": "Prix par personne"
+      "pricePerPerson": "Prix par personne",
+      "totalPrice": "Prix Total",
+      "priceVaries": "Le prix varie selon la taille du groupe",
+      "groupPricing": "Tarification de groupe"
     },
     "features": {
       "dailyDepartures": "Départs quotidiens",

@@ -185,6 +185,16 @@
     "chatWithUs": "Chat with us",
     "bookingMessage": "Hello! I'm interested in booking a tour to Morocco."
   },
+  "BookingSelector": {
+    "numberOfPeople": "Number of People",
+    "selectDate": "Select Date",
+    "pricePerPerson": "per person",
+    "totalPrice": "Total Price",
+    "forPeople": "for {count} {count, plural, one {person} other {people}}",
+    "groupDiscount": "Group discount applied!",
+    "minimum": "Minimum",
+    "people": "people"
+  },
   "ListingPage": {
     "search": "Search",
     "filter": "Filter",
@@ -227,7 +237,10 @@
       "perPerson": "per person",
       "contactUs": "Contact us",
       "noPayment": "No payment required to inquire.",
-      "pricePerPerson": "Price per person"
+      "pricePerPerson": "Price per person",
+      "totalPrice": "Total Price",
+      "priceVaries": "Price varies by group size",
+      "groupPricing": "Group Pricing"
     },
     "features": {
       "dailyDepartures": "Daily departures",

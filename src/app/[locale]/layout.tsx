@@ -6,6 +6,7 @@ import Header from "@/app/[locale]/components/Header";
 import "../globals.css";
 import WhatsAppButton from './components/WhatsAppButton';
 import LicenseCheck from './components/LicenseCheck';
+import { BookingProvider } from '@/contexts/BookingContext';
 
 import Script from 'next/script';
 import AnalyticsListener from '@/lib/AnalyticsListener';
@@ -116,10 +117,12 @@ export default async function LocaleLayout({
         <OrganizationSchema />
         <HeaderWithTranslations locale={locale} />
         <NextIntlClientProvider messages={messages}>
-          <LicenseCheck />
-          {children}
-          <Footer />
-          <WhatsAppButton />
+          <BookingProvider>
+            <LicenseCheck />
+            {children}
+            <Footer />
+            <WhatsAppButton />
+          </BookingProvider>
         </NextIntlClientProvider>
       </body>
     </html>
