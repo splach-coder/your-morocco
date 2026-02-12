@@ -181,22 +181,12 @@ export default function ActivityDetailClient({ activity, relatedActivities, loca
                     {/* Sidebar */}
                     <div className="lg:col-span-1">
                         <div className="sticky top-32 space-y-6">
-                            <div className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100">
-                                <div className="flex items-center justify-between mb-6">
-                                    <span className="text-xl font-bold text-gray-900">Contact us for pricing</span>
-                                </div>
+                            <div className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100 relative overflow-hidden">
+                                <div className="absolute top-0 left-0 w-full h-2 bg-terracotta" />
 
-                                <a
-                                    href={whatsappUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-full bg-[#075E54] hover:bg-[#128C7E] text-white text-center font-bold py-4 rounded-xl transition-all hover:shadow-lg flex items-center justify-center gap-2 mb-4"
-                                >
-                                    <MessageCircle className="w-5 h-5" />
-                                    {t('bookViaWhatsapp')}
-                                </a>
+                                <PricingDisplay pricing={pricing} locale={locale} />
 
-                                <div className="space-y-3 text-sm text-gray-600">
+                                <div className="space-y-3 text-sm text-gray-600 mb-6">
                                     <div className="flex items-center gap-3">
                                         <Clock className="w-4 h-4 text-terracotta" />
                                         <span>{t('features.duration')}: {activity.duration}</span>
@@ -210,6 +200,24 @@ export default function ActivityDetailClient({ activity, relatedActivities, loca
                                         <span>{t('features.freeCancellation')}</span>
                                     </div>
                                 </div>
+
+                                <div className="mb-6">
+                                    <BookingSelector pricing={pricing} locale={locale} />
+                                </div>
+
+                                <a
+                                    href={whatsappUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-full bg-[#075E54] hover:bg-[#128C7E] text-white text-center font-bold py-4 rounded-xl transition-all hover:shadow-lg flex items-center justify-center gap-2 mb-4"
+                                >
+                                    <MessageCircle className="w-5 h-5" />
+                                    {t('bookViaWhatsapp')}
+                                </a>
+
+                                <p className="text-xs text-center text-gray-500">
+                                    {t('pricing.noPayment')}
+                                </p>
                             </div>
 
                             <div className="bg-terracotta/5 rounded-2xl p-6 border border-terracotta/10">
