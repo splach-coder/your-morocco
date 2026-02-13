@@ -140,6 +140,14 @@ const siteData = {
             ],
             suitable_for: ["Couples", "Friends", "Solo travelers"],
             price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}180`,
+            pricing: {
+                type: 'tiered',
+                tiers: [
+                    { minPeople: 2, maxPeople: 4, pricePerPerson: 180, currency: 'EUR' },
+                    { minPeople: 5, maxPeople: null, pricePerPerson: 150, currency: 'EUR' }
+                ],
+                displayPrice: 'From €180'
+            },
             reviews: [
                 { name: "Sarah Jenkins", country: "USA", rating: 5, text: "The 3-day desert tour was the highlight of our Morocco trip. The camel ride at sunset was magical, and the starry sky in the desert is something I'll never forget." },
                 { name: "David Brown", country: "UK", rating: 4, text: "Great experience overall. The drive is long but the scenery through the Atlas Mountains keeps you engaged. Our guide was very friendly." },
@@ -362,6 +370,15 @@ const siteData = {
             ],
             suitable_for: ["Short stay travelers", "Families", "Couples"],
             price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}150`,
+            pricing: {
+                type: 'fixed',
+                fixedPrice: {
+                    amount: 150,
+                    currency: 'EUR',
+                    perPerson: true
+                },
+                displayPrice: '€150'
+            },
             reviews: [
                 { name: "Liam Nielsen", country: "Ireland", rating: 4, text: "If you are short on time, this is a great option. Zagora is beautiful, though simpler than Merzouga. The camel ride was fun." },
                 { name: "Olivia Wilson", country: "USA", rating: 5, text: "Sleeping under the stars in the Berber camp was unforgettable. The drive through the Draa Valley is full of palm trees and Kasbahs." }
@@ -419,6 +436,14 @@ const siteData = {
             ],
             suitable_for: ["Nature lovers", "Families", "Photographers"],
             price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}55`,
+            pricing: {
+                type: 'tiered',
+                tiers: [
+                    { minPeople: 2, maxPeople: 4, pricePerPerson: 75, currency: 'EUR' },
+                    { minPeople: 5, maxPeople: null, pricePerPerson: 47, currency: 'EUR' }
+                ],
+                displayPrice: 'From €75'
+            },
             reviews: [
                 { name: "Noah Garcia", country: "Canada", rating: 5, text: "The waterfalls are massive! We took the boat ride to get close to the falls, totally worth it. Saw lots of monkeys too." },
                 { name: "Ava Davies", country: "UK", rating: 5, text: "A refreshing break from the heat of the city. The hike is manageable and the views are spectacular." }
@@ -469,6 +494,14 @@ const siteData = {
             ],
             suitable_for: ["Families", "Nature lovers", "Hikers"],
             price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}45`,
+            pricing: {
+                type: 'tiered',
+                tiers: [
+                    { minPeople: 2, maxPeople: 4, pricePerPerson: 57, currency: 'EUR' },
+                    { minPeople: 5, maxPeople: null, pricePerPerson: 37, currency: 'EUR' }
+                ],
+                displayPrice: 'From €57'
+            },
             reviews: [
                 { name: "Ethan Hunt", country: "Australia", rating: 4, text: "A lovely day trip. We had lunch with our feet in the river, which was a unique experience. The valley is very green." },
                 { name: "Mia Foster", country: "USA", rating: 5, text: "Nature is beautiful here. The hike to the seven waterfalls requires good shoes but is fun. Our guide helped us heaps." }
@@ -575,6 +608,14 @@ const siteData = {
             ],
             suitable_for: ["Beach lovers", "History buffs", "Relaxation seekers"],
             price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}65`,
+            pricing: {
+                type: 'tiered',
+                tiers: [
+                    { minPeople: 2, maxPeople: 4, pricePerPerson: 65, currency: 'EUR' },
+                    { minPeople: 5, maxPeople: null, pricePerPerson: 37, currency: 'EUR' }
+                ],
+                displayPrice: 'From €65'
+            },
             reviews: [
                 { name: "Amelia Bennett", country: "UK", rating: 5, text: "Loved the vibe of Essaouira. Much more relaxed than Marrakech. The fresh fish lunch at the port was delicious." },
                 { name: "Harper Lewis", country: "USA", rating: 4, text: "It was a bit windy but beautiful. The Medina is charming and the blue boats make for great photos." }
@@ -781,6 +822,14 @@ const siteData = {
             ],
             suitable_for: ["Adventure seekers", "Nature lovers"],
             price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}180`,
+            pricing: {
+                type: 'tiered',
+                tiers: [
+                    { minPeople: 2, maxPeople: 4, pricePerPerson: 395, currency: 'EUR' },
+                    { minPeople: 5, maxPeople: null, pricePerPerson: 287, currency: 'EUR' }
+                ],
+                displayPrice: 'From €395'
+            },
             reviews: [
                 { name: "Benjamin Carter", country: "USA", rating: 5, text: "The desert is calling! Amazing 3 days. The sunrise over the dunes is worth the early wake up." },
                 { name: "Sofia Garcia", country: "Spain", rating: 5, text: "Top notch organization. Driver was friendly and the van was comfortable for the long drive." }

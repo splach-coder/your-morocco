@@ -30,18 +30,31 @@ export default function ExcursionDetailClient({ tour, relatedTours, locale }: Ex
     const galleryImages = tour?.gallery || [];
 
     // Create pricing structure from tour data (backward compatible)
-    const pricing: PricingStructure = tour.pricing || (tour.price?.amount ? {
-        type: 'fixed',
-        fixedPrice: {
-            amount: tour.price.amount,
-            currency: tour.price.currency || 'EUR',
-            perPerson: true
-        },
-        displayPrice: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL || '€'}${tour.price.amount}`
-    } : {
-        type: 'contact',
-        displayPrice: 'Contact us'
-    });
+    let pricing: PricingStructure;
+
+    if (tour.pricing) {
+        pricing = tour.pricing;
+    } else if (typeof tour.price === 'string') {
+        pricing = {
+            type: 'contact',
+            displayPrice: tour.price
+        };
+    } else if (tour.price?.amount) {
+        pricing = {
+            type: 'fixed',
+            fixedPrice: {
+                amount: tour.price.amount,
+                currency: tour.price.currency || 'EUR',
+                perPerson: true
+            },
+            displayPrice: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL || '€'}${tour.price.amount}`
+        };
+    } else {
+        pricing = {
+            type: 'contact',
+            displayPrice: 'Contact us'
+        };
+    }
 
     // Initialize booking on mount
     useEffect(() => {

@@ -29,18 +29,28 @@ export default function ActivityDetailClient({ activity, relatedActivities, loca
     const reviews = activity.reviews || [];
 
     // Create pricing structure from activity data (backward compatible)
-    const pricing: PricingStructure = activity.pricing || (activity.price?.amount ? {
-        type: 'fixed',
-        fixedPrice: {
-            amount: activity.price.amount,
-            currency: activity.price.currency || 'EUR',
-            perPerson: true
-        },
-        displayPrice: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL || '€'}${activity.price.amount}`
-    } : {
-        type: 'contact',
-        displayPrice: 'Contact us'
-    });
+    // Create pricing structure from activity data (backward compatible)
+    let pricing: PricingStructure;
+    if (activity.pricing) {
+        pricing = activity.pricing;
+    } else if (typeof activity.price === 'string') {
+        pricing = {
+            type: 'contact',
+            displayPrice: activity.price
+        };
+    } else if (activity.price?.amount) {
+        pricing = {
+            type: 'fixed',
+            fixedPrice: {
+                amount: activity.price.amount,
+                currency: activity.price.currency || 'EUR',
+                perPerson: true
+            },
+            displayPrice: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL || '€'}${activity.price.amount}`
+        };
+    } else {
+        pricing = { type: 'contact', displayPrice: 'Contact us' };
+    }
 
     // Initialize booking on mount
     useEffect(() => {
