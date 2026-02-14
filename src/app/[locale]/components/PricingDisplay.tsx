@@ -28,7 +28,7 @@ export default function PricingDisplay({
             {t('startingFrom')}
           </span>
         )}
-        <div className="text-2xl font-bold text-gray-900">{t('contactUs')}</div>
+        <div className="text-2xl font-bold text-gray-900">{pricing.displayPrice || t('contactUs')}</div>
       </div>
     );
   }

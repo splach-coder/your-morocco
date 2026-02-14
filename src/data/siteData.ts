@@ -1329,6 +1329,14 @@ const siteDataFR = {
             ],
             suitable_for: ["Couples", "Amis", "Voyageurs solos"],
             price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}180`,
+            pricing: {
+                type: 'tiered',
+                tiers: [
+                    { minPeople: 2, maxPeople: 4, pricePerPerson: 180, currency: 'EUR' },
+                    { minPeople: 5, maxPeople: null, pricePerPerson: 150, currency: 'EUR' }
+                ],
+                displayPrice: 'From €180'
+            },
             reviews: [
                 { name: "Jean Dupont", country: "France", rating: 5, text: "Une expérience inoubliable. Le désert est magique et notre guide était super." },
                 { name: "Marie Leclerc", country: "Belgique", rating: 5, text: "Très bien organisé. Le bivouac était confortable et la nourriture excellente." },
@@ -1396,6 +1404,15 @@ const siteDataFR = {
             ],
             suitable_for: ["Chercheurs d'aventure", "Familles", "Couples", "Groupes"],
             price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}240`,
+            pricing: {
+                type: 'fixed',
+                fixedPrice: {
+                    amount: 240,
+                    currency: 'EUR',
+                    perPerson: true
+                },
+                displayPrice: '€240'
+            },
             reviews: [
                 { name: "Sophie Dubois", country: "France", rating: 5, text: "Prendre 4 jours était une excellente décision. On profite beaucoup plus des visites." },
                 { name: "Nicolas Leroy", country: "Canada", rating: 5, text: "Le guide Ahmed était très compétent. Les hôtels étaient pleins de charme." },
@@ -1470,6 +1487,15 @@ const siteDataFR = {
             ],
             suitable_for: ["Amateurs de culture", "Passionnés d'histoire", "Aventuriers"],
             price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}380`,
+            pricing: {
+                type: 'fixed',
+                fixedPrice: {
+                    amount: 380,
+                    currency: 'EUR',
+                    perPerson: true
+                },
+                displayPrice: '€380'
+            },
             reviews: [
                 { name: "Pierre Laurent", country: "France", rating: 5, text: "Le meilleur moyen de voir les villes impériales. Fès est fascinante." },
                 { name: "Isabelle Petit", country: "Belgique", rating: 5, text: "Chefchaouen est magnifique avec tout ce bleu. Organisation parfaite." },
@@ -1551,6 +1577,15 @@ const siteDataFR = {
             ],
             suitable_for: ["Voyageurs en court séjour", "Familles", "Couples"],
             price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}150`,
+            pricing: {
+                type: 'fixed',
+                fixedPrice: {
+                    amount: 150,
+                    currency: 'EUR',
+                    perPerson: true
+                },
+                displayPrice: '€150'
+            },
             reviews: [
                 { name: "Julien Robert", country: "France", rating: 4, text: "Très bien pour un court séjour. Zagora est belle, même si les dunes sont plus petites qu'à Merzouga." },
                 { name: "Élise Richard", country: "Canada", rating: 5, text: "Dormir sous les étoiles était magique. La vallée du Draâ est superbe." }
@@ -1608,6 +1643,14 @@ const siteDataFR = {
             ],
             suitable_for: ["Amoureux de la nature", "Familles", "Photographes"],
             price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}55`,
+            pricing: {
+                type: 'tiered',
+                tiers: [
+                    { minPeople: 2, maxPeople: 4, pricePerPerson: 75, currency: 'EUR' },
+                    { minPeople: 5, maxPeople: null, pricePerPerson: 47, currency: 'EUR' }
+                ],
+                displayPrice: 'From €75'
+            },
             reviews: [
                 { name: "Manon Durand", country: "France", rating: 5, text: "Les cascades sont impressionnantes ! La petite balade en bateau vaut le coup." },
                 { name: "Antoine Simon", country: "Belgique", rating: 5, text: "Une pause rafraîchissante. La randonnée est accessible et les singes sont amusants." }
@@ -1658,6 +1701,14 @@ const siteDataFR = {
             ],
             suitable_for: ["Familles", "Amoureux de la nature", "Randonneurs"],
             price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}45`,
+            pricing: {
+                type: 'tiered',
+                tiers: [
+                    { minPeople: 2, maxPeople: 4, pricePerPerson: 57, currency: 'EUR' },
+                    { minPeople: 5, maxPeople: null, pricePerPerson: 37, currency: 'EUR' }
+                ],
+                displayPrice: 'From €57'
+            },
             reviews: [
                 { name: "Chloé Michel", country: "France", rating: 4, text: "Belle journée. Le déjeuner les pieds dans l'eau était une expérience unique." },
                 { name: "Alexandre David", country: "Suisse", rating: 5, text: "La nature est belle. Il faut de bonnes chaussures pour marcher jusqu'aux cascades." }
@@ -1710,6 +1761,15 @@ const siteDataFR = {
             ],
             suitable_for: ["Amoureux de la culture", "Passionnés d'architecture"],
             price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}85`,
+            pricing: {
+                type: 'fixed',
+                fixedPrice: {
+                    amount: 85,
+                    currency: 'EUR',
+                    perPerson: true
+                },
+                displayPrice: '€85'
+            },
             reviews: [
                 { name: "Sarah Bertrand", country: "France", rating: 5, text: "La mosquée Hassan II est époustouflante. Un chef-d'œuvre architectural à voir absolument." },
                 { name: "Maxime Thomas", country: "Canada", rating: 4, text: "Bon aperçu de Casablanca. Nous avons vu l'essentiel efficacement." }
@@ -1764,6 +1824,14 @@ const siteDataFR = {
             ],
             suitable_for: ["Amoureux de la plage", "Passionnés d'histoire", "Chercheurs de détente"],
             price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}65`,
+            pricing: {
+                type: 'tiered',
+                tiers: [
+                    { minPeople: 2, maxPeople: 4, pricePerPerson: 65, currency: 'EUR' },
+                    { minPeople: 5, maxPeople: null, pricePerPerson: 37, currency: 'EUR' }
+                ],
+                displayPrice: 'From €65'
+            },
             reviews: [
                 { name: "Léa Garcia", country: "Espagne", rating: 5, text: "J'ai adoré l'ambiance d'Essaouira. Très détendu et le poisson frais est délicieux." },
                 { name: "Hugo Martinez", country: "France", rating: 4, text: "Il y avait du vent mais c'est charmant. La médina et les remparts sont superbes." }
@@ -1815,6 +1883,15 @@ const siteDataFR = {
             ],
             suitable_for: ["Passionnés d'histoire", "Amoureux de la culture"],
             price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}90`,
+            pricing: {
+                type: 'fixed',
+                fixedPrice: {
+                    amount: 90,
+                    currency: 'EUR',
+                    perPerson: true
+                },
+                displayPrice: '€90'
+            },
             reviews: [
                 { name: "Arthur Roux", country: "Belgique", rating: 5, text: "Rabat est une capitale très verte et propre. La Tour Hassan est impressionnante." },
                 { name: "Juliette Fournier", country: "France", rating: 5, text: "Belle leçon d'histoire. La Kasbah des Oudayas ressemble à un village grec." }
@@ -1866,6 +1943,15 @@ const siteDataFR = {
             ],
             suitable_for: ["Amoureux de la culture", "Passionnés d'histoire", "Acheteurs"],
             price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}95`,
+            pricing: {
+                type: 'fixed',
+                fixedPrice: {
+                    amount: 95,
+                    currency: 'EUR',
+                    perPerson: true
+                },
+                displayPrice: '€95'
+            },
             reviews: [
                 { name: "Gabriel Morel", country: "France", rating: 5, text: "La médina est un labyrinthe incroyable ! Avoir un guide est indispensable." },
                 { name: "Emma Girard", country: "Suisse", rating: 4, text: "L'histoire est partout. L'odeur des tanneries est forte mais c'est fascinant à voir." }
@@ -1919,6 +2005,15 @@ const siteDataFR = {
             ],
             suitable_for: ["Fans de cinéma", "Passionnés d'histoire", "Touristes"],
             price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}70`,
+            pricing: {
+                type: 'fixed',
+                fixedPrice: {
+                    amount: 70,
+                    currency: 'EUR',
+                    perPerson: true
+                },
+                displayPrice: '€70'
+            },
             reviews: [
                 { name: "Raphaël Bonnet", country: "France", rating: 5, text: "Le Hollywood de l'Afrique ! Génial de voir les décors de Gladiator. Aït Benhaddou est magique." },
                 { name: "Jade Lambert", country: "Canada", rating: 5, text: "L'architecture en terre est magnifique sous le ciel bleu." }
@@ -1970,6 +2065,14 @@ const siteDataFR = {
             ],
             suitable_for: ["Chercheurs d'aventure", "Amoureux de la nature"],
             price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}180`,
+            pricing: {
+                type: 'tiered',
+                tiers: [
+                    { minPeople: 2, maxPeople: 4, pricePerPerson: 180, currency: 'EUR' },
+                    { minPeople: 5, maxPeople: null, pricePerPerson: 150, currency: 'EUR' }
+                ],
+                displayPrice: 'From €180'
+            },
             reviews: [
                 { name: "Louis Faure", country: "France", rating: 5, text: "Le désert est unique. 3 jours incroyables. Le lever du soleil vaut le réveil matinal." },
                 { name: "Clara Dupuis", country: "Belgique", rating: 5, text: "Organisation au top. Chauffeur très sympa et van confortable." }

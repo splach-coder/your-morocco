@@ -35,10 +35,26 @@ export default function ExcursionDetailClient({ tour, relatedTours, locale }: Ex
     if (tour.pricing) {
         pricing = tour.pricing;
     } else if (typeof tour.price === 'string') {
-        pricing = {
-            type: 'contact',
-            displayPrice: tour.price
-        };
+        // Try to parse price string like "$150" or "150€"
+        const cleanPrice = tour.price.replace(/[^0-9.]/g, '');
+        const amount = parseFloat(cleanPrice);
+
+        if (!isNaN(amount) && amount > 0) {
+            pricing = {
+                type: 'fixed',
+                fixedPrice: {
+                    amount: amount,
+                    currency: tour.price.includes('€') ? 'EUR' : 'USD', // Simple heuristic
+                    perPerson: true
+                },
+                displayPrice: tour.price
+            };
+        } else {
+            pricing = {
+                type: 'contact',
+                displayPrice: tour.price
+            };
+        }
     } else if (tour.price?.amount) {
         pricing = {
             type: 'fixed',

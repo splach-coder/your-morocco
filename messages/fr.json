@@ -1,6 +1,7 @@
 {
   "Shared": {
-    "galleryImage": "Image de la galerie"
+    "galleryImage": "Image de la galerie",
+    "contactForPricing": "Contactez-nous pour le prix"
   },
   "Header": {
     "home": "Accueil",
@@ -123,7 +124,48 @@
     "testimonials": {
       "label": "Témoignages",
       "title": "Histoires de nos voyageurs",
-      "subtitle": "Exemples concrets de la façon dont nous créons des souvenirs inoubliables."
+      "subtitle": "Exemples concrets de la façon dont nous créons des souvenirs inoubliables.",
+      "writeReview": "Écrire un avis sur Google"
+    },
+    "faq": {
+      "title": "Questions Fréquemment Posées",
+      "subtitle": "Tout ce que vous devez savoir sur la réservation et les voyages avec nous",
+      "contactText": "Vous avez encore des questions?",
+      "contactButton": "Contactez-nous",
+      "questions": [
+        {
+          "question": "Comment réserver une excursion ou un circuit?",
+          "answer": "La réservation est simple! Vous pouvez réserver directement via notre site en cliquant sur le bouton 'Réserver via WhatsApp' sur n'importe quelle page de circuit, ou nous contacter par email ou téléphone. Nous confirmerons la disponibilité et vous enverrons tous les détails nécessaires."
+        },
+        {
+          "question": "Quels modes de paiement acceptez-vous?",
+          "answer": "Nous acceptons divers modes de paiement, notamment les cartes de crédit, PayPal, les virements bancaires et les paiements en espèces. Un acompte est généralement requis pour confirmer votre réservation, le solde étant dû avant ou le jour de votre circuit."
+        },
+        {
+          "question": "Puis-je personnaliser mon itinéraire?",
+          "answer": "Absolument! Nous sommes spécialisés dans la création d'expériences personnalisées. Contactez-nous avec vos préférences, vos intérêts et votre budget, et nous concevrons un itinéraire sur mesure rien que pour vous."
+        },
+        {
+          "question": "Quelle est votre politique d'annulation?",
+          "answer": "Nous offrons une annulation gratuite jusqu'à 24 heures avant votre circuit prévu. Les annulations effectuées dans les 24 heures peuvent être soumises à des frais. Veuillez consulter votre confirmation de réservation pour les conditions spécifiques."
+        },
+        {
+          "question": "Vos circuits conviennent-ils aux familles avec enfants?",
+          "answer": "Oui! Beaucoup de nos circuits sont adaptés aux familles. Nous pouvons adapter les activités et le rythme pour convenir aux familles avec des enfants de tous âges. Faites-nous part des besoins de votre famille lors de la réservation."
+        },
+        {
+          "question": "Ai-je besoin d'une assurance voyage?",
+          "answer": "Bien que non obligatoire, nous recommandons fortement une assurance voyage pour couvrir les événements imprévus, les urgences médicales ou les annulations de voyage. Cela vous apporte une tranquillité d'esprit pendant votre voyage."
+        },
+        {
+          "question": "Que dois-je emporter pour un circuit dans le désert?",
+          "answer": "Pour les circuits dans le désert, emportez des vêtements confortables, de la crème solaire, des lunettes de soleil, un chapeau, des couches chaudes pour les soirées et des chaussures de marche confortables. Nous fournirons des listes de bagages détaillées lors de la réservation."
+        },
+        {
+          "question": "Les repas sont-ils inclus dans les circuits?",
+          "answer": "Cela dépend du circuit. Les circuits de plusieurs jours incluent généralement le petit-déjeuner et le dîner, tandis que les excursions d'une journée peuvent ou non inclure les repas. Vérifiez les détails du circuit spécifique ou contactez-nous pour plus de précisions."
+        }
+      ]
     }
   },
   "AboutPage": {
@@ -291,13 +333,34 @@
       "tips": "Pourboires"
     },
     "program": {
-      "pickup": { "title": "Ramassage", "desc": "Ramassage à votre hôtel ou riad à Marrakech" },
-      "arrival": { "title": "Arrivée", "desc": "Arrivée à destination et rencontre avec votre guide local" },
-      "activity": { "title": "Activité", "desc": "Visite guidée des principales attractions et opportunités de photos" },
-      "lunch": { "title": "Déjeuner", "desc": "Déjeuner traditionnel dans un restaurant local (en option)" },
-      "freeTime": { "title": "Temps Libre", "desc": "Temps libre pour explorer le marché local ou se détendre" },
-      "return": { "title": "Retour", "desc": "Départ pour Marrakech" },
-      "dropOff": { "title": "Dépôt", "desc": "Dépôt à votre hôtel ou riad" }
+      "pickup": {
+        "title": "Ramassage",
+        "desc": "Ramassage à votre hôtel ou riad à Marrakech"
+      },
+      "arrival": {
+        "title": "Arrivée",
+        "desc": "Arrivée à destination et rencontre avec votre guide local"
+      },
+      "activity": {
+        "title": "Activité",
+        "desc": "Visite guidée des principales attractions et opportunités de photos"
+      },
+      "lunch": {
+        "title": "Déjeuner",
+        "desc": "Déjeuner traditionnel dans un restaurant local (en option)"
+      },
+      "freeTime": {
+        "title": "Temps Libre",
+        "desc": "Temps libre pour explorer le marché local ou se détendre"
+      },
+      "return": {
+        "title": "Retour",
+        "desc": "Départ pour Marrakech"
+      },
+      "dropOff": {
+        "title": "Dépôt",
+        "desc": "Dépôt à votre hôtel ou riad"
+      }
     },
     "infoDetails": {
       "departureTime": "08H00",

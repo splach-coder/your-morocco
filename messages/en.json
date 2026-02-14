@@ -1,6 +1,7 @@
 {
   "Shared": {
-    "galleryImage": "Gallery image"
+    "galleryImage": "Gallery image",
+    "contactForPricing": "Contact us for pricing"
   },
   "Header": {
     "home": "Home",
@@ -123,7 +124,48 @@
     "testimonials": {
       "label": "Testimonials",
       "title": "Stories from our travelers",
-      "subtitle": "Real-world examples of how we create unforgettable memories."
+      "subtitle": "Real-world examples of how we create unforgettable memories.",
+      "writeReview": "Write a Review on Google"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Everything you need to know about booking and traveling with us",
+      "contactText": "Still have questions?",
+      "contactButton": "Contact Us",
+      "questions": [
+        {
+          "question": "How do I book a tour or excursion?",
+          "answer": "Booking is simple! You can book directly through our website by clicking the 'Book via WhatsApp' button on any tour page, or contact us via email or phone. We'll confirm availability and send you all the details you need."
+        },
+        {
+          "question": "What payment methods do you accept?",
+          "answer": "We accept various payment methods including credit cards, PayPal, bank transfers, and cash payments. A deposit is usually required to confirm your booking, with the balance due before or on the day of your tour."
+        },
+        {
+          "question": "Can I customize my tour itinerary?",
+          "answer": "Absolutely! We specialize in creating personalized experiences. Contact us with your preferences, interests, and budget, and we'll design a custom itinerary just for you."
+        },
+        {
+          "question": "What is your cancellation policy?",
+          "answer": "We offer free cancellation up to 24 hours before your scheduled tour. Cancellations made within 24 hours may be subject to a fee. Please refer to your booking confirmation for specific terms."
+        },
+        {
+          "question": "Are your tours suitable for families with children?",
+          "answer": "Yes! Many of our tours are family-friendly. We can adapt activities and pace to suit families with children of all ages. Let us know your family's needs when booking."
+        },
+        {
+          "question": "Do I need travel insurance?",
+          "answer": "While not mandatory, we highly recommend travel insurance to cover unexpected events, medical emergencies, or trip cancellations. It provides peace of mind during your journey."
+        },
+        {
+          "question": "What should I pack for a desert tour?",
+          "answer": "For desert tours, pack comfortable clothing, sunscreen, sunglasses, a hat, warm layers for evenings, and comfortable walking shoes. We'll provide detailed packing lists upon booking."
+        },
+        {
+          "question": "Are meals included in the tours?",
+          "answer": "It depends on the tour. Multi-day tours typically include breakfast and dinner, while day excursions may or may not include meals. Check the specific tour details or contact us for clarification."
+        }
+      ]
     }
   },
   "AboutPage": {
@@ -291,13 +333,34 @@
       "tips": "Tips"
     },
     "program": {
-      "pickup": { "title": "Pick up", "desc": "Pick up from your hotel or riad in Marrakech" },
-      "arrival": { "title": "Arrival", "desc": "Arrive at the destination and meet your local guide" },
-      "activity": { "title": "Activity", "desc": "Guided tour of the main attractions and photo opportunities" },
-      "lunch": { "title": "Lunch", "desc": "Traditional lunch at a local restaurant (optional)" },
-      "freeTime": { "title": "Free Time", "desc": "Free time to explore the local market or relax" },
-      "return": { "title": "Return", "desc": "Depart for Marrakech" },
-      "dropOff": { "title": "Drop off", "desc": "Drop off at your hotel or riad" }
+      "pickup": {
+        "title": "Pick up",
+        "desc": "Pick up from your hotel or riad in Marrakech"
+      },
+      "arrival": {
+        "title": "Arrival",
+        "desc": "Arrive at the destination and meet your local guide"
+      },
+      "activity": {
+        "title": "Activity",
+        "desc": "Guided tour of the main attractions and photo opportunities"
+      },
+      "lunch": {
+        "title": "Lunch",
+        "desc": "Traditional lunch at a local restaurant (optional)"
+      },
+      "freeTime": {
+        "title": "Free Time",
+        "desc": "Free time to explore the local market or relax"
+      },
+      "return": {
+        "title": "Return",
+        "desc": "Depart for Marrakech"
+      },
+      "dropOff": {
+        "title": "Drop off",
+        "desc": "Drop off at your hotel or riad"
+      }
     },
     "infoDetails": {
       "departureTime": "08:00 AM",

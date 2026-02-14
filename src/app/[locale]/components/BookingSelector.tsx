@@ -74,17 +74,7 @@ export default function BookingSelector({
     pricing.tiers.length > 1 &&
     peopleCount >= (pricing.tiers[1]?.minPeople || 5);
 
-  if (pricing.type === 'contact') {
-    return (
-      <div className="bg-gray-50 rounded-xl p-6 border border-gray-200 text-center">
-        <p className="text-gray-600 text-sm">
-          {locale === 'fr'
-            ? 'Veuillez nous contacter pour connaître les tarifs et la disponibilité.'
-            : 'Please contact us for pricing and availability.'}
-        </p>
-      </div>
-    );
-  }
+
 
   return (
     <div className="space-y-4">

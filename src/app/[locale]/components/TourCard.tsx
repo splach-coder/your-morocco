@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { MapPin } from 'lucide-react';
 
 interface TourCardProps {
@@ -25,11 +26,10 @@ export default function TourCard({
     link,
     buttonText,
     location,
-
-
+    price,
     rating,
 }: TourCardProps) {
-
+    const t = useTranslations('Shared');
 
     return (
         <Link href={link} className="group block">
@@ -73,17 +73,14 @@ export default function TourCard({
                         {title}
                     </h3>
 
-                    {/* Price and Duration */}
-                    <div className="flex items-center justify-between pt-3 border-t border-white/20">
-                        <div className="text-sm font-bold text-white">
-                            Contact us for pricing
-                        </div>
-                        {duration && (
+                    {/* Duration */}
+                    {duration && (
+                        <div className="pt-3 border-t border-white/20">
                             <div className="text-sm text-white/80 font-medium">
                                 {duration}
                             </div>
-                        )}
-                    </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </Link>
