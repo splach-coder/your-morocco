@@ -297,7 +297,7 @@ export default function AboutPage({ params }: { params: Promise<{ locale: string
           {/* Google Reviews Link */}
           <div className="text-center mt-8">
             <a
-              href="https://www.google.com/maps/search/your+morocco"
+              href="https://www.google.com/maps/place/YOUR+MOROCCO/@31.6245441,-7.9920897,17z/data=!3m1!4b1!4m6!3m5!1s0xdafef00278a54a5:0x723cafcf7f969a54!8m2!3d31.6245441!4d-7.9920897!16s%2Fg%2F11y_w_jqxs!17m2!4m1!1e3!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white text-primary-teal px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all"

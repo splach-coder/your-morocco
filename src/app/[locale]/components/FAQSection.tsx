@@ -183,7 +183,7 @@ export default function FAQSection({ title, subtitle, faqs, contactText, contact
 
                                     <div className="space-y-3 mb-6">
                                         <a
-                                            href={`https://wa.me/212706880866`}
+                                            href={`https://wa.me/212661918349`}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="flex items-center gap-3 p-3 bg-white hover:bg-gray-50 rounded-xl transition-all group/link border border-gray-200"
@@ -193,7 +193,7 @@ export default function FAQSection({ title, subtitle, faqs, contactText, contact
                                             </div>
                                             <div className="flex-1 text-left">
                                                 <div className="text-xs text-gray-500">WhatsApp</div>
-                                                <div className="font-semibold text-gray-900">+212 706 880 866</div>
+                                                <div className="font-semibold text-gray-900">+212 661 918 349</div>
                                             </div>
                                             <ArrowRight className="w-4 h-4 text-gray-400 group-hover/link:text-gray-600 group-hover/link:translate-x-1 transition-all" />
                                         </a>

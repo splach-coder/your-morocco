@@ -59,7 +59,7 @@ export default function ActivityDetailClient({ activity, relatedActivities, loca
         }
     }, [activity.id, activity.title]);
 
-    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212706880866';
+    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212661918349';
     const bookingMessage = getWhatsAppMessage(locale);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(bookingMessage)}`;
 

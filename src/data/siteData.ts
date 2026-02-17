@@ -139,14 +139,15 @@ const siteData = {
                 "Sunrise over the Sahara Desert"
             ],
             suitable_for: ["Couples", "Friends", "Solo travelers"],
-            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}180`,
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}220`,
             pricing: {
                 type: 'tiered',
                 tiers: [
-                    { minPeople: 2, maxPeople: 4, pricePerPerson: 180, currency: 'EUR' },
-                    { minPeople: 5, maxPeople: null, pricePerPerson: 150, currency: 'EUR' }
+                    { minPeople: 2, maxPeople: 4, pricePerPerson: 395, currency: 'EUR' },
+                    { minPeople: 5, maxPeople: 9, pricePerPerson: 297, currency: 'EUR' },
+                    { minPeople: 10, maxPeople: null, pricePerPerson: 220, currency: 'EUR' }
                 ],
-                displayPrice: 'From €180'
+                displayPrice: 'From €220'
             },
             reviews: [
                 { name: "Sarah Jenkins", country: "USA", rating: 5, text: "The 3-day desert tour was the highlight of our Morocco trip. The camel ride at sunset was magical, and the starry sky in the desert is something I'll never forget." },
@@ -214,7 +215,16 @@ const siteData = {
                 "Overnight stay in a traditional desert camp"
             ],
             suitable_for: ["Adventure seekers", "Families", "Couples", "Groups"],
-            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}240`,
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}390`,
+            pricing: {
+                type: 'tiered',
+                tiers: [
+                    { minPeople: 2, maxPeople: 4, pricePerPerson: 650, currency: 'EUR' },
+                    { minPeople: 5, maxPeople: 9, pricePerPerson: 495, currency: 'EUR' },
+                    { minPeople: 10, maxPeople: null, pricePerPerson: 390, currency: 'EUR' }
+                ],
+                displayPrice: 'From €390'
+            },
             reviews: [
                 { name: "Jessica Thompson", country: "Australia", rating: 5, text: "Taking 4 days instead of 3 was a great decision. We felt much less rushed and could really enjoy the stops. Merzouga is breathtaking." },
                 { name: "Robert Parker", country: "USA", rating: 5, text: "Our driver was excellent—safe and knowledgeable. The hotels selected were charming and authentic. A must-do tour." },
@@ -258,9 +268,13 @@ const siteData = {
             url: "https://your-morocco.com/itinerary/5-days-tour-from-marrakech/",
             duration: "5 Day(s) 4 Night(s)",
             locations: [
-                { name: "Chefchaouen" },
+                { name: "Marrakech" },
+                { name: "Ait Ben Haddou" },
+                { name: "Dades Valley" },
+                { name: "Merzouga" },
                 { name: "Fes" },
-                { name: "Merzouga" }
+                { name: "Chefchaouen" },
+                { name: "Casablanca" }
             ],
             group_size: "unlimited",
             description: "Experience Morocco's highlights on a 5-day tour from Marrakech to Merzouga, Fes, Chefchaouen, and Casablanca. Camel rides, historic sites, and stunning landscapes await.",
@@ -288,7 +302,14 @@ const siteData = {
                 "See the Hassan II Mosque in Casablanca"
             ],
             suitable_for: ["Culture lovers", "History buffs", "Adventurers"],
-            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}380`,
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}1000`,
+            pricing: {
+                type: 'tiered',
+                tiers: [
+                    { minPeople: 2, maxPeople: null, pricePerPerson: 1000, currency: 'EUR' }
+                ],
+                displayPrice: 'From €1000'
+            },
             reviews: [
                 { name: "William Clark", country: "UK", rating: 5, text: "This tour covers all the main sights. Fes was fascinating with its labyrinthine streets. Highly recommend for first-time visitors." },
                 { name: "Sophia Martin", country: "France", rating: 5, text: "Chefchaouen was a dream came true, so blue and beautiful. The organization of the tour was flawless." },
@@ -297,38 +318,38 @@ const siteData = {
             itinerary: [
                 {
                     day: 1,
-                    title: "Marrakech to Casablanca to Fes",
-                    location: "Fes",
-                    description: "Depart Marrakech for Casablanca to see the Hassan II Mosque, then continue to Fes for the night.",
-                    highlights: ["Hassan II Mosque", "Drive to Fes"]
+                    title: "Marrakech to Dades Valley",
+                    location: "Dades Valley",
+                    description: "Travel through the High Atlas Mountains, visit the UNESCO site of Ait Ben Haddou, and continue to the Dades Valley.",
+                    highlights: ["High Atlas Mountains", "Ait Ben Haddou Kasbah", "Ouarzazate", "Dades Gorges"]
                 },
                 {
                     day: 2,
-                    title: "Explore Fes",
-                    location: "Fes",
-                    description: "Full day guided tour of Fes. Visit the Medina, tanneries, Madrasas, and Royal Palace.",
-                    highlights: ["Fes Medina", "Tanneries", "Al Quaraouiyine", "Souks"]
+                    title: "Dades Valley to Merzouga Desert",
+                    location: "Merzouga",
+                    description: "Visit the Todra Gorges and continue to the golden dunes of Merzouga. Enjoy a sunset camel ride and spend the night in a desert camp.",
+                    highlights: ["Todra Gorges", "Camel Trekking", "Sahara Sunset", "Luxury Desert Camp"]
                 },
                 {
                     day: 3,
-                    title: "Fes to Chefchaouen",
-                    location: "Chefchaouen",
-                    description: "Travel to the Blue City, Chefchaouen like journey through the Rif Mountains.",
-                    highlights: ["Rif Mountains", "Blue City Streets", "Spanish Mosque"]
+                    title: "Merzouga to Fes",
+                    location: "Fes",
+                    description: "Wake up for sunrise over the dunes, then travel through the Ziz Valley and Middle Atlas mountains to reach the imperial city of Fes.",
+                    highlights: ["Sahara Sunrise", "Ziz Valley Palms", "Azrou Cedar Forest", "Fes Arrival"]
                 },
                 {
                     day: 4,
-                    title: "Chefchaouen to Rabat to Casablanca",
-                    location: "Casablanca",
-                    description: "Drive to Rabat to visit the Hassan Tower and Oudayas Kasbah, then continue to Casablanca.",
-                    highlights: ["Hassan Tower", "Oudayas Kasbah", "Rabat City"]
+                    title: "Fes to Chefchaouen",
+                    location: "Chefchaouen",
+                    description: "Morning guided tour of the Fes Medina, then travel north through the Rif Mountains to the Blue City, Chefchaouen.",
+                    highlights: ["Fes Medina", "Al Quaraouiyine", "Rif Mountains", "Blue City Streets"]
                 },
                 {
                     day: 5,
-                    title: "Casablanca to Marrakech",
+                    title: "Chefchaouen to Casablanca to Marrakech",
                     location: "Marrakech",
-                    description: "Morning in Casablanca/Rabat if time permits, then return drive to Marrakech.",
-                    highlights: ["Return trip", "End of services"]
+                    description: "Explore Chefchaouen in the morning, then drive to Casablanca to visit the Hassan II Mosque before returning to Marrakech.",
+                    highlights: ["Chefchaouen Highlights", "Hassan II Mosque", "Coastal Road", "Arrival in Marrakech"]
                 }
             ]
         }
@@ -821,14 +842,15 @@ const siteData = {
                 "See the starry night sky"
             ],
             suitable_for: ["Adventure seekers", "Nature lovers"],
-            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}180`,
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}220`,
             pricing: {
                 type: 'tiered',
                 tiers: [
                     { minPeople: 2, maxPeople: 4, pricePerPerson: 395, currency: 'EUR' },
-                    { minPeople: 5, maxPeople: null, pricePerPerson: 287, currency: 'EUR' }
+                    { minPeople: 5, maxPeople: 9, pricePerPerson: 297, currency: 'EUR' },
+                    { minPeople: 10, maxPeople: null, pricePerPerson: 220, currency: 'EUR' }
                 ],
-                displayPrice: 'From €395'
+                displayPrice: 'From €220'
             },
             reviews: [
                 { name: "Benjamin Carter", country: "USA", rating: 5, text: "The desert is calling! Amazing 3 days. The sunrise over the dunes is worth the early wake up." },
@@ -1328,14 +1350,15 @@ const siteDataFR = {
                 "Lever de soleil sur le désert du Sahara"
             ],
             suitable_for: ["Couples", "Amis", "Voyageurs solos"],
-            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}180`,
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}220`,
             pricing: {
                 type: 'tiered',
                 tiers: [
-                    { minPeople: 2, maxPeople: 4, pricePerPerson: 180, currency: 'EUR' },
-                    { minPeople: 5, maxPeople: null, pricePerPerson: 150, currency: 'EUR' }
+                    { minPeople: 2, maxPeople: 4, pricePerPerson: 395, currency: 'EUR' },
+                    { minPeople: 5, maxPeople: 9, pricePerPerson: 297, currency: 'EUR' },
+                    { minPeople: 10, maxPeople: null, pricePerPerson: 220, currency: 'EUR' }
                 ],
-                displayPrice: 'From €180'
+                displayPrice: 'À partir de €220'
             },
             reviews: [
                 { name: "Jean Dupont", country: "France", rating: 5, text: "Une expérience inoubliable. Le désert est magique et notre guide était super." },
@@ -1403,15 +1426,15 @@ const siteDataFR = {
                 "Séjour nocturne dans un campement traditionnel du désert"
             ],
             suitable_for: ["Chercheurs d'aventure", "Familles", "Couples", "Groupes"],
-            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}240`,
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}390`,
             pricing: {
-                type: 'fixed',
-                fixedPrice: {
-                    amount: 240,
-                    currency: 'EUR',
-                    perPerson: true
-                },
-                displayPrice: '€240'
+                type: 'tiered',
+                tiers: [
+                    { minPeople: 2, maxPeople: 4, pricePerPerson: 650, currency: 'EUR' },
+                    { minPeople: 5, maxPeople: 9, pricePerPerson: 495, currency: 'EUR' },
+                    { minPeople: 10, maxPeople: null, pricePerPerson: 390, currency: 'EUR' }
+                ],
+                displayPrice: 'À partir de €390'
             },
             reviews: [
                 { name: "Sophie Dubois", country: "France", rating: 5, text: "Prendre 4 jours était une excellente décision. On profite beaucoup plus des visites." },
@@ -1456,9 +1479,13 @@ const siteDataFR = {
             url: "https://your-morocco.com/itinerary/5-days-tour-from-marrakech/",
             duration: "5 Jour(s) 4 Nuit(s)",
             locations: [
-                { name: "Chefchaouen" },
+                { name: "Marrakech" },
+                { name: "Aït Benhaddou" },
+                { name: "Vallée du Dadès" },
+                { name: "Merzouga" },
                 { name: "Fès" },
-                { name: "Merzouga" }
+                { name: "Chefchaouen" },
+                { name: "Casablanca" }
             ],
             group_size: "illimité",
             description: "Découvrez les points forts du Maroc lors d'un tour de 5 jours de Marrakech à Merzouga, Fès, Chefchaouen et Casablanca. Balades à chameau, sites historiques et paysages époustouflants vous attendent.",
@@ -1486,15 +1513,13 @@ const siteDataFR = {
                 "Visite de la Mosquée Hassan II à Casablanca"
             ],
             suitable_for: ["Amateurs de culture", "Passionnés d'histoire", "Aventuriers"],
-            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}380`,
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}1000`,
             pricing: {
-                type: 'fixed',
-                fixedPrice: {
-                    amount: 380,
-                    currency: 'EUR',
-                    perPerson: true
-                },
-                displayPrice: '€380'
+                type: 'tiered',
+                tiers: [
+                    { minPeople: 2, maxPeople: null, pricePerPerson: 1000, currency: 'EUR' }
+                ],
+                displayPrice: 'À partir de €1000'
             },
             reviews: [
                 { name: "Pierre Laurent", country: "France", rating: 5, text: "Le meilleur moyen de voir les villes impériales. Fès est fascinante." },
@@ -1504,38 +1529,38 @@ const siteDataFR = {
             itinerary: [
                 {
                     day: 1,
-                    title: "De Marrakech à Casablanca à Fès",
-                    location: "Fès",
-                    description: "Départ de Marrakech pour Casablanca pour voir la Mosquée Hassan II, puis continuation vers Fès pour la nuit.",
-                    highlights: ["Mosquée Hassan II", "Trajet vers Fès"]
+                    title: "De Marrakech à la Vallée du Dadès",
+                    location: "Vallée du Dadès",
+                    description: "Traversez les montagnes du Haut Atlas, visitez le site classé à l'UNESCO d'Aït Benhaddou et continuez vers la vallée du Dadès.",
+                    highlights: ["Montagnes du Haut Atlas", "Kasbah d'Aït Benhaddou", "Ouarzazate", "Gorges du Dadès"]
                 },
                 {
                     day: 2,
-                    title: "Exploration de Fès",
-                    location: "Fès",
-                    description: "Journée complète de visite guidée de Fès. Visite de la médina, des tanneries, des médersas et du Palais Royal.",
-                    highlights: ["Médina de Fès", "Tanneries", "Al Quaraouiyine", "Souks"]
+                    title: "De la Vallée du Dadès au Désert de Merzouga",
+                    location: "Merzouga",
+                    description: "Visitez les gorges de Todra et continuez vers les dunes dorées de Merzouga. Profitez d'une balade à chameau au coucher du soleil et passez la nuit dans un campement.",
+                    highlights: ["Gorges de Todra", "Randonnée à chameau", "Coucher de soleil au Sahara", "Campement de luxe"]
                 },
                 {
                     day: 3,
-                    title: "De Fès à Chefchaouen",
-                    location: "Chefchaouen",
-                    description: "Voyage vers la ville bleue, Chefchaouen, à travers les montagnes du Rif.",
-                    highlights: ["Montagnes du Rif", "Rues bleues", "Mosquée Espagnole"]
+                    title: "De Merzouga à Fès",
+                    location: "Fès",
+                    description: "Réveil pour le lever du soleil sur les dunes, puis trajet à travers la vallée du Ziz et le Moyen Atlas pour atteindre la ville impériale de Fès.",
+                    highlights: ["Lever de soleil au Sahara", "Palmeraies du Ziz", "Forêt de cèdres d'Azrou", "Arrivée à Fès"]
                 },
                 {
                     day: 4,
-                    title: "De Chefchaouen à Rabat à Casablanca",
-                    location: "Casablanca",
-                    description: "Conduite vers Rabat pour visiter la Tour Hassan et la Kasbah des Oudayas, puis continuation vers Casablanca.",
-                    highlights: ["Tour Hassan", "Kasbah des Oudayas", "Ville de Rabat"]
+                    title: "De Fès à Chefchaouen",
+                    location: "Chefchaouen",
+                    description: "Visite guidée de la médina de Fès le matin, puis trajet vers le nord à travers les montagnes du Rif vers la ville bleue, Chefchaouen.",
+                    highlights: ["Médina de Fès", "Al Quaraouiyine", "Montagnes du Rif", "Rues de la ville bleue"]
                 },
                 {
                     day: 5,
-                    title: "De Casablanca à Marrakech",
+                    title: "De Chefchaouen à Casablanca à Marrakech",
                     location: "Marrakech",
-                    description: "Matinée à Casablanca/Rabat si le temps le permet, puis retour vers Marrakech.",
-                    highlights: ["Trajet de retour", "Fin des services"]
+                    description: "Exploration de Chefchaouen le matin, puis direction Casablanca pour visiter la Mosquée Hassan II avant de retourner à Marrakech.",
+                    highlights: ["Points forts de Chefchaouen", "Mosquée Hassan II", "Route côtière", "Arrivée à Marrakech"]
                 }
             ]
         }
@@ -2064,14 +2089,15 @@ const siteDataFR = {
                 "Observation du ciel étoilé"
             ],
             suitable_for: ["Chercheurs d'aventure", "Amoureux de la nature"],
-            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}180`,
+            price: `${process.env.NEXT_PUBLIC_CURRENCY_SYMBOL}220`,
             pricing: {
                 type: 'tiered',
                 tiers: [
-                    { minPeople: 2, maxPeople: 4, pricePerPerson: 180, currency: 'EUR' },
-                    { minPeople: 5, maxPeople: null, pricePerPerson: 150, currency: 'EUR' }
+                    { minPeople: 2, maxPeople: 4, pricePerPerson: 395, currency: 'EUR' },
+                    { minPeople: 5, maxPeople: 9, pricePerPerson: 297, currency: 'EUR' },
+                    { minPeople: 10, maxPeople: null, pricePerPerson: 220, currency: 'EUR' }
                 ],
-                displayPrice: 'From €180'
+                displayPrice: 'À partir de €220'
             },
             reviews: [
                 { name: "Louis Faure", country: "France", rating: 5, text: "Le désert est unique. 3 jours incroyables. Le lever du soleil vaut le réveil matinal." },

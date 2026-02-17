@@ -67,12 +67,12 @@ export default function Footer() {
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-accent-yellow flex-shrink-0" />
                 <a
-                  href={`tel:+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212706880866'}`}
+                  href={`tel:+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212661918349'}`}
                   className="text-gray-300 text-sm hover:text-accent-yellow transition-colors"
                 >
                   {process.env.NEXT_PUBLIC_WHATSAPP_NUMBER
                     ? `+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER.match(/.{1,3}/g)?.join(' ')}`
-                    : '+212 706 880 866'}
+                    : '+212 661 918 349'}
                 </a>
               </div>
             </div>

@@ -17,7 +17,7 @@ export default function ServiceDetailClient({ service, relatedServices, locale }
 
     if (!service) return null;
 
-    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212706880866';
+    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212661918349';
     const bookingMessage = encodeURIComponent(`Hello, I am interested in the service: ${service.title}. Please provide more information.`);
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${bookingMessage}`;
 

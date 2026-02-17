@@ -131,7 +131,7 @@ export function generateOrganizationSchema() {
         url: siteConfig.url,
         logo: `${siteConfig.url}/images/logo.png`,
         image: siteConfig.ogImage,
-        telephone: `+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212706880866'}`,
+        telephone: `+${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '212661918349'}`,
         email: 'book@your-morocco.com',
         address: {
             '@type': 'PostalAddress',
